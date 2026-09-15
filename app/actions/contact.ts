@@ -10,7 +10,7 @@ const contactSchema = z.object({
     .string()
     .trim()
     .regex(/^\d{10}$/, "Telefon numarası 10 haneli olmalı (başında 0 olmadan)"),
-  company: z.string().trim().min(1, "Şirket adı gerekli").max(200),
+  company: z.string().trim().max(200).optional().or(z.literal("")),
   subject: z.string().trim().min(2, "Konu gerekli").max(200),
   category: z.enum(["Partnership", "Venture", "Press", "General"]),
   message: z.string().trim().min(10, "Mesaj en az 10 karakter olmalı").max(4000),

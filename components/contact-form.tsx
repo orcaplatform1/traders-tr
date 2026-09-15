@@ -80,12 +80,11 @@ export function ContactForm({ defaultCategory = "General" }: { defaultCategory?:
           </div>
         </Field>
 
-        <Field label="Şirket" name="company" error={state.fieldErrors?.company}>
+        <Field label="Şirket/Bireysel" name="company" error={state.fieldErrors?.company}>
           <input
             id="company"
             name="company"
             type="text"
-            required
             className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-slate-300 focus:outline-none"
           />
         </Field>
