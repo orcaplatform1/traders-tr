@@ -5,19 +5,29 @@ import { AnimatedGrid } from "@/components/animated-grid";
 // Sabit tam ekran yükseklik yerine icerik kadar kisa bir hero (ORCA'daki
 // gibi) - arkaya bir gorsel eklenecegi zaman `imageSrc` prop'u verilecek,
 // simdilik verilmediginde AnimatedGrid + grain fallback olarak kaliyor.
+//
+// Mobilde gorsel cok genis oldugu icin (~16:9) section'un tam yuksekligini
+// kaplayan object-cover kenarlardan (ör. gorselin solundaki/sagindaki
+// figurler) agir kirpiyordu. ORCA'nin kendi HeroBackground'unda kullandigi
+// desenle ayni cozum: mobilde gorsel navbar'in hemen altinda, sabit ve
+// kisa bir bant (h-[240px]) olarak durur (tam genislik, kirpilmadan
+// gorunur) - metin bu bandin ALTINDA, ayri bir alanda yer alir. md+'da
+// gorsel section'in tamamini kaplar (inset-0), metin uzerine biner.
 export function Hero({ imageSrc }: { imageSrc?: string }) {
   return (
-    <section className="relative overflow-hidden border-b border-border pb-4 pt-32 sm:pt-44 md:pb-12 md:pt-64">
+    <section className="relative overflow-hidden border-b border-border">
       {imageSrc ? (
         <>
-          <Image
-            src={imageSrc}
-            alt=""
-            fill
-            priority
-            className="object-contain sm:object-cover object-center"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background from-10% via-background/75 via-45% to-transparent to-70%" />
+          <div className="absolute inset-x-0 top-0 h-[240px] overflow-hidden sm:h-[300px] md:inset-0 md:h-auto">
+            <Image
+              src={imageSrc}
+              alt=""
+              fill
+              priority
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-0 hidden bg-gradient-to-t from-background from-10% via-background/75 via-45% to-transparent to-70% md:block" />
+          </div>
         </>
       ) : (
         <>
@@ -26,7 +36,7 @@ export function Hero({ imageSrc }: { imageSrc?: string }) {
         </>
       )}
 
-      <div className="container-edit relative">
+      <div className="container-edit relative pb-16 pt-[264px] sm:pt-[324px] md:pb-12 md:pt-64">
         <h1 className="max-w-3xl text-[26px] font-medium leading-[1.12] tracking-tight text-foreground sm:text-[34px] md:text-[44px]">
           Building brands
           <br />
