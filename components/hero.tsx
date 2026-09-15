@@ -62,9 +62,9 @@ export function Hero({ imageSrc }: { imageSrc?: string }) {
           </Link>
           <Link
             href="/hakkimizda"
-            className="text-[13px] font-medium tracking-wide text-muted underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-accent"
+            className="btn-shine relative inline-block text-[13px] font-medium tracking-wide text-muted underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-accent"
           >
-            Bizim Öykümüz
+            <span className="relative z-10">Bizim Öykümüz</span>
           </Link>
         </div>
       </div>
