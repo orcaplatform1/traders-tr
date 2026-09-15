@@ -36,22 +36,24 @@ export function Hero({ imageSrc }: { imageSrc?: string }) {
         </>
       )}
 
-      <div className="container-edit relative pb-16 pt-[264px] sm:pt-[324px] md:pb-12 md:pt-64">
-        <h1 className="max-w-3xl text-[26px] font-medium leading-[1.12] tracking-tight text-foreground sm:text-[34px] md:text-[44px]">
-          Building brands
-          <br />
-          beyond boundaries.
-        </h1>
+      <div className="container-edit relative pb-16 pt-[280px] sm:pt-[340px] md:grid md:grid-cols-[1fr_auto] md:items-end md:gap-16 md:pb-16 md:pt-72">
+        <div>
+          <h1 className="max-w-3xl text-[26px] font-medium leading-[1.12] tracking-tight text-foreground sm:text-[34px] md:text-[44px]">
+            Building brands
+            <br />
+            beyond boundaries.
+          </h1>
 
-        <p className="mt-6 max-w-lg text-[16px] leading-relaxed text-muted md:text-[18px]">
-          Teknoloji, ticaret ve finansın kesişiminde işletmeler geliştiren
-          çok markalı bir girişim şirketi.
-        </p>
+          <p className="mt-6 max-w-lg text-[16px] leading-relaxed text-muted md:text-[18px]">
+            Teknoloji, ticaret ve finansın kesişiminde işletmeler geliştiren
+            çok markalı bir girişim şirketi.
+          </p>
+        </div>
 
-        <div className="mt-8 flex flex-wrap items-center gap-6">
+        <div className="mt-8 flex flex-wrap items-center gap-6 md:mt-0 md:flex-col md:items-end md:gap-4">
           <Link
             href="/markalar"
-            className="btn-shine group relative rounded-sm border border-foreground bg-foreground px-6 py-3 text-[13px] font-medium tracking-wide text-slate-950 transition-colors hover:bg-transparent hover:text-foreground"
+            className="btn-shine group relative rounded-sm border border-foreground bg-foreground px-6 py-3 text-[13px] font-medium tracking-wide text-slate-950 transition-colors hover:bg-transparent hover:text-foreground md:w-full md:text-center"
           >
             <span className="relative z-10">Markalarımızı Keşfedin</span>
           </Link>
