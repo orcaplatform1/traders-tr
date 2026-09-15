@@ -7,7 +7,7 @@ import { AnimatedGrid } from "@/components/animated-grid";
 // simdilik verilmediginde AnimatedGrid + grain fallback olarak kaliyor.
 export function Hero({ imageSrc }: { imageSrc?: string }) {
   return (
-    <section className="relative overflow-hidden border-b border-border pb-20 pt-40 md:pb-28 md:pt-48">
+    <section className="relative flex min-h-[70vh] flex-col justify-end overflow-hidden border-b border-border pb-16 pt-40 md:min-h-[75vh] md:pb-20 md:pt-48">
       {imageSrc ? (
         <>
           <Image
@@ -17,8 +17,7 @@ export function Hero({ imageSrc }: { imageSrc?: string }) {
             priority
             className="object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-background/20" />
-          <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background from-10% via-background/75 via-45% to-transparent to-70%" />
         </>
       ) : (
         <>
@@ -28,11 +27,7 @@ export function Hero({ imageSrc }: { imageSrc?: string }) {
       )}
 
       <div className="container-edit relative">
-        <span className="block text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
-          TRADERS.TR
-        </span>
-
-        <h1 className="mt-6 max-w-3xl text-[36px] font-medium leading-[1.08] tracking-tight text-foreground sm:text-[48px] md:text-[64px]">
+        <h1 className="max-w-3xl text-[30px] font-medium leading-[1.1] tracking-tight text-foreground sm:text-[40px] md:text-[52px]">
           Building brands
           <br />
           beyond boundaries.
