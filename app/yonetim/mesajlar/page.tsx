@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { redirect } from "next/navigation";
 import { isAuthenticated } from "@/lib/admin-auth";
 import { prisma } from "@/lib/prisma";
@@ -42,7 +43,15 @@ export default async function AdminMessagesPage() {
             </h1>
             <p className="mt-1 text-[13px] text-muted">{messages.length} mesaj</p>
           </div>
-          <LogoutButton />
+          <div className="flex items-center gap-6">
+            <Link
+              href="/yonetim/ayarlar"
+              className="text-[13px] font-medium tracking-wide text-muted transition-colors hover:text-foreground"
+            >
+              Ayarlar
+            </Link>
+            <LogoutButton />
+          </div>
         </div>
 
         <div className="mt-10 divide-y divide-border border-y border-border">
@@ -67,6 +76,13 @@ export default async function AdminMessagesPage() {
                   className="text-blue-400 underline underline-offset-4 hover:text-blue-300"
                 >
                   {m.email}
+                </a>{" "}
+                ·{" "}
+                <a
+                  href={`tel:${m.phone}`}
+                  className="text-blue-400 underline underline-offset-4 hover:text-blue-300"
+                >
+                  {m.phone}
                 </a>
               </p>
 

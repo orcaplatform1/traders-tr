@@ -49,36 +49,63 @@ export function ContactForm({ defaultCategory = "General" }: { defaultCategory?:
             name="email"
             type="email"
             required
+            pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
             className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-accent focus:outline-none"
           />
         </Field>
       </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <Field label="Şirket (opsiyonel)" name="company">
+        <Field label="Telefon" name="phone" error={state.fieldErrors?.phone}>
+          <div className="flex">
+            <span
+              aria-hidden
+              className="flex shrink-0 items-center border border-r-0 border-border-default bg-surface-2 px-3 text-[15px] text-text-tertiary"
+            >
+              +90
+            </span>
+            <input
+              id="phone"
+              name="phone"
+              type="tel"
+              inputMode="numeric"
+              required
+              placeholder="5XXXXXXXXX"
+              maxLength={10}
+              onInput={(e) => {
+                e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "").slice(0, 10);
+              }}
+              className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-accent focus:outline-none"
+            />
+          </div>
+        </Field>
+
+        <Field label="Şirket" name="company" error={state.fieldErrors?.company}>
           <input
             id="company"
             name="company"
             type="text"
+            required
             className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-accent focus:outline-none"
           />
         </Field>
-
-        <Field label="Kategori" name="category">
-          <select
-            id="category"
-            name="category"
-            defaultValue={defaultCategory}
-            className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground transition-colors focus:border-accent focus:outline-none"
-          >
-            {CATEGORIES.map((c) => (
-              <option key={c.value} value={c.value}>
-                {c.label}
-              </option>
-            ))}
-          </select>
-        </Field>
       </div>
+
+      <Field label="Kategori" name="category">
+        <select
+          id="category"
+          name="category"
+          defaultValue={defaultCategory}
+          required
+          className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground transition-colors focus:border-accent focus:outline-none"
+        >
+          {CATEGORIES.map((c) => (
+            <option key={c.value} value={c.value} className="bg-surface-2 text-foreground">
+              {c.label}
+            </option>
+          ))}
+        </select>
+      </Field>
 
       <Field label="Konu" name="subject" error={state.fieldErrors?.subject}>
         <input

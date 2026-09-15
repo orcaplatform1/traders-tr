@@ -6,7 +6,11 @@ import { prisma } from "@/lib/prisma";
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Ad en az 2 karakter olmalı").max(120),
   email: z.string().trim().email("Geçerli bir e-posta adresi girin").max(200),
-  company: z.string().trim().max(200).optional().or(z.literal("")),
+  phone: z
+    .string()
+    .trim()
+    .regex(/^\d{10}$/, "Telefon numarası 10 haneli olmalı (başında 0 olmadan)"),
+  company: z.string().trim().min(1, "Şirket adı gerekli").max(200),
   subject: z.string().trim().min(2, "Konu gerekli").max(200),
   category: z.enum(["Partnership", "Venture", "Press", "General"]),
   message: z.string().trim().min(10, "Mesaj en az 10 karakter olmalı").max(4000),
@@ -27,6 +31,7 @@ export async function submitContactForm(
   const raw = {
     name: formData.get("name")?.toString() ?? "",
     email: formData.get("email")?.toString() ?? "",
+    phone: (formData.get("phone")?.toString() ?? "").replace(/\D/g, ""),
     company: formData.get("company")?.toString() ?? "",
     subject: formData.get("subject")?.toString() ?? "",
     category: formData.get("category")?.toString() ?? "",
@@ -54,6 +59,7 @@ export async function submitContactForm(
     data: {
       name: parsed.data.name,
       email: parsed.data.email,
+      phone: `+90${parsed.data.phone}`,
       company: parsed.data.company || null,
       subject: parsed.data.subject,
       category: parsed.data.category,

@@ -1,5 +1,9 @@
 import { createHmac, timingSafeEqual } from "crypto";
 import { cookies } from "next/headers";
+import * as argon2 from "argon2";
+import { prisma } from "@/lib/prisma";
+
+const ADMIN_SETTINGS_ID = "main";
 
 const COOKIE_NAME = "traders_admin_session";
 const MAX_AGE_SECONDS = 60 * 60 * 24 * 7; // 7 gun
@@ -52,8 +56,27 @@ export async function isAuthenticated(): Promise<boolean> {
   return age <= MAX_AGE_SECONDS * 1000;
 }
 
-export function checkPassword(password: string): boolean {
-  const expected = process.env.ADMIN_PASSWORD;
-  if (!expected) throw new Error("ADMIN_PASSWORD tanimli degil (.env kontrol et)");
-  return safeEqual(password, expected);
+async function getSettings() {
+  const settings = await prisma.adminSettings.findUnique({ where: { id: ADMIN_SETTINGS_ID } });
+  if (!settings) throw new Error("Yönetim şifresi ayarlanmamış (AdminSettings kaydı yok)");
+  return settings;
+}
+
+export async function checkPassword(password: string): Promise<boolean> {
+  const settings = await getSettings();
+  return argon2.verify(settings.passwordHash, password);
+}
+
+export async function changePassword(currentPassword: string, newPassword: string): Promise<{ error?: string }> {
+  const settings = await getSettings();
+  const currentValid = await argon2.verify(settings.passwordHash, currentPassword);
+  if (!currentValid) return { error: "Mevcut şifre hatalı." };
+  if (newPassword.length < 6) return { error: "Yeni şifre en az 6 karakter olmalı." };
+
+  const passwordHash = await argon2.hash(newPassword);
+  await prisma.adminSettings.update({
+    where: { id: ADMIN_SETTINGS_ID },
+    data: { passwordHash },
+  });
+  return {};
 }

@@ -11,10 +11,20 @@ model ContactSubmission {
   id        String   @id @default(cuid())
   name      String
   email     String
+  phone     String
   company   String?
   subject   String
   category  String
   message   String
   createdAt DateTime @default(now())
   status    String   @default("new")
+}
+
+// Tek satırlık (id = "main") yönetim paneli şifresi — .env yerine DB'de
+// tutulur ki panelden şifre değiştirilebilsin (env değişikliği restart
+// gerektirir, çalışan uygulamadan değiştirilemez).
+model AdminSettings {
+  id           String   @id @default("main")
+  passwordHash String
+  updatedAt    DateTime @updatedAt
 }
