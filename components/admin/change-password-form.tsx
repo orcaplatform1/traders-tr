@@ -30,7 +30,7 @@ export function ChangePasswordForm() {
           name="currentPassword"
           type="password"
           required
-          className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground transition-colors focus:border-accent focus:outline-none"
+          className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground transition-colors focus:border-slate-300 focus:outline-none"
         />
       </div>
 
@@ -47,7 +47,7 @@ export function ChangePasswordForm() {
           type="password"
           required
           minLength={6}
-          className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground transition-colors focus:border-accent focus:outline-none"
+          className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground transition-colors focus:border-slate-300 focus:outline-none"
         />
       </div>
 
@@ -64,7 +64,7 @@ export function ChangePasswordForm() {
           type="password"
           required
           minLength={6}
-          className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground transition-colors focus:border-accent focus:outline-none"
+          className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground transition-colors focus:border-slate-300 focus:outline-none"
         />
       </div>
 

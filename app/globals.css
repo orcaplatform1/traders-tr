@@ -139,6 +139,15 @@ body {
   outline-offset: 2px;
 }
 
+/* Form alanlarinda (input/select/textarea) odak halkasi mavi degil,
+   notr/acik bir tonda olsun - kullanici istegi, genel :focus-visible
+   kuralindan bilerek ayri tutuluyor. */
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline-color: var(--slate-300);
+}
+
 .container-edit {
   max-width: 1280px;
   margin-inline: auto;
@@ -219,6 +228,20 @@ body {
   );
   animation: btn-shine-sweep 2.2s ease-in-out infinite;
   pointer-events: none;
+}
+
+/* Tarayicilarin otomatik doldurma (autofill) ozelligi input'lara kendi
+   varsayilan (genelde sari/beyaz) arka planini yuksek oncelikle bindirir;
+   bu, bg-surface-2 gibi normal class'larla ezilemez. Chromium/Safari'de
+   tek calisan yontem: buyuk bir inset box-shadow ile arka plani "boyamak". */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+select:-webkit-autofill {
+  -webkit-text-fill-color: var(--text-primary);
+  -webkit-box-shadow: 0 0 0px 1000px var(--surface-2) inset;
+  box-shadow: 0 0 0px 1000px var(--surface-2) inset;
+  transition: background-color 9999s ease-in-out 0s;
 }
 
 .grain-overlay {

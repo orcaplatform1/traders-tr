@@ -39,7 +39,7 @@ export function ContactForm({ defaultCategory = "General" }: { defaultCategory?:
             name="name"
             type="text"
             required
-            className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-accent focus:outline-none"
+            className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-slate-300 focus:outline-none"
           />
         </Field>
 
@@ -50,7 +50,7 @@ export function ContactForm({ defaultCategory = "General" }: { defaultCategory?:
             type="email"
             required
             pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-            className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-accent focus:outline-none"
+            className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-slate-300 focus:outline-none"
           />
         </Field>
       </div>
@@ -75,7 +75,7 @@ export function ContactForm({ defaultCategory = "General" }: { defaultCategory?:
               onInput={(e) => {
                 e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "").slice(0, 10);
               }}
-              className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-accent focus:outline-none"
+              className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-slate-300 focus:outline-none"
             />
           </div>
         </Field>
@@ -86,7 +86,7 @@ export function ContactForm({ defaultCategory = "General" }: { defaultCategory?:
             name="company"
             type="text"
             required
-            className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-accent focus:outline-none"
+            className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-slate-300 focus:outline-none"
           />
         </Field>
       </div>
@@ -97,7 +97,7 @@ export function ContactForm({ defaultCategory = "General" }: { defaultCategory?:
           name="category"
           defaultValue={defaultCategory}
           required
-          className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground transition-colors focus:border-accent focus:outline-none"
+          className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground transition-colors focus:border-slate-300 focus:outline-none"
         >
           {CATEGORIES.map((c) => (
             <option key={c.value} value={c.value} className="bg-surface-2 text-foreground">
@@ -113,7 +113,7 @@ export function ContactForm({ defaultCategory = "General" }: { defaultCategory?:
           name="subject"
           type="text"
           required
-          className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-accent focus:outline-none"
+          className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-slate-300 focus:outline-none"
         />
       </Field>
 
@@ -123,7 +123,7 @@ export function ContactForm({ defaultCategory = "General" }: { defaultCategory?:
           name="message"
           rows={5}
           required
-          className="w-full resize-none border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-accent focus:outline-none"
+          className="w-full resize-none border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-slate-300 focus:outline-none"
         />
       </Field>
 

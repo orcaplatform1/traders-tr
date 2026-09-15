@@ -23,7 +23,7 @@ export function LoginForm() {
           type="password"
           required
           autoFocus
-          className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-accent focus:outline-none"
+          className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-slate-300 focus:outline-none"
         />
       </div>
 
