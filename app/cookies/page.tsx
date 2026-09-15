@@ -1,43 +1,99 @@
 import type { Metadata } from "next";
-import { SectionLabel } from "@/components/section-label";
+import Link from "next/link";
+import { LegalPage } from "@/components/legal-page";
 
 export const metadata: Metadata = {
   title: "Çerez Politikası",
-  description: "TRADERS.TR çerez politikası.",
+  description: "TRADERS.TR çerez ve benzeri depolama teknolojileri politikası.",
   alternates: { canonical: "/cookies" },
 };
 
 export default function CookiesPage() {
   return (
-    <section className="py-28 md:py-36">
-      <div className="container-edit max-w-2xl">
-        <SectionLabel>Yasal</SectionLabel>
-        <h1 className="mt-4 text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-          Çerez Politikası
-        </h1>
-        <p className="mt-6 text-[13px] text-muted">
-          Bu metin taslak niteliğindedir ve hukuki inceleme sürecine tabidir.
-        </p>
-
-        <div className="mt-10 space-y-8 border-t border-border pt-10 text-[15px] leading-relaxed text-slate-200">
-          <div>
-            <h2 className="text-lg font-medium text-foreground">1. Çerez Kullanımı</h2>
-            <p className="mt-2">
-              traders.tr, sitenin temel işlevlerini yerine getirmek dışında pazarlama
-              veya reklam amaçlı üçüncü taraf izleme çerezi kullanmaz. Tarayıcınızın
-              yerel depolama alanı (localStorage), yalnızca arayüz tercihlerinizi
-              (ör. menü durumu) hatırlamak için kullanılabilir.
+    <LegalPage
+      title="Çerez Politikası"
+      updated="15 Eylül 2026"
+      intro="traders.tr'yi mümkün olduğunca sade ve izlemeden uzak tutmaya özen gösteriyoruz. Bu sayfa, sitenin çalışması sırasında tarayıcınızda hangi bilgilerin tutulduğunu ve bunları nasıl kontrol edebileceğinizi açıklar."
+      sections={[
+        {
+          id: "cerez-nedir",
+          title: "Çerez Nedir",
+          content: (
+            <p>
+              Çerez (cookie), bir web sitesini ziyaret ettiğinizde
+              tarayıcınıza kaydedilen küçük bir metin dosyasıdır. Çerezler
+              genellikle oturum bilgisini hatırlamak, tercihleri saklamak
+              veya kullanım istatistiği toplamak için kullanılır.
             </p>
-          </div>
-          <div>
-            <h2 className="text-lg font-medium text-foreground">2. Kontrol</h2>
-            <p className="mt-2">
-              Tarayıcı ayarlarınız üzerinden yerel depolama verilerini istediğiniz
-              zaman temizleyebilirsiniz.
+          ),
+        },
+        {
+          id: "kullandiklarimiz",
+          title: "traders.tr'de Kullanılan Depolama Türleri",
+          content: (
+            <>
+              <p>
+                traders.tr, üyelik gerektirmeyen bir kurumsal sitedir; bu
+                nedenle oturum açma çerezi, sepet çerezi veya reklam takip
+                çerezi kullanmıyoruz. Sitede kullanılan tek istemci tarafı
+                depolama, tarayıcınızın{" "}
+                <strong className="text-foreground">localStorage</strong>{" "}
+                alanıdır ve yalnızca arayüz tercihlerinizi (örneğin bir
+                bölümün açık/kapalı durumu) hatırlamak için, tamamen
+                cihazınızda tutulur — bize veya üçüncü bir tarafa
+                gönderilmez.
+              </p>
+              <p>
+                Sunucu tarafında, sitenin çalışması için gerekli olan zorunlu
+                teknik başlıklar (ör. güvenlik başlıkları) dışında herhangi
+                bir izleme mekanizması bulunmuyor.
+              </p>
+            </>
+          ),
+        },
+        {
+          id: "ucuncu-taraf",
+          title: "Üçüncü Taraf Çerezleri",
+          content: (
+            <p>
+              Şu anda traders.tr üzerinde Google Analytics, Meta Pixel gibi
+              üçüncü taraf analitik veya reklam izleme araçları
+              kullanılmamaktadır. Bu durum ileride değişirse, bu sayfa
+              güncellenecek ve kullanılan araçlar burada açıkça
+              listelenecektir.
             </p>
-          </div>
-        </div>
-      </div>
-    </section>
+          ),
+        },
+        {
+          id: "yonetim",
+          title: "Depolamayı Nasıl Yönetebilirsiniz",
+          content: (
+            <p>
+              Tarayıcınızın ayarlarından, sitelerin cihazınızda tuttuğu
+              yerel verileri (localStorage dahil) istediğiniz zaman
+              görüntüleyebilir ve temizleyebilirsiniz. Bu işlem, yalnızca
+              arayüz tercihlerinizin sıfırlanmasına yol açar; sitenin temel
+              işlevselliğini etkilemez.
+            </p>
+          ),
+        },
+        {
+          id: "guncellemeler",
+          title: "Politika Güncellemeleri",
+          content: (
+            <p>
+              Bu politikayı, sitede kullanılan teknolojilerdeki
+              değişikliklere göre güncelleyebiliriz. Güncel sürüm her zaman
+              bu sayfada, "son güncelleme" tarihiyle birlikte yer alır. Daha
+              genel gizlilik uygulamalarımız için{" "}
+              <Link href="/privacy" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
+                Gizlilik Politikası
+              </Link>{" "}
+              sayfamıza bakabilirsiniz.
+            </p>
+          ),
+        },
+      ]}
+    />
   );
 }

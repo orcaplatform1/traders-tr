@@ -1,56 +1,154 @@
 import type { Metadata } from "next";
-import { SectionLabel } from "@/components/section-label";
+import Link from "next/link";
+import { LegalPage } from "@/components/legal-page";
 
 export const metadata: Metadata = {
   title: "KVKK Aydınlatma Metni",
-  description: "TRADERS.TR KVKK aydınlatma metni.",
+  description:
+    "6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında TRADERS.TR aydınlatma metni.",
   alternates: { canonical: "/kvkk" },
 };
 
 export default function KvkkPage() {
   return (
-    <section className="py-28 md:py-36">
-      <div className="container-edit max-w-2xl">
-        <SectionLabel>Yasal</SectionLabel>
-        <h1 className="mt-4 text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-          KVKK Aydınlatma Metni
-        </h1>
-        <p className="mt-6 text-[13px] text-muted">
-          Bu metin taslak niteliğindedir ve 6698 sayılı Kişisel Verilerin Korunması
-          Kanunu kapsamında hukuki inceleme sürecine tabidir.
-        </p>
-
-        <div className="mt-10 space-y-8 border-t border-border pt-10 text-[15px] leading-relaxed text-slate-200">
-          <div>
-            <h2 className="text-lg font-medium text-foreground">1. Veri Sorumlusu</h2>
-            <p className="mt-2">
-              TRADERS.TR, iletişim formu aracılığıyla paylaştığınız kişisel verileriniz
-              bakımından 6698 sayılı Kanun uyarınca veri sorumlusu sıfatıyla hareket
-              eder.
+    <LegalPage
+      title="KVKK Aydınlatma Metni"
+      updated="15 Eylül 2026"
+      intro="Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun (“KVKK”) 10. maddesi uyarınca, traders.tr üzerinden bizimle iletişime geçtiğinizde kişisel verilerinizin hangi amaçla, nasıl ve hangi hukuki sebeple işlendiğini açıklamak amacıyla hazırlanmıştır."
+      sections={[
+        {
+          id: "veri-sorumlusu",
+          title: "Veri Sorumlusunun Kimliği",
+          content: (
+            <p>
+              TRADERS.TR ("Şirket"), traders.tr üzerinden iletişim formu
+              aracılığıyla paylaştığınız kişisel verileriniz bakımından KVKK
+              uyarınca veri sorumlusu sıfatıyla hareket eder. Veri işleme
+              faaliyetlerimizle ilgili talepleriniz için{" "}
+              <Link href="/contact" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
+                iletişim sayfamız
+              </Link>{" "}
+              üzerinden bize ulaşabilirsiniz.
             </p>
-          </div>
-          <div>
-            <h2 className="text-lg font-medium text-foreground">2. İşlenen Veriler ve Amaç</h2>
-            <p className="mt-2">
-              Ad soyad, e-posta, şirket adı (opsiyonel) ve mesaj içeriğiniz; yalnızca
-              talebinizi değerlendirmek ve tarafınıza geri dönüş yapmak amacıyla
-              işlenir.
+          ),
+        },
+        {
+          id: "isleme-amaci",
+          title: "Kişisel Verilerin İşlenme Amacı",
+          content: (
+            <>
+              <p>Kişisel verileriniz aşağıdaki amaçlarla sınırlı olarak işlenir:</p>
+              <ul className="ml-5 list-disc space-y-2 marker:text-muted">
+                <li>İletişim formu üzerinden ilettiğiniz talebi değerlendirmek ve yanıtlamak,</li>
+                <li>İş ortaklığı, girişim veya basın taleplerinizi ilgili birime yönlendirmek,</li>
+                <li>Şirketimizin ve kullanıcılarımızın güvenliğini sağlamak, kötüye kullanımı önlemek,</li>
+                <li>Yasal yükümlülüklerimizi yerine getirmek.</li>
+              </ul>
+            </>
+          ),
+        },
+        {
+          id: "veri-kategorileri",
+          title: "İşlenen Kişisel Veri Kategorileri",
+          content: (
+            <>
+              <p>
+                <strong className="text-foreground">Kimlik verisi:</strong> ad
+                soyad.
+              </p>
+              <p>
+                <strong className="text-foreground">İletişim verisi:</strong>{" "}
+                e-posta adresi, şirket adı (paylaşmanız hâlinde).
+              </p>
+              <p>
+                <strong className="text-foreground">İşlem güvenliği verisi:</strong>{" "}
+                formu gönderdiğiniz anda oluşan zaman damgası ve standart
+                sunucu günlük kayıtları (IP adresi, tarayıcı bilgisi).
+              </p>
+              <p>
+                <strong className="text-foreground">Talep içeriği:</strong>{" "}
+                mesaj konunuz, kategoriniz (iş ortaklığı, girişim, basın,
+                genel) ve mesaj metniniz.
+              </p>
+            </>
+          ),
+        },
+        {
+          id: "toplama-yontemi",
+          title: "Toplanma Yöntemi ve Hukuki Sebebi",
+          content: (
+            <p>
+              Kişisel verileriniz, traders.tr/contact sayfasındaki formu
+              doldurup göndermeniz üzerine, elektronik ortamda doğrudan
+              sizden toplanır. İşleme, KVKK m.5/2-(f) uyarınca "ilgili
+              kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla,
+              veri sorumlusunun meşru menfaati için veri işlenmesinin
+              zorunlu olması" hukuki sebebine dayanır; talebinizi
+              yanıtlayabilmemiz için bu veriler zorunludur.
             </p>
-          </div>
-          <div>
-            <h2 className="text-lg font-medium text-foreground">3. Haklarınız</h2>
-            <p className="mt-2">
-              KVKK'nın 11. maddesi kapsamında; verilerinizin işlenip işlenmediğini
-              öğrenme, işlenmişse buna ilişkin bilgi talep etme, düzeltilmesini veya
-              silinmesini isteme haklarına sahipsiniz. Taleplerinizi{" "}
-              <a href="/contact" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
-                iletişim
-              </a>{" "}
-              sayfamız üzerinden iletebilirsiniz.
+          ),
+        },
+        {
+          id: "aktarim",
+          title: "Kişisel Verilerin Aktarılması",
+          content: (
+            <p>
+              Kişisel verileriniz, yalnızca sitenin teknik altyapısını
+              sağlayan barındırma ve veritabanı hizmet sağlayıcılarımızla
+              (hizmeti sunabilmemiz için gerekli ölçüde) ve yasal olarak
+              yetkili kamu kurum ve kuruluşlarıyla, talep edilmesi hâlinde,
+              paylaşılabilir. Verileriniz pazarlama amacıyla üçüncü kişilere
+              satılmaz veya kiralanmaz.
             </p>
-          </div>
-        </div>
-      </div>
-    </section>
+          ),
+        },
+        {
+          id: "haklariniz",
+          title: "KVKK Kapsamındaki Haklarınız",
+          content: (
+            <>
+              <p>KVKK'nın 11. maddesi uyarınca bize başvurarak aşağıdaki haklarınızı kullanabilirsiniz:</p>
+              <ul className="ml-5 list-disc space-y-2 marker:text-muted">
+                <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme,</li>
+                <li>İşlenmişse buna ilişkin bilgi talep etme,</li>
+                <li>İşlenme amacını ve amacına uygun kullanılıp kullanılmadığını öğrenme,</li>
+                <li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme,</li>
+                <li>Eksik veya yanlış işlenmişse düzeltilmesini isteme,</li>
+                <li>
+                  KVKK'da öngörülen şartlar çerçevesinde silinmesini veya yok
+                  edilmesini isteme,
+                </li>
+                <li>Yapılan işlemlerin, verilerinizin aktarıldığı üçüncü kişilere bildirilmesini isteme,</li>
+                <li>
+                  İşlenen verilerin münhasıran otomatik sistemler
+                  vasıtasıyla analiz edilmesi suretiyle aleyhinize bir
+                  sonucun ortaya çıkmasına itiraz etme,
+                </li>
+                <li>
+                  Kanuna aykırı işleme sebebiyle zarara uğramanız hâlinde
+                  zararın giderilmesini talep etme.
+                </li>
+              </ul>
+            </>
+          ),
+        },
+        {
+          id: "basvuru",
+          title: "Başvuru Yöntemi",
+          content: (
+            <p>
+              Yukarıdaki haklarınızı kullanmak için talebinizi{" "}
+              <Link href="/contact" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
+                iletişim sayfamızdaki
+              </Link>{" "}
+              formu "Genel" kategorisiyle doldurarak veya formda belirttiğiniz
+              e-posta adresi üzerinden bize iletebilirsiniz. Başvurunuz,
+              kimliğinizi doğrulayabilmemiz kaydıyla, KVKK'da öngörülen
+              süreler içinde sonuçlandırılır.
+            </p>
+          ),
+        },
+      ]}
+    />
   );
 }
