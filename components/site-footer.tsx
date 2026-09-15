@@ -75,7 +75,7 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-border">
-        <div className="container-edit flex flex-col gap-2 py-6 text-[12px] text-muted md:flex-row md:items-center md:justify-between">
+        <div className="container-edit flex justify-center py-6 text-center text-[12px] text-muted">
           <span>
             &copy; 2026{" "}
             <span className="whitespace-nowrap">

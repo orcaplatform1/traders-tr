@@ -18,7 +18,7 @@ export function BrandGrid() {
           {brands
             .sort((a, b) => a.displayOrder - b.displayOrder)
             .map((brand, i) => (
-              <ScrollReveal key={brand.id} delay={i * 90} className="bg-slate-950">
+              <ScrollReveal key={brand.id} delay={i * 90} className="h-full bg-slate-950">
                 <BrandCard brand={brand} />
               </ScrollReveal>
             ))}

@@ -22,7 +22,7 @@ export default function BrandsPage() {
           {brands
             .sort((a, b) => a.displayOrder - b.displayOrder)
             .map((brand) => (
-              <div key={brand.id} className="bg-slate-950">
+              <div key={brand.id} className="h-full bg-slate-950">
                 <BrandCard brand={brand} />
               </div>
             ))}

@@ -4,7 +4,7 @@ import type { Brand } from "@/lib/content/types";
 
 export function BrandCard({ brand }: { brand: Brand }) {
   return (
-    <div className="group relative flex flex-col justify-between border border-border p-8 transition-colors duration-300 hover:border-border-hover md:p-10">
+    <div className="group relative flex h-full flex-col justify-between border border-border p-8 transition-colors duration-300 hover:border-border-hover md:p-10">
       <div>
         <div className="relative h-14 w-14 overflow-hidden rounded-xl bg-surface-2 p-2">
           <Image src={brand.logo} alt={`${brand.name} logo`} fill className="object-contain" sizes="56px" />
