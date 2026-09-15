@@ -1,11 +1,31 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { NAV_LINKS } from "@/lib/constants";
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    if (!open) return;
+
+    const { overflow, position, top, width } = document.body.style;
+    const scrollY = window.scrollY;
+
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.top = `-${scrollY}px`;
+    document.body.style.width = "100%";
+
+    return () => {
+      document.body.style.overflow = overflow;
+      document.body.style.position = position;
+      document.body.style.top = top;
+      document.body.style.width = width;
+      window.scrollTo(0, scrollY);
+    };
+  }, [open]);
 
   return (
     <div className="md:hidden">
@@ -28,11 +48,11 @@ export function MobileMenu() {
       </button>
 
       <div
-        className={`fixed inset-0 z-40 bg-slate-950/98 backdrop-blur-md transition-opacity duration-300 ${
+        className={`fixed inset-0 z-40 h-dvh bg-slate-950/98 backdrop-blur-md transition-opacity duration-300 ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
-        <nav className="flex h-full flex-col items-start justify-center gap-2 px-8">
+        <nav className="flex h-full flex-col items-start justify-center gap-2 overflow-y-auto px-8">
           {NAV_LINKS.map((link, i) => (
             <Link
               key={link.href}

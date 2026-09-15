@@ -25,14 +25,14 @@ export function SiteHeader() {
       }`}
     >
       <div className="container-edit flex h-16 items-center justify-between md:h-20">
-        <Link href="/" className="relative block h-6 w-[180px] shrink-0 md:h-7 md:w-[210px]">
+        <Link href="/" className="relative block h-9 w-[220px] shrink-0 md:h-11 md:w-[260px]">
           <Image
             src="/logo.png"
             alt="TRADERS"
             fill
             priority
             className="object-contain object-left"
-            sizes="210px"
+            sizes="260px"
           />
         </Link>
 
