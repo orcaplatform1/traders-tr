@@ -13,45 +13,68 @@ export function VenturesSection() {
           </h2>
         </ScrollReveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-16 md:grid-cols-2">
-          <ScrollReveal>
-            <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-              Aktif
-            </span>
-            <ul className="mt-6 space-y-5">
-              {ventures.map((v) => (
-                <li
-                  key={v.id}
-                  className="flex items-baseline justify-between border-b border-border pb-5"
-                >
-                  <div>
-                    <span className="text-lg font-medium text-foreground">
-                      {v.name}
-                    </span>
-                    <p className="mt-1 text-[14px] text-muted">{v.description}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </ScrollReveal>
+        <div className="mt-16 grid grid-cols-1 gap-16 md:grid-cols-[1.4fr_1fr]">
+          <div>
+            <ScrollReveal>
+              <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
+                Aktif
+              </span>
+            </ScrollReveal>
 
-          <ScrollReveal delay={120}>
-            <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-              Keşfediyoruz
-            </span>
-            <div className="mt-6 border-b border-border pb-5">
-              <span className="text-lg font-medium text-foreground">
-                Yeni girişimler
-              </span>
-              <p className="mt-2 max-w-sm text-[14px] leading-relaxed text-muted">
-                Teknoloji, dijital ticaret, finans ve gelişmekte olan
-                pazarlardaki fırsatları sürekli değerlendiriyoruz.
-              </p>
-              <span className="mt-4 inline-block text-[11px] font-medium uppercase tracking-[0.15em] text-accent">
-                Sırada
-              </span>
+            <div className="mt-6">
+              {ventures.map((v, i) => (
+                <ScrollReveal key={v.id} delay={i * 90}>
+                  <div className="group border-t border-border py-6 transition-colors duration-300 hover:border-border-hover">
+                    <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+                      <span className="text-lg font-medium text-foreground">{v.name}</span>
+                      <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
+                        {v.category}
+                      </span>
+                    </div>
+                    <p className="mt-2 text-[14px] text-muted">{v.description}</p>
+                    <p className="mt-2 max-w-lg text-[14px] leading-relaxed text-slate-300">
+                      {v.detail}
+                    </p>
+                    {v.websiteUrl && (
+                      <a
+                        href={v.websiteUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-3 inline-flex items-center gap-2 text-[12px] font-medium tracking-wide text-muted transition-colors hover:text-accent"
+                      >
+                        {v.websiteUrl.replace(/^https?:\/\//, "")}
+                        <span className="transition-transform duration-300 group-hover:translate-x-1">
+                          →
+                        </span>
+                      </a>
+                    )}
+                  </div>
+                </ScrollReveal>
+              ))}
+              <div className="border-t border-border" />
             </div>
-          </ScrollReveal>
+          </div>
+
+          <div>
+            <ScrollReveal delay={120}>
+              <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
+                Keşfediyoruz
+              </span>
+            </ScrollReveal>
+            <ScrollReveal delay={160}>
+              <div className="mt-6 border-t border-border pb-5 pt-6">
+                <span className="text-lg font-medium text-foreground">Yeni girişimler</span>
+                <p className="mt-2 max-w-sm text-[14px] leading-relaxed text-muted">
+                  Teknoloji, dijital ticaret, finans ve gelişmekte olan
+                  pazarlardaki fırsatları sürekli değerlendiriyoruz.
+                </p>
+                <span className="mt-4 inline-block text-[11px] font-medium uppercase tracking-[0.15em] text-accent">
+                  Sırada
+                </span>
+              </div>
+              <div className="border-t border-border" />
+            </ScrollReveal>
+          </div>
         </div>
       </div>
     </section>

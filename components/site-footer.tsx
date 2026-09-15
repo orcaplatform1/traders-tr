@@ -11,8 +11,15 @@ export function SiteFooter() {
     <footer className="border-t border-border">
       <div className="container-edit grid grid-cols-1 gap-12 py-16 md:grid-cols-4 md:py-20">
         <div className="md:col-span-2">
-          <span className="text-sm font-semibold tracking-[0.2em] text-foreground">
-            TRADERS
+          <span className="inline-flex items-center gap-2 text-sm font-semibold tracking-[0.2em]">
+            <span className="text-slate-50">Traders</span>
+            <span className="text-blue-500">.TR</span>
+            <img
+              src="/footerflag.png"
+              alt=""
+              aria-hidden
+              className="inline-block h-[1em] w-[1em] object-contain align-middle"
+            />
           </span>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
             {SITE_TAGLINE}
