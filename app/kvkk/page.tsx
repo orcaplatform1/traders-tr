@@ -77,15 +77,24 @@ export default function KvkkPage() {
           id: "toplama-yontemi",
           title: "Toplanma Yöntemi ve Hukuki Sebebi",
           content: (
-            <p>
-              Kişisel verileriniz, traders.tr/contact sayfasındaki formu
-              doldurup göndermeniz üzerine, elektronik ortamda doğrudan
-              sizden toplanır. İşleme, KVKK m.5/2-(f) uyarınca "ilgili
-              kişinin temel hak ve özgürlüklerine zarar vermemek kaydıyla,
-              veri sorumlusunun meşru menfaati için veri işlenmesinin
-              zorunlu olması" hukuki sebebine dayanır; talebinizi
-              yanıtlayabilmemiz için bu veriler zorunludur.
-            </p>
+            <>
+              <p>
+                Kişisel verileriniz, traders.tr/iletisim sayfasındaki formu
+                doldurup göndermeniz üzerine, elektronik ortamda doğrudan
+                sizden toplanır.
+              </p>
+              <p>
+                İşleme, KVKK m.5/2 kapsamında öncelikle "(f) ilgili kişinin
+                temel hak ve özgürlüklerine zarar vermemek kaydıyla, veri
+                sorumlusunun meşru menfaati için veri işlenmesinin zorunlu
+                olması" hukuki sebebine dayanır. Talebinizin niteliğine
+                göre, "(c) bir sözleşmenin kurulması veya ifasıyla doğrudan
+                doğruya ilgili olması" ya da "(ç) hukuki yükümlülüğün yerine
+                getirilmesi" sebepleri de devreye girebilir. Her hâlükârda,
+                talebinizi yanıtlayabilmemiz için topladığımız veriler,
+                amaçla sınırlı ve ölçülüdür.
+              </p>
+            </>
           ),
         },
         {
@@ -142,9 +151,14 @@ export default function KvkkPage() {
                 iletişim sayfamızdaki
               </Link>{" "}
               formu "Genel" kategorisiyle doldurarak veya formda belirttiğiniz
-              e-posta adresi üzerinden bize iletebilirsiniz. Başvurunuz,
-              kimliğinizi doğrulayabilmemiz kaydıyla, KVKK'da öngörülen
-              süreler içinde sonuçlandırılır.
+              e-posta adresi üzerinden bize iletebilirsiniz. Talebinizde
+              kimliğinizi doğrulayabilmemizi sağlayacak bilgilere yer
+              vermeniz gerekir. Başvurunuz, niteliğine göre en kısa sürede
+              ve KVKK'da öngörülen azami süre olan 30 gün içinde
+              sonuçlandırılır; talebiniz ücretsiz olarak yanıtlanır, ancak
+              işlemin ayrıca bir maliyet gerektirmesi hâlinde Kişisel
+              Verileri Koruma Kurulu'nca belirlenen tarifedeki ücret talep
+              edilebilir.
             </p>
           ),
         },

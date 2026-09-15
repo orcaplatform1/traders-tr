@@ -17,6 +17,21 @@ export default function PrivacyPage() {
       intro="Bu politika, traders.tr üzerinden bizimle etkileşime geçtiğinizde hangi bilgileri topladığımızı, bu bilgileri neden ve nasıl kullandığımızı, kimlerle paylaştığımızı ve haklarınızı açıklar. TRADERS.TR olarak, yalnızca gerçekten ihtiyaç duyduğumuz bilgiyi topluyor ve bunu her zaman belirli, açık bir amaçla sınırlı tutuyoruz."
       sections={[
         {
+          id: "veri-sorumlusu",
+          title: "Veri Sorumlusu",
+          content: (
+            <p>
+              Bu politika kapsamında kişisel verileriniz, TRADERS.TR
+              tarafından veri sorumlusu sıfatıyla işlenir. Bu politikayla
+              ilgili tüm sorularınız ve talepleriniz için{" "}
+              <Link href="/iletisim" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
+                iletişim sayfamız
+              </Link>{" "}
+              üzerinden bize ulaşabilirsiniz.
+            </p>
+          ),
+        },
+        {
           id: "kapsam",
           title: "Kapsam",
           content: (
@@ -164,6 +179,18 @@ export default function PrivacyPage() {
               sayfamızda bulabilirsiniz. Özetle; verilerinizin işlenip
               işlenmediğini öğrenme, bilgi talep etme, düzeltilmesini veya
               silinmesini isteme ve işlemeye itiraz etme hakkına sahipsiniz.
+            </p>
+          ),
+        },
+        {
+          id: "cocuklarin-gizliligi",
+          title: "Çocukların Gizliliği",
+          content: (
+            <p>
+              traders.tr, 18 yaşın altındaki kişilere yönelik bir hizmet
+              sunmamaktadır ve bilerek çocuklardan kişisel veri toplamaz. Bir
+              çocuğun bize kişisel veri sağladığını fark edersek, bu veriyi
+              makul bir süre içinde sileriz.
             </p>
           ),
         },

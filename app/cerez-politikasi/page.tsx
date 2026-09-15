@@ -35,18 +35,41 @@ export default function CookiesPage() {
               <p>
                 traders.tr, üyelik gerektirmeyen bir kurumsal sitedir; bu
                 nedenle oturum açma çerezi, sepet çerezi veya reklam takip
-                çerezi kullanmıyoruz. Sitede kullanılan tek istemci tarafı
-                depolama, tarayıcınızın{" "}
-                <strong className="text-foreground">localStorage</strong>{" "}
-                alanıdır ve yalnızca arayüz tercihlerinizi (örneğin bir
-                bölümün açık/kapalı durumu) hatırlamak için, tamamen
-                cihazınızda tutulur — bize veya üçüncü bir tarafa
-                gönderilmez.
+                çerezi kullanmıyoruz. Aşağıdaki tablo, sitede kullanılan tek
+                istemci tarafı depolama türünü özetliyor:
               </p>
+              <div className="overflow-x-auto">
+                <table className="w-full border-collapse text-left text-[14px]">
+                  <thead>
+                    <tr className="border-b border-border text-[11px] uppercase tracking-[0.1em] text-muted">
+                      <th className="py-2 pr-4 font-medium">Tür</th>
+                      <th className="py-2 pr-4 font-medium">Amaç</th>
+                      <th className="py-2 font-medium">Süre</th>
+                    </tr>
+                  </thead>
+                  <tbody className="text-slate-200">
+                    <tr className="border-b border-border">
+                      <td className="py-3 pr-4">Tercih (localStorage)</td>
+                      <td className="py-3 pr-4">
+                        Arayüz tercihlerini (ör. bir bölümün açık/kapalı
+                        durumu) tamamen cihazınızda hatırlamak
+                      </td>
+                      <td className="py-3">Siz silene kadar, yalnızca cihazınızda</td>
+                    </tr>
+                    <tr>
+                      <td className="py-3 pr-4">Zorunlu / Analitik / Reklam</td>
+                      <td className="py-3 pr-4 text-muted">Kullanılmıyor</td>
+                      <td className="py-3 text-muted">—</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
               <p>
-                Sunucu tarafında, sitenin çalışması için gerekli olan zorunlu
-                teknik başlıklar (ör. güvenlik başlıkları) dışında herhangi
-                bir izleme mekanizması bulunmuyor.
+                localStorage'da tutulan veriler bize veya üçüncü bir tarafa
+                hiçbir şekilde gönderilmez. Sunucu tarafında, sitenin
+                çalışması için gerekli olan zorunlu teknik başlıklar (ör.
+                güvenlik başlıkları) dışında herhangi bir izleme mekanizması
+                bulunmuyor.
               </p>
             </>
           ),
