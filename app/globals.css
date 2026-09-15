@@ -190,10 +190,10 @@ body {
    uygun). Sadece .btn-shine class'i verilen butonlara uygulanir. */
 @keyframes btn-shine-sweep {
   0%,
-  15% {
+  10% {
     transform: translateX(-130%) skewX(-20deg);
   }
-  55%,
+  45%,
   100% {
     transform: translateX(230%) skewX(-20deg);
   }
@@ -213,10 +213,11 @@ body {
   background: linear-gradient(
     100deg,
     transparent,
-    rgba(226, 232, 240, 0.75),
+    rgba(71, 85, 105, 0.55),
+    rgba(15, 23, 42, 0.18),
     transparent
   );
-  animation: btn-shine-sweep 4.5s ease-in-out infinite;
+  animation: btn-shine-sweep 2.2s ease-in-out infinite;
   pointer-events: none;
 }
 

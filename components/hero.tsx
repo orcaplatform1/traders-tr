@@ -7,7 +7,7 @@ import { AnimatedGrid } from "@/components/animated-grid";
 // simdilik verilmediginde AnimatedGrid + grain fallback olarak kaliyor.
 export function Hero({ imageSrc }: { imageSrc?: string }) {
   return (
-    <section className="relative overflow-hidden border-b border-border pb-8 pt-52 md:pb-16 md:pt-60">
+    <section className="relative overflow-hidden border-b border-border pb-4 pt-32 sm:pt-44 md:pb-12 md:pt-64">
       {imageSrc ? (
         <>
           <Image
@@ -27,7 +27,7 @@ export function Hero({ imageSrc }: { imageSrc?: string }) {
       )}
 
       <div className="container-edit relative">
-        <h1 className="max-w-3xl text-[30px] font-medium leading-[1.1] tracking-tight text-foreground sm:text-[40px] md:text-[52px]">
+        <h1 className="max-w-3xl text-[26px] font-medium leading-[1.12] tracking-tight text-foreground sm:text-[34px] md:text-[44px]">
           Building brands
           <br />
           beyond boundaries.
