@@ -184,6 +184,42 @@ body {
   transform: translateY(0);
 }
 
+/* Birincil CTA'daki hafif isik huzmesi - acik gri/beyaz bir bant butonun
+   uzerinden periyodik olarak kayar (ORCA'daki donen glow ring'in ayni
+   "premium" ruhundaki sade versiyonu, dolu beyaz zeminli pill butona
+   uygun). Sadece .btn-shine class'i verilen butonlara uygulanir. */
+@keyframes btn-shine-sweep {
+  0%,
+  15% {
+    transform: translateX(-130%) skewX(-20deg);
+  }
+  55%,
+  100% {
+    transform: translateX(230%) skewX(-20deg);
+  }
+}
+
+.btn-shine {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.btn-shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 40%;
+  background: linear-gradient(
+    100deg,
+    transparent,
+    rgba(226, 232, 240, 0.75),
+    transparent
+  );
+  animation: btn-shine-sweep 4.5s ease-in-out infinite;
+  pointer-events: none;
+}
+
 .grain-overlay {
   position: absolute;
   inset: 0;

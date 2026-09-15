@@ -7,7 +7,7 @@ import { AnimatedGrid } from "@/components/animated-grid";
 // simdilik verilmediginde AnimatedGrid + grain fallback olarak kaliyor.
 export function Hero({ imageSrc }: { imageSrc?: string }) {
   return (
-    <section className="relative flex min-h-[70vh] flex-col justify-end overflow-hidden border-b border-border pb-16 pt-40 md:min-h-[75vh] md:pb-20 md:pt-48">
+    <section className="relative overflow-hidden border-b border-border pb-8 pt-52 md:pb-16 md:pt-60">
       {imageSrc ? (
         <>
           <Image
@@ -41,9 +41,9 @@ export function Hero({ imageSrc }: { imageSrc?: string }) {
         <div className="mt-8 flex flex-wrap items-center gap-6">
           <Link
             href="/brands"
-            className="rounded-sm border border-foreground bg-foreground px-6 py-3 text-[13px] font-medium tracking-wide text-slate-950 transition-colors hover:bg-transparent hover:text-foreground"
+            className="btn-shine group relative rounded-sm border border-foreground bg-foreground px-6 py-3 text-[13px] font-medium tracking-wide text-slate-950 transition-colors hover:bg-transparent hover:text-foreground"
           >
-            Markalarımızı Keşfedin
+            <span className="relative z-10">Markalarımızı Keşfedin</span>
           </Link>
           <Link
             href="/about"
