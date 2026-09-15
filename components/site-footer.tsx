@@ -28,8 +28,8 @@ export function SiteFooter() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-[13px] text-muted transition-colors hover:text-accent"
               >
-                <span className="relative h-4 w-4 shrink-0 overflow-hidden rounded-md bg-surface-2">
-                  <Image src={brand.logo} alt="" fill className="object-contain p-0.5" sizes="16px" />
+                <span className="relative h-4 w-4 shrink-0">
+                  <Image src={brand.logo} alt="" fill className="object-contain" sizes="16px" />
                 </span>
                 {brand.name}
               </a>

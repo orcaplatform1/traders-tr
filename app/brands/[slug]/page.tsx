@@ -58,7 +58,7 @@ export default async function BrandProfilePage({
         </Link>
 
         <div className="mt-8">
-          <div className="relative h-16 w-16 overflow-hidden rounded-xl bg-surface-2 p-2">
+          <div className="relative h-16 w-16">
             <Image src={brand.logo} alt={`${brand.name} logo`} fill className="object-contain" sizes="64px" />
           </div>
 
