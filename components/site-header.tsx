@@ -28,7 +28,7 @@ export function SiteHeader() {
         <Link href="/" className="relative block h-9 w-[220px] shrink-0 md:h-11 md:w-[260px]">
           <Image
             src="/logo.png"
-            alt="TRADERS"
+            alt="TRADERS.TR"
             fill
             priority
             className="object-contain object-left"

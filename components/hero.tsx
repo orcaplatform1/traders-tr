@@ -9,7 +9,7 @@ export function Hero() {
 
       <div className="container-edit relative">
         <span className="block text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
-          TRADERS
+          TRADERS.TR
         </span>
 
         <h1 className="mt-6 max-w-4xl text-[42px] font-medium leading-[1.05] tracking-tight text-foreground sm:text-[58px] md:text-[76px] lg:text-[92px]">
@@ -34,7 +34,7 @@ export function Hero() {
             href="/about"
             className="text-[13px] font-medium tracking-wide text-muted underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-accent"
           >
-            TRADERS Hakkında
+            TRADERS.TR Hakkında
           </Link>
         </div>
       </div>

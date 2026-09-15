@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/json-ld";
 import { getInsightBySlug, insights } from "@/lib/content/insights";
+import { SITE_URL } from "@/lib/constants";
 
 export function generateStaticParams() {
   return insights.map((i) => ({ slug: i.slug }));
@@ -41,8 +43,30 @@ export default async function InsightPage({
   const insight = getInsightBySlug(slug);
   if (!insight) notFound();
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "İçgörüler", item: `${SITE_URL}/insights` },
+      { "@type": "ListItem", position: 3, name: insight.title, item: `${SITE_URL}/insights/${insight.slug}` },
+    ],
+  };
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: insight.title,
+    description: insight.excerpt,
+    author: { "@type": "Organization", name: insight.author },
+    datePublished: insight.publishedAt,
+    mainEntityOfPage: `${SITE_URL}/insights/${insight.slug}`,
+  };
+
   return (
     <article className="py-28 md:py-36">
+      <JsonLd data={breadcrumbJsonLd} />
+      <JsonLd data={articleJsonLd} />
       <div className="container-edit max-w-2xl">
         <Link
           href="/insights"

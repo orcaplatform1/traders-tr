@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import {
   FOOTER_COMPANY_LINKS,
@@ -11,16 +12,9 @@ export function SiteFooter() {
     <footer className="border-t border-border">
       <div className="container-edit grid grid-cols-1 gap-12 py-16 md:grid-cols-4 md:py-20">
         <div className="md:col-span-2">
-          <span className="inline-flex items-center gap-2 text-sm font-semibold tracking-[0.2em]">
-            <span className="text-slate-50">Traders</span>
-            <span className="text-blue-500">.TR</span>
-            <img
-              src="/footerflag.png"
-              alt=""
-              aria-hidden
-              className="inline-block h-[1em] w-[1em] object-contain align-middle"
-            />
-          </span>
+          <div className="relative h-8 w-[190px]">
+            <Image src="/logo.png" alt="TRADERS.TR" fill className="object-contain object-left" sizes="190px" />
+          </div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
             {SITE_TAGLINE}
           </p>
@@ -79,7 +73,20 @@ export function SiteFooter() {
 
       <div className="border-t border-border">
         <div className="container-edit flex flex-col gap-2 py-6 text-[12px] text-muted md:flex-row md:items-center md:justify-between">
-          <span>&copy; 2026 TRADERS. Tüm hakları saklıdır.</span>
+          <span>
+            &copy; 2026{" "}
+            <span className="whitespace-nowrap">
+              <span className="font-semibold text-slate-50">Traders</span>
+              <span className="font-semibold text-blue-500">.TR</span>{" "}
+              <img
+                src="/footerflag.png"
+                alt=""
+                aria-hidden
+                className="inline-block h-[1em] w-[1em] translate-y-[0.1em] object-contain align-baseline"
+              />
+            </span>
+            . Tüm hakları saklıdır.
+          </span>
         </div>
       </div>
     </footer>

@@ -4,10 +4,12 @@ export interface Brand {
   id: string;
   name: string;
   slug: string;
+  logo: string;
   category: string;
   shortDescription: string;
   longDescription: string;
   whyItExists: string;
+  features: string[];
   websiteUrl: string;
   status: BrandStatus;
   featured: boolean;

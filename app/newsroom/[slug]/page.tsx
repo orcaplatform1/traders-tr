@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { JsonLd } from "@/components/json-ld";
 import { getNewsroomPostBySlug, newsroomPosts } from "@/lib/content/newsroom";
+import { SITE_URL } from "@/lib/constants";
 
 export function generateStaticParams() {
   return newsroomPosts.map((p) => ({ slug: p.slug }));
@@ -40,8 +42,30 @@ export default async function NewsroomPostPage({
   const post = getNewsroomPostBySlug(slug);
   if (!post) notFound();
 
+  const breadcrumbJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Haber Merkezi", item: `${SITE_URL}/newsroom` },
+      { "@type": "ListItem", position: 3, name: post.title, item: `${SITE_URL}/newsroom/${post.slug}` },
+    ],
+  };
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    headline: post.title,
+    description: post.excerpt,
+    author: { "@type": "Organization", name: "TRADERS.TR" },
+    datePublished: post.publishedAt,
+    mainEntityOfPage: `${SITE_URL}/newsroom/${post.slug}`,
+  };
+
   return (
     <article className="py-28 md:py-36">
+      <JsonLd data={breadcrumbJsonLd} />
+      <JsonLd data={articleJsonLd} />
       <div className="container-edit max-w-2xl">
         <Link
           href="/newsroom"

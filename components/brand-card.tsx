@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import type { Brand } from "@/lib/content/types";
 
@@ -5,7 +6,11 @@ export function BrandCard({ brand }: { brand: Brand }) {
   return (
     <div className="group relative flex flex-col justify-between border border-border p-8 transition-colors duration-300 hover:border-border-hover md:p-10">
       <div>
-        <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
+        <div className="relative h-14 w-14 overflow-hidden rounded-xl bg-surface-2 p-2">
+          <Image src={brand.logo} alt={`${brand.name} logo`} fill className="object-contain" sizes="56px" />
+        </div>
+
+        <span className="mt-6 block text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
           {brand.category}
         </span>
         <h3 className="mt-4 text-3xl font-medium tracking-tight text-foreground md:text-4xl">

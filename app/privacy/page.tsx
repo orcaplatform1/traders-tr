@@ -3,7 +3,7 @@ import { SectionLabel } from "@/components/section-label";
 
 export const metadata: Metadata = {
   title: "Gizlilik Politikası",
-  description: "TRADERS gizlilik politikası.",
+  description: "TRADERS.TR gizlilik politikası.",
   alternates: { canonical: "/privacy" },
 };
 

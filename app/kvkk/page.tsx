@@ -3,7 +3,7 @@ import { SectionLabel } from "@/components/section-label";
 
 export const metadata: Metadata = {
   title: "KVKK Aydınlatma Metni",
-  description: "TRADERS KVKK aydınlatma metni.",
+  description: "TRADERS.TR KVKK aydınlatma metni.",
   alternates: { canonical: "/kvkk" },
 };
 
@@ -24,7 +24,7 @@ export default function KvkkPage() {
           <div>
             <h2 className="text-lg font-medium text-foreground">1. Veri Sorumlusu</h2>
             <p className="mt-2">
-              TRADERS, iletişim formu aracılığıyla paylaştığınız kişisel verileriniz
+              TRADERS.TR, iletişim formu aracılığıyla paylaştığınız kişisel verileriniz
               bakımından 6698 sayılı Kanun uyarınca veri sorumlusu sıfatıyla hareket
               eder.
             </p>

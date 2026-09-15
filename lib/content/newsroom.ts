@@ -4,11 +4,11 @@ export const newsroomPosts: NewsroomPost[] = [
   {
     id: "1",
     slug: "traders-yeni-bir-girisim-icin-calismalara-basladi",
-    title: "TRADERS yeni bir girişim için çalışmalara başladı",
+    title: "TRADERS.TR yeni bir girişim için çalışmalara başladı",
     excerpt:
-      "TRADERS, teknoloji ve ticaretin kesişiminde yeni bir fırsat alanını değerlendirmeye başladı.",
+      "TRADERS.TR, teknoloji ve ticaretin kesişiminde yeni bir fırsat alanını değerlendirmeye başladı.",
     content: [
-      "TRADERS, portföyündeki markalardan bağımsız olarak yeni bir girişim alanı üzerinde erken aşama çalışmalara başladığını duyurdu.",
+      "TRADERS.TR, portföyündeki markalardan bağımsız olarak yeni bir girişim alanı üzerinde erken aşama çalışmalara başladığını duyurdu.",
       "Detaylar, girişim daha olgun bir aşamaya geldiğinde paylaşılacak.",
     ],
     category: "Şirket Duyurusu",

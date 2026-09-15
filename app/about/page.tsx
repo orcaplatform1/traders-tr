@@ -6,7 +6,7 @@ import { AnimatedGrid } from "@/components/animated-grid";
 export const metadata: Metadata = {
   title: "Hakkımızda",
   description:
-    "TRADERS; teknoloji, ticaret ve finansın kesişiminde yeni nesil işletmeler geliştiren, kuran ve işleten çok markalı bir girişim şirketidir.",
+    "TRADERS.TR; teknoloji, ticaret ve finansın kesişiminde yeni nesil işletmeler geliştiren, kuran ve işleten çok markalı bir girişim şirketidir.",
   alternates: { canonical: "/about" },
 };
 
@@ -79,7 +79,7 @@ export default function AboutPage() {
         <div className="grain-overlay" />
         <div className="container-edit relative max-w-3xl">
           <ScrollReveal>
-            <SectionLabel>TRADERS Hakkında</SectionLabel>
+            <SectionLabel>TRADERS.TR Hakkında</SectionLabel>
             <h1 className="mt-6 text-[34px] font-medium leading-[1.15] tracking-tight text-foreground sm:text-[44px] md:text-[56px]">
               Fikirlerden markalara.
               <br />
@@ -90,7 +90,7 @@ export default function AboutPage() {
           <ScrollReveal delay={100}>
             <div className="mt-10 space-y-5 text-[16px] leading-relaxed text-slate-200 md:text-[17px]">
               <p>
-                TRADERS; teknoloji, ticaret ve finansın kesişiminde yeni nesil
+                TRADERS.TR; teknoloji, ticaret ve finansın kesişiminde yeni nesil
                 işletmeler geliştiren, kuran ve işleten çok markalı bir girişim
                 şirketidir.
               </p>
@@ -102,7 +102,7 @@ export default function AboutPage() {
                 uzun vadeli bir bakış açısına ihtiyaç duyar.
               </p>
               <p className="text-foreground">
-                TRADERS&apos;ın rolü tam olarak burada başlar.
+                TRADERS.TR&apos;ın rolü tam olarak burada başlar.
               </p>
               <p>
                 Fikirleri değerlendirir, potansiyel gördüğümüz alanları
@@ -136,7 +136,7 @@ export default function AboutPage() {
           <ScrollReveal>
             <SectionLabel>Ne Yapıyoruz?</SectionLabel>
             <h2 className="mt-4 max-w-2xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-              TRADERS&apos;ı yalnızca bir yatırım veya marka çatısı olarak
+              TRADERS.TR&apos;ı yalnızca bir yatırım veya marka çatısı olarak
               görmüyoruz.
             </h2>
             <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-muted">
@@ -173,7 +173,7 @@ export default function AboutPage() {
           <ScrollReveal>
             <SectionLabel>Markalarımız</SectionLabel>
             <p className="mt-6 text-[17px] leading-relaxed text-slate-200 md:text-[19px]">
-              TRADERS çatısı altında yer alan her marka bağımsız bir işletme
+              TRADERS.TR çatısı altında yer alan her marka bağımsız bir işletme
               olarak kendi yolunu oluşturur.
             </p>
             <p className="mt-5 text-[15px] leading-relaxed text-muted">
@@ -224,7 +224,7 @@ export default function AboutPage() {
             </h2>
             <div className="mt-8 space-y-5 text-[15px] leading-relaxed text-muted">
               <p>
-                TRADERS&apos;ın büyüme modeli tek bir sektöre veya tek bir iş
+                TRADERS.TR&apos;ın büyüme modeli tek bir sektöre veya tek bir iş
                 modeline bağlı değildir.
               </p>
               <p>
@@ -238,7 +238,7 @@ export default function AboutPage() {
                 edindiğimiz deneyimi yeni girişimlere taşımak.
               </p>
               <p>
-                Bu nedenle TRADERS&apos;ın hikâyesi tek bir markanın hikâyesi
+                Bu nedenle TRADERS.TR&apos;ın hikâyesi tek bir markanın hikâyesi
                 değildir. Bir marka portföyünün nasıl oluştuğunun hikâyesidir.
               </p>
             </div>
@@ -271,7 +271,7 @@ export default function AboutPage() {
               </p>
               <p>Bugün portföyümüzde bulunan markalar bunun başlangıç noktası.</p>
               <p className="text-foreground">
-                Yarın hangi markaların TRADERS çatısı altında olacağını ise
+                Yarın hangi markaların TRADERS.TR çatısı altında olacağını ise
                 henüz bilmiyoruz. Ama nasıl inşa edeceğimizi biliyoruz.
               </p>
             </div>
@@ -307,7 +307,7 @@ export default function AboutPage() {
         <div className="container-edit max-w-2xl">
           <ScrollReveal>
             <span className="block text-sm font-semibold tracking-[0.2em] text-foreground">
-              TRADERS
+              TRADERS.TR
             </span>
             <p className="mt-6 text-2xl font-medium leading-snug tracking-tight text-foreground md:text-3xl">
               Think different. Build simple. Build to last.

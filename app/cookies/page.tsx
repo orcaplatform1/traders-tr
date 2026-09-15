@@ -3,7 +3,7 @@ import { SectionLabel } from "@/components/section-label";
 
 export const metadata: Metadata = {
   title: "Çerez Politikası",
-  description: "TRADERS çerez politikası.",
+  description: "TRADERS.TR çerez politikası.",
   alternates: { canonical: "/cookies" },
 };
 

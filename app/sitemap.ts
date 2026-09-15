@@ -16,6 +16,7 @@ const STATIC_ROUTES = [
   { path: "/privacy", priority: 0.2, changeFrequency: "yearly" as const },
   { path: "/cookies", priority: 0.2, changeFrequency: "yearly" as const },
   { path: "/kvkk", priority: 0.2, changeFrequency: "yearly" as const },
+  { path: "/site-haritasi", priority: 0.2, changeFrequency: "monthly" as const },
 ];
 
 // Bu dosya build/request aninda içerik dizilerinden (brands, insights,
