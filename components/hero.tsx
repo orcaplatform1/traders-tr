@@ -15,7 +15,7 @@ export function Hero({ imageSrc }: { imageSrc?: string }) {
             alt=""
             fill
             priority
-            className="object-cover object-center"
+            className="object-contain sm:object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-background from-10% via-background/75 via-45% to-transparent to-70%" />
         </>
