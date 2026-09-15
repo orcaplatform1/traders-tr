@@ -6,7 +6,7 @@ import { insights } from "@/lib/content/insights";
 export const metadata: Metadata = {
   title: "İçgörüler",
   description: "Girişim perspektifinden düşünceler.",
-  alternates: { canonical: "/insights" },
+  alternates: { canonical: "/icgoruler" },
 };
 
 function formatDate(iso: string) {
@@ -28,7 +28,7 @@ export default function InsightsPage() {
 
         <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-3">
           {insights.map((insight) => (
-            <Link key={insight.id} href={`/insights/${insight.slug}`} className="group block">
+            <Link key={insight.id} href={`/icgoruler/${insight.slug}`} className="group block">
               <div className="flex items-center gap-3 text-[12px] text-muted">
                 <span>{formatDate(insight.publishedAt)}</span>
                 <span className="h-1 w-1 rounded-full bg-border" />

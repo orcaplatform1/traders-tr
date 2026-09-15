@@ -50,7 +50,7 @@ export function SiteHeader() {
 
         <div className="hidden md:block">
           <Link
-            href="/contact"
+            href="/iletisim"
             className="rounded-sm border border-border px-4 py-2 text-[13px] font-medium tracking-wide text-foreground transition-colors hover:border-border-hover hover:text-accent"
           >
             İletişim

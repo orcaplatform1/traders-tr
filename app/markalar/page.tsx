@@ -6,7 +6,7 @@ import { brands } from "@/lib/content/brands";
 export const metadata: Metadata = {
   title: "Markalarımız",
   description: "Bağımsız markalar. Ortak bir vizyon.",
-  alternates: { canonical: "/brands" },
+  alternates: { canonical: "/markalar" },
 };
 
 export default function BrandsPage() {

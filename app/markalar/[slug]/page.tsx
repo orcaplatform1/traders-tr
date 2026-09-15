@@ -23,7 +23,7 @@ export async function generateMetadata({
   return {
     title: brand.name,
     description: brand.shortDescription,
-    alternates: { canonical: `/brands/${brand.slug}` },
+    alternates: { canonical: `/markalar/${brand.slug}` },
   };
 }
 
@@ -41,8 +41,8 @@ export default async function BrandProfilePage({
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Markalarımız", item: `${SITE_URL}/brands` },
-      { "@type": "ListItem", position: 3, name: brand.name, item: `${SITE_URL}/brands/${brand.slug}` },
+      { "@type": "ListItem", position: 2, name: "Markalarımız", item: `${SITE_URL}/markalar` },
+      { "@type": "ListItem", position: 3, name: brand.name, item: `${SITE_URL}/markalar/${brand.slug}` },
     ],
   };
 
@@ -51,7 +51,7 @@ export default async function BrandProfilePage({
       <JsonLd data={breadcrumbJsonLd} />
       <div className="container-edit max-w-2xl">
         <Link
-          href="/brands"
+          href="/markalar"
           className="text-[13px] font-medium tracking-wide text-muted transition-colors hover:text-foreground"
         >
           ← Markalarımız

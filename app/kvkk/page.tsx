@@ -25,7 +25,7 @@ export default function KvkkPage() {
               aracılığıyla paylaştığınız kişisel verileriniz bakımından KVKK
               uyarınca veri sorumlusu sıfatıyla hareket eder. Veri işleme
               faaliyetlerimizle ilgili talepleriniz için{" "}
-              <Link href="/contact" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
+              <Link href="/iletisim" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
                 iletişim sayfamız
               </Link>{" "}
               üzerinden bize ulaşabilirsiniz.
@@ -138,7 +138,7 @@ export default function KvkkPage() {
           content: (
             <p>
               Yukarıdaki haklarınızı kullanmak için talebinizi{" "}
-              <Link href="/contact" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
+              <Link href="/iletisim" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
                 iletişim sayfamızdaki
               </Link>{" "}
               formu "Genel" kategorisiyle doldurarak veya formda belirttiğiniz

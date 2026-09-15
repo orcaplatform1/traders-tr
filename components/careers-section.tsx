@@ -24,7 +24,7 @@ export function CareersSection() {
                 Şu anda açık bir pozisyon bulunmuyor.
               </p>
               <Link
-                href="/contact?category=General"
+                href="/iletisim?category=General"
                 className="mt-4 inline-flex items-center gap-2 text-[13px] font-medium tracking-wide text-foreground underline decoration-border underline-offset-4 hover:decoration-accent"
               >
                 Profilinizi gönderin →

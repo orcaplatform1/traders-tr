@@ -4,7 +4,7 @@ import { ContactSection } from "@/components/contact-section";
 export const metadata: Metadata = {
   title: "İletişim",
   description: "Bir fikriniz mi var? Ne inşa ettiğinizi anlatın.",
-  alternates: { canonical: "/contact" },
+  alternates: { canonical: "/iletisim" },
 };
 
 export default async function ContactPage({

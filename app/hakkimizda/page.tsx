@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Hakkımızda",
   description:
     "TRADERS.TR; teknoloji, ticaret ve finansın kesişiminde yeni nesil işletmeler geliştiren, kuran ve işleten çok markalı bir girişim şirketidir.",
-  alternates: { canonical: "/about" },
+  alternates: { canonical: "/hakkimizda" },
 };
 
 const WHAT_WE_DO = [

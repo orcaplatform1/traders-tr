@@ -19,13 +19,13 @@ export function NewsroomSection() {
       <div className="container-edit">
         <ScrollReveal className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <SectionLabel>Haber Merkezi</SectionLabel>
+            <SectionLabel>Basın Merkezi</SectionLabel>
             <h2 className="mt-4 max-w-xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
               Şirket duyuruları.
             </h2>
           </div>
           <Link
-            href="/newsroom"
+            href="/basin-merkezi"
             className="text-[13px] font-medium tracking-wide text-muted underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-accent"
           >
             Tümünü gör
@@ -36,7 +36,7 @@ export function NewsroomSection() {
           {featured.map((post, i) => (
             <ScrollReveal key={post.id} delay={i * 70}>
               <Link
-                href={`/newsroom/${post.slug}`}
+                href={`/basin-merkezi/${post.slug}`}
                 className="group flex flex-col gap-2 py-6 sm:flex-row sm:items-center sm:justify-between sm:gap-10"
               >
                 <div className="flex items-center gap-4">

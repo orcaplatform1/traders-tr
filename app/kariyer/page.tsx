@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Kariyer",
   description:
     "Bağımsız düşünen, özenle inşa eden insanlarla çalışmak isteriz.",
-  alternates: { canonical: "/careers" },
+  alternates: { canonical: "/kariyer" },
 };
 
 export default function CareersPage() {

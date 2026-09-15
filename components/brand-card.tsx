@@ -34,7 +34,7 @@ export function BrandCard({ brand }: { brand: Brand }) {
           </span>
         </a>
         <Link
-          href={`/brands/${brand.slug}`}
+          href={`/markalar/${brand.slug}`}
           className="text-muted transition-colors hover:text-accent"
         >
           Profili gör

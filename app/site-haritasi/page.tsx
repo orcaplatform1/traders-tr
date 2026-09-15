@@ -16,38 +16,38 @@ const GROUPS: { title: string; links: { href: string; label: string }[] }[] = [
     title: "Şirket",
     links: [
       { href: "/", label: "Ana Sayfa" },
-      { href: "/about", label: "Hakkımızda" },
-      { href: "/ventures", label: "Girişimler" },
-      { href: "/careers", label: "Kariyer" },
-      { href: "/contact", label: "İletişim" },
+      { href: "/hakkimizda", label: "Hakkımızda" },
+      { href: "/girisimler", label: "Girişimler" },
+      { href: "/kariyer", label: "Kariyer" },
+      { href: "/iletisim", label: "İletişim" },
     ],
   },
   {
     title: "Markalar",
     links: [
-      { href: "/brands", label: "Tüm Markalar" },
-      ...brands.map((b) => ({ href: `/brands/${b.slug}`, label: b.name })),
+      { href: "/markalar", label: "Tüm Markalar" },
+      ...brands.map((b) => ({ href: `/markalar/${b.slug}`, label: b.name })),
     ],
   },
   {
     title: "İçgörüler",
     links: [
-      { href: "/insights", label: "Tüm İçgörüler" },
-      ...insights.map((i) => ({ href: `/insights/${i.slug}`, label: i.title })),
+      { href: "/icgoruler", label: "Tüm İçgörüler" },
+      ...insights.map((i) => ({ href: `/icgoruler/${i.slug}`, label: i.title })),
     ],
   },
   {
-    title: "Haber Merkezi",
+    title: "Basın Merkezi",
     links: [
-      { href: "/newsroom", label: "Tüm Duyurular" },
-      ...newsroomPosts.map((p) => ({ href: `/newsroom/${p.slug}`, label: p.title })),
+      { href: "/basin-merkezi", label: "Tüm Duyurular" },
+      ...newsroomPosts.map((p) => ({ href: `/basin-merkezi/${p.slug}`, label: p.title })),
     ],
   },
   {
     title: "Yasal",
     links: [
-      { href: "/privacy", label: "Gizlilik Politikası" },
-      { href: "/cookies", label: "Çerez Politikası" },
+      { href: "/gizlilik-politikasi", label: "Gizlilik Politikası" },
+      { href: "/cerez-politikasi", label: "Çerez Politikası" },
       { href: "/kvkk", label: "KVKK Aydınlatma Metni" },
     ],
   },

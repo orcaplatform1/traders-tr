@@ -4,9 +4,9 @@ import { SectionLabel } from "@/components/section-label";
 import { newsroomPosts } from "@/lib/content/newsroom";
 
 export const metadata: Metadata = {
-  title: "Haber Merkezi",
+  title: "Basın Merkezi",
   description: "Şirket duyuruları.",
-  alternates: { canonical: "/newsroom" },
+  alternates: { canonical: "/basin-merkezi" },
 };
 
 function formatDate(iso: string) {
@@ -21,7 +21,7 @@ export default function NewsroomPage() {
   return (
     <section className="py-28 md:py-36">
       <div className="container-edit">
-        <SectionLabel>Haber Merkezi</SectionLabel>
+        <SectionLabel>Basın Merkezi</SectionLabel>
         <h1 className="mt-4 max-w-xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
           Şirket duyuruları.
         </h1>
@@ -30,7 +30,7 @@ export default function NewsroomPage() {
           {newsroomPosts.map((post) => (
             <Link
               key={post.id}
-              href={`/newsroom/${post.slug}`}
+              href={`/basin-merkezi/${post.slug}`}
               className="group flex flex-col gap-2 py-6 sm:flex-row sm:items-center sm:justify-between sm:gap-10"
             >
               <div className="flex items-center gap-4">

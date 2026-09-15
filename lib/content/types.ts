@@ -34,13 +34,18 @@ export type InsightCategory =
   | "Piyasalar"
   | "Şirket";
 
+export type ContentBlock =
+  | { type: "p"; text: string }
+  | { type: "h2"; text: string; id: string }
+  | { type: "quote"; text: string };
+
 export interface Insight {
   id: string;
   slug: string;
   title: string;
   category: InsightCategory;
   excerpt: string;
-  content: string[];
+  content: ContentBlock[];
   author: string;
   publishedAt: string;
   readTime: string;
@@ -58,9 +63,10 @@ export interface NewsroomPost {
   slug: string;
   title: string;
   excerpt: string;
-  content: string[];
+  content: ContentBlock[];
   category: NewsroomCategory;
   publishedAt: string;
+  readTime: string;
 }
 
 export interface Job {

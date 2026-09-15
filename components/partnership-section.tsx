@@ -16,19 +16,19 @@ export function PartnershipSection() {
 
           <div className="mt-10 flex flex-wrap gap-4">
             <Link
-              href="/contact?category=Partnership"
+              href="/iletisim?category=Partnership"
               className="rounded-sm border border-border px-5 py-2.5 text-[13px] font-medium tracking-wide text-foreground transition-colors hover:border-border-hover hover:text-accent"
             >
               İş Ortaklığı
             </Link>
             <Link
-              href="/contact?category=Venture"
+              href="/iletisim?category=Venture"
               className="rounded-sm border border-border px-5 py-2.5 text-[13px] font-medium tracking-wide text-foreground transition-colors hover:border-border-hover hover:text-accent"
             >
               Girişim
             </Link>
             <Link
-              href="/contact?category=Press"
+              href="/iletisim?category=Press"
               className="rounded-sm border border-border px-5 py-2.5 text-[13px] font-medium tracking-wide text-foreground transition-colors hover:border-border-hover hover:text-accent"
             >
               Basın

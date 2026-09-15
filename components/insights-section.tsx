@@ -25,7 +25,7 @@ export function InsightsSection() {
             </h2>
           </div>
           <Link
-            href="/insights"
+            href="/icgoruler"
             className="text-[13px] font-medium tracking-wide text-muted underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-accent"
           >
             Tümünü gör
@@ -35,7 +35,7 @@ export function InsightsSection() {
         <div className="mt-16 grid grid-cols-1 gap-10 md:grid-cols-3">
           {featured.map((insight, i) => (
             <ScrollReveal key={insight.id} delay={i * 90}>
-              <Link href={`/insights/${insight.slug}`} className="group block">
+              <Link href={`/icgoruler/${insight.slug}`} className="group block">
                 <div className="flex items-center gap-3 text-[12px] text-muted">
                   <span>{formatDate(insight.publishedAt)}</span>
                   <span className="h-1 w-1 rounded-full bg-border" />

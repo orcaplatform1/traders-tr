@@ -5,25 +5,25 @@ export const SITE_DESCRIPTION =
   "TRADERS.TR is a multi-brand venture company building businesses across technology, commerce and finance.";
 
 export const NAV_LINKS = [
-  { label: "Hakkımızda", href: "/about" },
-  { label: "Markalar", href: "/brands" },
-  { label: "Girişimler", href: "/ventures" },
-  { label: "İçgörüler", href: "/insights" },
-  { label: "Haber Merkezi", href: "/newsroom" },
+  { label: "Hakkımızda", href: "/hakkimizda" },
+  { label: "Markalar", href: "/markalar" },
+  { label: "Girişimler", href: "/girisimler" },
+  { label: "İçgörüler", href: "/icgoruler" },
+  { label: "Basın Merkezi", href: "/basin-merkezi" },
 ] as const;
 
 export const FOOTER_COMPANY_LINKS = [
-  { label: "Hakkımızda", href: "/about" },
-  { label: "Girişimler", href: "/ventures" },
-  { label: "İçgörüler", href: "/insights" },
-  { label: "Haber Merkezi", href: "/newsroom" },
-  { label: "Kariyer", href: "/careers" },
-  { label: "İletişim", href: "/contact" },
+  { label: "Hakkımızda", href: "/hakkimizda" },
+  { label: "Girişimler", href: "/girisimler" },
+  { label: "İçgörüler", href: "/icgoruler" },
+  { label: "Basın Merkezi", href: "/basin-merkezi" },
+  { label: "Kariyer", href: "/kariyer" },
+  { label: "İletişim", href: "/iletisim" },
 ] as const;
 
 export const FOOTER_LEGAL_LINKS = [
-  { label: "Gizlilik", href: "/privacy" },
-  { label: "Çerez Politikası", href: "/cookies" },
+  { label: "Gizlilik Politikası", href: "/gizlilik-politikasi" },
+  { label: "Çerez Politikası", href: "/cerez-politikasi" },
   { label: "KVKK", href: "/kvkk" },
   { label: "Site Haritası", href: "/site-haritasi" },
   { label: "XML Site Haritası", href: "/sitemap.xml" },

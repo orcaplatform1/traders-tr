@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Gizlilik Politikası",
   description:
     "TRADERS.TR gizlilik politikası — hangi bilgileri topladığımız, nasıl kullandığımız ve haklarınız.",
-  alternates: { canonical: "/privacy" },
+  alternates: { canonical: "/gizlilik-politikasi" },
 };
 
 export default function PrivacyPage() {
@@ -66,7 +66,7 @@ export default function PrivacyPage() {
                 Şu anda sitede üçüncü taraf analitik veya reklam izleme
                 aracı (ör. Google Analytics, Meta Pixel) kullanılmamaktadır.
                 Bu durum değişirse, bu sayfa ve{" "}
-                <Link href="/cookies" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
+                <Link href="/cerez-politikasi" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
                   Çerez Politikası
                 </Link>{" "}
                 güncellenerek duyurulacaktır.
@@ -125,7 +125,7 @@ export default function PrivacyPage() {
               yasal bir saklama zorunluluğu bulunmadığı sürece, verileriniz
               silinir veya anonim hâle getirilir. Silinmesini istediğiniz her
               an{" "}
-              <Link href="/contact" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
+              <Link href="/iletisim" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
                 bize ulaşarak
               </Link>{" "}
               talep edebilirsiniz.
@@ -184,7 +184,7 @@ export default function PrivacyPage() {
           content: (
             <p>
               Bu politikayla ilgili sorularınız veya talepleriniz için{" "}
-              <Link href="/contact" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
+              <Link href="/iletisim" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
                 iletişim sayfamız
               </Link>{" "}
               üzerinden bize ulaşabilirsiniz.

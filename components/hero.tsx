@@ -50,16 +50,16 @@ export function Hero({ imageSrc }: { imageSrc?: string }) {
 
         <div className="mt-8 flex flex-wrap items-center gap-6">
           <Link
-            href="/brands"
+            href="/markalar"
             className="btn-shine group relative rounded-sm border border-foreground bg-foreground px-6 py-3 text-[13px] font-medium tracking-wide text-slate-950 transition-colors hover:bg-transparent hover:text-foreground"
           >
             <span className="relative z-10">Markalarımızı Keşfedin</span>
           </Link>
           <Link
-            href="/about"
+            href="/hakkimizda"
             className="text-[13px] font-medium tracking-wide text-muted underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-accent"
           >
-            TRADERS.TR Hakkında
+            Bizim Öykümüz
           </Link>
         </div>
       </div>

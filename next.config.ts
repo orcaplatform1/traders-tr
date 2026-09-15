@@ -37,8 +37,22 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
-      { source: "/insight/:slug", destination: "/insights/:slug", permanent: true },
-      { source: "/news/:slug", destination: "/newsroom/:slug", permanent: true },
+      // Site yollari Turkceye tasindi (2026-09-15) - eski Ingilizce yollara
+      // giden linkler/yer imleri kirilmasin diye kalici yonlendirme.
+      { source: "/about", destination: "/hakkimizda", permanent: true },
+      { source: "/brands", destination: "/markalar", permanent: true },
+      { source: "/brands/:slug", destination: "/markalar/:slug", permanent: true },
+      { source: "/ventures", destination: "/girisimler", permanent: true },
+      { source: "/insights", destination: "/icgoruler", permanent: true },
+      { source: "/insights/:slug", destination: "/icgoruler/:slug", permanent: true },
+      { source: "/insight/:slug", destination: "/icgoruler/:slug", permanent: true },
+      { source: "/newsroom", destination: "/basin-merkezi", permanent: true },
+      { source: "/newsroom/:slug", destination: "/basin-merkezi/:slug", permanent: true },
+      { source: "/news/:slug", destination: "/basin-merkezi/:slug", permanent: true },
+      { source: "/careers", destination: "/kariyer", permanent: true },
+      { source: "/contact", destination: "/iletisim", permanent: true },
+      { source: "/privacy", destination: "/gizlilik-politikasi", permanent: true },
+      { source: "/cookies", destination: "/cerez-politikasi", permanent: true },
     ];
   },
 };

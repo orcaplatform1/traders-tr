@@ -65,7 +65,7 @@ export function MobileMenu() {
             </Link>
           ))}
           <Link
-            href="/contact"
+            href="/iletisim"
             onClick={() => setOpen(false)}
             className="mt-6 border-b border-border pb-1 text-sm uppercase tracking-[0.15em] text-muted transition-colors hover:text-accent hover:border-accent"
           >

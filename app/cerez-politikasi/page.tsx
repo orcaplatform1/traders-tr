@@ -5,7 +5,7 @@ import { LegalPage } from "@/components/legal-page";
 export const metadata: Metadata = {
   title: "Çerez Politikası",
   description: "TRADERS.TR çerez ve benzeri depolama teknolojileri politikası.",
-  alternates: { canonical: "/cookies" },
+  alternates: { canonical: "/cerez-politikasi" },
 };
 
 export default function CookiesPage() {
@@ -86,7 +86,7 @@ export default function CookiesPage() {
               değişikliklere göre güncelleyebiliriz. Güncel sürüm her zaman
               bu sayfada, "son güncelleme" tarihiyle birlikte yer alır. Daha
               genel gizlilik uygulamalarımız için{" "}
-              <Link href="/privacy" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
+              <Link href="/gizlilik-politikasi" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
                 Gizlilik Politikası
               </Link>{" "}
               sayfamıza bakabilirsiniz.
