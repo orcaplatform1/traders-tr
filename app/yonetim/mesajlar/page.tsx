@@ -11,6 +11,11 @@ export const metadata: Metadata = {
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
+  ortaklik: "İş Ortaklığı",
+  girisim: "Girişim",
+  basin: "Basın",
+  genel: "Genel",
+  // Eski kayıtlar (kategori değerleri Türkçeleştirilmeden önce gönderilmiş)
   Partnership: "İş Ortaklığı",
   Venture: "Girişim",
   Press: "Basın",

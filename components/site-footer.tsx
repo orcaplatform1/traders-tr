@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   FOOTER_COMPANY_LINKS,
+  FOOTER_EXPLORE_LINKS,
   FOOTER_LEGAL_LINKS,
   SITE_TAGLINE,
 } from "@/lib/constants";
@@ -11,30 +12,31 @@ export function SiteFooter() {
   return (
     <footer className="border-t border-border">
       <div className="container-edit grid grid-cols-1 gap-12 py-16 md:grid-cols-4 md:py-20">
-        <div className="md:col-span-2">
+        <div className="md:col-span-1">
           <div className="relative h-8 w-[190px]">
             <Image src="/logo.png" alt="TRADERS.TR" fill className="object-contain object-left" sizes="190px" />
           </div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
             {SITE_TAGLINE}
           </p>
+        </div>
 
-          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-2">
-            {brands.map((brand) => (
-              <a
-                key={brand.slug}
-                href={brand.websiteUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[13px] text-muted transition-colors hover:text-accent"
-              >
-                <span className="relative h-4 w-4 shrink-0">
-                  <Image src={brand.logo} alt="" fill className="object-contain" sizes="16px" />
-                </span>
-                {brand.name}
-              </a>
+        <div>
+          <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
+            Keşfet
+          </span>
+          <ul className="mt-4 space-y-3">
+            {FOOTER_EXPLORE_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-[13px] text-muted transition-colors hover:text-foreground"
+                >
+                  {link.label}
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
 
         <div>
@@ -57,17 +59,22 @@ export function SiteFooter() {
 
         <div>
           <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-            Yasal
+            Markalarımız
           </span>
           <ul className="mt-4 space-y-3">
-            {FOOTER_LEGAL_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-[13px] text-muted transition-colors hover:text-foreground"
+            {brands.map((brand) => (
+              <li key={brand.slug}>
+                <a
+                  href={brand.websiteUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[13px] text-muted transition-colors hover:text-accent"
                 >
-                  {link.label}
-                </Link>
+                  <span className="relative h-4 w-4 shrink-0">
+                    <Image src={brand.logo} alt="" fill className="object-contain" sizes="16px" />
+                  </span>
+                  {brand.name}
+                </a>
               </li>
             ))}
           </ul>
@@ -75,8 +82,8 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-border">
-        <div className="container-edit flex justify-center py-6 text-center text-[12px] text-muted">
-          <span>
+        <div className="container-edit flex flex-col items-center gap-4 py-6 text-center sm:flex-row sm:justify-between sm:text-left">
+          <span className="text-[12px] text-muted">
             &copy; 2026{" "}
             <span className="whitespace-nowrap">
               <span className="font-semibold text-slate-50">Traders</span>
@@ -90,6 +97,19 @@ export function SiteFooter() {
             </span>
             . Tüm hakları saklıdır.
           </span>
+
+          <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
+            {FOOTER_LEGAL_LINKS.map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="text-[12px] text-muted transition-colors hover:text-foreground"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </footer>

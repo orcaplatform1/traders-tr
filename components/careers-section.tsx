@@ -10,9 +10,9 @@ export function CareersSection() {
     <section className="border-b border-border py-28 md:py-36">
       <div className="container-edit">
         <ScrollReveal>
-          <SectionLabel>Bizimle İnşa Edin</SectionLabel>
+          <SectionLabel>Kariyer</SectionLabel>
           <h2 className="mt-4 max-w-xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-            Bağımsız düşünen, özenle inşa eden insanlarla çalışmak
+            Bağımsız düşünen, özenle üreten insanlarla çalışmak
             isteriz.
           </h2>
         </ScrollReveal>
@@ -24,7 +24,7 @@ export function CareersSection() {
                 Şu anda açık bir pozisyon bulunmuyor.
               </p>
               <Link
-                href="/iletisim?category=General"
+                href="/iletisim?kategori=genel"
                 className="mt-4 inline-flex items-center gap-2 text-[13px] font-medium tracking-wide text-foreground underline decoration-border underline-offset-4 hover:decoration-accent"
               >
                 Profilinizi gönderin →

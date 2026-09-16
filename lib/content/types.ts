@@ -1,10 +1,14 @@
 export type BrandStatus = "active" | "exploring";
 
+export type BrandAccent = "blue" | "purple" | "teal";
+
 export interface Brand {
   id: string;
   name: string;
   slug: string;
   logo: string;
+  monogram: string;
+  accent: BrandAccent;
   category: string;
   shortDescription: string;
   longDescription: string;

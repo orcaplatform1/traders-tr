@@ -34,9 +34,9 @@ const CATEGORIES = [
 export default async function ContactPage({
   searchParams,
 }: {
-  searchParams: Promise<{ category?: string }>;
+  searchParams: Promise<{ kategori?: string }>;
 }) {
-  const { category } = await searchParams;
+  const { kategori } = await searchParams;
 
   return (
     <>
@@ -64,7 +64,7 @@ export default async function ContactPage({
         </div>
       </section>
 
-      <ContactSection defaultCategory={category} />
+      <ContactSection defaultCategory={kategori} />
     </>
   );
 }

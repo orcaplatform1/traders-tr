@@ -1,8 +1,8 @@
 export const SITE_NAME = "TRADERS.TR";
 export const SITE_URL = "https://traders.tr";
-export const SITE_TAGLINE = "Building brands beyond boundaries.";
+export const SITE_TAGLINE = "Sınırların ötesinde markalar inşa ediyoruz.";
 export const SITE_DESCRIPTION =
-  "TRADERS.TR is a multi-brand venture company building businesses across technology, commerce and finance.";
+  "TRADERS.TR; teknoloji, ticaret ve finans alanlarında işletmeler kuran ve işleten çok markalı bir girişim şirketidir.";
 
 export const NAV_LINKS = [
   { label: "Hakkımızda", href: "/hakkimizda" },
@@ -12,11 +12,16 @@ export const NAV_LINKS = [
   { label: "Basın Merkezi", href: "/basin-merkezi" },
 ] as const;
 
-export const FOOTER_COMPANY_LINKS = [
-  { label: "Hakkımızda", href: "/hakkimizda" },
+export const FOOTER_EXPLORE_LINKS = [
+  { label: "Markalar", href: "/markalar" },
   { label: "Girişimler", href: "/girisimler" },
   { label: "İçgörüler", href: "/icgoruler" },
   { label: "Basın Merkezi", href: "/basin-merkezi" },
+] as const;
+
+export const FOOTER_COMPANY_LINKS = [
+  { label: "Hakkımızda", href: "/hakkimizda" },
+  { label: "İş Ortaklıkları", href: "/iletisim?kategori=ortaklik" },
   { label: "Kariyer", href: "/kariyer" },
   { label: "İletişim", href: "/iletisim" },
 ] as const;

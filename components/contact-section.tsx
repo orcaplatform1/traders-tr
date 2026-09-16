@@ -9,7 +9,7 @@ export function ContactSection({ defaultCategory }: { defaultCategory?: string }
         <ScrollReveal>
           <SectionLabel>Bir Fikriniz mi Var?</SectionLabel>
           <h2 className="mt-4 max-w-md text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-            Ne inşa ettiğinizi anlatın.
+            Ne yarattığınızı anlatın.
           </h2>
         </ScrollReveal>
 

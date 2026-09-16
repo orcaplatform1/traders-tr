@@ -12,7 +12,7 @@ const contactSchema = z.object({
     .regex(/^\d{10}$/, "Telefon numarası 10 haneli olmalı (başında 0 olmadan)"),
   company: z.string().trim().max(200).optional().or(z.literal("")),
   subject: z.string().trim().min(2, "Konu gerekli").max(200),
-  category: z.enum(["Partnership", "Venture", "Press", "General"]),
+  category: z.enum(["ortaklik", "girisim", "basin", "genel"]),
   message: z.string().trim().min(10, "Mesaj en az 10 karakter olmalı").max(4000),
   // honeypot: gercek kullanicilar bu alani gormez/doldurmaz
   website: z.string().max(0).optional().or(z.literal("")),

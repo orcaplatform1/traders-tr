@@ -6,6 +6,8 @@ export const brands: Brand[] = [
     name: "ORCA",
     slug: "orca",
     logo: "/brand-logos/orca.png",
+    monogram: "OR",
+    accent: "blue",
     category: "Finans / Eğitim",
     shortDescription:
       "Yapılandırılmış eğitim, teknoloji ve yapay zekâ destekli pratiği bir araya getiren yeni nesil finans eğitim platformu.",
@@ -30,6 +32,8 @@ export const brands: Brand[] = [
     name: "KriptoBeyan",
     slug: "kriptobeyan",
     logo: "/brand-logos/kriptobeyan.png",
+    monogram: "KB",
+    accent: "purple",
     category: "Dijital Finans / Vergi",
     shortDescription:
       "Kripto varlık vergilendirmesi ve beyan süreçlerine odaklanan bir platform.",
@@ -54,6 +58,8 @@ export const brands: Brand[] = [
     name: "ZESTA",
     slug: "zesta",
     logo: "/brand-logos/zesta.png",
+    monogram: "ZS",
+    accent: "teal",
     category: "Ticaret / El Yapımı",
     shortDescription:
       "El yapımı ürünlerin özel sipariş üzerinden hazırlandığı ve sunulduğu bir platform.",

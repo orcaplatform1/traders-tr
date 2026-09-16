@@ -9,73 +9,82 @@ export function VenturesSection() {
         <ScrollReveal>
           <SectionLabel>Girişimler</SectionLabel>
           <h2 className="mt-4 max-w-2xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-            Bazı fikirler inşa edilmeye hazır. Bazıları henüz oluşuyor.
+            Sıfırdan kuruldu.
           </h2>
         </ScrollReveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-16 md:grid-cols-[1.4fr_1fr]">
-          <div>
-            <ScrollReveal>
-              <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-                Aktif
-              </span>
-            </ScrollReveal>
+        <div className="relative mt-20 border-t border-border pt-14">
+          <div className="grid grid-cols-1 gap-16 md:grid-cols-3 md:gap-12">
+            {ventures.map((v, i) => (
+              <ScrollReveal key={v.id} delay={i * 100}>
+                <div className="group relative">
+                  <span className="absolute -top-[59px] left-0 hidden h-2 w-2 rounded-full bg-accent ring-4 ring-background md:block" />
 
-            <div className="mt-6">
-              {ventures.map((v, i) => (
-                <ScrollReveal key={v.id} delay={i * 90}>
-                  <div className="group border-t border-border py-6 transition-colors duration-300 hover:border-border-hover">
-                    <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-                      <span className="text-lg font-medium text-foreground">{v.name}</span>
-                      <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
-                        {v.category}
-                      </span>
+                  <span className="font-mono text-4xl font-medium leading-none text-border-strong transition-colors duration-300 group-hover:text-accent">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+
+                  <h3 className="mt-5 text-2xl font-medium tracking-tight text-foreground md:text-[26px]">
+                    {v.name}
+                  </h3>
+                  <p className="mt-2 text-[14px] leading-relaxed text-muted">{v.description}</p>
+
+                  <dl className="mt-6 space-y-3 border-t border-border pt-5">
+                    <div className="flex items-baseline justify-between gap-4">
+                      <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
+                        Kategori
+                      </dt>
+                      <dd className="text-right text-[13px] text-slate-300">{v.category}</dd>
                     </div>
-                    <p className="mt-2 text-[14px] text-muted">{v.description}</p>
-                    <p className="mt-2 max-w-lg text-[14px] leading-relaxed text-slate-300">
-                      {v.detail}
-                    </p>
+                    <div className="flex items-baseline justify-between gap-4">
+                      <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
+                        Durum
+                      </dt>
+                      <dd className="flex items-center gap-2 text-[13px] text-slate-300">
+                        <span className="h-1.5 w-1.5 rounded-full bg-accent" />
+                        Aktif
+                      </dd>
+                    </div>
                     {v.websiteUrl && (
-                      <a
-                        href={v.websiteUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="mt-3 inline-flex items-center gap-2 text-[12px] font-medium tracking-wide text-muted transition-colors hover:text-accent"
-                      >
-                        {v.websiteUrl.replace(/^https?:\/\//, "")}
-                        <span className="transition-transform duration-300 group-hover:translate-x-1">
-                          →
-                        </span>
-                      </a>
+                      <div className="flex items-baseline justify-between gap-4">
+                        <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
+                          Web Sitesi
+                        </dt>
+                        <dd>
+                          <a
+                            href={v.websiteUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground transition-colors hover:text-accent"
+                          >
+                            {v.websiteUrl.replace(/^https?:\/\//, "")}
+                            <span className="transition-transform duration-300 group-hover:translate-x-1">
+                              →
+                            </span>
+                          </a>
+                        </dd>
+                      </div>
                     )}
-                  </div>
-                </ScrollReveal>
-              ))}
-              <div className="border-t border-border" />
-            </div>
-          </div>
-
-          <div>
-            <ScrollReveal delay={120}>
-              <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-                Keşfediyoruz
-              </span>
-            </ScrollReveal>
-            <ScrollReveal delay={160}>
-              <div className="mt-6 border-t border-border pb-5 pt-6">
-                <span className="text-lg font-medium text-foreground">Yeni girişimler</span>
-                <p className="mt-2 max-w-sm text-[14px] leading-relaxed text-muted">
-                  Teknoloji, dijital ticaret, finans ve gelişmekte olan
-                  pazarlardaki fırsatları sürekli değerlendiriyoruz.
-                </p>
-                <span className="mt-4 inline-block text-[11px] font-medium uppercase tracking-[0.15em] text-accent">
-                  Sırada
-                </span>
-              </div>
-              <div className="border-t border-border" />
-            </ScrollReveal>
+                  </dl>
+                </div>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
+
+        <ScrollReveal delay={160}>
+          <div className="mt-14 flex flex-col gap-4 border-t border-border pt-10 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-accent">
+                Keşfediyoruz
+              </span>
+              <p className="mt-3 max-w-md text-[14px] leading-relaxed text-muted">
+                Teknoloji, dijital ticaret, finans ve gelişmekte olan
+                pazarlardaki fırsatları sürekli değerlendiriyoruz.
+              </p>
+            </div>
+          </div>
+        </ScrollReveal>
       </div>
     </section>
   );

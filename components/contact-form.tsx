@@ -4,15 +4,15 @@ import { useActionState } from "react";
 import { submitContactForm, type ContactFormState } from "@/app/actions/contact";
 
 const CATEGORIES = [
-  { value: "Partnership", label: "İş Ortaklığı" },
-  { value: "Venture", label: "Girişim" },
-  { value: "Press", label: "Basın" },
-  { value: "General", label: "Genel" },
+  { value: "ortaklik", label: "İş Ortaklığı" },
+  { value: "girisim", label: "Girişim" },
+  { value: "basin", label: "Basın" },
+  { value: "genel", label: "Genel" },
 ] as const;
 
 const initialState: ContactFormState = { status: "idle" };
 
-export function ContactForm({ defaultCategory = "General" }: { defaultCategory?: string }) {
+export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: string }) {
   const [state, formAction, pending] = useActionState(submitContactForm, initialState);
 
   if (state.status === "success") {
@@ -96,10 +96,16 @@ export function ContactForm({ defaultCategory = "General" }: { defaultCategory?:
           name="category"
           defaultValue={defaultCategory}
           required
+          style={{ colorScheme: "dark" }}
           className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground transition-colors focus:border-slate-300 focus:outline-none"
         >
           {CATEGORIES.map((c) => (
-            <option key={c.value} value={c.value} className="bg-surface-2 text-foreground">
+            <option
+              key={c.value}
+              value={c.value}
+              className="bg-surface-2 text-foreground"
+              style={{ backgroundColor: "var(--surface-2)", color: "var(--text-primary)" }}
+            >
               {c.label}
             </option>
           ))}
