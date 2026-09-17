@@ -16,7 +16,7 @@ import { ContactSection } from "@/components/contact-section";
 export default function Home() {
   return (
     <>
-      <Hero imageSrc="/hero.png" />
+      <Hero imageSrc="/hero.webp" imageSrcMobile="/hero-mobile.webp" />
       <CompanyStatement />
       <BrandGrid />
       <BrandsStatement />

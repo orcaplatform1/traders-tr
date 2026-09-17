@@ -59,9 +59,29 @@ export function BrandCard({ brand }: { brand: Brand }) {
             </span>
           </div>
 
-          <span className="flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
-            <span className={`h-1.5 w-1.5 rounded-full ${accent.dot}`} />
-            {brand.status === "active" ? "Aktif" : "Keşfediyoruz"}
+          <span
+            className={`flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.12em] ${
+              brand.status === "developing"
+                ? "text-warning"
+                : brand.status === "active"
+                  ? "text-success"
+                  : "text-muted"
+            }`}
+          >
+            <span
+              className={`h-1.5 w-1.5 rounded-full ${
+                brand.status === "developing"
+                  ? "bg-warning"
+                  : brand.status === "active"
+                    ? "bg-success"
+                    : accent.dot
+              }`}
+            />
+            {brand.status === "active"
+              ? "Aktif"
+              : brand.status === "developing"
+                ? "Geliştiriliyor"
+                : "Keşfediyoruz"}
           </span>
         </div>
 

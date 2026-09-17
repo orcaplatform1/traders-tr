@@ -1,4 +1,4 @@
-export type BrandStatus = "active" | "exploring";
+export type BrandStatus = "active" | "developing" | "exploring";
 
 export type BrandAccent = "blue" | "purple" | "teal";
 
@@ -27,7 +27,7 @@ export interface Venture {
   category: string;
   description: string;
   detail: string;
-  stage: "active" | "exploring" | "coming-next";
+  stage: "active" | "developing" | "exploring" | "coming-next";
   websiteUrl?: string;
 }
 

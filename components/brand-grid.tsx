@@ -10,10 +10,19 @@ const GLOW: Record<BrandAccent, string> = {
   teal: "#14b8a6",
 };
 
-const ACCENT_TEXT: Record<BrandAccent, string> = {
-  blue: "text-blue-400",
-  purple: "text-purple",
-  teal: "text-teal",
+// Marka kimligine gore ozel renk: Orca mavi, KriptoBeyan altin/sampanya
+// (marka rengi purple yerine burada bilincli olarak altina ceviriyoruz),
+// Zesta kendi teal accent'i (zeytin yesili degil). Bu renk hem buyuk
+// gorsel panelin cercevesinde hem "01/02/03" numarasinda kullanilir.
+// KriptoBeyan'in logo kutusunun arkaplani da ayni altin tonuyla tintleniyor.
+const BRAND_COLOR: Record<string, string> = {
+  orca: GLOW.blue,
+  kriptobeyan: "#d4af37",
+  zesta: GLOW.teal,
+};
+
+const LOGO_BG: Record<string, string> = {
+  kriptobeyan: "rgba(212, 175, 55, 0.16)",
 };
 
 const EXPLORE_LABEL: Record<string, string> = {
@@ -30,9 +39,14 @@ const ACCENT_HOVER_TEXT: Record<BrandAccent, string> = {
 
 function BrandVisual({ brand }: { brand: Brand }) {
   const glow = GLOW[brand.accent];
+  const brandColor = BRAND_COLOR[brand.id] ?? glow;
+  const logoBg = LOGO_BG[brand.id];
 
   return (
-    <div className="relative h-[320px] w-full overflow-hidden rounded-sm border border-border md:h-[420px] lg:h-[480px]">
+    <div
+      className="relative h-[320px] w-full overflow-hidden rounded-sm border-2 md:h-[420px] lg:h-[480px]"
+      style={{ borderColor: brandColor }}
+    >
       <div className="absolute inset-0 bg-slate-900 transition-transform duration-700 ease-out group-hover:scale-[1.03]">
         {brand.accent === "teal" ? (
           <div
@@ -69,8 +83,8 @@ function BrandVisual({ brand }: { brand: Brand }) {
 
       <div className="absolute inset-0 flex items-center justify-center p-10">
         <div
-          className="relative flex h-40 w-40 items-center justify-center rounded-2xl border bg-slate-950/60 shadow-2xl backdrop-blur-sm transition-transform duration-500 group-hover:scale-105 md:h-52 md:w-52"
-          style={{ borderColor: `${glow}40` }}
+          className="relative flex h-40 w-40 items-center justify-center rounded-2xl border border-white/10 bg-slate-950/60 shadow-2xl backdrop-blur-sm transition-transform duration-500 group-hover:scale-105 md:h-52 md:w-52"
+          style={logoBg ? { backgroundColor: logoBg } : undefined}
         >
           <div className="relative h-24 w-24 md:h-32 md:w-32">
             <Image
@@ -113,7 +127,10 @@ export function BrandGrid() {
 
                   <div className={reversed ? "md:order-1" : ""}>
                     <div className="flex items-center gap-3">
-                      <span className={`text-sm font-medium ${ACCENT_TEXT[brand.accent]}`}>
+                      <span
+                        className="text-sm font-medium"
+                        style={{ color: BRAND_COLOR[brand.id] ?? GLOW[brand.accent] }}
+                      >
                         {String(brand.displayOrder).padStart(2, "0")}
                       </span>
                       <span className="font-mono text-[13px] text-muted">

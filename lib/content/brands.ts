@@ -8,9 +8,9 @@ export const brands: Brand[] = [
     logo: "/brand-logos/orca.png",
     monogram: "OR",
     accent: "blue",
-    category: "Finans / Eğitim",
+    category: "Finans Eğitimi",
     shortDescription:
-      "Yapılandırılmış eğitim, teknoloji ve yapay zekâ destekli pratiği bir araya getiren yeni nesil finans eğitim platformu.",
+      "Yapay zeka destekli kişiselleştirilmiş öğrenme programları, uygulamalı dersler, canlı piyasa simülasyonları ve akıllı anlık veri araçlarını tek bir ekosistemde buluşturan benzersiz eğitim platformu.",
     longDescription:
       "ORCA, finansal okuryazarlıktan ileri seviye teknik analize uzanan yapılandırılmış bir müfredatı; canlı bir topluluk, yapay zekâ mentorluk ve gerçek piyasa verisiyle pratik yapma imkânıyla birleştirir.",
     whyItExists:
@@ -23,7 +23,7 @@ export const brands: Brand[] = [
       "TradingView tarzı aktif bir topluluk: analiz paylaşımı, canlı dersler ve öğrenci etkileşimi",
     ],
     websiteUrl: "https://traders.tr/orca",
-    status: "active",
+    status: "developing",
     featured: true,
     displayOrder: 1,
   },
@@ -34,9 +34,9 @@ export const brands: Brand[] = [
     logo: "/brand-logos/kriptobeyan.png",
     monogram: "KB",
     accent: "purple",
-    category: "Dijital Finans / Vergi",
+    category: "Dijital Vergi",
     shortDescription:
-      "Kripto varlık vergilendirmesi ve beyan süreçlerine odaklanan bir platform.",
+      "KriptoBeyan ile kripto vergi hesaplama otomatikleşir: borsa hesaplarınızı ve cüzdanlarınızı bağlayın, işlemleriniz FIFO yöntemiyle hesaplansın. Kripto beyan dönemi geldiğinde taslak raporunuz hazır olsun.",
     longDescription:
       "KriptoBeyan, kripto varlık işlemlerinin Türkiye'deki vergi ve beyan yükümlülükleri açısından anlaşılmasını ve yönetilmesini kolaylaştırır — bireyler ve mali müşavirler için.",
     whyItExists:
@@ -60,9 +60,9 @@ export const brands: Brand[] = [
     logo: "/brand-logos/zesta.png",
     monogram: "ZS",
     accent: "teal",
-    category: "Ticaret / El Yapımı",
+    category: "Sanat Ürünleri",
     shortDescription:
-      "El yapımı ürünlerin özel sipariş üzerinden hazırlandığı ve sunulduğu bir platform.",
+      "Küçük Detaylar. Büyük Hikâyeler. Her parça elde, sipariş üzerine, özenle üretilir — Türkiye'nin dört bir yanındaki ustaların atölyesinden evinize.",
     longDescription:
       "Zesta, el yapımı ürünleri; özenli üretim süreciyle, özel sipariş modeliyle ve modern bir alışveriş deneyimiyle bir araya getirir.",
     whyItExists:

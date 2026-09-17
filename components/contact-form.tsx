@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { submitContactForm, type ContactFormState } from "@/app/actions/contact";
 
 const CATEGORIES = [
@@ -91,25 +91,7 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
       </div>
 
       <Field label="Kategori" name="category">
-        <select
-          id="category"
-          name="category"
-          defaultValue={defaultCategory}
-          required
-          style={{ colorScheme: "dark" }}
-          className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground transition-colors focus:border-slate-300 focus:outline-none"
-        >
-          {CATEGORIES.map((c) => (
-            <option
-              key={c.value}
-              value={c.value}
-              className="bg-surface-2 text-foreground"
-              style={{ backgroundColor: "var(--surface-2)", color: "var(--text-primary)" }}
-            >
-              {c.label}
-            </option>
-          ))}
-        </select>
+        <CategorySelect defaultValue={defaultCategory} />
       </Field>
 
       <Field label="Konu" name="subject" error={state.fieldErrors?.subject}>
@@ -168,6 +150,81 @@ function Field({
       </label>
       {children}
       {error && <p className="mt-1.5 text-[12px] text-error">{error}</p>}
+    </div>
+  );
+}
+
+// Native <select> popup'i (ozellikle iOS Safari'nin tekerlek secici arayuzu)
+// CSS ile stillendirilemiyor - OS tarafindan ciziliyor, palete uygun
+// yapamiyoruz. Bu yuzden tamamen ozel, kendi stillerimizle cizilen bir
+// dropdown kullaniyoruz; form gonderimi icin gizli bir input tasiyor.
+function CategorySelect({ defaultValue }: { defaultValue: string }) {
+  const [value, setValue] = useState(defaultValue);
+  const [open, setOpen] = useState(false);
+  const rootRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function onClickOutside(e: MouseEvent) {
+      if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
+        setOpen(false);
+      }
+    }
+    function onKeyDown(e: KeyboardEvent) {
+      if (e.key === "Escape") setOpen(false);
+    }
+    document.addEventListener("mousedown", onClickOutside);
+    document.addEventListener("keydown", onKeyDown);
+    return () => {
+      document.removeEventListener("mousedown", onClickOutside);
+      document.removeEventListener("keydown", onKeyDown);
+    };
+  }, []);
+
+  const selected = CATEGORIES.find((c) => c.value === value) ?? CATEGORIES[0];
+
+  return (
+    <div ref={rootRef} className="relative">
+      <input type="hidden" name="category" value={value} />
+      <button
+        type="button"
+        id="category"
+        onClick={() => setOpen((o) => !o)}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+        className="flex w-full items-center justify-between border border-border-default bg-surface-2 px-4 py-3 text-left text-[15px] text-foreground transition-colors focus:border-slate-300 focus:outline-none"
+      >
+        {selected.label}
+        <span
+          aria-hidden
+          className={`text-text-tertiary transition-transform ${open ? "rotate-180" : ""}`}
+        >
+          ▾
+        </span>
+      </button>
+
+      {open && (
+        <ul
+          role="listbox"
+          className="absolute left-0 right-0 top-full z-20 mt-1 max-h-60 overflow-auto border border-border-default bg-surface-2 py-1 shadow-lg"
+        >
+          {CATEGORIES.map((c) => (
+            <li key={c.value} role="option" aria-selected={c.value === value}>
+              <button
+                type="button"
+                onClick={() => {
+                  setValue(c.value);
+                  setOpen(false);
+                }}
+                className={`block w-full px-4 py-2.5 text-left text-[15px] transition-colors hover:bg-surface-3 ${
+                  c.value === value ? "text-foreground" : "text-text-secondary"
+                }`}
+              >
+                {c.label}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 }

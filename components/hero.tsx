@@ -2,37 +2,58 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatedGrid } from "@/components/animated-grid";
 
-// Sabit tam ekran yükseklik yerine icerik kadar kisa bir hero (ORCA'daki
-// gibi) - arkaya bir gorsel eklenecegi zaman `imageSrc` prop'u verilecek,
-// simdilik verilmediginde AnimatedGrid + grain fallback olarak kaliyor.
+// `imageSrc` verilmediginde AnimatedGrid + grain fallback olarak kaliyor.
 //
-// Mobilde gorsel cok genis oldugu icin (~16:9) section'un tam yuksekligini
-// kaplayan object-cover kenarlardan (ör. gorselin solundaki/sagindaki
-// figurler) agir kirpiyordu. ORCA'nin kendi HeroBackground'unda kullandigi
-// desenle ayni cozum: mobilde gorsel navbar'in hemen altinda, sabit ve
-// kisa bir bant (h-[240px]) olarak durur (tam genislik, kirpilmadan
-// gorunur) - metin bu bandin ALTINDA, ayri bir alanda yer alir. md+'da
-// gorsel section'in tamamini kaplar (inset-0), metin uzerine biner.
+// Mobil ve masaustu icin AYRI gorsel kullanilir (art direction):
+// `imageSrc` (yatay, ~16:9-21:9) masaustunde, `imageSrcMobile` (dikey,
+// ~4:5) mobilde - ikisi de object-cover ile tam ekran (min-h-screen)
+// kaplar, kirpilma olmadan. Tek bir yatay gorseli dar/uzun mobil
+// viewport'ta object-cover ile kaplatmak agir kirpardi, object-contain
+// ise bosluk birakirdi (bkz. sohbet gecmisi) - o yuzden dikey
+// kompozisyonlu ayri bir mobil gorsel gerekiyor.
 //
 // Karartma yalnizca metnin oturdugu SOL alt bolgeye uygulanir (dikey +
 // yatay gradyan birlikte) - gorselin sag tarafi metin/buton bittikten
 // sonra tamamen kendi renginde, aydinlik kalir.
-export function Hero({ imageSrc }: { imageSrc?: string }) {
+export function Hero({
+  imageSrc,
+  imageSrcMobile,
+}: {
+  imageSrc?: string;
+  imageSrcMobile?: string;
+}) {
   return (
-    <section className="relative overflow-hidden border-b border-border">
+    <section className="relative flex min-h-screen flex-col overflow-hidden border-b border-border">
       {imageSrc ? (
         <>
-          <div className="absolute inset-x-0 top-0 h-[240px] overflow-hidden sm:h-[300px] md:inset-0 md:h-auto">
+          <div className="absolute inset-0">
             <div className="hero-pan absolute inset-0">
+              {imageSrcMobile && (
+                <Image
+                  src={imageSrcMobile}
+                  alt=""
+                  fill
+                  priority
+                  quality={90}
+                  sizes="100vw"
+                  className="object-cover object-center md:hidden"
+                />
+              )}
               <Image
                 src={imageSrc}
                 alt=""
                 fill
                 priority
-                className="object-cover object-center"
+                quality={90}
+                sizes="100vw"
+                className={
+                  imageSrcMobile
+                    ? "hidden object-cover object-center md:block"
+                    : "object-cover object-center"
+                }
               />
-              <div className="absolute inset-0 hidden bg-gradient-to-t from-background from-10% via-background/70 via-45% to-transparent to-70% md:block" />
-              <div className="absolute inset-0 hidden bg-gradient-to-r from-background/75 from-0% via-background/25 via-35% to-transparent to-60% md:block" />
+              <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-background from-0% via-background/85 via-35% to-transparent to-100%" />
+              <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-r from-background/70 from-0% via-background/20 via-40% to-transparent to-65%" />
 
               {/* Atmospheric mavi glow */}
               <div
@@ -68,7 +89,7 @@ export function Hero({ imageSrc }: { imageSrc?: string }) {
         </>
       )}
 
-      <div className="container-edit relative pb-16 pt-[280px] sm:pt-[340px] md:pb-20 md:pt-72">
+      <div className="container-edit relative flex flex-1 flex-col justify-end pb-16 pt-0 md:pb-40">
         <div className="max-w-3xl">
           <h1 className="text-[26px] font-medium leading-[1.12] tracking-tight text-foreground sm:text-[34px] md:text-[44px]">
             Sınırların ötesinde

@@ -2,6 +2,14 @@ import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ventures } from "@/lib/content/ventures";
 
+// "01" Orca mavi, "02" KriptoBeyan sampanya/altin, "03" Zesta yesil (teal) -
+// brand-grid.tsx'teki BRAND_COLOR ile ayni renk sistemi.
+const VENTURE_COLOR: Record<string, string> = {
+  orca: "#3b82f6",
+  kriptobeyan: "#d4af37",
+  zesta: "#14b8a6",
+};
+
 export function VenturesSection() {
   return (
     <section className="border-b border-border py-28 md:py-36">
@@ -20,7 +28,10 @@ export function VenturesSection() {
                 <div className="group relative">
                   <span className="absolute -top-[59px] left-0 hidden h-2 w-2 rounded-full bg-accent ring-4 ring-background md:block" />
 
-                  <span className="font-mono text-4xl font-medium leading-none text-border-strong transition-colors duration-300 group-hover:text-accent">
+                  <span
+                    className="font-mono text-4xl font-medium leading-none"
+                    style={{ color: VENTURE_COLOR[v.id] }}
+                  >
                     {String(i + 1).padStart(2, "0")}
                   </span>
 
@@ -40,9 +51,17 @@ export function VenturesSection() {
                       <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
                         Durum
                       </dt>
-                      <dd className="flex items-center gap-2 text-[13px] text-slate-300">
-                        <span className="h-1.5 w-1.5 rounded-full bg-accent" />
-                        Aktif
+                      <dd
+                        className={`flex items-center gap-2 text-[13px] ${
+                          v.stage === "developing" ? "text-warning" : "text-slate-300"
+                        }`}
+                      >
+                        <span
+                          className={`h-1.5 w-1.5 rounded-full ${
+                            v.stage === "developing" ? "bg-warning" : "bg-success"
+                          }`}
+                        />
+                        {v.stage === "developing" ? "Geliştiriliyor" : "Aktif"}
                       </dd>
                     </div>
                     {v.websiteUrl && (
