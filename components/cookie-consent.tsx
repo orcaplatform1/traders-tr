@@ -88,7 +88,7 @@ export function CookieConsent() {
             </Link>{" "}
             ve{" "}
             <Link href="/gizlilik-politikasi" className="text-text-link underline underline-offset-2 hover:text-text-link-hover">
-              Gizlilik Aydınlatma Metni
+              Gizlilik Politikası
             </Link>{" "}
             sayfalarımızı inceleyebilirsiniz.
           </p>
