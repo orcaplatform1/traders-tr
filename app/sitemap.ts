@@ -30,20 +30,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const brandEntries: MetadataRoute.Sitemap = brands.map((b) => ({
-    url: `${SITE_URL}/brands/${b.slug}`,
+    url: `${SITE_URL}/markalar/${b.slug}`,
     changeFrequency: "monthly",
     priority: 0.6,
   }));
 
   const insightEntries: MetadataRoute.Sitemap = insights.map((i) => ({
-    url: `${SITE_URL}/insights/${i.slug}`,
+    url: `${SITE_URL}/icgoruler/${i.slug}`,
     lastModified: new Date(i.publishedAt),
     changeFrequency: "yearly",
     priority: 0.5,
   }));
 
   const newsroomEntries: MetadataRoute.Sitemap = newsroomPosts.map((p) => ({
-    url: `${SITE_URL}/newsroom/${p.slug}`,
+    url: `${SITE_URL}/basin-merkezi/${p.slug}`,
     lastModified: new Date(p.publishedAt),
     changeFrequency: "yearly",
     priority: 0.5,

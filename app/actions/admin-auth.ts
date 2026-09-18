@@ -2,8 +2,8 @@
 
 import { redirect } from "next/navigation";
 import {
+  attemptLogin,
   changePassword as changePasswordDb,
-  checkPassword,
   createSession,
   destroySession,
   isAuthenticated,
@@ -13,8 +13,13 @@ export type LoginState = { error?: string };
 
 export async function login(_prevState: LoginState, formData: FormData): Promise<LoginState> {
   const password = formData.get("password")?.toString() ?? "";
+  if (!password) return { error: "Şifre hatalı." };
 
-  if (!password || !(await checkPassword(password))) {
+  const result = await attemptLogin(password);
+  if (result === "rate-limited") {
+    return { error: "Çok fazla başarısız deneme. Lütfen birkaç dakika sonra tekrar deneyin." };
+  }
+  if (result === "invalid") {
     return { error: "Şifre hatalı." };
   }
 

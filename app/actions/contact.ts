@@ -1,7 +1,42 @@
 "use server";
 
 import { z } from "zod";
+import { headers } from "next/headers";
 import { prisma } from "@/lib/prisma";
+
+// Honeypot botlari yakalar ama hedefli bir istemci formu elle defalarca
+// gonderebilir - IP basina basit bir bellek-ici oran siniri DB'yi spam'le
+// doldurmayi engeller. Instance yeniden baslatildiginda sifirlanir.
+const SUBMIT_LIMIT = 5;
+const SUBMIT_WINDOW_MS = 60 * 60 * 1000;
+const submitAttempts = new Map<string, { count: number; windowStart: number }>();
+
+// Nginx X-Real-IP'i $remote_addr ile uzerine yazar (sahtelenemez); XFF ise
+// istemcinin kendi degerine eklenir, bu yuzden once X-Real-IP'e guvenilir
+// (bkz. lib/admin-auth.ts getClientIp).
+function getClientIp(h: Headers): string {
+  const realIp = h.get("x-real-ip");
+  if (realIp) return realIp.trim();
+  const forwardedFor = h.get("x-forwarded-for");
+  if (forwardedFor) {
+    const parts = forwardedFor.split(",").map((p) => p.trim()).filter(Boolean);
+    if (parts.length > 0) return parts[parts.length - 1];
+  }
+  return "unknown";
+}
+
+async function isRateLimited(): Promise<boolean> {
+  const h = await headers();
+  const ip = getClientIp(h);
+  const entry = submitAttempts.get(ip);
+  const now = Date.now();
+  if (!entry || now - entry.windowStart > SUBMIT_WINDOW_MS) {
+    submitAttempts.set(ip, { count: 1, windowStart: now });
+    return false;
+  }
+  entry.count += 1;
+  return entry.count > SUBMIT_LIMIT;
+}
 
 const contactSchema = z.object({
   name: z.string().trim().min(2, "Ad en az 2 karakter olmalı").max(120),
@@ -28,6 +63,10 @@ export async function submitContactForm(
   _prevState: ContactFormState,
   formData: FormData,
 ): Promise<ContactFormState> {
+  if (await isRateLimited()) {
+    return { status: "error", message: "Çok fazla deneme yaptınız. Lütfen bir süre sonra tekrar deneyin." };
+  }
+
   const raw = {
     name: formData.get("name")?.toString() ?? "",
     email: formData.get("email")?.toString() ?? "",
