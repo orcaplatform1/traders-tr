@@ -79,6 +79,32 @@ export const brands: Brand[] = [
     featured: true,
     displayOrder: 3,
   },
+  {
+    id: "mettlo",
+    name: "Mettlo",
+    slug: "mettlo",
+    logo: "/brand-logos/mettlo.png",
+    monogram: "MT",
+    accent: "orange",
+    category: "Sağlıklı Yaşam & Koçluk",
+    shortDescription:
+      "Mettlo; insanların sağlıklı yaşam yolculuklarını uzman koçlarla birlikte, kendi tempolarında sürdürebildiği bir platform. Koçlar bağımsızca çalışır, üyeler gerçekten kendilerine uygun desteği bulur.",
+    longDescription:
+      "Mettlo, fitness ve wellness dünyasında koç ile üye arasındaki deneyimi daha profesyonel, kişisel ve sürdürülebilir bir yapıya taşımak amacıyla kuruldu. Program satışı, birebir koçluk, ilerleme takibi ve topluluk — hepsi tek bir ekosistemde bir araya geliyor.",
+    whyItExists:
+      "Türkiye'de koçluk hizmetleri dağınık, güvensiz ve sürdürülemez bir yapıda ilerliyordu. Mettlo, uzman koçlara profesyonel bir altyapı sunarken üyelere de ihtiyaçlarına uygun, güvenilir bir koçluk deneyimi sağlıyor.",
+    features: [
+      "Onaylı koç profilleri: branş, uzmanlık alanı ve müsaitlik bilgisiyle şeffaf bir eşleştirme deneyimi",
+      "Koçlara özel panel: program yönetimi, abone takibi, mesajlaşma ve gelir yönetimi tek ekranda",
+      "Üyelere özel ilerleme takibi: aktivite, ölçüm, beslenme ve alışkanlık günlüğü",
+      "Abonelik tabanlı koçluk modeli: aylık planlar, tek seferlik program satışı ve canlı ders desteği",
+      "Topluluk ve içerik: koçların blog yazısı, video ve program paylaşabildiği içerik katmanı",
+    ],
+    websiteUrl: "https://mettlo.tr",
+    status: "developing",
+    featured: true,
+    displayOrder: 4,
+  },
 ];
 
 export function getBrandBySlug(slug: string): Brand | undefined {

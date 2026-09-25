@@ -30,6 +30,14 @@ const ACCENT: Record<
     dot: "bg-teal",
     glow: "from-teal/20",
   },
+  orange: {
+    text: "text-orange-400",
+    hoverText: "hover:text-orange-400",
+    soft: "bg-orange-500/10",
+    border: "group-hover:border-orange-500/50",
+    dot: "bg-orange-500",
+    glow: "from-orange-500/20",
+  },
 };
 
 export function BrandCard({ brand }: { brand: Brand }) {

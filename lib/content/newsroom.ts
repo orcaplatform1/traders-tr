@@ -150,6 +150,43 @@ export const newsroomPosts: NewsroomPost[] = [
     publishedAt: "2026-07-18",
     readTime: "5 dk",
   },
+  {
+    id: "4",
+    slug: "mettlo-tanitimi",
+    title: "TRADERS.TR portföyüne yeni markasını ekliyor: Mettlo",
+    excerpt:
+      "TRADERS.TR'ın dördüncü markası Mettlo, sağlıklı yaşam ve koçluk alanında koçlarla üyeleri tek platformda buluşturmak üzere geliştirme aşamasına geçti.",
+    content: [
+      p(
+        "TRADERS.TR, portföyüne dördüncü markasını ekliyor: Mettlo. Sağlıklı yaşam ve koçluk alanına odaklanan Mettlo, fitness ve wellness dünyasındaki koç–üye deneyimini daha profesyonel, kişisel ve sürdürülebilir bir yapıya taşımak amacıyla geliştirilmekte olan bir platform.",
+      ),
+      h2("Neden bu alan, neden şimdi", "neden-bu-alan"),
+      p(
+        "Türkiye'de kişisel koçluk hizmetleri hızla büyüyen, ancak altyapı açısından henüz olgunlaşmamış bir alan. Koçlar çoğunlukla dağınık araçlarla çalışmak, müşterilerini farklı kanallar üzerinden yönetmek ve gelirlerini istikrarsız yöntemlerle elde etmek zorunda kalıyor. Öte yandan üyeler de kendilerine uygun koçu bulmakta, ilerleme süreçlerini takip etmekte ve güvenilir bir deneyim yaşamakta güçlük çekiyor.",
+      ),
+      p(
+        "Mettlo, tam olarak bu boşluğu doldurmak için kuruldu. Uzman koçlara profesyonel bir altyapı sunmak; üyelere ise ihtiyaçlarına uygun, güvenilir ve sürdürülebilir bir koçluk deneyimi sağlamak.",
+      ),
+      h2("Platform neyi kapsıyor", "platform-kapsami"),
+      p(
+        "Mettlo'nun koç tarafında; branş ve uzmanlık alanı tanımı, abonelik modeli, program satışı, üye takibi, mesajlaşma ve gelir yönetimi yer alıyor. Üye tarafında ise koç keşfi ve eşleştirme, ilerleme takibi, aktivite ve ölçüm günlüğü, topluluk ve içerik erişimi sunuluyor.",
+      ),
+      quote(
+        "Koçluk, birinin hayatına gerçekten dokunan bir iş. Mettlo, bu dokunuşun daha erişilebilir, daha ölçülebilir ve daha sürdürülebilir olmasını sağlıyor.",
+      ),
+      h2("TRADERS.TR portföyündeki yeri", "portfoy"),
+      p(
+        "Mettlo, TRADERS.TR'ın ORCA (finans eğitimi), KriptoBeyan (dijital vergi) ve Zesta (el yapımı ticaret) markalarının ardından portföye katılan dördüncü bağımsız marka. Her marka kendi alanında bağımsız olarak konumlanıyor; ancak hepsini birleştiren ortak bir yaklaşım var: teknoloji ile insan deneyimini, sektörün gerçek ihtiyaçları etrafında buluşturmak.",
+      ),
+      h2("Sırada ne var", "sirada-ne-var"),
+      p(
+        "Mettlo şu anda aktif geliştirme sürecinde. Platforma ilk koçların dahil edilmesi ve beta lansmanının gerçekleştirilmesi planlanıyor. Gelişmeleri mettlo.tr adresinden ve bu sayfadan takip edebilirsiniz.",
+      ),
+    ],
+    category: "Marka Lansmanı",
+    publishedAt: "2026-09-25",
+    readTime: "4 dk",
+  },
 ];
 
 export function getNewsroomPostBySlug(slug: string): NewsroomPost | undefined {

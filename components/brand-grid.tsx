@@ -8,17 +8,14 @@ const GLOW: Record<BrandAccent, string> = {
   blue: "#3b82f6",
   purple: "#8b5cf6",
   teal: "#14b8a6",
+  orange: "#f97316",
 };
 
-// Marka kimligine gore ozel renk: Orca mavi, KriptoBeyan altin/sampanya
-// (marka rengi purple yerine burada bilincli olarak altina ceviriyoruz),
-// Zesta kendi teal accent'i (zeytin yesili degil). Bu renk hem buyuk
-// gorsel panelin cercevesinde hem "01/02/03" numarasinda kullanilir.
-// KriptoBeyan'in logo kutusunun arkaplani da ayni altin tonuyla tintleniyor.
 const BRAND_COLOR: Record<string, string> = {
   orca: GLOW.blue,
   kriptobeyan: "#d4af37",
   zesta: GLOW.teal,
+  mettlo: GLOW.orange,
 };
 
 const LOGO_BG: Record<string, string> = {
@@ -29,12 +26,14 @@ const EXPLORE_LABEL: Record<string, string> = {
   orca: "ORCA'yı Keşfedin",
   kriptobeyan: "KriptoBeyan'ı Keşfedin",
   zesta: "Zesta'yı Keşfedin",
+  mettlo: "Mettlo'yu Keşfedin",
 };
 
 const ACCENT_HOVER_TEXT: Record<BrandAccent, string> = {
   blue: "hover:text-blue-400",
   purple: "hover:text-purple",
   teal: "hover:text-teal",
+  orange: "hover:text-orange-400",
 };
 
 function BrandVisual({ brand }: { brand: Brand }) {
