@@ -3,7 +3,7 @@ import type { Venture } from "./types";
 export const ventures: Venture[] = [
   {
     id: "orca",
-    name: "ORCA",
+    name: "Orca Akademi",
     slug: "orca",
     category: "Finans Eğitimi",
     description: "Yeni nesil finans eğitim platformu.",
@@ -25,7 +25,7 @@ export const ventures: Venture[] = [
   },
   {
     id: "zesta",
-    name: "Zesta",
+    name: "Zesta Art&Design",
     slug: "zesta",
     category: "Sanat Ürünleri",
     description: "Özel siparişle hazırlanan el yapımı ürün platformu.",

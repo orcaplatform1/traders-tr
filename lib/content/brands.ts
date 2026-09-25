@@ -3,7 +3,7 @@ import type { Brand } from "./types";
 export const brands: Brand[] = [
   {
     id: "orca",
-    name: "ORCA",
+    name: "Orca Akademi",
     slug: "orca",
     logo: "/brand-logos/orca.png",
     monogram: "OR",
@@ -55,7 +55,7 @@ export const brands: Brand[] = [
   },
   {
     id: "zesta",
-    name: "ZESTA",
+    name: "Zesta Art&Design",
     slug: "zesta",
     logo: "/brand-logos/zesta.png",
     monogram: "ZS",

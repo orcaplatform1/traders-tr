@@ -177,10 +177,10 @@ export default function AboutPage() {
               olarak kendi yolunu oluşturur.
             </p>
             <p className="mt-5 text-[15px] leading-relaxed text-muted">
-              ORCA finans eğitimi alanında yeni nesil bir deneyim oluştururken,
-              KriptoBeyan dijital varlıkların vergilendirilmesi ve beyan
-              süreçlerine odaklanıyor. Zesta ise özel siparişle hazırlanan el
-              emeği ürünleri dijital ticaret deneyimiyle buluşturuyor.
+              Orca Akademi finans eğitimi alanında yeni nesil bir deneyim oluştururken,
+              KriptoBeyan dijital varlıkların vergilendirilmesi ve beyan süreçlerine odaklanıyor.
+              Zesta Art&amp;Design özel siparişle hazırlanan el emeği ürünleri dijital ticaretle buluşturuyor.
+              Mettlo ise sağlıklı yaşam ve koçluk alanında uzman koçlarla üyeleri tek platformda bir araya getiriyor.
             </p>
             <p className="mt-5 text-[15px] leading-relaxed text-muted">
               Sektörleri farklı olsa da bu markaları bir araya getiren ortak
