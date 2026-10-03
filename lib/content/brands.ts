@@ -3,7 +3,7 @@ import type { Brand } from "./types";
 export const brands: Brand[] = [
   {
     id: "orca",
-    name: "Orca Akademi",
+    name: "Orca Labs",
     slug: "orca",
     logo: "/brand-logos/orca.png",
     monogram: "OR",
@@ -22,7 +22,7 @@ export const brands: Brand[] = [
       "Kripto, forex, BIST100 ve ekonomik takvimi tek panelde toplayan canlı piyasa araçları",
       "TradingView tarzı aktif bir topluluk: analiz paylaşımı, canlı dersler ve öğrenci etkileşimi",
     ],
-    websiteUrl: "https://traders.tr/orca",
+    websiteUrl: "https://orcalabs.tr",
     status: "developing",
     featured: true,
     displayOrder: 1,

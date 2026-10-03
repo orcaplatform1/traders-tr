@@ -3,14 +3,14 @@ import type { Venture } from "./types";
 export const ventures: Venture[] = [
   {
     id: "orca",
-    name: "Orca Akademi",
+    name: "Orca Labs",
     slug: "orca",
     category: "Finans Eğitimi",
     description: "Yeni nesil finans eğitim platformu.",
     detail:
       "Yapılandırılmış müfredatı, canlı bir topluluğu, yapay zekâ destekli mentorluğu ve gerçek piyasa verisiyle pratik yapma imkânını tek platformda birleştiriyor.",
     stage: "developing",
-    websiteUrl: "https://traders.tr/orca",
+    websiteUrl: "https://orcalabs.tr",
   },
   {
     id: "kriptobeyan",
@@ -33,5 +33,16 @@ export const ventures: Venture[] = [
       "El yapımı ürünleri özenli üretim süreciyle, özel sipariş modeliyle ve modern bir alışveriş deneyimiyle bir araya getiriyor.",
     stage: "active",
     websiteUrl: "https://zesta.tr",
+  },
+  {
+    id: "mettlo",
+    name: "Mettlo",
+    slug: "mettlo",
+    category: "Spor ve Sağlık",
+    description: "Fitness ve wellness koçluk platformu.",
+    detail:
+      "Uzman koçlarla üyeleri tek platformda buluşturuyor; program satışı, birebir koçluk, ilerleme takibi ve topluluk tek bir ekosistemde.",
+    stage: "developing",
+    websiteUrl: "https://mettlo.tr",
   },
 ];

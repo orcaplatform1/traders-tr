@@ -19,7 +19,7 @@ export const newsroomPosts: NewsroomPost[] = [
       "TRADERS.TR, portföyündeki markalardan bağımsız olarak teknoloji ve ticaretin kesişiminde yeni bir fırsat alanını değerlendirmeye başladı.",
     content: [
       p(
-        "TRADERS.TR, mevcut portföyündeki Orca Akademi, KriptoBeyan ve Zesta Art&Design markalarından bağımsız olarak, teknoloji ve ticaretin kesişiminde yeni bir fırsat alanı üzerinde erken aşama araştırma ve tasarım çalışmalarına başladığını duyurdu.",
+        "TRADERS.TR, mevcut portföyündeki Orca Labs, KriptoBeyan ve Zesta Art&Design markalarından bağımsız olarak, teknoloji ve ticaretin kesişiminde yeni bir fırsat alanı üzerinde erken aşama araştırma ve tasarım çalışmalarına başladığını duyurdu.",
       ),
       h2("Neden yeni bir girişim", "neden-yeni-girisim"),
       p(
@@ -42,23 +42,23 @@ export const newsroomPosts: NewsroomPost[] = [
   {
     id: "2",
     slug: "orca-platformunu-genisletiyor",
-    title: "Orca Akademi platformunu genişletiyor",
+    title: "Orca Labs platformunu genişletiyor",
     excerpt:
-      "Orca Akademi, eğitim müfredatına ve piyasa araçları setine önemli yeni eklemeler yaptı — AI destekli mentorluktan gerçek zamanlı piyasa tarayıcılarına kadar.",
+      "Orca Labs, eğitim müfredatına ve piyasa araçları setine önemli yeni eklemeler yaptı — AI destekli mentorluktan gerçek zamanlı piyasa tarayıcılarına kadar.",
     content: [
       p(
-        "Orca Akademi, kullanıcılarına sunduğu eğitim içeriğini ve piyasa araçları setini genişletmeye devam ediyor. Bu dönemdeki gelişmeler, platformun iki temel eksenini — yapılandırılmış eğitim ve gerçek zamanlı piyasa pratiği — güçlendirmeye odaklandı.",
+        "Orca Labs, kullanıcılarına sunduğu eğitim içeriğini ve piyasa araçları setini genişletmeye devam ediyor. Bu dönemdeki gelişmeler, platformun iki temel eksenini — yapılandırılmış eğitim ve gerçek zamanlı piyasa pratiği — güçlendirmeye odaklandı.",
       ),
       h2("Genişleyen araç seti", "genisleyen-arac-seti"),
       p(
-        "Orca Akademi'nin araç paneli; yapay zekâ destekli piyasa tarayıcısı, backtest simülatörü, ileri seviye piyasa simülasyonu ve bir terminal haber-ticaret modülünü bir araya getiriyor. Bunlara ek olarak kripto varlık takvimi, haber duyarlılık analizi, büyük cüzdan hareketlerini izleyen whale tracker ve çok zincirli cüzdan analiz aracı da platforma dahil edildi.",
+        "Orca Labs'nin araç paneli; yapay zekâ destekli piyasa tarayıcısı, backtest simülatörü, ileri seviye piyasa simülasyonu ve bir terminal haber-ticaret modülünü bir araya getiriyor. Bunlara ek olarak kripto varlık takvimi, haber duyarlılık analizi, büyük cüzdan hareketlerini izleyen whale tracker ve çok zincirli cüzdan analiz aracı da platforma dahil edildi.",
       ),
       p(
         "BIST100, forex ve kripto piyasalarını tek panelde toplayan genel araçlar da bu genişlemenin bir parçası; kullanıcılar artık farklı sekmeler arasında geçiş yapmadan piyasaları takip edebiliyor.",
       ),
       h2("AI Mentor ve kişiselleştirilmiş öğrenme", "ai-mentor"),
       p(
-        "Orca Akademi AI Mentor, 7/24 erişilebilir yapay zekâ destekli bir eğitim asistanı olarak, kullanıcıların takıldığı konularda anlık destek sağlıyor. Bu özellik, yapılandırılmış müfredatın (başlangıçtan uzman seviyeye) statik içerik olmaktan çıkıp, her kullanıcının kendi hızına uyum sağlayan dinamik bir deneyime dönüşmesini hedefliyor.",
+        "Orca Labs AI Mentor, 7/24 erişilebilir yapay zekâ destekli bir eğitim asistanı olarak, kullanıcıların takıldığı konularda anlık destek sağlıyor. Bu özellik, yapılandırılmış müfredatın (başlangıçtan uzman seviyeye) statik içerik olmaktan çıkıp, her kullanıcının kendi hızına uyum sağlayan dinamik bir deneyime dönüşmesini hedefliyor.",
       ),
       quote("Amacımız, piyasaları anlamayı bir sertifikadan ibaret bırakmamak; ölçülebilir, pratiğe dökülmüş bir yetkinliğe dönüştürmek."),
       h2("Topluluk ve gamification", "topluluk-gamification"),
@@ -71,7 +71,7 @@ export const newsroomPosts: NewsroomPost[] = [
       ),
       h2("Sırada ne var", "orca-sirada-ne-var"),
       p(
-        "Orca Akademi ekibi, mevcut araçların kalitesini artırmaya ve kullanıcı geri bildirimlerine göre yeni modüller eklemeye devam ediyor. Platformun uzun vadeli hedefi, finansal eğitimi teoriden pratiğe taşıyan tek bir bütünleşik deneyim sunmak.",
+        "Orca Labs ekibi, mevcut araçların kalitesini artırmaya ve kullanıcı geri bildirimlerine göre yeni modüller eklemeye devam ediyor. Platformun uzun vadeli hedefi, finansal eğitimi teoriden pratiğe taşıyan tek bir bütünleşik deneyim sunmak.",
       ),
     ],
     category: "Ürün Duyurusu",

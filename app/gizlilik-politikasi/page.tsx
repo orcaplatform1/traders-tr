@@ -38,7 +38,7 @@ export default function PrivacyPage() {
             <>
               <p>
                 Bu politika yalnızca traders.tr alan adı ve bu alan adı
-                altındaki sayfalar için geçerlidir. Orca Akademi, KriptoBeyan ve Zesta Art&amp;Design
+                altındaki sayfalar için geçerlidir. Orca Labs, KriptoBeyan ve Zesta Art&amp;Design
                 bağımsız markalarımızdır; kendi platformlarında kendi
                 gizlilik politikalarını uygularlar. Bu sayfaların
                 bağlantıları için ilgili markanın kendi sitesindeki gizlilik

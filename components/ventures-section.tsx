@@ -8,6 +8,7 @@ const VENTURE_COLOR: Record<string, string> = {
   orca: "#3b82f6",
   kriptobeyan: "#d4af37",
   zesta: "#14b8a6",
+  mettlo: "#f97316",
 };
 
 export function VenturesSection() {

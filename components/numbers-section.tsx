@@ -1,8 +1,8 @@
 import { ScrollReveal } from "@/components/scroll-reveal";
 
 const NUMBERS = [
-  { value: "03", label: "Aktif Marka" },
-  { value: "03", label: "Sektör" },
+  { value: "04", label: "Aktif Marka" },
+  { value: "04", label: "Sektör" },
   { value: "01", label: "Ortak Vizyon" },
   { value: "∞", label: "Keşfedilecek Fikir" },
 ];
