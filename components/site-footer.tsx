@@ -78,6 +78,25 @@ export function SiteFooter() {
               </li>
             ))}
           </ul>
+
+          <span className="mt-6 block text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
+            İş Ortaklıkları
+          </span>
+          <ul className="mt-4 space-y-3">
+            <li>
+              <a
+                href="https://dyr21.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[13px] text-muted transition-colors hover:text-foreground"
+              >
+                <span className="relative h-4 w-4 shrink-0">
+                  <Image src="/brand-logos/dyr21.png" alt="" fill className="object-contain" sizes="16px" />
+                </span>
+                DYR21 Original Jeans&amp;More
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
 

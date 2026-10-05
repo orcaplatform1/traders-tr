@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ventures } from "@/lib/content/ventures";
@@ -105,6 +106,71 @@ export function VenturesSection() {
             </div>
           </div>
         </ScrollReveal>
+
+        {/* İş Ortaklığı */}
+        <ScrollReveal className="mt-24">
+          <SectionLabel>İş Ortaklığı</SectionLabel>
+          <h2 className="mt-4 max-w-2xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
+            Anlaşmalı iş ortakları.
+          </h2>
+        </ScrollReveal>
+
+        <div className="relative mt-20 border-t border-border pt-14">
+          <div className="grid grid-cols-1 gap-16 md:grid-cols-3 md:gap-12">
+            <ScrollReveal>
+              <div className="group relative">
+                <span className="absolute -top-[59px] left-0 hidden h-2 w-2 rounded-full ring-4 ring-background md:block" style={{ background: "#D92D20" }} />
+
+                <span
+                  className="font-mono text-4xl font-medium leading-none"
+                  style={{ color: "#D92D20" }}
+                >
+                  01
+                </span>
+
+                <div className="mt-5 flex items-center gap-3">
+                  <div className="relative h-7 w-7 shrink-0 overflow-hidden rounded-md">
+                    <Image src="/brand-logos/dyr21.png" alt="DYR21" fill className="object-contain" sizes="28px" />
+                  </div>
+                  <h3 className="text-2xl font-medium tracking-tight text-foreground md:text-[26px]">
+                    DYR21 — Original Jeans &amp; More
+                  </h3>
+                </div>
+                <p className="mt-2 text-[14px] leading-relaxed text-muted">
+                  Toptan &amp; Perakende Tekstil Ürünleri
+                </p>
+
+                <dl className="mt-6 space-y-3 border-t border-border pt-5">
+                  <div className="flex items-baseline justify-between gap-4">
+                    <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">Kategori</dt>
+                    <dd className="text-right text-[13px] text-slate-300">E-Ticaret</dd>
+                  </div>
+                  <div className="flex items-baseline justify-between gap-4">
+                    <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">Durum</dt>
+                    <dd className="flex items-center gap-2 text-[13px] text-slate-300">
+                      <span className="h-1.5 w-1.5 rounded-full bg-success" />
+                      Aktif
+                    </dd>
+                  </div>
+                  <div className="flex items-baseline justify-between gap-4">
+                    <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">Web Sitesi</dt>
+                    <dd>
+                      <a
+                        href="https://dyr21.com"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 text-[13px] font-medium text-foreground transition-colors hover:text-accent"
+                      >
+                        dyr21.com
+                        <span className="transition-transform duration-300 group-hover:translate-x-1">→</span>
+                      </a>
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+            </ScrollReveal>
+          </div>
+        </div>
       </div>
     </section>
   );

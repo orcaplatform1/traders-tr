@@ -100,6 +100,53 @@ function BrandVisual({ brand }: { brand: Brand }) {
   );
 }
 
+const DYR21_RED = "#D92D20";
+
+function DYR21Visual() {
+  return (
+    <div
+      className="relative h-[320px] w-full overflow-hidden rounded-sm border-2 md:h-[420px] lg:h-[480px]"
+      style={{ borderColor: DYR21_RED }}
+    >
+      <div className="absolute inset-0 bg-slate-900 transition-transform duration-700 ease-out group-hover:scale-[1.03]">
+        <div
+          className="absolute inset-0 opacity-[0.35]"
+          style={{
+            backgroundImage:
+              "linear-gradient(to right, rgba(248,250,252,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(248,250,252,0.06) 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+        <div
+          className="absolute -left-16 -top-16 h-72 w-72 rounded-full opacity-30 blur-[100px]"
+          style={{ background: `radial-gradient(circle, ${DYR21_RED}, transparent 70%)` }}
+        />
+        <div
+          className="absolute -bottom-20 -right-10 h-72 w-72 rounded-full opacity-20 blur-[110px]"
+          style={{ background: `radial-gradient(circle, ${DYR21_RED}, transparent 70%)` }}
+        />
+        <div className="grain-overlay opacity-[0.05]" />
+      </div>
+
+      <div className="absolute inset-0 flex items-center justify-center p-10">
+        <div
+          className="relative flex h-40 w-40 items-center justify-center rounded-2xl border border-white/10 bg-slate-950/60 shadow-2xl backdrop-blur-sm transition-transform duration-500 group-hover:scale-105 md:h-52 md:w-52"
+        >
+          <div className="relative h-24 w-24 md:h-32 md:w-32">
+            <Image
+              src="/brand-logos/dyr21.png"
+              alt="DYR21 logo"
+              fill
+              className="object-contain"
+              sizes="(min-width: 768px) 128px, 96px"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function BrandGrid() {
   const sorted = [...brands].sort((a, b) => a.displayOrder - b.displayOrder);
 
@@ -165,6 +212,63 @@ export function BrandGrid() {
               </ScrollReveal>
             );
           })}
+          <div className="border-t border-border" />
+        </div>
+
+        {/* İş Birlikleri */}
+        <ScrollReveal className="mt-24">
+          <SectionLabel>İş Birlikleri</SectionLabel>
+          <h2 className="mt-4 max-w-xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
+            Anlaşmalı İş Ortakları
+          </h2>
+        </ScrollReveal>
+
+        <div className="mt-16">
+          <ScrollReveal>
+            <div className="group grid grid-cols-1 items-center gap-10 border-t border-border py-14 md:grid-cols-2 md:gap-16 md:py-20">
+              <div>
+                <DYR21Visual />
+              </div>
+
+              <div>
+                <div className="flex items-center gap-3">
+                  <span className="text-sm font-medium" style={{ color: DYR21_RED }}>
+                    01
+                  </span>
+                  <span className="font-mono text-[13px] text-muted">dyr21.com</span>
+                </div>
+
+                <h3 className="mt-5 text-4xl font-medium tracking-tight text-foreground md:text-5xl">
+                  DYR21
+                </h3>
+
+                <span className="mt-4 block text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
+                  Toptan &amp; Perakende Tekstil Ürünleri
+                </span>
+
+                <p className="mt-5 max-w-md text-[16px] leading-relaxed text-slate-300">
+                  İzmir'in köklü tekstil mirasından beslenen DYR21, 20 yılı aşkın sektör deneyimiyle
+                  Türkiye'nin önde gelen jean ve giyim markalarından biridir. Hurşidiye Mahallesi'ndeki
+                  üretim merkeziyle imalattan perakendeye uzanan entegre yapısıyla; bireysel
+                  alışverişten toptan kurumsal çözümlere kadar geniş bir yelpazede hizmet sunmaktadır.
+                  TRADERS.TR ile kurduğu süresiz iş ortaklığı, markanın dijital ticaret vizyonunu
+                  daha geniş kitlelere taşımaktadır.
+                </p>
+
+                <a
+                  href="https://dyr21.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-flex items-center gap-2 text-[13px] font-medium tracking-wide text-foreground transition-colors hover:text-red-400"
+                >
+                  DYR21&apos;i Keşfedin
+                  <span className="transition-transform duration-300 group-hover:translate-x-1">
+                    →
+                  </span>
+                </a>
+              </div>
+            </div>
+          </ScrollReveal>
           <div className="border-t border-border" />
         </div>
       </div>

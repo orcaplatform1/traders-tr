@@ -12,6 +12,39 @@ function quote(text: string): ContentBlock {
 
 export const newsroomPosts: NewsroomPost[] = [
   {
+    id: "6",
+    slug: "dyr21-anlasmali-ortaklik",
+    title: "DYR21 ile Anlaşmalı Ortaklık",
+    excerpt:
+      "20 yılı aşkın sektör deneyimiyle İzmir'in önde gelen tekstil markalarından DYR21 ile süresiz iş ortaklığı kuruldu.",
+    content: [
+      p(
+        "TRADERS.TR, 20 yılı aşkın sektör deneyimiyle Türkiye'nin önde gelen jean ve tekstil markalarından DYR21 ile anlaşmalı iş ortaklığı kurduğunu duyurur. Bu ortaklık, her iki yapının güçlü yanlarını birleştirerek tekstil ve dijital ticaret ekosisteminde kalıcı bir sinerji oluşturmayı hedeflemektedir.",
+      ),
+      h2("Sektörün güvenilir ismi: DYR21", "dyr21-hakkinda"),
+      p(
+        "İzmir'in tekstil başkenti Konak'ta, Hurşidiye Mahallesi'ndeki üretim merkezinden dünyaya uzanan DYR21, jean ve giyim sektöründe yirmi yılı aşkın deneyimiyle tanınan, kalitesiyle öne çıkan köklü bir markadır. Başlangıcından bu yana sürdürdüğü imalat odaklı yaklaşım, DYR21'i yalnızca bir satış noktası değil; ham maddeden bitmiş ürüne uzanan entegre bir tekstil değer zinciri olarak konumlandırmaktadır.",
+      ),
+      p(
+        "İzmir'in jean üretimindeki derin birikimini Türkiye geneline taşıyan DYR21, bireysel alışverişten kurumsal toptan çözümlere kadar geniş bir müşteri yelpazesine hitap etmektedir. Markanın uzun soluklu ticaret geçmişi ve sektördeki tanınırlığı, onu TRADERS.TR'ın portföyü için stratejik bir ortak haline getirmiştir.",
+      ),
+      h2("Ortaklığın kapsamı", "ortaklik-kapsami"),
+      p(
+        "TRADERS.TR ile DYR21 arasında kurulan bu süresiz iş ortaklığı; dijital ticaret altyapısı, marka bilinirliği ve müşteri erişimi alanlarında karşılıklı katkı ve iş birliğini kapsamaktadır. TRADERS.TR'ın teknoloji ve dijital ekosistem yetkinliği, DYR21'in güçlü üretim ve dağıtım altyapısıyla buluşarak her iki taraf için yeni büyüme fırsatları yaratmaktadır.",
+      ),
+      quote(
+        "Kaliteli üretim ve güvenilir ticaret anlayışı, yirmi yılı aşkın deneyimimizin temelini oluşturuyor. TRADERS.TR ile bu temeli dijital alanda daha geniş kitlelere taşımak için güçlü bir ortak bulduk.",
+      ),
+      h2("Uzun vadeli vizyon", "uzun-vadeli-vizyon"),
+      p(
+        "Bu iş ortaklığı, kısa vadeli bir ticari anlaşmanın ötesinde, ortak bir vizyon etrafında şekillenmiştir: Türk tekstil üretiminin kalitesini ve özgünlüğünü dijital ticaret kanalları aracılığıyla daha geniş bir coğrafyaya ulaştırmak. DYR21 ile kurulan bu köprü, TRADERS.TR'ın iş ortaklığı modelinin ilk halkasını oluşturmaktadır.",
+      ),
+    ],
+    category: "Ortaklık",
+    publishedAt: "2026-10-05",
+    readTime: "4 dk",
+  },
+  {
     id: "5",
     slug: "mettlo-tanitimi",
     title: "TRADERS.TR portföyüne yeni markasını ekliyor: Mettlo",
