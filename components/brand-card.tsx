@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import type { Brand, BrandAccent } from "@/lib/content/types";
+import { useT } from "@/lib/i18n";
 
 const ACCENT: Record<
   BrandAccent,
@@ -42,6 +45,7 @@ const ACCENT: Record<
 
 export function BrandCard({ brand }: { brand: Brand }) {
   const accent = ACCENT[brand.accent];
+  const t = useT();
 
   return (
     <div
@@ -86,10 +90,10 @@ export function BrandCard({ brand }: { brand: Brand }) {
               }`}
             />
             {brand.status === "active"
-              ? "Aktif"
+              ? t("Aktif", "Active")
               : brand.status === "developing"
-                ? "Geliştiriliyor"
-                : "Keşfediyoruz"}
+                ? t("Geliştiriliyor", "In Development")
+                : t("Keşfediyoruz", "Exploring")}
           </span>
         </div>
 
@@ -125,7 +129,7 @@ export function BrandCard({ brand }: { brand: Brand }) {
           href={`/markalar/${brand.slug}`}
           className={`text-muted transition-colors ${accent.hoverText}`}
         >
-          Profili gör
+          {t("Profili gör", "View Profile")}
         </Link>
       </div>
 

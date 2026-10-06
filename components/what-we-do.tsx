@@ -1,5 +1,8 @@
+"use client";
+
 import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { useT } from "@/lib/i18n";
 
 function MarkDiscover() {
   return (
@@ -57,53 +60,73 @@ function MarkExpand() {
   );
 }
 
-const CAPABILITIES = [
-  {
-    n: "01",
-    title: "Keşfet",
-    description: "Yeni fikirleri ve pazar fırsatlarını araştırıyoruz.",
-    Mark: MarkDiscover,
-  },
-  {
-    n: "02",
-    title: "İnşa Et",
-    description: "Marka, ürün, teknoloji ve sistemleri geliştiriyoruz.",
-    Mark: MarkBuild,
-  },
-  {
-    n: "03",
-    title: "Hayata Geçir",
-    description: "Fikirleri gerçek ürün ve işletmelere dönüştürüyoruz.",
-    Mark: MarkLaunch,
-  },
-  {
-    n: "04",
-    title: "İşlet",
-    description: "Sadece kurup bırakmıyoruz; büyüme sürecinde aktif rol alıyoruz.",
-    Mark: MarkOperate,
-  },
-  {
-    n: "05",
-    title: "Büyüt",
-    description: "Başarılı modelleri yeni pazarlara ve kategorilere taşıyoruz.",
-    Mark: MarkExpand,
-  },
-];
-
 export function WhatWeDo() {
+  const t = useT();
+
+  const CAPABILITIES = [
+    {
+      n: "01",
+      title: t("Keşfet", "Discover"),
+      description: t(
+        "Yeni fikirleri ve pazar fırsatlarını araştırıyoruz.",
+        "We research new ideas and market opportunities."
+      ),
+      Mark: MarkDiscover,
+    },
+    {
+      n: "02",
+      title: t("İnşa Et", "Build"),
+      description: t(
+        "Marka, ürün, teknoloji ve sistemleri geliştiriyoruz.",
+        "We develop brands, products, technology and systems."
+      ),
+      Mark: MarkBuild,
+    },
+    {
+      n: "03",
+      title: t("Hayata Geçir", "Launch"),
+      description: t(
+        "Fikirleri gerçek ürün ve işletmelere dönüştürüyoruz.",
+        "We turn ideas into real products and businesses."
+      ),
+      Mark: MarkLaunch,
+    },
+    {
+      n: "04",
+      title: t("İşlet", "Operate"),
+      description: t(
+        "Sadece kurup bırakmıyoruz; büyüme sürecinde aktif rol alıyoruz.",
+        "We don't just launch and leave — we stay actively involved through growth."
+      ),
+      Mark: MarkOperate,
+    },
+    {
+      n: "05",
+      title: t("Büyüt", "Scale"),
+      description: t(
+        "Başarılı modelleri yeni pazarlara ve kategorilere taşıyoruz.",
+        "We take proven models into new markets and categories."
+      ),
+      Mark: MarkExpand,
+    },
+  ];
+
   return (
     <section className="border-b border-border py-28 md:py-36">
       <div className="container-edit">
         <ScrollReveal>
-          <SectionLabel>Ne Yapıyoruz</SectionLabel>
+          <SectionLabel>{t("Ne Yapıyoruz", "What We Do")}</SectionLabel>
           <h2 className="mt-4 max-w-xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-            Fikirleri işleyen markalara dönüştürüyoruz.
+            {t(
+              "Fikirleri işleyen markalara dönüştürüyoruz.",
+              "We turn ideas into working brands."
+            )}
           </h2>
         </ScrollReveal>
 
         <div className="mt-16">
           {CAPABILITIES.map((c, i) => (
-            <ScrollReveal key={c.title} delay={i * 80}>
+            <ScrollReveal key={c.n} delay={i * 80}>
               <div className="group grid grid-cols-1 gap-4 border-t border-border py-8 transition-colors duration-300 hover:border-border-hover md:grid-cols-[64px_56px_220px_1fr] md:items-center md:gap-10">
                 <span className="text-sm text-muted">{c.n}</span>
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-soft text-accent transition-transform duration-300 group-hover:scale-105">

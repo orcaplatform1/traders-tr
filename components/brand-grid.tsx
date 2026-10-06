@@ -1,8 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { brands } from "@/lib/content/brands";
 import type { Brand, BrandAccent } from "@/lib/content/types";
+import { useT } from "@/lib/i18n";
 
 const GLOW: Record<BrandAccent, string> = {
   blue: "#3b82f6",
@@ -20,13 +23,6 @@ const BRAND_COLOR: Record<string, string> = {
 
 const LOGO_BG: Record<string, string> = {
   kriptobeyan: "rgba(212, 175, 55, 0.16)",
-};
-
-const EXPLORE_LABEL: Record<string, string> = {
-  orca: "ORCA'yı Keşfedin",
-  kriptobeyan: "KriptoBeyan'ı Keşfedin",
-  zesta: "Zesta'yı Keşfedin",
-  mettlo: "Mettlo'yu Keşfedin",
 };
 
 const ACCENT_HOVER_TEXT: Record<BrandAccent, string> = {
@@ -148,15 +144,23 @@ function DYR21Visual() {
 }
 
 export function BrandGrid() {
+  const t = useT();
   const sorted = [...brands].sort((a, b) => a.displayOrder - b.displayOrder);
+
+  const EXPLORE_LABEL: Record<string, string> = {
+    orca: t("ORCA'yı Keşfedin", "Explore ORCA"),
+    kriptobeyan: t("KriptoBeyan'ı Keşfedin", "Explore KriptoBeyan"),
+    zesta: t("Zesta'yı Keşfedin", "Explore Zesta"),
+    mettlo: t("Mettlo'yu Keşfedin", "Explore Mettlo"),
+  };
 
   return (
     <section className="border-b border-border py-28 md:py-36">
       <div className="container-edit">
         <ScrollReveal>
-          <SectionLabel>Markalarımız</SectionLabel>
+          <SectionLabel>{t("Markalarımız", "Our Brands")}</SectionLabel>
           <h2 className="mt-4 max-w-xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-            Bağımsız markalar. Ortak bir vizyon.
+            {t("Bağımsız markalar. Ortak bir vizyon.", "Independent brands. One shared vision.")}
           </h2>
         </ScrollReveal>
 
@@ -215,11 +219,11 @@ export function BrandGrid() {
           <div className="border-t border-border" />
         </div>
 
-        {/* İş Birlikleri */}
+        {/* Partnerships */}
         <ScrollReveal className="mt-24">
-          <SectionLabel>İş Birlikleri</SectionLabel>
+          <SectionLabel>{t("İş Birlikleri", "Partnerships")}</SectionLabel>
           <h2 className="mt-4 max-w-xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-            Anlaşmalı İş Ortakları
+            {t("Anlaşmalı İş Ortakları", "Contracted Partners")}
           </h2>
         </ScrollReveal>
 
@@ -243,16 +247,14 @@ export function BrandGrid() {
                 </h3>
 
                 <span className="mt-4 block text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-                  Toptan &amp; Perakende Tekstil Ürünleri
+                  {t("Toptan & Perakende Tekstil Ürünleri", "Wholesale & Retail Textile Products")}
                 </span>
 
                 <p className="mt-5 max-w-md text-[16px] leading-relaxed text-slate-300">
-                  İzmir'in köklü tekstil mirasından beslenen DYR21, 20 yılı aşkın sektör deneyimiyle
-                  Türkiye'nin önde gelen jean ve giyim markalarından biridir. Hurşidiye Mahallesi'ndeki
-                  üretim merkeziyle imalattan perakendeye uzanan entegre yapısıyla; bireysel
-                  alışverişten toptan kurumsal çözümlere kadar geniş bir yelpazede hizmet sunmaktadır.
-                  TRADERS.TR ile kurduğu süresiz iş ortaklığı, markanın dijital ticaret vizyonunu
-                  daha geniş kitlelere taşımaktadır.
+                  {t(
+                    "İzmir'in köklü tekstil mirasından beslenen DYR21, 2015'ten bu yana Türkiye'nin önde gelen jean ve giyim markalarından biridir. Hurşidiye Mahallesi'ndeki üretim merkeziyle imalattan perakendeye uzanan entegre yapısıyla; bireysel alışverişten toptan kurumsal çözümlere kadar geniş bir yelpazede hizmet sunmaktadır. TRADERS.TR ile kurduğu süresiz iş ortaklığı, markanın dijital ticaret vizyonunu daha geniş kitlelere taşımaktadır.",
+                    "Rooted in İzmir's rich textile heritage, DYR21 has been one of Turkey's leading denim and apparel brands since 2015. With its integrated structure spanning manufacturing to retail, it serves customers ranging from individual shoppers to wholesale corporate clients. Its indefinite partnership with TRADERS.TR brings the brand's digital commerce vision to a wider audience."
+                  )}
                 </p>
 
                 <a
@@ -261,7 +263,7 @@ export function BrandGrid() {
                   rel="noopener noreferrer"
                   className="mt-8 inline-flex items-center gap-2 text-[13px] font-medium tracking-wide text-foreground transition-colors hover:text-red-400"
                 >
-                  DYR21&apos;i Keşfedin
+                  {t("DYR21'i Keşfedin", "Explore DYR21")}
                   <span className="transition-transform duration-300 group-hover:translate-x-1">
                     →
                   </span>

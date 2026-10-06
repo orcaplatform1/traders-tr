@@ -1,6 +1,9 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatedGrid } from "@/components/animated-grid";
+import { useT } from "@/lib/i18n";
 
 // `imageSrc` verilmediginde AnimatedGrid + grain fallback olarak kaliyor.
 //
@@ -22,6 +25,7 @@ export function Hero({
   imageSrc?: string;
   imageSrcMobile?: string;
 }) {
+  const t = useT();
   return (
     <section className="relative flex min-h-screen flex-col overflow-hidden border-b border-border">
       {imageSrc ? (
@@ -92,14 +96,16 @@ export function Hero({
       <div className="container-edit relative flex flex-1 flex-col justify-end pb-16 pt-0 md:pb-40">
         <div className="max-w-3xl">
           <h1 className="text-[26px] font-medium leading-[1.12] tracking-tight text-foreground sm:text-[34px] md:text-[44px]">
-            Sınırların ötesinde
+            {t("Sınırların ötesinde", "Building brands")}
             <br />
-            markalar inşa ediyoruz.
+            {t("markalar inşa ediyoruz.", "beyond borders.")}
           </h1>
 
           <p className="mt-6 max-w-lg text-[16px] leading-relaxed text-muted md:text-[18px]">
-            Teknoloji, ticaret ve finansın kesişiminde işletmeler geliştiren
-            çok markalı bir girişim şirketi.
+            {t(
+              "Teknoloji, ticaret ve finansın kesişiminde işletmeler geliştiren çok markalı bir girişim şirketi.",
+              "A multi-brand venture company building businesses at the intersection of technology, commerce and finance."
+            )}
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
@@ -108,7 +114,7 @@ export function Hero({
               className="btn-shine group relative rounded-sm border border-foreground bg-foreground px-6 py-3 text-[13px] font-medium tracking-wide text-slate-950 transition-colors hover:bg-transparent hover:text-foreground"
             >
               <span className="relative z-10 inline-flex items-center gap-2">
-                Markalarımızı Keşfedin
+                {t("Markalarımızı Keşfedin", "Explore Our Brands")}
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
@@ -119,7 +125,7 @@ export function Hero({
               className="btn-shine group relative inline-flex items-center gap-2 text-[13px] font-medium tracking-wide text-muted transition-colors hover:text-foreground"
             >
               <span className="relative z-10 inline-flex items-center gap-2">
-                Bizim Öykümüz
+                {t("Bizim Öykümüz", "Our Story")}
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>

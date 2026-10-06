@@ -1,10 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ventures } from "@/lib/content/ventures";
+import { useT } from "@/lib/i18n";
 
-// "01" Orca mavi, "02" KriptoBeyan sampanya/altin, "03" Zesta yesil (teal) -
-// brand-grid.tsx'teki BRAND_COLOR ile ayni renk sistemi.
 const VENTURE_COLOR: Record<string, string> = {
   orca: "#3b82f6",
   kriptobeyan: "#d4af37",
@@ -13,13 +14,15 @@ const VENTURE_COLOR: Record<string, string> = {
 };
 
 export function VenturesSection() {
+  const t = useT();
+
   return (
     <section className="border-b border-border py-28 md:py-36">
       <div className="container-edit">
         <ScrollReveal>
-          <SectionLabel>Girişimler</SectionLabel>
+          <SectionLabel>{t("Girişimler", "Ventures")}</SectionLabel>
           <h2 className="mt-4 max-w-2xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-            Sıfırdan kuruldu.
+            {t("Sıfırdan kuruldu.", "Built from scratch.")}
           </h2>
         </ScrollReveal>
 
@@ -45,13 +48,13 @@ export function VenturesSection() {
                   <dl className="mt-6 space-y-3 border-t border-border pt-5">
                     <div className="flex items-baseline justify-between gap-4">
                       <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
-                        Kategori
+                        {t("Kategori", "Category")}
                       </dt>
                       <dd className="text-right text-[13px] text-slate-300">{v.category}</dd>
                     </div>
                     <div className="flex items-baseline justify-between gap-4">
                       <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
-                        Durum
+                        {t("Durum", "Status")}
                       </dt>
                       <dd
                         className={`flex items-center gap-2 text-[13px] ${
@@ -63,13 +66,15 @@ export function VenturesSection() {
                             v.stage === "developing" ? "bg-warning" : "bg-success"
                           }`}
                         />
-                        {v.stage === "developing" ? "Geliştiriliyor" : "Aktif"}
+                        {v.stage === "developing"
+                          ? t("Geliştiriliyor", "In Development")
+                          : t("Aktif", "Active")}
                       </dd>
                     </div>
                     {v.websiteUrl && (
                       <div className="flex items-baseline justify-between gap-4">
                         <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
-                          Web Sitesi
+                          {t("Web Sitesi", "Website")}
                         </dt>
                         <dd>
                           <a
@@ -97,21 +102,23 @@ export function VenturesSection() {
           <div className="mt-14 flex flex-col gap-4 border-t border-border pt-10 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-accent">
-                Keşfediyoruz
+                {t("Keşfediyoruz", "Exploring")}
               </span>
               <p className="mt-3 max-w-md text-[14px] leading-relaxed text-muted">
-                Teknoloji, dijital ticaret, finans ve gelişmekte olan
-                pazarlardaki fırsatları sürekli değerlendiriyoruz.
+                {t(
+                  "Teknoloji, dijital ticaret, finans ve gelişmekte olan pazarlardaki fırsatları sürekli değerlendiriyoruz.",
+                  "We continuously evaluate opportunities in technology, digital commerce, finance and emerging markets."
+                )}
               </p>
             </div>
           </div>
         </ScrollReveal>
 
-        {/* İş Ortaklığı */}
+        {/* Partnerships */}
         <ScrollReveal className="mt-24">
-          <SectionLabel>İş Ortaklığı</SectionLabel>
+          <SectionLabel>{t("İş Ortaklığı", "Business Partnerships")}</SectionLabel>
           <h2 className="mt-4 max-w-2xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-            Anlaşmalı iş ortakları.
+            {t("Anlaşmalı iş ortakları.", "Contracted partners.")}
           </h2>
         </ScrollReveal>
 
@@ -137,23 +144,23 @@ export function VenturesSection() {
                   </h3>
                 </div>
                 <p className="mt-2 text-[14px] leading-relaxed text-muted">
-                  Toptan &amp; Perakende Tekstil Ürünleri
+                  {t("Toptan & Perakende Tekstil Ürünleri", "Wholesale & Retail Textile Products")}
                 </p>
 
                 <dl className="mt-6 space-y-3 border-t border-border pt-5">
                   <div className="flex items-baseline justify-between gap-4">
-                    <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">Kategori</dt>
-                    <dd className="text-right text-[13px] text-slate-300">E-Ticaret</dd>
+                    <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">{t("Kategori", "Category")}</dt>
+                    <dd className="text-right text-[13px] text-slate-300">{t("E-Ticaret", "E-Commerce")}</dd>
                   </div>
                   <div className="flex items-baseline justify-between gap-4">
-                    <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">Durum</dt>
+                    <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">{t("Durum", "Status")}</dt>
                     <dd className="flex items-center gap-2 text-[13px] text-slate-300">
                       <span className="h-1.5 w-1.5 rounded-full bg-success" />
-                      Aktif
+                      {t("Aktif", "Active")}
                     </dd>
                   </div>
                   <div className="flex items-baseline justify-between gap-4">
-                    <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">Web Sitesi</dt>
+                    <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">{t("Web Sitesi", "Website")}</dt>
                     <dd>
                       <a
                         href="https://dyr21.com"

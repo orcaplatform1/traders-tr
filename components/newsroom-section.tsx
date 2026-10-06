@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { newsroomPosts } from "@/lib/content/newsroom";
 import type { NewsroomCategory } from "@/lib/content/types";
+import { useT, useLang } from "@/lib/i18n";
 
 const CATEGORY_STYLE: Record<NewsroomCategory, string> = {
   "Marka Lansmanı": "bg-blue-500/10 text-blue-400",
@@ -12,35 +15,49 @@ const CATEGORY_STYLE: Record<NewsroomCategory, string> = {
   Etkinlik: "bg-cyan/10 text-cyan",
 };
 
-function formatDay(iso: string) {
-  return new Date(iso).toLocaleDateString("tr-TR", { day: "2-digit" });
-}
-
-function formatMonth(iso: string) {
-  return new Date(iso)
-    .toLocaleDateString("tr-TR", { month: "short" })
-    .replace(".", "")
-    .toUpperCase();
-}
+const CATEGORY_EN: Record<string, string> = {
+  "Marka Lansmanı": "Brand Launch",
+  "Ürün Duyurusu": "Product Announcement",
+  Ortaklık: "Partnership",
+  "Şirket Duyurusu": "Company Announcement",
+  Etkinlik: "Event",
+};
 
 export function NewsroomSection() {
+  const t = useT();
+  const { lang } = useLang();
   const featured = newsroomPosts.slice(0, 4);
+
+  function formatDay(iso: string) {
+    return new Date(iso).toLocaleDateString(lang === "en" ? "en-US" : "tr-TR", { day: "2-digit" });
+  }
+
+  function formatMonth(iso: string) {
+    return new Date(iso)
+      .toLocaleDateString(lang === "en" ? "en-US" : "tr-TR", { month: "short" })
+      .replace(".", "")
+      .toUpperCase();
+  }
+
+  function catLabel(cat: string) {
+    return lang === "en" ? (CATEGORY_EN[cat] ?? cat) : cat;
+  }
 
   return (
     <section className="border-b border-border py-28 md:py-36">
       <div className="container-edit">
         <ScrollReveal className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <SectionLabel>Basın Merkezi</SectionLabel>
+            <SectionLabel>{t("Basın Merkezi", "Newsroom")}</SectionLabel>
             <h2 className="mt-4 max-w-xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-              Şirket duyuruları.
+              {t("Şirket duyuruları.", "Company announcements.")}
             </h2>
           </div>
           <Link
             href="/basin-merkezi"
             className="text-[13px] font-medium tracking-wide text-muted underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-accent"
           >
-            Tümünü gör
+            {t("Tümünü gör", "See all")}
           </Link>
         </ScrollReveal>
 
@@ -74,7 +91,7 @@ export function NewsroomSection() {
                 <span
                   className={`hidden shrink-0 rounded-full px-3 py-1 text-[11px] font-medium uppercase tracking-[0.1em] sm:inline-block ${CATEGORY_STYLE[post.category]}`}
                 >
-                  {post.category}
+                  {catLabel(post.category)}
                 </span>
 
                 <span className="shrink-0 text-muted transition-transform duration-300 group-hover:translate-x-1 group-hover:text-accent">

@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -7,8 +9,33 @@ import {
   SITE_TAGLINE,
 } from "@/lib/constants";
 import { brands } from "@/lib/content/brands";
+import { useT } from "@/lib/i18n";
+
+const EXPLORE_EN: Record<string, string> = {
+  Markalar: "Brands",
+  Girişimler: "Ventures",
+  İçgörüler: "Insights",
+  "Basın Merkezi": "Newsroom",
+};
+
+const COMPANY_EN: Record<string, string> = {
+  Hakkımızda: "About",
+  "İş Ortaklıkları": "Partnerships",
+  Kariyer: "Careers",
+  İletişim: "Contact",
+};
+
+const LEGAL_EN: Record<string, string> = {
+  "Gizlilik Politikası": "Privacy Policy",
+  "Çerez Politikası": "Cookie Policy",
+  KVKK: "KVKK",
+  "Site Haritası": "Site Map",
+  "XML Site Haritası": "XML Sitemap",
+};
 
 export function SiteFooter() {
+  const t = useT();
+
   return (
     <footer className="border-t border-border">
       <div className="container-edit grid grid-cols-1 gap-12 py-16 md:grid-cols-4 md:py-20">
@@ -17,13 +44,13 @@ export function SiteFooter() {
             <Image src="/logo.png" alt="TRADERS.TR" fill className="object-contain object-left" sizes="190px" />
           </div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
-            {SITE_TAGLINE}
+            {t(SITE_TAGLINE, "Building brands beyond borders.")}
           </p>
         </div>
 
         <div>
           <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-            Keşfet
+            {t("Keşfet", "Explore")}
           </span>
           <ul className="mt-4 space-y-3">
             {FOOTER_EXPLORE_LINKS.map((link) => (
@@ -32,7 +59,7 @@ export function SiteFooter() {
                   href={link.href}
                   className="text-[13px] text-muted transition-colors hover:text-foreground"
                 >
-                  {link.label}
+                  {t(link.label, EXPLORE_EN[link.label] ?? link.label)}
                 </Link>
               </li>
             ))}
@@ -41,7 +68,7 @@ export function SiteFooter() {
 
         <div>
           <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-            Şirket
+            {t("Şirket", "Company")}
           </span>
           <ul className="mt-4 space-y-3">
             {FOOTER_COMPANY_LINKS.map((link) => (
@@ -50,7 +77,7 @@ export function SiteFooter() {
                   href={link.href}
                   className="text-[13px] text-muted transition-colors hover:text-foreground"
                 >
-                  {link.label}
+                  {t(link.label, COMPANY_EN[link.label] ?? link.label)}
                 </Link>
               </li>
             ))}
@@ -59,7 +86,7 @@ export function SiteFooter() {
 
         <div>
           <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-            Markalarımız
+            {t("Markalarımız", "Our Brands")}
           </span>
           <ul className="mt-4 space-y-3">
             {brands.map((brand) => (
@@ -80,7 +107,7 @@ export function SiteFooter() {
           </ul>
 
           <span className="mt-6 block text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-            İş Ortaklıkları
+            {t("İş Ortaklıkları", "Partnerships")}
           </span>
           <ul className="mt-4 space-y-3">
             <li>
@@ -107,6 +134,7 @@ export function SiteFooter() {
             <span className="whitespace-nowrap">
               <span className="font-semibold text-slate-50">Traders</span>
               <span className="font-semibold text-blue-500">.TR</span>{" "}
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/footerflag.png"
                 alt=""
@@ -114,7 +142,7 @@ export function SiteFooter() {
                 className="inline-block h-[1em] w-[1em] translate-y-[0.1em] object-contain align-baseline"
               />
             </span>
-            . Tüm hakları saklıdır.
+            . {t("Tüm hakları saklıdır.", "All rights reserved.")}
           </span>
 
           <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
@@ -124,7 +152,7 @@ export function SiteFooter() {
                   href={link.href}
                   className="text-[12px] text-muted transition-colors hover:text-foreground"
                 >
-                  {link.label}
+                  {t(link.label, LEGAL_EN[link.label] ?? link.label)}
                 </Link>
               </li>
             ))}

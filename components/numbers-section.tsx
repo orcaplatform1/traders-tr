@@ -1,13 +1,18 @@
-import { ScrollReveal } from "@/components/scroll-reveal";
+"use client";
 
-const NUMBERS = [
-  { value: "05", label: "Marka" },
-  { value: "05", label: "Sektör" },
-  { value: "01", label: "Ortak" },
-  { value: "∞", label: "Keşfedilecek Fikir" },
-];
+import { ScrollReveal } from "@/components/scroll-reveal";
+import { useT } from "@/lib/i18n";
 
 export function NumbersSection() {
+  const t = useT();
+
+  const NUMBERS = [
+    { value: "05", label: t("Marka", "Brands") },
+    { value: "05", label: t("Sektör", "Sectors") },
+    { value: "01", label: t("Ortak", "Partner") },
+    { value: "∞", label: t("Keşfedilecek Fikir", "Ideas to Explore") },
+  ];
+
   return (
     <section className="border-b border-border py-24 md:py-32">
       <div className="container-edit">

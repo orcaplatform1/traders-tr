@@ -2,38 +2,40 @@
 
 import { useActionState, useEffect, useRef, useState } from "react";
 import { submitContactForm, type ContactFormState } from "@/app/actions/contact";
-
-const CATEGORIES = [
-  { value: "ortaklik", label: "İş Ortaklığı" },
-  { value: "girisim", label: "Girişim" },
-  { value: "basin", label: "Basın" },
-  { value: "genel", label: "Genel" },
-] as const;
+import { useT } from "@/lib/i18n";
 
 const initialState: ContactFormState = { status: "idle" };
 
 export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: string }) {
+  const t = useT();
   const [state, formAction, pending] = useActionState(submitContactForm, initialState);
+
+  const CATEGORIES = [
+    { value: "ortaklik", label: t("İş Ortaklığı", "Partnership") },
+    { value: "girisim", label: t("Girişim", "Venture") },
+    { value: "basin", label: t("Basın", "Press") },
+    { value: "genel", label: t("Genel", "General") },
+  ] as const;
 
   if (state.status === "success") {
     return (
       <div className="border-t border-border pt-8">
-        <p className="text-xl font-medium text-foreground">Teşekkürler.</p>
-        <p className="mt-2 text-[15px] text-muted">Size en kısa sürede geri döneceğiz.</p>
+        <p className="text-xl font-medium text-foreground">{t("Teşekkürler.", "Thank you.")}</p>
+        <p className="mt-2 text-[15px] text-muted">{t("Size en kısa sürede geri döneceğiz.", "We'll get back to you as soon as possible.")}</p>
       </div>
     );
   }
 
   return (
     <form action={formAction} className="space-y-6" noValidate>
-      {/* honeypot — ekran okuyucu ve normal kullanicidan gizli */}
+      {/* honeypot */}
       <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
-        <label htmlFor="website">Web sitesi</label>
+        <label htmlFor="website">{t("Web sitesi", "Website")}</label>
         <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
       </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <Field label="Ad Soyad" name="name" error={state.fieldErrors?.name}>
+        <Field label={t("Ad Soyad", "Full Name")} name="name" error={state.fieldErrors?.name}>
           <input
             id="name"
             name="name"
@@ -43,7 +45,7 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
           />
         </Field>
 
-        <Field label="E-posta" name="email" error={state.fieldErrors?.email}>
+        <Field label={t("E-posta", "Email")} name="email" error={state.fieldErrors?.email}>
           <input
             id="email"
             name="email"
@@ -56,7 +58,7 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
       </div>
 
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <Field label="Telefon" name="phone" error={state.fieldErrors?.phone}>
+        <Field label={t("Telefon", "Phone")} name="phone" error={state.fieldErrors?.phone}>
           <div className="flex">
             <span
               aria-hidden
@@ -80,7 +82,7 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
           </div>
         </Field>
 
-        <Field label="Şirket/Bireysel" name="company" error={state.fieldErrors?.company}>
+        <Field label={t("Şirket/Bireysel", "Company/Individual")} name="company" error={state.fieldErrors?.company}>
           <input
             id="company"
             name="company"
@@ -90,11 +92,11 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
         </Field>
       </div>
 
-      <Field label="Kategori" name="category">
-        <CategorySelect defaultValue={defaultCategory} />
+      <Field label={t("Kategori", "Category")} name="category">
+        <CategorySelect defaultValue={defaultCategory} categories={CATEGORIES} />
       </Field>
 
-      <Field label="Konu" name="subject" error={state.fieldErrors?.subject}>
+      <Field label={t("Konu", "Subject")} name="subject" error={state.fieldErrors?.subject}>
         <input
           id="subject"
           name="subject"
@@ -104,7 +106,7 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
         />
       </Field>
 
-      <Field label="Mesaj" name="message" error={state.fieldErrors?.message}>
+      <Field label={t("Mesaj", "Message")} name="message" error={state.fieldErrors?.message}>
         <textarea
           id="message"
           name="message"
@@ -123,7 +125,7 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
         disabled={pending}
         className="rounded-sm bg-accent px-6 py-3 text-[13px] font-medium tracking-wide text-slate-50 transition-colors hover:bg-blue-400 disabled:opacity-60"
       >
-        {pending ? "Gönderiliyor…" : "Mesaj Gönder"}
+        {pending ? t("Gönderiliyor…", "Sending…") : t("Mesaj Gönder", "Send Message")}
       </button>
     </form>
   );
@@ -154,11 +156,13 @@ function Field({
   );
 }
 
-// Native <select> popup'i (ozellikle iOS Safari'nin tekerlek secici arayuzu)
-// CSS ile stillendirilemiyor - OS tarafindan ciziliyor, palete uygun
-// yapamiyoruz. Bu yuzden tamamen ozel, kendi stillerimizle cizilen bir
-// dropdown kullaniyoruz; form gonderimi icin gizli bir input tasiyor.
-function CategorySelect({ defaultValue }: { defaultValue: string }) {
+function CategorySelect({
+  defaultValue,
+  categories,
+}: {
+  defaultValue: string;
+  categories: ReadonlyArray<{ value: string; label: string }>;
+}) {
   const [value, setValue] = useState(defaultValue);
   const [open, setOpen] = useState(false);
   const rootRef = useRef<HTMLDivElement>(null);
@@ -180,7 +184,7 @@ function CategorySelect({ defaultValue }: { defaultValue: string }) {
     };
   }, []);
 
-  const selected = CATEGORIES.find((c) => c.value === value) ?? CATEGORIES[0];
+  const selected = categories.find((c) => c.value === value) ?? categories[0];
 
   return (
     <div ref={rootRef} className="relative">
@@ -207,7 +211,7 @@ function CategorySelect({ defaultValue }: { defaultValue: string }) {
           role="listbox"
           className="absolute left-0 right-0 top-full z-20 mt-1 max-h-60 overflow-auto border border-border-default bg-surface-2 py-1 shadow-lg"
         >
-          {CATEGORIES.map((c) => (
+          {categories.map((c) => (
             <li key={c.value} role="option" aria-selected={c.value === value}>
               <button
                 type="button"

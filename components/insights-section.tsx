@@ -1,8 +1,11 @@
+"use client";
+
 import Link from "next/link";
 import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { insights } from "@/lib/content/insights";
 import type { InsightCategory } from "@/lib/content/types";
+import { useT, useLang } from "@/lib/i18n";
 
 const CATEGORY_STYLE: Record<InsightCategory, string> = {
   Teknoloji: "text-cyan",
@@ -12,33 +15,47 @@ const CATEGORY_STYLE: Record<InsightCategory, string> = {
   Şirket: "text-indigo",
 };
 
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString("tr-TR", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-  });
-}
+const CATEGORY_EN: Record<string, string> = {
+  Teknoloji: "Technology",
+  Girişimcilik: "Entrepreneurship",
+  "Dijital Ekonomi": "Digital Economy",
+  Piyasalar: "Markets",
+  Şirket: "Company",
+};
 
 export function InsightsSection() {
+  const t = useT();
+  const { lang } = useLang();
   const [featured, ...rest] = insights;
   const secondary = rest.slice(0, 2);
+
+  function formatDate(iso: string) {
+    return new Date(iso).toLocaleDateString(lang === "en" ? "en-US" : "tr-TR", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    });
+  }
+
+  function catLabel(cat: string) {
+    return lang === "en" ? (CATEGORY_EN[cat] ?? cat) : cat;
+  }
 
   return (
     <section className="border-b border-border py-28 md:py-36">
       <div className="container-edit">
         <ScrollReveal className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <SectionLabel>İçgörüler</SectionLabel>
+            <SectionLabel>{t("İçgörüler", "Insights")}</SectionLabel>
             <h2 className="mt-4 max-w-xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-              Girişim perspektifinden düşünceler.
+              {t("Girişim perspektifinden düşünceler.", "Thoughts from a venture perspective.")}
             </h2>
           </div>
           <Link
             href="/icgoruler"
             className="text-[13px] font-medium tracking-wide text-muted underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-accent"
           >
-            Tümünü gör
+            {t("Tümünü gör", "See all")}
           </Link>
         </ScrollReveal>
 
@@ -46,7 +63,7 @@ export function InsightsSection() {
           <ScrollReveal className="md:col-span-7">
             <Link href={`/icgoruler/${featured.slug}`} className="group block">
               <span className={`text-[11px] font-medium uppercase tracking-[0.15em] ${CATEGORY_STYLE[featured.category]}`}>
-                {featured.category}
+                {catLabel(featured.category)}
               </span>
               <h3 className="mt-4 text-[28px] font-medium leading-[1.15] tracking-tight text-foreground transition-colors group-hover:text-accent md:text-[40px]">
                 {featured.title}
@@ -59,7 +76,7 @@ export function InsightsSection() {
                 <span className="h-1 w-1 rounded-full bg-border" />
                 <span>{formatDate(featured.publishedAt)}</span>
                 <span className="h-1 w-1 rounded-full bg-border" />
-                <span>{featured.readTime} okuma</span>
+                <span>{featured.readTime} {t("okuma", "read")}</span>
               </div>
             </Link>
           </ScrollReveal>
@@ -69,7 +86,7 @@ export function InsightsSection() {
               <ScrollReveal key={insight.id} delay={(i + 1) * 100} className={i === 0 ? "pb-8" : "pt-8"}>
                 <Link href={`/icgoruler/${insight.slug}`} className="group block">
                   <span className={`text-[11px] font-medium uppercase tracking-[0.15em] ${CATEGORY_STYLE[insight.category]}`}>
-                    {insight.category}
+                    {catLabel(insight.category)}
                   </span>
                   <h3 className="mt-3 text-xl font-medium leading-snug text-foreground transition-colors group-hover:text-accent">
                     {insight.title}
@@ -78,7 +95,7 @@ export function InsightsSection() {
                     {insight.excerpt}
                   </p>
                   <span className="mt-3 block text-[12px] text-muted">
-                    {formatDate(insight.publishedAt)} · {insight.readTime} okuma
+                    {formatDate(insight.publishedAt)} · {insight.readTime} {t("okuma", "read")}
                   </span>
                 </Link>
               </ScrollReveal>

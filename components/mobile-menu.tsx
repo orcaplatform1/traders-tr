@@ -3,9 +3,19 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { NAV_LINKS } from "@/lib/constants";
+import { useT } from "@/lib/i18n";
+
+const NAV_EN: Record<string, string> = {
+  "Hakkımızda": "About",
+  "Markalar": "Brands",
+  "Girişimler": "Ventures",
+  "İçgörüler": "Insights",
+  "Basın Merkezi": "Newsroom",
+};
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const t = useT();
 
   useEffect(() => {
     if (!open) return;
@@ -31,7 +41,7 @@ export function MobileMenu() {
     <div className="md:hidden">
       <button
         type="button"
-        aria-label={open ? "Menüyü kapat" : "Menüyü aç"}
+        aria-label={open ? t("Menüyü kapat", "Close menu") : t("Menüyü aç", "Open menu")}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
         className="relative z-50 flex h-9 w-9 flex-col items-center justify-center gap-[5px]"
@@ -61,7 +71,7 @@ export function MobileMenu() {
               className="py-2 text-3xl font-medium tracking-tight text-foreground transition-colors hover:text-accent"
               style={{ transitionDelay: open ? `${i * 40}ms` : "0ms" }}
             >
-              {link.label}
+              {t(link.label, NAV_EN[link.label] ?? link.label)}
             </Link>
           ))}
           <Link
@@ -69,7 +79,7 @@ export function MobileMenu() {
             onClick={() => setOpen(false)}
             className="mt-6 border-b border-border pb-1 text-sm uppercase tracking-[0.15em] text-muted transition-colors hover:text-accent hover:border-accent"
           >
-            İletişim
+            {t("İletişim", "Contact")}
           </Link>
         </nav>
       </div>
