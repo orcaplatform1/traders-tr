@@ -81,10 +81,10 @@ export function NewsroomSection() {
 
                 <div className="min-w-0 flex-1">
                   <span className="text-[15px] font-medium text-foreground transition-colors group-hover:text-accent md:text-[17px]">
-                    {post.title}
+                    {lang === "en" && post.titleEn ? post.titleEn : post.title}
                   </span>
                   <p className="mt-1 hidden max-w-lg truncate text-[13px] text-muted sm:block">
-                    {post.excerpt}
+                    {lang === "en" && post.excerptEn ? post.excerptEn : post.excerpt}
                   </p>
                 </div>
 
