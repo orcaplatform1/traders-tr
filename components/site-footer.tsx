@@ -28,7 +28,7 @@ const COMPANY_EN: Record<string, string> = {
 const LEGAL_EN: Record<string, string> = {
   "Gizlilik Politikası": "Privacy Policy",
   "Çerez Politikası": "Cookie Policy",
-  KVKK: "KVKK",
+  KVKK: "Data Protection Notice",
   "Site Haritası": "Site Map",
   "XML Site Haritası": "XML Sitemap",
 };

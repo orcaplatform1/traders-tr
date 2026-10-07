@@ -11,7 +11,7 @@ export default function KvkkPage() {
   if (isEn) {
     return (
       <LegalPage
-        title="KVKK Personal Data Protection Notice"
+        title="Data Protection Notice"
         updated="September 15, 2026"
         intro="This notice has been prepared pursuant to Article 10 of Law No. 6698 on the Protection of Personal Data ('KVKK') to explain the purpose, manner, and legal basis on which your personal data is processed when you contact us through traders.tr."
         sections={[
