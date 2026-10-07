@@ -193,11 +193,11 @@ export function BrandGrid() {
                     </h3>
 
                     <span className="mt-4 block text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-                      {brand.category}
+                      {t(brand.category, brand.categoryEn)}
                     </span>
 
                     <p className="mt-5 max-w-md text-[16px] leading-relaxed text-slate-300">
-                      {brand.shortDescription}
+                      {t(brand.shortDescription, brand.shortDescriptionEn)}
                     </p>
 
                     <a

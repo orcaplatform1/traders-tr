@@ -37,7 +37,7 @@ export function NewsroomPageContent() {
                   {formatDate(post.publishedAt)}
                 </span>
                 <span className="text-[15px] font-medium text-foreground transition-colors group-hover:text-accent">
-                  {post.title}
+                  {lang === "en" && post.titleEn ? post.titleEn : post.title}
                 </span>
               </div>
               <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">

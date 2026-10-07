@@ -23,7 +23,11 @@ export function NewsroomPostContent({
     });
   }
 
-  const headings = post.content.filter((b) => b.type === "h2");
+  const isEn = lang === "en";
+  const displayTitle = isEn && post.titleEn ? post.titleEn : post.title;
+  const displayExcerpt = isEn && post.excerptEn ? post.excerptEn : post.excerpt;
+  const displayContent = isEn && post.contentEn ? post.contentEn : post.content;
+  const headings = displayContent.filter((b) => b.type === "h2");
 
   return (
     <article className="py-28 md:py-36">
@@ -44,11 +48,11 @@ export function NewsroomPostContent({
         </div>
 
         <h1 className="mt-4 text-4xl font-medium leading-tight tracking-tight text-foreground md:text-5xl">
-          {post.title}
+          {displayTitle}
         </h1>
 
         <p className="mt-6 text-[17px] leading-relaxed text-slate-300 md:text-[19px]">
-          {post.excerpt}
+          {displayExcerpt}
         </p>
       </header>
 
@@ -73,7 +77,7 @@ export function NewsroomPostContent({
         )}
 
         <div className="max-w-2xl border-t border-border pt-10">
-          {post.content.map((block, i) => {
+          {displayContent.map((block, i) => {
             if (block.type === "h2") {
               return (
                 <h2
@@ -116,7 +120,7 @@ export function NewsroomPostContent({
                   <span>{n.category}</span>
                 </div>
                 <h3 className="mt-3 text-lg font-medium leading-snug text-foreground transition-colors group-hover:text-accent">
-                  {n.title}
+                  {isEn && n.titleEn ? n.titleEn : n.title}
                 </h3>
               </Link>
             ))}

@@ -9,8 +9,11 @@ export const brands: Brand[] = [
     monogram: "OR",
     accent: "blue",
     category: "Finans Eğitimi",
+    categoryEn: "Financial Education",
     shortDescription:
       "Yapay zeka destekli kişiselleştirilmiş öğrenme programları, uygulamalı dersler, canlı piyasa simülasyonları ve akıllı anlık veri araçlarını tek bir ekosistemde buluşturan benzersiz eğitim platformu.",
+    shortDescriptionEn:
+      "A unique education platform that brings together AI-powered personalized learning programs, hands-on courses, live market simulations and smart real-time data tools in a single ecosystem.",
     longDescription:
       "ORCA, finansal okuryazarlıktan ileri seviye teknik analize uzanan yapılandırılmış bir müfredatı; canlı bir topluluk, yapay zekâ mentorluk ve gerçek piyasa verisiyle pratik yapma imkânıyla birleştirir.",
     whyItExists:
@@ -35,8 +38,11 @@ export const brands: Brand[] = [
     monogram: "KB",
     accent: "purple",
     category: "Dijital Vergi",
+    categoryEn: "Digital Tax",
     shortDescription:
       "KriptoBeyan ile kripto vergi hesaplama otomatikleşir: borsa hesaplarınızı ve cüzdanlarınızı bağlayın, işlemleriniz FIFO yöntemiyle hesaplansın. Kripto beyan dönemi geldiğinde taslak raporunuz hazır olsun.",
+    shortDescriptionEn:
+      "KriptoBeyan automates crypto tax calculation: connect your exchange accounts and wallets, have your transactions calculated with the FIFO method. Your draft report is ready when crypto tax season arrives.",
     longDescription:
       "KriptoBeyan, kripto varlık işlemlerinin Türkiye'deki vergi ve beyan yükümlülükleri açısından anlaşılmasını ve yönetilmesini kolaylaştırır — bireyler ve mali müşavirler için.",
     whyItExists:
@@ -61,8 +67,11 @@ export const brands: Brand[] = [
     monogram: "ZS",
     accent: "teal",
     category: "Sanat Ürünleri",
+    categoryEn: "Art & Design Products",
     shortDescription:
       "Küçük Detaylar. Büyük Hikâyeler. Her parça elde, sipariş üzerine, özenle üretilir — Türkiye'nin dört bir yanındaki ustaların atölyesinden evinize.",
+    shortDescriptionEn:
+      "Small Details. Big Stories. Every piece is made by hand, on demand, with care — from the workshops of artisans across Turkey to your home.",
     longDescription:
       "Zesta, el yapımı ürünleri; özenli üretim süreciyle, özel sipariş modeliyle ve modern bir alışveriş deneyimiyle bir araya getirir.",
     whyItExists:
@@ -87,8 +96,11 @@ export const brands: Brand[] = [
     monogram: "MT",
     accent: "orange",
     category: "Sağlıklı Yaşam & Koçluk",
+    categoryEn: "Health & Wellness Coaching",
     shortDescription:
       "Mettlo; insanların sağlıklı yaşam yolculuklarını uzman koçlarla birlikte, kendi tempolarında sürdürebildiği bir platform. Koçlar bağımsızca çalışır, üyeler gerçekten kendilerine uygun desteği bulur.",
+    shortDescriptionEn:
+      "Mettlo is a platform where people can sustain their healthy living journey with expert coaches, at their own pace. Coaches work independently, members find the support that truly fits them.",
     longDescription:
       "Mettlo, fitness ve wellness dünyasında koç ile üye arasındaki deneyimi daha profesyonel, kişisel ve sürdürülebilir bir yapıya taşımak amacıyla kuruldu. Program satışı, birebir koçluk, ilerleme takibi ve topluluk — hepsi tek bir ekosistemde bir araya geliyor.",
     whyItExists:

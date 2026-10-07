@@ -43,14 +43,14 @@ export function VenturesSection() {
                   <h3 className="mt-5 text-2xl font-medium tracking-tight text-foreground md:text-[26px]">
                     {v.name}
                   </h3>
-                  <p className="mt-2 text-[14px] leading-relaxed text-muted">{v.description}</p>
+                  <p className="mt-2 text-[14px] leading-relaxed text-muted">{t(v.description, v.descriptionEn)}</p>
 
                   <dl className="mt-6 space-y-3 border-t border-border pt-5">
                     <div className="flex items-baseline justify-between gap-4">
                       <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
                         {t("Kategori", "Category")}
                       </dt>
-                      <dd className="text-right text-[13px] text-slate-300">{v.category}</dd>
+                      <dd className="text-right text-[13px] text-slate-300">{t(v.category, v.categoryEn)}</dd>
                     </div>
                     <div className="flex items-baseline justify-between gap-4">
                       <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">

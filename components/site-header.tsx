@@ -47,12 +47,12 @@ export function SiteHeader() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav className="hidden items-center gap-6 md:flex">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-[13px] font-medium tracking-wide text-muted transition-colors hover:text-foreground"
+              className="whitespace-nowrap text-[13px] font-medium tracking-wide text-muted transition-colors hover:text-foreground"
             >
               {t(link.label, NAV_EN[link.label] ?? link.label)}
             </Link>

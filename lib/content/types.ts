@@ -10,7 +10,9 @@ export interface Brand {
   monogram: string;
   accent: BrandAccent;
   category: string;
+  categoryEn: string;
   shortDescription: string;
+  shortDescriptionEn: string;
   longDescription: string;
   whyItExists: string;
   features: string[];
@@ -25,8 +27,11 @@ export interface Venture {
   name: string;
   slug: string;
   category: string;
+  categoryEn: string;
   description: string;
+  descriptionEn: string;
   detail: string;
+  detailEn: string;
   stage: "active" | "developing" | "exploring" | "coming-next";
   websiteUrl?: string;
 }
@@ -47,9 +52,12 @@ export interface Insight {
   id: string;
   slug: string;
   title: string;
+  titleEn?: string;
   category: InsightCategory;
   excerpt: string;
+  excerptEn?: string;
   content: ContentBlock[];
+  contentEn?: ContentBlock[];
   author: string;
   publishedAt: string;
   readTime: string;
@@ -66,8 +74,11 @@ export interface NewsroomPost {
   id: string;
   slug: string;
   title: string;
+  titleEn?: string;
   excerpt: string;
+  excerptEn?: string;
   content: ContentBlock[];
+  contentEn?: ContentBlock[];
   category: NewsroomCategory;
   publishedAt: string;
   readTime: string;
