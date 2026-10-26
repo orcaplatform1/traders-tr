@@ -20,7 +20,7 @@ export default function KvkkPage() {
             title: "Identity of the Data Controller",
             content: (
               <p>
-                TRADERS.TR ("Company") acts as the data controller under KVKK in respect of the personal data you share through the contact form on traders.tr. For requests regarding our data processing activities, you can reach us through our{" "}
+                TRADERS.TR (&quot;Company&quot;) acts as the data controller under KVKK in respect of the personal data you share through the contact form on traders.tr. For requests regarding our data processing activities, you can reach us through our{" "}
                 <Link href="/iletisim" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
                   contact page
                 </Link>.
@@ -74,7 +74,7 @@ export default function KvkkPage() {
                   Your personal data is collected directly from you, electronically, when you fill in and submit the form on the traders.tr/iletisim page.
                 </p>
                 <p>
-                  Processing is primarily based on the legal ground under KVKK Art. 5/2 of "(f) processing being necessary for the legitimate interests pursued by the data controller, provided that this processing shall not violate the fundamental rights and freedoms of the data subject." Depending on the nature of your request, grounds "(c) processing being necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract" or "(ç) processing being necessary for compliance with a legal obligation" may also apply. In any case, the data we collect to respond to your request is limited to its purpose and proportionate.
+                  Processing is primarily based on the legal ground under KVKK Art. 5/2 of &quot;(f) processing being necessary for the legitimate interests pursued by the data controller, provided that this processing shall not violate the fundamental rights and freedoms of the data subject.&quot; Depending on the nature of your request, grounds &quot;(c) processing being necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract&quot; or &quot;(ç) processing being necessary for compliance with a legal obligation&quot; may also apply. In any case, the data we collect to respond to your request is limited to its purpose and proportionate.
                 </p>
               </>
             ),
@@ -117,7 +117,7 @@ export default function KvkkPage() {
                 <Link href="/iletisim" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
                   contact page
                 </Link>{" "}
-                under the "General" category, or via the email address stated on the form. Your request must include information that will allow us to verify your identity. Your application will be concluded in the shortest possible time and within the maximum period of 30 days stipulated by KVKK; your request will be answered free of charge, however, if the transaction requires an additional cost, the fee in the tariff determined by the Personal Data Protection Board may be requested.
+                under the &quot;General&quot; category, or via the email address stated on the form. Your request must include information that will allow us to verify your identity. Your application will be concluded in the shortest possible time and within the maximum period of 30 days stipulated by KVKK; your request will be answered free of charge, however, if the transaction requires an additional cost, the fee in the tariff determined by the Personal Data Protection Board may be requested.
               </p>
             ),
           },
@@ -137,7 +137,7 @@ export default function KvkkPage() {
           title: "Veri Sorumlusunun Kimliği",
           content: (
             <p>
-              TRADERS.TR ("Şirket"), traders.tr üzerinden iletişim formu
+              TRADERS.TR (&quot;Şirket&quot;), traders.tr üzerinden iletişim formu
               aracılığıyla paylaştığınız kişisel verileriniz bakımından KVKK
               uyarınca veri sorumlusu sıfatıyla hareket eder. Veri işleme
               faaliyetlerimizle ilgili talepleriniz için{" "}
@@ -200,13 +200,13 @@ export default function KvkkPage() {
                 sizden toplanır.
               </p>
               <p>
-                İşleme, KVKK m.5/2 kapsamında öncelikle "(f) ilgili kişinin
+                İşleme, KVKK m.5/2 kapsamında öncelikle &quot;(f) ilgili kişinin
                 temel hak ve özgürlüklerine zarar vermemek kaydıyla, veri
                 sorumlusunun meşru menfaati için veri işlenmesinin zorunlu
-                olması" hukuki sebebine dayanır. Talebinizin niteliğine
-                göre, "(c) bir sözleşmenin kurulması veya ifasıyla doğrudan
-                doğruya ilgili olması" ya da "(ç) hukuki yükümlülüğün yerine
-                getirilmesi" sebepleri de devreye girebilir. Her hâlükârda,
+                olması&quot; hukuki sebebine dayanır. Talebinizin niteliğine
+                göre, &quot;(c) bir sözleşmenin kurulması veya ifasıyla doğrudan
+                doğruya ilgili olması&quot; ya da &quot;(ç) hukuki yükümlülüğün yerine
+                getirilmesi&quot; sebepleri de devreye girebilir. Her hâlükârda,
                 talebinizi yanıtlayabilmemiz için topladığımız veriler,
                 amaçla sınırlı ve ölçülüdür.
               </p>
@@ -232,7 +232,7 @@ export default function KvkkPage() {
           title: "KVKK Kapsamındaki Haklarınız",
           content: (
             <>
-              <p>KVKK'nın 11. maddesi uyarınca bize başvurarak aşağıdaki haklarınızı kullanabilirsiniz:</p>
+              <p>KVKK&apos;nın 11. maddesi uyarınca bize başvurarak aşağıdaki haklarınızı kullanabilirsiniz:</p>
               <ul className="ml-5 list-disc space-y-2 marker:text-muted">
                 <li>Kişisel verilerinizin işlenip işlenmediğini öğrenme,</li>
                 <li>İşlenmişse buna ilişkin bilgi talep etme,</li>
@@ -240,7 +240,7 @@ export default function KvkkPage() {
                 <li>Yurt içinde veya yurt dışında aktarıldığı üçüncü kişileri bilme,</li>
                 <li>Eksik veya yanlış işlenmişse düzeltilmesini isteme,</li>
                 <li>
-                  KVKK'da öngörülen şartlar çerçevesinde silinmesini veya yok
+                  KVKK&apos;da öngörülen şartlar çerçevesinde silinmesini veya yok
                   edilmesini isteme,
                 </li>
                 <li>Yapılan işlemlerin, verilerinizin aktarıldığı üçüncü kişilere bildirilmesini isteme,</li>
@@ -266,14 +266,14 @@ export default function KvkkPage() {
               <Link href="/iletisim" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
                 iletişim sayfamızdaki
               </Link>{" "}
-              formu "Genel" kategorisiyle doldurarak veya formda belirttiğiniz
+              formu &quot;Genel&quot; kategorisiyle doldurarak veya formda belirttiğiniz
               e-posta adresi üzerinden bize iletebilirsiniz. Talebinizde
               kimliğinizi doğrulayabilmemizi sağlayacak bilgilere yer
               vermeniz gerekir. Başvurunuz, niteliğine göre en kısa sürede
-              ve KVKK'da öngörülen azami süre olan 30 gün içinde
+              ve KVKK&apos;da öngörülen azami süre olan 30 gün içinde
               sonuçlandırılır; talebiniz ücretsiz olarak yanıtlanır, ancak
               işlemin ayrıca bir maliyet gerektirmesi hâlinde Kişisel
-              Verileri Koruma Kurulu'nca belirlenen tarifedeki ücret talep
+              Verileri Koruma Kurulu&apos;nca belirlenen tarifedeki ücret talep
               edilebilir.
             </p>
           ),

@@ -16,6 +16,8 @@ const eslintConfig = defineConfig([
     "orca/**",
     "_legacy-landing/**",
     "_uploaded-originals/**",
+    // Prisma'nin urettigi istemci (prisma generate ile yeniden yazilir)
+    "lib/generated/**",
   ]),
 ]);
 

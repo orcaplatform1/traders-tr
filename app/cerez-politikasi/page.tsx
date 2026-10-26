@@ -120,7 +120,7 @@ export default function CookiesPage() {
             title: "Policy Updates",
             content: (
               <p>
-                We may update this policy in response to changes in the technologies used on the site. The current version is always available on this page with the "last updated" date. For our more general privacy practices, see our{" "}
+                We may update this policy in response to changes in the technologies used on the site. The current version is always available on this page with the &quot;last updated&quot; date. For our more general privacy practices, see our{" "}
                 <Link href="/gizlilik-politikasi" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
                   Privacy Policy
                 </Link>.
@@ -188,7 +188,7 @@ export default function CookiesPage() {
                 </table>
               </div>
               <p>
-                localStorage'da tutulan veriler bize veya üçüncü bir tarafa
+                localStorage&apos;da tutulan veriler bize veya üçüncü bir tarafa
                 hiçbir şekilde gönderilmez. Sunucu tarafında, sitenin
                 çalışması için gerekli olan zorunlu teknik başlıklar (ör.
                 güvenlik başlıkları) dışında herhangi bir izleme mekanizması
@@ -283,7 +283,7 @@ export default function CookiesPage() {
             <p>
               Bu politikayı, sitede kullanılan teknolojilerdeki
               değişikliklere göre güncelleyebiliriz. Güncel sürüm her zaman
-              bu sayfada, "son güncelleme" tarihiyle birlikte yer alır. Daha
+              bu sayfada, &quot;son güncelleme&quot; tarihiyle birlikte yer alır. Daha
               genel gizlilik uygulamalarımız için{" "}
               <Link href="/gizlilik-politikasi" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
                 Gizlilik Politikası

@@ -1,10 +1,20 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
 import { useT } from "@/lib/i18n";
 
 const STORAGE_KEY = "traders-tr-cookie-consent";
+
+const noopSubscribe = () => () => {};
+
+function readConsentMissing(): boolean {
+  try {
+    return !window.localStorage.getItem(STORAGE_KEY);
+  } catch {
+    return true;
+  }
+}
 
 type CookiePrefs = {
   necessary: true;
@@ -46,25 +56,19 @@ function Toggle({
 
 export function CookieConsent() {
   const t = useT();
-  const [visible, setVisible] = useState(false);
+  // Sunucuda gizli, istemcide kayitli onay yoksa gorunur
+  const consentMissing = useSyncExternalStore(noopSubscribe, readConsentMissing, () => false);
+  const [dismissed, setDismissed] = useState(false);
+  const visible = consentMissing && !dismissed;
   const [showPreferences, setShowPreferences] = useState(false);
   const [analytics, setAnalytics] = useState(false);
   const [marketing, setMarketing] = useState(false);
-
-  useEffect(() => {
-    try {
-      const stored = window.localStorage.getItem(STORAGE_KEY);
-      if (!stored) setVisible(true);
-    } catch {
-      setVisible(true);
-    }
-  }, []);
 
   function save(prefs: CookiePrefs) {
     try {
       window.localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs));
     } catch {}
-    setVisible(false);
+    setDismissed(true);
   }
 
   if (!visible) return null;

@@ -33,7 +33,7 @@ export default function PrivacyPage() {
             content: (
               <>
                 <p>
-                  This policy applies only to the traders.tr domain and pages under it. Orca Labs, KriptoBeyan, and Zesta Art&amp;Design are independent brands; they apply their own privacy policies on their respective platforms. For those pages, we recommend referring to the privacy text on that brand's own site.
+                  This policy applies only to the traders.tr domain and pages under it. Orca Labs, KriptoBeyan, and Zesta Art&amp;Design are independent brands; they apply their own privacy policies on their respective platforms. For those pages, we recommend referring to the privacy text on that brand&apos;s own site.
                 </p>
                 <p>
                   traders.tr is not an e-commerce or membership platform; it does not create accounts, accept payments, or conduct cookie-based ad tracking. The only mechanism that collects personal data on the site is the contact form.
@@ -153,7 +153,7 @@ export default function PrivacyPage() {
             title: "Policy Changes",
             content: (
               <p>
-                We may update this policy in response to changes in our services or legal requirements. Significant changes will be published on this page along with the "last updated" date.
+                We may update this policy in response to changes in our services or legal requirements. Significant changes will be published on this page along with the &quot;last updated&quot; date.
               </p>
             ),
           },
@@ -262,7 +262,7 @@ export default function PrivacyPage() {
               <ul className="ml-5 list-disc space-y-2 marker:text-muted">
                 <li>İletişim formuyla ilettiğiniz talebi değerlendirmek ve size geri dönüş yapmak,</li>
                 <li>İş ortaklığı, girişim veya basın taleplerini doğru ekibe yönlendirmek,</li>
-                <li>Sitenin güvenliğini sağlamak, kötüye kullanımı ve spam'i önlemek,</li>
+                <li>Sitenin güvenliğini sağlamak, kötüye kullanımı ve spam&apos;i önlemek,</li>
                 <li>Yasal bir yükümlülüğü yerine getirmek (talep edilmesi hâlinde yetkili mercilere bilgi sağlamak gibi).</li>
               </ul>
               <p>
@@ -335,7 +335,7 @@ export default function PrivacyPage() {
           title: "Haklarınız",
           content: (
             <p>
-              Türkiye'de ikamet ediyorsanız, kişisel verilerinizle ilgili
+              Türkiye&apos;de ikamet ediyorsanız, kişisel verilerinizle ilgili
               haklarınızın tam listesini{" "}
               <Link href="/kvkk" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
                 KVKK Aydınlatma Metni
@@ -365,7 +365,7 @@ export default function PrivacyPage() {
             <p>
               Bu politikayı, hizmetlerimizdeki değişikliklere veya yasal
               gerekliliklere göre güncelleyebiliriz. Önemli değişiklikler bu
-              sayfada "son güncelleme" tarihiyle birlikte yayımlanır.
+              sayfada &quot;son güncelleme&quot; tarihiyle birlikte yayımlanır.
             </p>
           ),
         },

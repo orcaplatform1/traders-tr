@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useSyncExternalStore } from "react";
 
 export type Lang = "tr" | "en";
 
@@ -8,19 +8,33 @@ const LangContext = createContext<{ lang: Lang; setLang: (l: Lang) => void }>({
   setLang: () => {},
 });
 
-export function LangProvider({ children }: { children: React.ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("tr");
+// Dil tercihi localStorage'da; useSyncExternalStore ile sunucuda "tr", istemcide kayitli deger
+const langListeners = new Set<() => void>();
+let memoryLang: Lang | null = null;
 
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem("lang") as Lang | null;
-      if (stored === "en" || stored === "tr") setLangState(stored);
-    } catch {}
-  }, []);
+function subscribeLang(cb: () => void) {
+  langListeners.add(cb);
+  return () => {
+    langListeners.delete(cb);
+  };
+}
+
+function readLang(): Lang {
+  if (memoryLang) return memoryLang;
+  try {
+    return localStorage.getItem("lang") === "en" ? "en" : "tr";
+  } catch {
+    return "tr";
+  }
+}
+
+export function LangProvider({ children }: { children: React.ReactNode }) {
+  const lang = useSyncExternalStore(subscribeLang, readLang, (): Lang => "tr");
 
   function setLang(l: Lang) {
-    setLangState(l);
+    memoryLang = l;
     try { localStorage.setItem("lang", l); } catch {}
+    langListeners.forEach((cb) => cb());
   }
 
   return <LangContext.Provider value={{ lang, setLang }}>{children}</LangContext.Provider>;
