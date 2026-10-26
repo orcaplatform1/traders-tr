@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { NAV_LINKS } from "@/lib/constants";
 import { MobileMenu } from "@/components/mobile-menu";
 import { LangToggle } from "@/components/lang-toggle";
+import { Magnetic } from "@/components/magnetic";
 import { useT } from "@/lib/i18n";
 
 const NAV_EN: Record<string, string> = {
@@ -61,12 +62,11 @@ export function SiteHeader() {
 
         <div className="hidden md:flex md:items-center md:gap-3">
           <LangToggle />
-          <Link
-            href="/iletisim"
-            className="rounded-sm border border-border px-4 py-2 text-[13px] font-medium tracking-wide text-foreground transition-colors hover:border-border-hover hover:text-accent"
-          >
-            {t("İletişim", "Contact")}
-          </Link>
+          <Magnetic>
+            <Link href="/iletisim" className="btn-liquid px-4 py-2 text-[13px] font-medium tracking-wide">
+              {t("İletişim", "Contact")}
+            </Link>
+          </Magnetic>
         </div>
 
         {/* Mobilde: LangToggle hamburger solunda */}

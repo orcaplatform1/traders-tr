@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { AnimatedGrid } from "@/components/animated-grid";
+import { Magnetic } from "@/components/magnetic";
 import { useT } from "@/lib/i18n";
 
 // `imageSrc` verilmediginde AnimatedGrid + grain fallback olarak kaliyor.
@@ -18,6 +19,30 @@ import { useT } from "@/lib/i18n";
 // Karartma yalnizca metnin oturdugu SOL alt bolgeye uygulanir (dikey +
 // yatay gradyan birlikte) - gorselin sag tarafi metin/buton bittikten
 // sonra tamamen kendi renginde, aydinlik kalir.
+// Baslik kelimeleri sirayla asagidan gelir; her kelimenin arkasindan isik suzulur
+function HeroWords({ lines }: { lines: string[] }) {
+  let index = 0;
+  return (
+    <>
+      {lines.map((line, li) => (
+        <span key={li} className="block">
+          {line.split(" ").map((word, wi) => {
+            const delay = index++ * 110;
+            return (
+              <span key={wi}>
+                <span className="hero-word" style={{ "--word-delay": `${delay}ms` } as React.CSSProperties}>
+                  {word}
+                </span>
+                {wi < line.split(" ").length - 1 && " "}
+              </span>
+            );
+          })}
+        </span>
+      ))}
+    </>
+  );
+}
+
 export function Hero({
   imageSrc,
   imageSrcMobile,
@@ -27,7 +52,7 @@ export function Hero({
 }) {
   const t = useT();
   return (
-    <section className="relative flex min-h-screen flex-col overflow-hidden border-b border-border">
+    <section data-hero className="relative flex min-h-screen flex-col overflow-hidden border-b border-border">
       {imageSrc ? (
         <>
           <div className="absolute inset-0">
@@ -79,6 +104,11 @@ export function Hero({
               <div className="grain-overlay" />
             </div>
 
+            {/* Karanlik 3D izgara */}
+            <div className="pointer-events-none absolute inset-0 overflow-hidden">
+              <div className="hero-grid-3d" />
+            </div>
+
             {/* Coordinate-style dekoratif kose isaretleri */}
             <div className="pointer-events-none absolute inset-6 hidden md:block">
               <span className="absolute left-0 top-0 h-4 w-4 border-l border-t border-foreground/25" />
@@ -93,12 +123,13 @@ export function Hero({
         </>
       )}
 
-      <div className="container-edit relative flex flex-1 flex-col justify-end pb-16 pt-0 md:pb-40">
+      <div className="container-edit relative z-10 flex flex-1 flex-col justify-end pb-16 pt-0 md:pb-40">
         <div className="max-w-3xl">
           <h1 className="text-[26px] font-medium leading-[1.12] tracking-tight text-foreground sm:text-[34px] md:text-[44px]">
-            {t("Sınırların ötesinde", "Building brands")}
-            <br />
-            {t("markalar inşa ediyoruz.", "beyond borders.")}
+            <HeroWords
+              key={t("tr", "en")}
+              lines={[t("Sınırların ötesinde", "Building brands"), t("markalar inşa ediyoruz.", "beyond borders.")]}
+            />
           </h1>
 
           <p className="mt-6 max-w-lg text-[16px] leading-relaxed text-muted md:text-[18px]">
@@ -109,17 +140,15 @@ export function Hero({
           </p>
 
           <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
-            <Link
-              href="/markalar"
-              className="btn-shine group relative rounded-sm border border-foreground bg-foreground px-6 py-3 text-[13px] font-medium tracking-wide text-slate-950 transition-colors hover:bg-transparent hover:text-foreground"
-            >
-              <span className="relative z-10 inline-flex items-center gap-2">
+            <Magnetic>
+              <Link
+                href="/markalar"
+                className="btn-liquid group px-6 py-3 text-[13px] font-medium tracking-wide"
+              >
                 {t("Markalarımızı Keşfedin", "Explore Our Brands")}
-                <span className="transition-transform duration-300 group-hover:translate-x-1">
-                  →
-                </span>
-              </span>
-            </Link>
+                <span className="lux-ease group-hover:translate-x-1">→</span>
+              </Link>
+            </Magnetic>
             <Link
               href="/hakkimizda"
               className="btn-shine group relative inline-flex items-center gap-2 text-[13px] font-medium tracking-wide text-muted transition-colors hover:text-foreground"

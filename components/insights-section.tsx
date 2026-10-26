@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { ScrollTextMask } from "@/components/scroll-text-mask";
 import { insights } from "@/lib/content/insights";
 import type { InsightCategory } from "@/lib/content/types";
 import { useT, useLang } from "@/lib/i18n";
@@ -59,7 +60,7 @@ export function InsightsSection() {
           </Link>
         </ScrollReveal>
 
-        <div className="mt-16 grid grid-cols-1 gap-14 border-t border-border pt-14 md:grid-cols-12 md:gap-10">
+        <ScrollTextMask className="mt-16 grid grid-cols-1 gap-14 border-t border-border pt-14 md:grid-cols-12 md:gap-10">
           <ScrollReveal className="md:col-span-7">
             <Link href={`/icgoruler/${featured.slug}`} className="group block">
               <span className={`text-[11px] font-medium uppercase tracking-[0.15em] ${CATEGORY_STYLE[featured.category]}`}>
@@ -101,7 +102,7 @@ export function InsightsSection() {
               </ScrollReveal>
             ))}
           </div>
-        </div>
+        </ScrollTextMask>
       </div>
     </section>
   );

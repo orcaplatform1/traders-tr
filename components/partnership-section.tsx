@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { Magnetic } from "@/components/magnetic";
 import { useT } from "@/lib/i18n";
 
 export function PartnershipSection() {
@@ -23,20 +24,18 @@ export function PartnershipSection() {
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <Link
-              href="/iletisim?kategori=ortaklik"
-              className="btn-shine group relative rounded-sm border border-foreground bg-foreground px-6 py-3 text-[13px] font-medium tracking-wide text-slate-950 transition-colors hover:bg-transparent hover:text-foreground"
-            >
-              <span className="relative z-10 inline-flex items-center gap-2">
+            <Magnetic>
+              <Link
+                href="/iletisim?kategori=ortaklik"
+                className="btn-liquid group px-6 py-3 text-[13px] font-medium tracking-wide"
+              >
                 {t("İş Ortaklığı", "Partnership")}
-                <span className="transition-transform duration-300 group-hover:translate-x-1">
-                  →
-                </span>
-              </span>
-            </Link>
+                <span className="lux-ease group-hover:translate-x-1">→</span>
+              </Link>
+            </Magnetic>
             <Link
               href="/iletisim?kategori=girisim"
-              className="rounded-sm border border-border px-5 py-2.5 text-[13px] font-medium tracking-wide text-foreground transition-colors hover:border-border-hover hover:text-accent"
+              className="btn-liquid px-5 py-2.5 text-[13px] font-medium tracking-wide"
             >
               {t("Girişim", "Venture")}
             </Link>

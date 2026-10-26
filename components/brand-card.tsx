@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Brand, BrandAccent } from "@/lib/content/types";
 import { useT } from "@/lib/i18n";
+import { StatusIndicator } from "@/components/status-indicator";
 
 const ACCENT: Record<
   BrandAccent,
@@ -80,15 +81,7 @@ export function BrandCard({ brand }: { brand: Brand }) {
                   : "text-muted"
             }`}
           >
-            <span
-              className={`h-1.5 w-1.5 rounded-full ${
-                brand.status === "developing"
-                  ? "bg-warning"
-                  : brand.status === "active"
-                    ? "bg-success"
-                    : accent.dot
-              }`}
-            />
+            <StatusIndicator />
             {brand.status === "active"
               ? t("Aktif", "Active")
               : brand.status === "developing"

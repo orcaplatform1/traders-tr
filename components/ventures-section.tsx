@@ -4,6 +4,7 @@ import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ventures } from "@/lib/content/ventures";
 import { useT } from "@/lib/i18n";
+import { StatusIndicator } from "@/components/status-indicator";
 
 const VENTURE_COLOR: Record<string, string> = {
   orca: "#3b82f6",
@@ -60,11 +61,7 @@ export function VenturesSection() {
                           v.stage === "developing" ? "text-warning" : "text-slate-300"
                         }`}
                       >
-                        <span
-                          className={`h-1.5 w-1.5 rounded-full ${
-                            v.stage === "developing" ? "bg-warning" : "bg-success"
-                          }`}
-                        />
+                        <StatusIndicator color={v.stage === "developing" ? "var(--warning)" : "var(--success)"} />
                         {v.stage === "developing"
                           ? t("Geliştiriliyor", "In Development")
                           : t("Aktif", "Active")}

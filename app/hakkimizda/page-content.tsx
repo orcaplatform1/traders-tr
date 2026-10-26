@@ -3,6 +3,7 @@
 import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { AnimatedGrid } from "@/components/animated-grid";
+import { ScrollTextMask } from "@/components/scroll-text-mask";
 import { useT } from "@/lib/i18n";
 
 export function AboutPageContent() {
@@ -87,7 +88,7 @@ export function AboutPageContent() {
   ];
 
   return (
-    <>
+    <ScrollTextMask>
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-border pb-20 pt-40 md:pb-28 md:pt-48">
         <AnimatedGrid />
@@ -357,6 +358,6 @@ export function AboutPageContent() {
           </ScrollReveal>
         </div>
       </section>
-    </>
+    </ScrollTextMask>
   );
 }

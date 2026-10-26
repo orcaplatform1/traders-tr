@@ -3,6 +3,7 @@
 import { useActionState, useEffect, useRef, useState } from "react";
 import { submitContactForm, type ContactFormState } from "@/app/actions/contact";
 import { useT } from "@/lib/i18n";
+import { Magnetic } from "@/components/magnetic";
 
 const initialState: ContactFormState = { status: "idle" };
 
@@ -120,13 +121,15 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
         <p className="text-[13px] text-error">{state.message}</p>
       )}
 
-      <button
-        type="submit"
-        disabled={pending}
-        className="btn-liquid-metal rounded-none px-8 py-3.5 text-[13px] font-medium tracking-wide disabled:opacity-60"
-      >
-        {pending ? t("Gönderiliyor…", "Sending…") : t("Mesaj Gönder", "Send Message")}
-      </button>
+      <Magnetic>
+        <button
+          type="submit"
+          disabled={pending}
+          className="btn-liquid px-8 py-3.5 text-[13px] font-medium tracking-wide disabled:opacity-60"
+        >
+          {pending ? t("Gönderiliyor…", "Sending…") : t("Mesaj Gönder", "Send Message")}
+        </button>
+      </Magnetic>
     </form>
   );
 }

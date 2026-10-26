@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { useRef, type ReactNode } from "react";
 import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { brands } from "@/lib/content/brands";
@@ -43,6 +44,44 @@ function BrandLogo({ brand }: { brand: Brand }) {
   );
 }
 
+// Mouse'u takip eden hafif 3D egim + kenar isigi konumu
+function TiltCard({ brandId, children }: { brandId: string; children: ReactNode }) {
+  const ref = useRef<HTMLElement>(null);
+
+  function onMove(e: React.PointerEvent<HTMLElement>) {
+    const el = ref.current;
+    if (!el || e.pointerType !== "mouse") return;
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - r.left) / r.width;
+    const y = (e.clientY - r.top) / r.height;
+    el.classList.add("is-tilting");
+    el.style.setProperty("--ry", `${(x - 0.5) * 6}deg`);
+    el.style.setProperty("--rx", `${(0.5 - y) * 6}deg`);
+    el.style.setProperty("--mx", `${x * 100}%`);
+    el.style.setProperty("--my", `${y * 100}%`);
+  }
+
+  function onLeave() {
+    const el = ref.current;
+    if (!el) return;
+    el.classList.remove("is-tilting");
+    el.style.setProperty("--rx", "0deg");
+    el.style.setProperty("--ry", "0deg");
+  }
+
+  return (
+    <article
+      ref={ref}
+      data-brand-card={brandId}
+      onPointerMove={onMove}
+      onPointerLeave={onLeave}
+      className="glass-card group relative flex h-full flex-col overflow-hidden rounded-2xl p-8 md:p-10"
+    >
+      {children}
+    </article>
+  );
+}
+
 export function BrandGrid() {
   const t = useT();
   const sorted = [...brands].sort((a, b) => a.displayOrder - b.displayOrder);
@@ -56,7 +95,7 @@ export function BrandGrid() {
 
   return (
     <section className="border-b border-border py-28 md:py-36">
-      <div className="container-edit">
+      <div className="container-edit relative z-10">
         <ScrollReveal>
           <SectionLabel>{t("Markalarımız", "Our Brands")}</SectionLabel>
           <h2 className="mt-4 max-w-xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
@@ -66,17 +105,15 @@ export function BrandGrid() {
 
         <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-3">
           {sorted.map((brand, i) => {
-            const glow = GLOW[brand.accent];
-            const brandColor = BRAND_COLOR[brand.id] ?? glow;
+            const brandColor = BRAND_COLOR[brand.id] ?? GLOW[brand.accent];
 
             return (
               <ScrollReveal key={brand.id} delay={i * 100} className={BENTO_SPAN[i % BENTO_SPAN.length]}>
-                <article className="glass-card group relative flex h-full flex-col overflow-hidden rounded-2xl p-8 md:p-10">
-                  <div
-                    aria-hidden
-                    className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-20 blur-[90px]"
-                    style={{ background: `radial-gradient(circle, ${glow}, transparent 70%)` }}
-                  />
+                <TiltCard brandId={brand.id}>
+                  <span aria-hidden className={`venture-gradient venture-gradient--${brand.id}`} />
+                  <span aria-hidden className="pointer-events-none absolute inset-0 overflow-hidden">
+                    <span className="card-scan" style={{ animationDelay: `${i * 1.6}s` }} />
+                  </span>
 
                   <div className="relative flex items-start justify-between gap-6">
                     <BrandLogo brand={brand} />
@@ -111,7 +148,7 @@ export function BrandGrid() {
                       →
                     </span>
                   </a>
-                </article>
+                </TiltCard>
               </ScrollReveal>
             );
           })}

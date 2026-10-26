@@ -165,6 +165,8 @@ export function WhatWeDo() {
                   stepRefs.current[i] = el;
                 }}
                 data-index={i}
+                data-step={c.n}
+                data-step-title={c.title}
                 aria-current={isActive ? "step" : undefined}
                 className="relative grid grid-cols-[24px_1fr] gap-6 py-10 md:grid-cols-[24px_80px_56px_220px_1fr] md:items-center md:gap-10"
               >
@@ -186,7 +188,11 @@ export function WhatWeDo() {
                   >
                     {c.n}
                   </span>
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 text-foreground">
+                  <div
+                    className={`flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 text-foreground transition-[filter] duration-500 ${
+                      isActive ? "blur-0" : "blur-[2px]"
+                    }`}
+                  >
                     <c.Mark />
                   </div>
                   <h3
