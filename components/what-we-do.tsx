@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { useT } from "@/lib/i18n";
@@ -62,6 +63,24 @@ function MarkExpand() {
 
 export function WhatWeDo() {
   const t = useT();
+  const [active, setActive] = useState(0);
+  const stepRefs = useRef<(HTMLLIElement | null)[]>([]);
+
+  // Ekranin ortasindaki bandi kesen adim aktif olur
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActive(Number((entry.target as HTMLElement).dataset.index));
+          }
+        });
+      },
+      { rootMargin: "-45% 0px -45% 0px" }
+    );
+    stepRefs.current.forEach((el) => el && observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
 
   const CAPABILITIES = [
     {
@@ -124,25 +143,65 @@ export function WhatWeDo() {
           </h2>
         </ScrollReveal>
 
-        <div className="mt-16">
-          {CAPABILITIES.map((c, i) => (
-            <ScrollReveal key={c.n} delay={i * 80}>
-              <div className="group grid grid-cols-1 gap-4 border-t border-border py-8 transition-colors duration-300 hover:border-border-hover md:grid-cols-[64px_56px_220px_1fr] md:items-center md:gap-10">
-                <span className="text-sm text-muted">{c.n}</span>
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-accent-soft text-accent transition-transform duration-300 group-hover:scale-105">
-                  <c.Mark />
+        <ol className="relative mt-16 md:ml-8">
+          {/* Durum cizgisi: aktif adima kadar dolar */}
+          <span aria-hidden className="absolute bottom-0 left-[11px] top-0 w-px bg-border" />
+          <span
+            aria-hidden
+            className="absolute left-[11px] top-0 w-px transition-[height] duration-500 ease-out"
+            style={{
+              background: "var(--gradient-venture-glow)",
+              height: `${((active + 1) / CAPABILITIES.length) * 100}%`,
+            }}
+          />
+
+          {CAPABILITIES.map((c, i) => {
+            const isActive = i === active;
+
+            return (
+              <li
+                key={c.n}
+                ref={(el) => {
+                  stepRefs.current[i] = el;
+                }}
+                data-index={i}
+                aria-current={isActive ? "step" : undefined}
+                className="relative grid grid-cols-[24px_1fr] gap-6 py-10 md:grid-cols-[24px_80px_56px_220px_1fr] md:items-center md:gap-10"
+              >
+                <span
+                  aria-hidden
+                  className={`relative z-10 mx-auto h-[9px] w-[9px] rounded-full ring-4 ring-background transition-colors duration-500 ${
+                    isActive ? "bg-foreground" : "bg-border-strong"
+                  }`}
+                />
+                <div
+                  className={`col-start-2 flex flex-col gap-4 transition-opacity duration-500 md:col-span-4 md:grid md:grid-cols-[80px_56px_220px_1fr] md:items-center md:gap-10 ${
+                    isActive ? "opacity-100" : "opacity-40"
+                  }`}
+                >
+                  <span
+                    className={`font-mono text-sm transition-colors duration-500 ${
+                      isActive ? "text-foreground" : "text-muted"
+                    }`}
+                  >
+                    {c.n}
+                  </span>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-white/10 text-foreground">
+                    <c.Mark />
+                  </div>
+                  <h3
+                    className={`text-2xl transition-colors duration-500 md:text-3xl ${
+                      isActive ? "text-foreground" : "text-muted"
+                    }`}
+                  >
+                    {c.title}
+                  </h3>
+                  <p className="max-w-lg text-[15px] text-muted">{c.description}</p>
                 </div>
-                <span className="text-2xl font-medium tracking-tight text-foreground md:text-3xl">
-                  {c.title}
-                </span>
-                <p className="max-w-lg text-[15px] leading-relaxed text-muted">
-                  {c.description}
-                </p>
-              </div>
-            </ScrollReveal>
-          ))}
-          <div className="border-t border-border" />
-        </div>
+              </li>
+            );
+          })}
+        </ol>
       </div>
     </section>
   );

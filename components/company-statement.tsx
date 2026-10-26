@@ -11,7 +11,7 @@ export function CompanyStatement() {
       <div className="container-edit grid grid-cols-1 gap-12 md:grid-cols-[1fr_auto] md:items-end md:gap-16">
         <div>
           <ScrollReveal>
-            <p className="max-w-3xl text-[32px] font-medium leading-[1.15] tracking-tight text-foreground md:text-[52px] lg:text-[64px]">
+            <p className="font-heading max-w-3xl text-[32px] font-semibold leading-[1.15] tracking-tight text-foreground md:text-[52px] lg:text-[64px]">
               {t("Fikir üretmek kolaydır.", "Ideas are easy.")}
               <br />
               {t("İnşa etmek değil.", "Building them is not.")}

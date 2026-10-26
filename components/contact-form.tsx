@@ -41,7 +41,7 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
             name="name"
             type="text"
             required
-            className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-slate-300 focus:outline-none"
+            className="lux-input w-full px-0 py-3 text-[15px] text-foreground placeholder:text-text-tertiary"
           />
         </Field>
 
@@ -52,7 +52,7 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
             type="email"
             required
             pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-            className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-slate-300 focus:outline-none"
+            className="lux-input w-full px-0 py-3 text-[15px] text-foreground placeholder:text-text-tertiary"
           />
         </Field>
       </div>
@@ -62,7 +62,7 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
           <div className="flex">
             <span
               aria-hidden
-              className="flex shrink-0 items-center border border-r-0 border-border-default bg-surface-2 px-3 text-[15px] text-text-tertiary"
+              className="flex shrink-0 items-center border-b border-[#262626] pr-3 text-[15px] text-text-tertiary"
             >
               +90
             </span>
@@ -77,7 +77,7 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
               onInput={(e) => {
                 e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "").slice(0, 10);
               }}
-              className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-slate-300 focus:outline-none"
+              className="lux-input w-full px-0 py-3 text-[15px] text-foreground placeholder:text-text-tertiary"
             />
           </div>
         </Field>
@@ -87,7 +87,7 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
             id="company"
             name="company"
             type="text"
-            className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-slate-300 focus:outline-none"
+            className="lux-input w-full px-0 py-3 text-[15px] text-foreground placeholder:text-text-tertiary"
           />
         </Field>
       </div>
@@ -102,7 +102,7 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
           name="subject"
           type="text"
           required
-          className="w-full border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-slate-300 focus:outline-none"
+          className="lux-input w-full px-0 py-3 text-[15px] text-foreground placeholder:text-text-tertiary"
         />
       </Field>
 
@@ -112,7 +112,7 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
           name="message"
           rows={5}
           required
-          className="w-full resize-none border border-border-default bg-surface-2 px-4 py-3 text-[15px] text-foreground placeholder:text-text-tertiary transition-colors focus:border-slate-300 focus:outline-none"
+          className="lux-input w-full resize-none px-0 py-3 text-[15px] text-foreground placeholder:text-text-tertiary"
         />
       </Field>
 
@@ -123,7 +123,7 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
       <button
         type="submit"
         disabled={pending}
-        className="rounded-sm bg-accent px-6 py-3 text-[13px] font-medium tracking-wide text-slate-50 transition-colors hover:bg-blue-400 disabled:opacity-60"
+        className="btn-liquid-metal rounded-none px-8 py-3.5 text-[13px] font-medium tracking-wide disabled:opacity-60"
       >
         {pending ? t("Gönderiliyor…", "Sending…") : t("Mesaj Gönder", "Send Message")}
       </button>
@@ -195,7 +195,7 @@ function CategorySelect({
         onClick={() => setOpen((o) => !o)}
         aria-haspopup="listbox"
         aria-expanded={open}
-        className="flex w-full items-center justify-between border border-border-default bg-surface-2 px-4 py-3 text-left text-[15px] text-foreground transition-colors focus:border-slate-300 focus:outline-none"
+        className="lux-input flex w-full items-center justify-between px-0 py-3 text-left text-[15px] text-foreground"
       >
         {selected.label}
         <span

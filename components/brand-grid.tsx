@@ -25,119 +25,19 @@ const LOGO_BG: Record<string, string> = {
   kriptobeyan: "rgba(212, 175, 55, 0.16)",
 };
 
-const ACCENT_HOVER_TEXT: Record<BrandAccent, string> = {
-  blue: "hover:text-blue-400",
-  purple: "hover:text-purple",
-  teal: "hover:text-teal",
-  orange: "hover:text-orange-400",
-};
+// Bento yerlesimi: 3 kolon, 1. ve 4. kart genis
+const BENTO_SPAN = ["md:col-span-2", "md:col-span-1", "md:col-span-1", "md:col-span-2"];
 
-function BrandVisual({ brand }: { brand: Brand }) {
-  const glow = GLOW[brand.accent];
-  const brandColor = BRAND_COLOR[brand.id] ?? glow;
+function BrandLogo({ brand }: { brand: Brand }) {
   const logoBg = LOGO_BG[brand.id];
 
   return (
     <div
-      className="relative h-[320px] w-full overflow-hidden rounded-sm border-2 md:h-[420px] lg:h-[480px]"
-      style={{ borderColor: brandColor }}
+      className="lux-ease relative flex h-16 w-16 shrink-0 items-center justify-center rounded-xl border border-white/10 bg-black/40 group-hover:scale-[1.02]"
+      style={logoBg ? { backgroundColor: logoBg } : undefined}
     >
-      <div className="absolute inset-0 bg-slate-900 transition-transform duration-700 ease-out group-hover:scale-[1.03]">
-        {brand.accent === "teal" ? (
-          <div
-            className="absolute inset-0 opacity-70"
-            style={{
-              backgroundImage:
-                "radial-gradient(circle at 20% 30%, rgba(20,184,166,0.22), transparent 55%), radial-gradient(circle at 80% 75%, rgba(20,184,166,0.14), transparent 50%)",
-            }}
-          />
-        ) : (
-          <div
-            className="absolute inset-0 opacity-[0.35]"
-            style={{
-              backgroundImage:
-                brand.accent === "purple"
-                  ? "repeating-linear-gradient(115deg, rgba(139,92,246,0.14) 0px, rgba(139,92,246,0.14) 1px, transparent 1px, transparent 42px)"
-                  : "linear-gradient(to right, rgba(248,250,252,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(248,250,252,0.06) 1px, transparent 1px)",
-              backgroundSize: brand.accent === "purple" ? undefined : "48px 48px",
-            }}
-          />
-        )}
-
-        <div
-          className="absolute -left-16 -top-16 h-72 w-72 rounded-full opacity-30 blur-[100px]"
-          style={{ background: `radial-gradient(circle, ${glow}, transparent 70%)` }}
-        />
-        <div
-          className="absolute -bottom-20 -right-10 h-72 w-72 rounded-full opacity-20 blur-[110px]"
-          style={{ background: `radial-gradient(circle, ${glow}, transparent 70%)` }}
-        />
-
-        <div className="grain-overlay opacity-[0.05]" />
-      </div>
-
-      <div className="absolute inset-0 flex items-center justify-center p-10">
-        <div
-          className="relative flex h-40 w-40 items-center justify-center rounded-2xl border border-white/10 bg-slate-950/60 shadow-2xl backdrop-blur-sm transition-transform duration-500 group-hover:scale-105 md:h-52 md:w-52"
-          style={logoBg ? { backgroundColor: logoBg } : undefined}
-        >
-          <div className="relative h-24 w-24 md:h-32 md:w-32">
-            <Image
-              src={brand.logo}
-              alt={`${brand.name} logo`}
-              fill
-              className="object-contain"
-              sizes="(min-width: 768px) 128px, 96px"
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-const DYR21_RED = "#D92D20";
-
-function DYR21Visual() {
-  return (
-    <div
-      className="relative h-[320px] w-full overflow-hidden rounded-sm border-2 md:h-[420px] lg:h-[480px]"
-      style={{ borderColor: DYR21_RED }}
-    >
-      <div className="absolute inset-0 bg-slate-900 transition-transform duration-700 ease-out group-hover:scale-[1.03]">
-        <div
-          className="absolute inset-0 opacity-[0.35]"
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, rgba(248,250,252,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(248,250,252,0.06) 1px, transparent 1px)",
-            backgroundSize: "48px 48px",
-          }}
-        />
-        <div
-          className="absolute -left-16 -top-16 h-72 w-72 rounded-full opacity-30 blur-[100px]"
-          style={{ background: `radial-gradient(circle, ${DYR21_RED}, transparent 70%)` }}
-        />
-        <div
-          className="absolute -bottom-20 -right-10 h-72 w-72 rounded-full opacity-20 blur-[110px]"
-          style={{ background: `radial-gradient(circle, ${DYR21_RED}, transparent 70%)` }}
-        />
-        <div className="grain-overlay opacity-[0.05]" />
-      </div>
-
-      <div className="absolute inset-0 flex items-center justify-center p-10">
-        <div
-          className="relative flex h-40 w-40 items-center justify-center rounded-2xl border border-white/10 bg-slate-950/60 shadow-2xl backdrop-blur-sm transition-transform duration-500 group-hover:scale-105 md:h-52 md:w-52"
-        >
-          <div className="relative h-24 w-24 md:h-32 md:w-32">
-            <Image
-              src="/brand-logos/dyr21.png"
-              alt="DYR21 logo"
-              fill
-              className="object-contain"
-              sizes="(min-width: 768px) 128px, 96px"
-            />
-          </div>
-        </div>
+      <div className="relative h-10 w-10">
+        <Image src={brand.logo} alt={`${brand.name} logo`} fill className="object-contain" sizes="40px" />
       </div>
     </div>
   );
@@ -164,114 +64,57 @@ export function BrandGrid() {
           </h2>
         </ScrollReveal>
 
-        <div className="mt-16">
+        <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-3">
           {sorted.map((brand, i) => {
-            const reversed = i % 2 === 1;
+            const glow = GLOW[brand.accent];
+            const brandColor = BRAND_COLOR[brand.id] ?? glow;
 
             return (
-              <ScrollReveal key={brand.id} delay={i * 100}>
-                <div className="group grid grid-cols-1 items-center gap-10 border-t border-border py-14 md:grid-cols-2 md:gap-16 md:py-20">
-                  <div className={reversed ? "md:order-2" : ""}>
-                    <BrandVisual brand={brand} />
+              <ScrollReveal key={brand.id} delay={i * 100} className={BENTO_SPAN[i % BENTO_SPAN.length]}>
+                <article className="glass-card group relative flex h-full flex-col overflow-hidden rounded-2xl p-8 md:p-10">
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute -right-16 -top-16 h-56 w-56 rounded-full opacity-20 blur-[90px]"
+                    style={{ background: `radial-gradient(circle, ${glow}, transparent 70%)` }}
+                  />
+
+                  <div className="relative flex items-start justify-between gap-6">
+                    <BrandLogo brand={brand} />
+                    <span className="font-mono text-sm" style={{ color: brandColor }}>
+                      {String(brand.displayOrder).padStart(2, "0")}
+                    </span>
                   </div>
 
-                  <div className={reversed ? "md:order-1" : ""}>
-                    <div className="flex items-center gap-3">
-                      <span
-                        className="text-sm font-medium"
-                        style={{ color: BRAND_COLOR[brand.id] ?? GLOW[brand.accent] }}
-                      >
-                        {String(brand.displayOrder).padStart(2, "0")}
-                      </span>
-                      <span className="font-mono text-[13px] text-muted">
-                        {brand.websiteUrl.replace(/^https?:\/\//, "")}
-                      </span>
-                    </div>
+                  <h3 className="relative mt-10 text-3xl text-foreground md:text-4xl">{brand.name}</h3>
 
-                    <h3 className="mt-5 text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-                      {brand.name}
-                    </h3>
-
-                    <span className="mt-4 block text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
+                  <div className="relative mt-3 flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
                       {t(brand.category, brand.categoryEn)}
                     </span>
-
-                    <p className="mt-5 max-w-md text-[16px] leading-relaxed text-slate-300">
-                      {t(brand.shortDescription, brand.shortDescriptionEn)}
-                    </p>
-
-                    <a
-                      href={brand.websiteUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className={`mt-8 inline-flex items-center gap-2 text-[13px] font-medium tracking-wide text-foreground transition-colors ${ACCENT_HOVER_TEXT[brand.accent]}`}
-                    >
-                      {EXPLORE_LABEL[brand.id]}
-                      <span className="transition-transform duration-300 group-hover:translate-x-1">
-                        →
-                      </span>
-                    </a>
+                    <span className="font-mono text-[12px] text-muted">
+                      {brand.websiteUrl.replace(/^https?:\/\//, "")}
+                    </span>
                   </div>
-                </div>
+
+                  <p className="relative mt-5 max-w-md text-[15px] text-muted">
+                    {t(brand.shortDescription, brand.shortDescriptionEn)}
+                  </p>
+
+                  <a
+                    href={brand.websiteUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="relative mt-auto inline-flex items-center gap-2 pt-8 text-[13px] font-medium tracking-wide text-foreground"
+                  >
+                    {EXPLORE_LABEL[brand.id]}
+                    <span aria-hidden className="lux-ease group-hover:translate-x-1.5">
+                      →
+                    </span>
+                  </a>
+                </article>
               </ScrollReveal>
             );
           })}
-          <div className="border-t border-border" />
-        </div>
-
-        {/* Partnerships */}
-        <ScrollReveal className="mt-24">
-          <SectionLabel>{t("İş Birlikleri", "Partnerships")}</SectionLabel>
-          <h2 className="mt-4 max-w-xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-            {t("Anlaşmalı İş Ortakları", "Contracted Partners")}
-          </h2>
-        </ScrollReveal>
-
-        <div className="mt-16">
-          <ScrollReveal>
-            <div className="group grid grid-cols-1 items-center gap-10 border-t border-border py-14 md:grid-cols-2 md:gap-16 md:py-20">
-              <div>
-                <DYR21Visual />
-              </div>
-
-              <div>
-                <div className="flex items-center gap-3">
-                  <span className="text-sm font-medium" style={{ color: DYR21_RED }}>
-                    01
-                  </span>
-                  <span className="font-mono text-[13px] text-muted">dyr21.com</span>
-                </div>
-
-                <h3 className="mt-5 text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-                  DYR21
-                </h3>
-
-                <span className="mt-4 block text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-                  {t("Toptan & Perakende Tekstil Ürünleri", "Wholesale & Retail Textile Products")}
-                </span>
-
-                <p className="mt-5 max-w-md text-[16px] leading-relaxed text-slate-300">
-                  {t(
-                    "İzmir'in köklü tekstil mirasından beslenen DYR21, 2015'ten bu yana Türkiye'nin önde gelen jean ve giyim markalarından biridir. Hurşidiye Mahallesi'ndeki üretim merkeziyle imalattan perakendeye uzanan entegre yapısıyla; bireysel alışverişten toptan kurumsal çözümlere kadar geniş bir yelpazede hizmet sunmaktadır. TRADERS.TR ile kurduğu süresiz iş ortaklığı, markanın dijital ticaret vizyonunu daha geniş kitlelere taşımaktadır.",
-                    "Rooted in İzmir's rich textile heritage, DYR21 has been one of Turkey's leading denim and apparel brands since 2015. With its integrated structure spanning manufacturing to retail, it serves customers ranging from individual shoppers to wholesale corporate clients. Its indefinite partnership with TRADERS.TR brings the brand's digital commerce vision to a wider audience."
-                  )}
-                </p>
-
-                <a
-                  href="https://dyr21.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-8 inline-flex items-center gap-2 text-[13px] font-medium tracking-wide text-foreground transition-colors hover:text-red-400"
-                >
-                  {t("DYR21'i Keşfedin", "Explore DYR21")}
-                  <span className="transition-transform duration-300 group-hover:translate-x-1">
-                    →
-                  </span>
-                </a>
-              </div>
-            </div>
-          </ScrollReveal>
-          <div className="border-t border-border" />
         </div>
       </div>
     </section>
