@@ -127,7 +127,7 @@ export function Hero({
       )}
 
       <div className="container-edit relative z-10 flex flex-1 flex-col justify-end pb-16 pt-0 md:pb-40">
-        <div className="max-w-5xl">
+        <div className="mt-auto max-w-5xl md:mt-0">
           <h1 className="text-[40px] font-medium leading-[1.02] tracking-tight text-foreground sm:text-[56px] md:text-[80px] lg:text-[104px]">
             <HeroWords
               key={t("tr", "en")}
