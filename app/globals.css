@@ -52,6 +52,7 @@
   --brand-emerald: #10b981;
   --brand-earth: #c8814a;
   --brand-orange: #f7861b;
+  --brand-wine: #8b1a3a;
 
   /* Surfaces */
   --surface-background: var(--bg-infinite-white);
@@ -132,6 +133,7 @@
   --color-brand-emerald: var(--brand-emerald);
   --color-brand-earth: var(--brand-earth);
   --color-brand-orange: var(--brand-orange);
+  --color-brand-wine: var(--brand-wine);
   --color-accent: var(--text-obsidian);
   --color-accent-soft: rgba(203, 213, 225, 0.35);
   --color-text-secondary: var(--text-secondary);

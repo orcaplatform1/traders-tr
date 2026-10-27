@@ -1,6 +1,6 @@
 export type BrandStatus = "active" | "developing" | "exploring";
 
-export type BrandAccent = "ocean" | "emerald" | "earth" | "orange";
+export type BrandAccent = "ocean" | "emerald" | "earth" | "orange" | "wine";
 
 export interface Brand {
   id: string;

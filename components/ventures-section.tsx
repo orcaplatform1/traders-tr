@@ -11,6 +11,7 @@ const VENTURE_COLOR: Record<string, string> = {
   kriptobeyan: "#d4af37",
   zesta: "#14b8a6",
   mettlo: "#f97316",
+  ahenk: "#8b1a3a",
 };
 
 export function VenturesSection() {

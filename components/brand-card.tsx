@@ -42,6 +42,14 @@ const ACCENT: Record<
     dot: "bg-brand-orange",
     glow: "from-brand-orange/20",
   },
+  wine: {
+    text: "text-brand-wine",
+    hoverText: "hover:text-brand-wine",
+    soft: "bg-brand-wine/10",
+    border: "group-hover:border-brand-wine/50",
+    dot: "bg-brand-wine",
+    glow: "from-brand-wine/20",
+  },
 };
 
 export function BrandCard({ brand }: { brand: Brand }) {

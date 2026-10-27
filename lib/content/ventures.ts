@@ -61,4 +61,19 @@ export const ventures: Venture[] = [
     stage: "developing",
     websiteUrl: "https://mettlo.tr",
   },
+  {
+    id: "ahenk",
+    name: "Ahenk",
+    slug: "ahenk",
+    category: "Sosyal Platform",
+    categoryEn: "Social Platform",
+    description: "OCEAN Big Five uyumluluğuna dayalı haftalık sosyal buluşma platformu.",
+    descriptionEn: "Weekly social meeting platform based on OCEAN Big Five personality compatibility.",
+    detail:
+      "Yabancılarla tanışmayı bilimsel bir temele oturtarak gerçek buluşmalara dönüştürür. Grup masası, baş başa masa ve Kankamla formatlarında haftalık organizasyon sunar.",
+    detailEn:
+      "Turns meeting strangers into real encounters on a scientific basis. Offers weekly organization in group table, one-on-one, and Kankamla formats.",
+    stage: "developing",
+    websiteUrl: "https://ahenk.co",
+  },
 ];

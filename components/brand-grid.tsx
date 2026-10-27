@@ -36,7 +36,7 @@ export function BrandGrid() {
         {/* Asimetrik brutalist Bento: 1. ve 4. kart tam genislik */}
         <div ref={gridRef} className="grid grid-cols-2 gap-0 border-l border-t border-border">
           {sorted.map((brand, idx) => {
-            const wide = idx === 0 || idx === 3;
+            const wide = idx >= 2;
             const active = brand.status === "active";
 
             return (
