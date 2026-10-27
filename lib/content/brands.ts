@@ -7,7 +7,7 @@ export const brands: Brand[] = [
     slug: "orca",
     logo: "/brand-logos/orca.png",
     monogram: "OR",
-    accent: "blue",
+    accent: "ocean",
     category: "Finans Eğitimi",
     categoryEn: "Financial Education",
     shortDescription:
@@ -36,7 +36,7 @@ export const brands: Brand[] = [
     slug: "kriptobeyan",
     logo: "/brand-logos/kriptobeyan.png",
     monogram: "KB",
-    accent: "purple",
+    accent: "emerald",
     category: "Dijital Vergi",
     categoryEn: "Digital Tax",
     shortDescription:
@@ -65,7 +65,7 @@ export const brands: Brand[] = [
     slug: "zesta",
     logo: "/brand-logos/zesta.png",
     monogram: "ZS",
-    accent: "teal",
+    accent: "earth",
     category: "Sanat Ürünleri",
     categoryEn: "Art & Design Products",
     shortDescription:

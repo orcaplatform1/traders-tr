@@ -4,6 +4,8 @@ import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { useT } from "@/lib/i18n";
 
+const BENTO_SPAN = ["md:col-span-2", "md:col-span-1", "md:col-span-1", "md:col-span-2"];
+
 export function ApproachSection() {
   const t = useT();
 
@@ -43,7 +45,7 @@ export function ApproachSection() {
   ];
 
   return (
-    <section className="border-b border-border py-28 md:py-36">
+    <section className="border-b border-border py-32 md:py-48">
       <div className="container-edit">
         <ScrollReveal>
           <SectionLabel>{t("Nasıl Düşünüyoruz", "How We Think")}</SectionLabel>
@@ -54,33 +56,28 @@ export function ApproachSection() {
           </p>
         </ScrollReveal>
 
-        <div className="mt-16">
+        {/* Bento yerlesimi: 3 kolon, 1. ve 4. kutu genis */}
+        <div className="mt-20 grid grid-cols-1 gap-4 md:mt-24 md:grid-cols-3 md:gap-5">
           {PRINCIPLES.map((p, i) => (
-            <ScrollReveal key={p.n} delay={i * 80}>
-              <div className="group relative overflow-hidden border-t border-border py-10 transition-colors duration-300 hover:border-border-hover md:py-14">
+            <ScrollReveal key={p.n} delay={i * 120} className={BENTO_SPAN[i]}>
+              <div className="glass-card group relative flex h-full min-h-[280px] flex-col justify-between overflow-hidden rounded-3xl p-8 md:min-h-[340px] md:p-12">
                 <span
                   aria-hidden
-                  className="pointer-events-none absolute -left-2 top-1/2 -translate-y-1/2 select-none text-[120px] font-semibold leading-none text-foreground opacity-0 transition-opacity duration-500 group-hover:opacity-[0.03] md:text-[180px]"
+                  className="pointer-events-none absolute -bottom-8 -right-2 select-none font-heading text-[160px] leading-none text-foreground opacity-[0.04] transition-opacity duration-700 group-hover:opacity-[0.08] md:text-[220px]"
                 >
                   {p.n}
                 </span>
 
-                <div className="relative flex items-baseline gap-4">
-                  <span className="text-sm text-muted">{p.n}</span>
-                  <span className="h-px flex-1 bg-border" />
-                </div>
-                <div className="relative mt-6 grid grid-cols-1 gap-4 md:grid-cols-[1fr_auto] md:items-end md:gap-10">
-                  <h3 className="text-[30px] font-medium leading-[1.05] tracking-tight text-foreground transition-colors duration-300 group-hover:text-accent sm:text-[40px] md:text-[56px] lg:text-[64px]">
+                <span className="relative font-mono text-sm text-muted">{p.n}</span>
+                <div className="relative mt-16">
+                  <h3 className="max-w-md text-[30px] font-medium leading-[1.08] tracking-tight text-foreground sm:text-[36px] md:text-[44px]">
                     {p.title}
                   </h3>
-                  <p className="max-w-sm text-[15px] leading-relaxed text-muted md:text-right">
-                    {p.description}
-                  </p>
+                  <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted">{p.description}</p>
                 </div>
               </div>
             </ScrollReveal>
           ))}
-          <div className="border-t border-border" />
         </div>
       </div>
     </section>

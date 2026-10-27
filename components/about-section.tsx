@@ -7,7 +7,7 @@ import { useT } from "@/lib/i18n";
 export function AboutSection() {
   const t = useT();
   return (
-    <section className="border-b border-border py-28 md:py-36">
+    <section className="border-b border-border py-32 md:py-48">
       <div className="container-edit grid grid-cols-1 gap-16 md:grid-cols-2">
         <ScrollReveal>
           <SectionLabel>{t("TRADERS.TR Hakkında", "About TRADERS.TR")}</SectionLabel>

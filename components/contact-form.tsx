@@ -1,15 +1,59 @@
 "use client";
 
-import { useActionState, useEffect, useRef, useState } from "react";
+import { useActionState, useRef, useState } from "react";
 import { submitContactForm, type ContactFormState } from "@/app/actions/contact";
 import { useT } from "@/lib/i18n";
 import { Magnetic } from "@/components/magnetic";
 
 const initialState: ContactFormState = { status: "idle" };
 
-export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: string }) {
+// Kategori secildiginde form odak rengi ve arka plan bu tona doner
+export const CATEGORY_ACCENT: Record<string, string> = {
+  ortaklik: "var(--brand-ocean)",
+  girisim: "var(--brand-emerald)",
+  basin: "var(--brand-earth)",
+  genel: "#ffffff",
+};
+
+const STEP1_FIELDS = ["name", "email"] as const;
+
+export function ContactForm({
+  defaultCategory = "genel",
+  onCategoryChange,
+}: {
+  defaultCategory?: string;
+  onCategoryChange?: (value: string) => void;
+}) {
   const t = useT();
   const [state, formAction, pending] = useActionState(submitContactForm, initialState);
+  const [step, setStep] = useState<1 | 2>(1);
+  const [category, setCategory] = useState(defaultCategory);
+  const formRef = useRef<HTMLFormElement>(null);
+
+  // Sunucu hatasi ilk adimdaki bir alanda ise o adima geri don
+  const [lastState, setLastState] = useState(state);
+  if (state !== lastState) {
+    setLastState(state);
+    if (STEP1_FIELDS.some((f) => state.fieldErrors?.[f])) setStep(1);
+  }
+
+  function selectCategory(value: string) {
+    setCategory(value);
+    onCategoryChange?.(value);
+  }
+
+  function goNext() {
+    const form = formRef.current;
+    if (!form) return;
+    for (const name of STEP1_FIELDS) {
+      const el = form.elements.namedItem(name) as HTMLInputElement | null;
+      if (el && !el.checkValidity()) {
+        el.reportValidity();
+        return;
+      }
+    }
+    setStep(2);
+  }
 
   const CATEGORIES = [
     { value: "ortaklik", label: t("İş Ortaklığı", "Partnership") },
@@ -20,7 +64,7 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
 
   if (state.status === "success") {
     return (
-      <div className="border-t border-border pt-8">
+      <div className="border-t border-border pt-10">
         <p className="text-xl font-medium text-foreground">{t("Teşekkürler.", "Thank you.")}</p>
         <p className="mt-2 text-[15px] text-muted">{t("Size en kısa sürede geri döneceğiz.", "We'll get back to you as soon as possible.")}</p>
       </div>
@@ -28,22 +72,66 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
   }
 
   return (
-    <form action={formAction} className="space-y-6" noValidate>
+    <form ref={formRef} action={formAction} noValidate>
       {/* honeypot */}
       <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
         <label htmlFor="website">{t("Web sitesi", "Website")}</label>
         <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
       </div>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+      {/* Adim gostergesi */}
+      <div className="mb-12 flex items-center gap-4 text-[12px] font-medium uppercase tracking-[0.15em]">
+        {[1, 2].map((n) => (
+          <span key={n} className="flex items-center gap-4">
+            <span className={`transition-colors duration-500 ${step === n ? "text-foreground" : "text-text-tertiary"}`}>
+              {String(n).padStart(2, "0")} · {n === 1 ? t("Siz", "You") : t("Fikriniz", "Your Idea")}
+            </span>
+            {n === 1 && (
+              <span className="relative h-px w-16 bg-border">
+                <span
+                  className="lux-ease absolute inset-y-0 left-0"
+                  style={{ width: step === 2 ? "100%" : "0%", background: "var(--form-accent, #ffffff)" }}
+                />
+              </span>
+            )}
+          </span>
+        ))}
+      </div>
+
+      <input type="hidden" name="category" value={category} />
+
+      <div className={step === 1 ? "space-y-10" : "hidden"}>
+        <fieldset>
+          <legend className="mb-4 block text-[12px] font-medium uppercase tracking-[0.1em] text-text-secondary">
+            {t("Kategori", "Category")}
+          </legend>
+          <div className="flex flex-wrap gap-3">
+            {CATEGORIES.map((c) => {
+              const selected = c.value === category;
+              return (
+                <button
+                  key={c.value}
+                  type="button"
+                  aria-pressed={selected}
+                  onClick={() => selectCategory(c.value)}
+                  className={`lux-ease rounded-full border px-5 py-2.5 text-[14px] ${
+                    selected ? "text-foreground" : "border-border-default text-text-secondary hover:text-foreground"
+                  }`}
+                  style={
+                    selected
+                      ? { borderColor: CATEGORY_ACCENT[c.value], boxShadow: `0 0 24px -8px ${CATEGORY_ACCENT[c.value]}` }
+                      : undefined
+                  }
+                >
+                  {c.label}
+                </button>
+              );
+            })}
+          </div>
+        </fieldset>
+
         <Field label={t("Ad Soyad", "Full Name")} name="name" error={state.fieldErrors?.name}>
-          <input
-            id="name"
-            name="name"
-            type="text"
-            required
-            className="lux-input w-full px-0 py-3 text-[15px] text-foreground placeholder:text-text-tertiary"
-          />
+          <input id="name" name="name" type="text" required className={INPUT} />
         </Field>
 
         <Field label={t("E-posta", "Email")} name="email" error={state.fieldErrors?.email}>
@@ -53,86 +141,85 @@ export function ContactForm({ defaultCategory = "genel" }: { defaultCategory?: s
             type="email"
             required
             pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
-            className="lux-input w-full px-0 py-3 text-[15px] text-foreground placeholder:text-text-tertiary"
+            className={INPUT}
           />
         </Field>
+
+        <Magnetic>
+          <button type="button" onClick={goNext} className="btn-liquid group px-8 py-3.5 text-[13px] font-medium tracking-wide">
+            {t("Devam Et", "Continue")}
+            <span className="lux-ease group-hover:translate-x-1">→</span>
+          </button>
+        </Magnetic>
       </div>
 
-      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
-        <Field label={t("Telefon", "Phone")} name="phone" error={state.fieldErrors?.phone}>
-          <div className="flex">
-            <span
-              aria-hidden
-              className="flex shrink-0 items-center border-b border-[#262626] pr-3 text-[15px] text-text-tertiary"
+      <div className={step === 2 ? "space-y-10" : "hidden"}>
+        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
+          <Field label={t("Telefon", "Phone")} name="phone" error={state.fieldErrors?.phone}>
+            <div className="flex">
+              <span
+                aria-hidden
+                className="flex shrink-0 items-center border-b border-[#262626] pr-3 text-[18px] text-text-tertiary md:text-[20px]"
+              >
+                +90
+              </span>
+              <input
+                id="phone"
+                name="phone"
+                type="tel"
+                inputMode="numeric"
+                required
+                placeholder="5XXXXXXXXX"
+                maxLength={10}
+                onInput={(e) => {
+                  e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "").slice(0, 10);
+                }}
+                className={INPUT}
+              />
+            </div>
+          </Field>
+
+          <Field label={t("Şirket/Bireysel", "Company/Individual")} name="company" error={state.fieldErrors?.company}>
+            <input id="company" name="company" type="text" className={INPUT} />
+          </Field>
+        </div>
+
+        <Field label={t("Konu", "Subject")} name="subject" error={state.fieldErrors?.subject}>
+          <input id="subject" name="subject" type="text" required className={INPUT} />
+        </Field>
+
+        <Field label={t("Mesaj", "Message")} name="message" error={state.fieldErrors?.message}>
+          <textarea id="message" name="message" rows={5} required className={`${INPUT} resize-none`} />
+        </Field>
+
+        {state.status === "error" && state.message && (
+          <p className="text-[13px] text-error">{state.message}</p>
+        )}
+
+        <div className="flex flex-wrap items-center gap-8">
+          <Magnetic>
+            <button
+              type="submit"
+              disabled={pending}
+              className="btn-liquid px-8 py-3.5 text-[13px] font-medium tracking-wide disabled:opacity-60"
             >
-              +90
-            </span>
-            <input
-              id="phone"
-              name="phone"
-              type="tel"
-              inputMode="numeric"
-              required
-              placeholder="5XXXXXXXXX"
-              maxLength={10}
-              onInput={(e) => {
-                e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "").slice(0, 10);
-              }}
-              className="lux-input w-full px-0 py-3 text-[15px] text-foreground placeholder:text-text-tertiary"
-            />
-          </div>
-        </Field>
-
-        <Field label={t("Şirket/Bireysel", "Company/Individual")} name="company" error={state.fieldErrors?.company}>
-          <input
-            id="company"
-            name="company"
-            type="text"
-            className="lux-input w-full px-0 py-3 text-[15px] text-foreground placeholder:text-text-tertiary"
-          />
-        </Field>
+              {pending ? t("Gönderiliyor…", "Sending…") : t("Mesaj Gönder", "Send Message")}
+            </button>
+          </Magnetic>
+          <button
+            type="button"
+            onClick={() => setStep(1)}
+            className="text-[13px] font-medium tracking-wide text-muted transition-colors hover:text-foreground"
+          >
+            ← {t("Geri", "Back")}
+          </button>
+        </div>
       </div>
-
-      <Field label={t("Kategori", "Category")} name="category">
-        <CategorySelect defaultValue={defaultCategory} categories={CATEGORIES} />
-      </Field>
-
-      <Field label={t("Konu", "Subject")} name="subject" error={state.fieldErrors?.subject}>
-        <input
-          id="subject"
-          name="subject"
-          type="text"
-          required
-          className="lux-input w-full px-0 py-3 text-[15px] text-foreground placeholder:text-text-tertiary"
-        />
-      </Field>
-
-      <Field label={t("Mesaj", "Message")} name="message" error={state.fieldErrors?.message}>
-        <textarea
-          id="message"
-          name="message"
-          rows={5}
-          required
-          className="lux-input w-full resize-none px-0 py-3 text-[15px] text-foreground placeholder:text-text-tertiary"
-        />
-      </Field>
-
-      {state.status === "error" && state.message && (
-        <p className="text-[13px] text-error">{state.message}</p>
-      )}
-
-      <Magnetic>
-        <button
-          type="submit"
-          disabled={pending}
-          className="btn-liquid px-8 py-3.5 text-[13px] font-medium tracking-wide disabled:opacity-60"
-        >
-          {pending ? t("Gönderiliyor…", "Sending…") : t("Mesaj Gönder", "Send Message")}
-        </button>
-      </Magnetic>
     </form>
   );
 }
+
+const INPUT = "lux-input w-full px-0 py-4 text-[18px] text-foreground placeholder:text-text-tertiary md:text-[20px]";
 
 function Field({
   label,
@@ -155,83 +242,6 @@ function Field({
       </label>
       {children}
       {error && <p className="mt-1.5 text-[12px] text-error">{error}</p>}
-    </div>
-  );
-}
-
-function CategorySelect({
-  defaultValue,
-  categories,
-}: {
-  defaultValue: string;
-  categories: ReadonlyArray<{ value: string; label: string }>;
-}) {
-  const [value, setValue] = useState(defaultValue);
-  const [open, setOpen] = useState(false);
-  const rootRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    function onClickOutside(e: MouseEvent) {
-      if (rootRef.current && !rootRef.current.contains(e.target as Node)) {
-        setOpen(false);
-      }
-    }
-    function onKeyDown(e: KeyboardEvent) {
-      if (e.key === "Escape") setOpen(false);
-    }
-    document.addEventListener("mousedown", onClickOutside);
-    document.addEventListener("keydown", onKeyDown);
-    return () => {
-      document.removeEventListener("mousedown", onClickOutside);
-      document.removeEventListener("keydown", onKeyDown);
-    };
-  }, []);
-
-  const selected = categories.find((c) => c.value === value) ?? categories[0];
-
-  return (
-    <div ref={rootRef} className="relative">
-      <input type="hidden" name="category" value={value} />
-      <button
-        type="button"
-        id="category"
-        onClick={() => setOpen((o) => !o)}
-        aria-haspopup="listbox"
-        aria-expanded={open}
-        className="lux-input flex w-full items-center justify-between px-0 py-3 text-left text-[15px] text-foreground"
-      >
-        {selected.label}
-        <span
-          aria-hidden
-          className={`text-text-tertiary transition-transform ${open ? "rotate-180" : ""}`}
-        >
-          ▾
-        </span>
-      </button>
-
-      {open && (
-        <ul
-          role="listbox"
-          className="absolute left-0 right-0 top-full z-20 mt-1 max-h-60 overflow-auto border border-border-default bg-surface-2 py-1 shadow-lg"
-        >
-          {categories.map((c) => (
-            <li key={c.value} role="option" aria-selected={c.value === value}>
-              <button
-                type="button"
-                onClick={() => {
-                  setValue(c.value);
-                  setOpen(false);
-                }}
-                className={`block w-full px-4 py-2.5 text-left text-[15px] transition-colors hover:bg-surface-3 ${
-                  c.value === value ? "text-foreground" : "text-text-secondary"
-                }`}
-              >
-                {c.label}
-              </button>
-            </li>
-          ))}
-        </ul>
-      )}
     </div>
   );
 }

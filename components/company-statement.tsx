@@ -7,7 +7,7 @@ import { useT } from "@/lib/i18n";
 export function CompanyStatement() {
   const t = useT();
   return (
-    <section className="border-b border-border py-28 md:py-36">
+    <section className="border-b border-border py-32 md:py-48">
       <div className="container-edit relative z-10 grid grid-cols-1 gap-12 md:grid-cols-[1fr_auto] md:items-end md:gap-16">
         <div>
           <ScrollReveal>

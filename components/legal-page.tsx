@@ -19,7 +19,7 @@ export function LegalPage({
 }) {
   const t = useT();
   return (
-    <section className="py-28 md:py-36">
+    <section className="py-32 md:py-48">
       <div className="container-edit">
         <SectionLabel>{t("Yasal", "Legal")}</SectionLabel>
         <h1 className="mt-4 text-4xl font-medium tracking-tight text-foreground md:text-5xl">

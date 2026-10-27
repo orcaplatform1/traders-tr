@@ -84,10 +84,10 @@ export function Hero({
               <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-background from-0% via-background/85 via-35% to-transparent to-100%" />
               <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-r from-background/70 from-0% via-background/20 via-40% to-transparent to-65%" />
 
-              {/* Atmospheric mavi glow */}
+              {/* Atmospheric monokrom glow */}
               <div
-                className="hero-glow pointer-events-none absolute -right-[10%] top-[10%] hidden h-[520px] w-[520px] rounded-full blur-[140px] md:block"
-                style={{ background: "radial-gradient(circle, #3b82f6, transparent 70%)" }}
+                className="hero-glow pointer-events-none absolute -right-[10%] top-[10%] hidden h-[520px] w-[520px] rounded-full opacity-40 blur-[140px] md:block"
+                style={{ background: "radial-gradient(circle, #ffffff, transparent 70%)" }}
               />
 
               {/* Cok ince grid + grain katmani */}
@@ -124,22 +124,22 @@ export function Hero({
       )}
 
       <div className="container-edit relative z-10 flex flex-1 flex-col justify-end pb-16 pt-0 md:pb-40">
-        <div className="max-w-3xl">
-          <h1 className="text-[26px] font-medium leading-[1.12] tracking-tight text-foreground sm:text-[34px] md:text-[44px]">
+        <div className="max-w-5xl">
+          <h1 className="text-[40px] font-medium leading-[1.02] tracking-tight text-foreground sm:text-[56px] md:text-[80px] lg:text-[104px]">
             <HeroWords
               key={t("tr", "en")}
               lines={[t("Sınırların ötesinde", "Building brands"), t("markalar inşa ediyoruz.", "beyond borders.")]}
             />
           </h1>
 
-          <p className="mt-6 max-w-lg text-[16px] leading-relaxed text-muted md:text-[18px]">
+          <p className="mt-8 max-w-xl text-[16px] leading-relaxed text-muted md:mt-10 md:text-[19px]">
             {t(
               "Teknoloji, ticaret ve finansın kesişiminde işletmeler geliştiren çok markalı bir girişim şirketi.",
               "A multi-brand venture company building businesses at the intersection of technology, commerce and finance."
             )}
           </p>
 
-          <div className="mt-9 flex flex-wrap items-center gap-x-8 gap-y-4">
+          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4 md:mt-14">
             <Magnetic>
               <Link
                 href="/markalar"
