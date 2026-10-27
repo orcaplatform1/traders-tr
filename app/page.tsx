@@ -1,4 +1,5 @@
 import { Hero } from "@/components/hero";
+import { HeroContent } from "@/components/hero-content";
 import { CompanyStatement } from "@/components/company-statement";
 import { BrandGrid } from "@/components/brand-grid";
 import { BrandsStatement } from "@/components/brands-statement";
@@ -20,6 +21,7 @@ export default function Home() {
       <VentureRail />
       <div className="relative">
         <Hero imageSrc="/hero.webp" imageSrcMobile="/hero-mobile.webp" />
+        <HeroContent />
         <CompanyStatement />
         <BrandGrid />
       </div>
