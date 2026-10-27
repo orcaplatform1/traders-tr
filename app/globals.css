@@ -75,6 +75,7 @@
   --text-muted: var(--text-secondary);
   --text-tertiary: #52525b;
   --text-disabled: #cbd5e1;
+  --text-placeholder: #a1a1aa;
   --text-inverse: var(--bg-infinite-white);
   --text-link: var(--text-obsidian);
   --text-link-hover: #475569;
@@ -135,6 +136,7 @@
   --color-accent-soft: rgba(203, 213, 225, 0.35);
   --color-text-secondary: var(--text-secondary);
   --color-text-tertiary: var(--text-tertiary);
+  --color-text-placeholder: var(--text-placeholder);
   --color-quartz-accent-dusk: #cbd5e1;
 
   --font-sans: var(--font-inter);

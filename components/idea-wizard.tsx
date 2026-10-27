@@ -5,9 +5,8 @@ import { ContactForm } from "@/components/contact-form";
 
 type WizardOptions = { category?: string };
 
-const IdeaWizardContext = createContext<{ open: (opts?: WizardOptions) => void; isOpen: boolean }>({
+const IdeaWizardContext = createContext<{ open: (opts?: WizardOptions) => void }>({
   open: () => {},
-  isOpen: false,
 });
 
 export function useIdeaWizard() {
@@ -39,7 +38,7 @@ export function IdeaWizardProvider({ children }: { children: ReactNode }) {
   }, [isOpen]);
 
   return (
-    <IdeaWizardContext.Provider value={{ open, isOpen }}>
+    <IdeaWizardContext.Provider value={{ open }}>
       {children}
       <div
         role="dialog"

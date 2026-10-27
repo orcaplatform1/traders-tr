@@ -27,7 +27,7 @@ export function BrandGrid() {
     <section className="w-full border-b border-border py-12 md:py-32">
       <div className="container-edit">
         <ScrollReveal className="mb-8 md:mb-12">
-          <span className="font-mono text-xs uppercase tracking-widest text-[#52525B]">{t("Portföy", "Portfolio")}</span>
+          <span className="font-mono text-xs uppercase tracking-widest text-text-tertiary">{t("Portföy", "Portfolio")}</span>
           <h2 className="mt-1 text-2xl font-bold tracking-tight text-foreground md:text-4xl">
             {t("Girişim Ekosistemi", "Venture Ecosystem")}
           </h2>
@@ -51,7 +51,7 @@ export function BrandGrid() {
 
                 <div className="relative">
                   <div className="mb-2 flex items-start justify-between gap-2">
-                    <span className="font-mono text-[9px] uppercase text-[#52525B] md:text-[10px]">
+                    <span className="font-mono text-[9px] uppercase text-text-tertiary md:text-[10px]">
                       {String(brand.displayOrder).padStart(2, "0")} {"// "}
                       {t(brand.category, brand.categoryEn)}
                     </span>
@@ -73,13 +73,13 @@ export function BrandGrid() {
                     {brand.name}
                   </h3>
                   {wide && (
-                    <p className="mt-2 max-w-2xl text-xs leading-relaxed text-[#3F3F46] md:text-sm">
+                    <p className="mt-2 max-w-2xl text-xs leading-relaxed text-muted md:text-sm">
                       {t(brand.shortDescription, brand.shortDescriptionEn)}
                     </p>
                   )}
                 </div>
 
-                <div className="relative flex items-center justify-between pt-4 font-mono text-[10px] text-[#52525B] md:text-xs">
+                <div className="relative flex items-center justify-between pt-4 font-mono text-[10px] text-text-tertiary md:text-xs">
                   <span>{brand.websiteUrl.replace(/^https?:\/\//, "")}</span>
                   {wide && <span className="font-sans font-bold text-foreground">{t("İncele →", "View →")}</span>}
                 </div>

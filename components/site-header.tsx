@@ -95,8 +95,8 @@ export function SiteHeader() {
 
   return (
     <>
-      {/* Ust logo bari */}
-      <header className="sticky top-0 z-40 bg-transparent">
+      {/* Ust logo bari: seffaf, sayfanin ustune bindirilir ve sayfayla birlikte kayar */}
+      <header className="absolute inset-x-0 top-0 z-40 bg-transparent">
         <div className="container-edit flex items-center justify-between py-4">
           <Link href="/" className="relative block h-8 w-[160px] shrink-0 md:h-10 md:w-[220px]">
             <Image

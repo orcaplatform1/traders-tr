@@ -12,7 +12,7 @@ export function DockLabel({ icon, label, selected }: { icon: ReactNode; label: s
       </span>
       <span
         className={`font-mono text-[9px] uppercase tracking-widest transition-colors duration-200 ${
-          selected ? "font-bold text-foreground" : "text-[#52525B]"
+          selected ? "font-bold text-foreground" : "text-text-tertiary"
         }`}
       >
         {label}

@@ -34,16 +34,42 @@ export function ContactForm({
   const current: StepKey = STEPS[step];
   const isLast = step === STEPS.length - 1;
 
-  // Her adimda aktif alana odaklan
+  // Gecersiz alana donuldugunde uyari, adim ekrana geldikten (commit) sonra gosterilir
+  const [reportRequest, setReportRequest] = useState(0);
+  const pendingReport = useRef(false);
+
+  // Her adimda aktif alana odaklan; istenmisse dogrulama uyarisini goster
   useEffect(() => {
     const el = formRef.current?.elements.namedItem(current) as HTMLInputElement | null;
-    if (el && el.type !== "hidden") el.focus({ preventScroll: true });
-  }, [current]);
+    if (!el || el.type === "hidden") return;
+    el.focus({ preventScroll: true });
+    if (pendingReport.current) {
+      pendingReport.current = false;
+      el.reportValidity();
+    }
+  }, [current, reportRequest]);
+
+  // Sunucu .trim() ile dogruluyor: istemci de bosluklari saymadan kontrol eder
+  function isValid(el: HTMLInputElement | HTMLTextAreaElement | null) {
+    if (!el || el.type === "hidden") return true;
+    const trimmed = el.value.trim();
+    el.setCustomValidity("");
+    if (el.required && !trimmed) {
+      el.setCustomValidity(t("Bu alan zorunlu.", "This field is required."));
+    } else if (el.minLength > 0 && trimmed.length < el.minLength) {
+      el.setCustomValidity(t(`En az ${el.minLength} karakter girin.`, `Enter at least ${el.minLength} characters.`));
+    }
+    return el.checkValidity();
+  }
+
+  function field(name: StepKey) {
+    return formRef.current?.elements.namedItem(name) as HTMLInputElement | null;
+  }
 
   function goNext() {
-    const el = formRef.current?.elements.namedItem(current) as HTMLInputElement | null;
-    if (el && el.type !== "hidden" && !el.checkValidity()) {
-      el.reportValidity();
+    const el = field(current);
+    if (!isValid(el)) {
+      el?.reportValidity();
       return;
     }
     setStep((s) => Math.min(STEPS.length - 1, s + 1));
@@ -54,13 +80,11 @@ export function ContactForm({
   function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const form = e.currentTarget;
-    const invalid = STEPS.findIndex((f) => {
-      const el = form.elements.namedItem(f) as HTMLInputElement | null;
-      return el && el.type !== "hidden" && !el.checkValidity();
-    });
+    const invalid = STEPS.findIndex((f) => !isValid(field(f)));
     if (invalid >= 0) {
       setStep(invalid);
-      requestAnimationFrame(() => (form.elements.namedItem(STEPS[invalid]) as HTMLInputElement | null)?.reportValidity());
+      pendingReport.current = true;
+      setReportRequest((n) => n + 1);
       return;
     }
     const data = new FormData(form);
@@ -196,9 +220,12 @@ export function ContactForm({
             required
             pattern="\d{10}"
             placeholder="5XXXXXXXXX"
-            maxLength={10}
             onInput={(e) => {
-              e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "").slice(0, 10);
+              // Once rakamlar ayiklanir, sonra +90 / 0 oneki atilir, en son 10 haneye kirpilir
+              let digits = e.currentTarget.value.replace(/\D/g, "");
+              if (digits.length > 10 && digits.startsWith("90")) digits = digits.slice(2);
+              if (digits.startsWith("0")) digits = digits.slice(1);
+              e.currentTarget.value = digits.slice(0, 10);
             }}
             className={INPUT}
           />
@@ -249,7 +276,7 @@ export function ContactForm({
 }
 
 const INPUT =
-  "lux-input min-h-14 w-full px-0 py-3 text-xl text-foreground placeholder:text-text-tertiary md:text-2xl";
+  "lux-input min-h-14 w-full px-0 py-3 text-xl text-foreground placeholder:text-text-placeholder md:text-2xl";
 
 function Step({
   active,

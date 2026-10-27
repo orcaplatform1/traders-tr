@@ -83,8 +83,9 @@ export function Hero({
                     : "object-cover object-center"
                 }
               />
-              <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-t from-background from-0% via-background/85 via-35% to-transparent to-100%" />
-              <div className="absolute inset-x-0 bottom-0 h-[42%] bg-gradient-to-r from-background/70 from-0% via-background/20 via-40% to-transparent to-65%" />
+              {/* Koyu baslik metni okunabilsin diye metin bolgesi acik zemine erir */}
+              <div className="absolute inset-x-0 bottom-0 h-[75%] bg-gradient-to-t from-background from-0% via-background/90 via-55% to-transparent to-100% md:h-[60%]" />
+              <div className="absolute inset-x-0 bottom-0 h-[75%] bg-gradient-to-r from-background/80 from-0% via-background/30 via-45% to-transparent to-70% md:h-[60%]" />
 
               {/* Atmospheric monokrom glow */}
               <div
