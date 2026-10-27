@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatedGrid } from "@/components/animated-grid";
 import { Magnetic } from "@/components/magnetic";
+import { useIdeaWizard } from "@/components/idea-wizard";
 import { useT } from "@/lib/i18n";
 
 // `imageSrc` verilmediginde AnimatedGrid + grain fallback olarak kaliyor.
@@ -51,6 +52,7 @@ export function Hero({
   imageSrcMobile?: string;
 }) {
   const t = useT();
+  const { open: openWizard } = useIdeaWizard();
   return (
     <section data-hero className="relative flex min-h-screen flex-col overflow-hidden border-b border-border">
       {imageSrc ? (
@@ -139,7 +141,15 @@ export function Hero({
             )}
           </p>
 
-          <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-4 md:mt-14">
+          <button
+            type="button"
+            onClick={() => openWizard()}
+            className="mt-10 h-12 w-full bg-foreground text-sm font-medium text-background transition-transform duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.97] sm:w-auto sm:px-10 md:mt-14"
+          >
+            {t("Bir Fikir Başlat →", "Start an Idea →")}
+          </button>
+
+          <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
             <Magnetic>
               <Link
                 href="/markalar"

@@ -19,7 +19,7 @@ export function BrandsPageContent() {
           {brands
             .sort((a, b) => a.displayOrder - b.displayOrder)
             .map((brand) => (
-              <div key={brand.id} className="h-full bg-slate-950">
+              <div key={brand.id} className="h-full bg-background">
                 <BrandCard brand={brand} />
               </div>
             ))}

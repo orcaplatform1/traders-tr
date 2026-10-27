@@ -1,36 +1,59 @@
 "use client";
 
-import { useState } from "react";
-import { SectionLabel } from "@/components/section-label";
+import { useRef } from "react";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { ContactForm, CATEGORY_ACCENT } from "@/components/contact-form";
+import { useIdeaWizard } from "@/components/idea-wizard";
 import { useT } from "@/lib/i18n";
 
+// Tek girdili sade kart: e-posta alinir, sihirbaz tam ekran devam eder
 export function ContactSection({ defaultCategory = "genel" }: { defaultCategory?: string }) {
   const t = useT();
-  const [category, setCategory] = useState(defaultCategory);
+  const { open } = useIdeaWizard();
+  const emailRef = useRef<HTMLInputElement>(null);
+
+  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    open({ email: emailRef.current?.value.trim() || undefined, category: defaultCategory });
+  }
 
   return (
-    <section
-      className="contact-stage flex min-h-screen items-center py-32 md:py-48"
-      style={{ "--form-accent": CATEGORY_ACCENT[category] ?? CATEGORY_ACCENT.genel } as React.CSSProperties}
-    >
-      <div className="container-edit grid w-full grid-cols-1 gap-16 md:grid-cols-12 md:gap-10">
-        <ScrollReveal className="md:col-span-5">
-          <SectionLabel>{t("Bir Fikriniz mi Var?", "Have an Idea?")}</SectionLabel>
-          <h2 className="mt-4 max-w-md text-5xl font-medium leading-[1.05] tracking-tight text-foreground md:text-7xl">
-            {t("Ne yarattığınızı anlatın.", "Tell us what you're building.")}
-          </h2>
-          <p className="mt-8 max-w-sm text-[16px] leading-relaxed text-muted">
-            {t(
-              "Fikir üretmek kolaydır. İnşa etmek değil. İlk adımı birlikte atalım.",
-              "Ideas are easy. Building is not. Let's take the first step together."
-            )}
-          </p>
-        </ScrollReveal>
+    <section className="py-12 md:py-32">
+      <div className="container-edit">
+        <ScrollReveal>
+          <div className="mx-auto max-w-xl border border-border bg-white p-6 md:p-10">
+            <h2 className="mb-2 text-xl font-bold text-foreground md:text-3xl">
+              {t("Bir Fikriniz mi Var?", "Have an Idea?")}
+            </h2>
+            <p className="mb-6 text-sm text-muted md:text-base">
+              {t(
+                "Fikir üretmek kolaydır. İnşa etmek değil. İlk adımı atın.",
+                "Ideas are easy. Building is not. Take the first step."
+              )}
+            </p>
 
-        <ScrollReveal delay={120} className="md:col-span-7">
-          <ContactForm defaultCategory={defaultCategory} onCategoryChange={setCategory} />
+            <form onSubmit={onSubmit} className="space-y-4">
+              <div>
+                <label htmlFor="idea-email" className="mb-1.5 block text-xs font-semibold uppercase text-muted">
+                  {t("E-Posta Adresiniz", "Your Email Address")}
+                </label>
+                <input
+                  ref={emailRef}
+                  id="idea-email"
+                  type="email"
+                  autoComplete="email"
+                  inputMode="email"
+                  placeholder={t("isim@sirket.com", "name@company.com")}
+                  className="h-12 w-full rounded-none border border-border bg-background px-4 text-sm transition-colors focus:border-foreground focus:outline-none"
+                />
+              </div>
+              <button
+                type="submit"
+                className="h-12 w-full bg-foreground text-sm font-medium text-background transition-transform duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.97]"
+              >
+                {t("İlerleyin →", "Continue →")}
+              </button>
+            </form>
+          </div>
         </ScrollReveal>
       </div>
     </section>

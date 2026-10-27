@@ -50,8 +50,9 @@ export function BrandCard({ brand }: { brand: Brand }) {
 
   return (
     <div
-      className={`group relative flex h-full flex-col justify-between overflow-hidden border border-border p-8 transition-colors duration-300 ${accent.border} md:p-10`}
+      className={`haptic group relative flex h-full flex-col justify-between overflow-hidden border border-border p-8 transition-colors duration-300 ${accent.border} md:p-10`}
     >
+      <span aria-hidden className="quartz-glow" />
       <span
         aria-hidden
         className={`pointer-events-none absolute -right-4 -top-6 select-none text-[120px] font-semibold leading-none tracking-tight text-foreground opacity-[0.03] transition-opacity duration-300 group-hover:opacity-[0.06] md:text-[160px]`}

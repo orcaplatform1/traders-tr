@@ -60,7 +60,7 @@ export function BrandProfileContent({ brand }: { brand: Brand }) {
             href={brand.websiteUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 inline-flex items-center gap-2 rounded-sm border border-foreground bg-foreground px-6 py-3 text-[13px] font-medium tracking-wide text-slate-950 transition-colors hover:bg-transparent hover:text-foreground"
+            className="mt-10 inline-flex items-center gap-2 rounded-sm border border-foreground bg-foreground px-6 py-3 text-[13px] font-medium tracking-wide text-background transition-colors hover:bg-transparent hover:text-foreground"
           >
             {brand.websiteUrl.replace(/^https?:\/\//, "")}
             <span>→</span>

@@ -1,13 +1,19 @@
 @import "tailwindcss";
 
-/* Obsidian paleti */
+/* Sonsuz Beyaz paleti: zemin #FAFAFA, metin #0B0B0C, kontur #E2E8F0 */
 :root {
-  color-scheme: dark;
+  color-scheme: light;
 
-  --bg-deep-velvet: #0d0d0d;
-  --bg-card-surface: rgba(22, 22, 22, 0.6);
-  --gradient-venture-glow: linear-gradient(135deg, #e2e8f0 0%, #94a3b8 50%, #475569 100%);
-  --gradient-border-glow: linear-gradient(90deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.02) 100%);
+  --bg-infinite-white: #fafafa;
+  --text-obsidian: #0b0b0c;
+  --border-hairline: #e2e8f0;
+  --gradient-mercury: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
+  --ease-kinetic: cubic-bezier(0.16, 1, 0.3, 1);
+
+  --bg-deep-velvet: var(--bg-infinite-white);
+  --bg-card-surface: rgba(250, 250, 250, 0.6);
+  --gradient-venture-glow: var(--gradient-mercury);
+  --gradient-border-glow: linear-gradient(90deg, #e2e8f0 0%, #cbd5e1 100%);
 
   /* Slate */
   --slate-950: #0e1116;
@@ -30,9 +36,9 @@
   --blue-100: #dbeafe;
 
   /* Semantic */
-  --success: #22c55e;
-  --warning: #f59e0b;
-  --error: #ef4444;
+  --success: #16a34a;
+  --warning: #d97706;
+  --error: #dc2626;
   --info: #3b82f6;
 
   /* Extended (data viz / editorial tags only) */
@@ -48,30 +54,30 @@
   --brand-orange: #f7861b;
 
   /* Surfaces */
-  --surface-background: var(--bg-deep-velvet);
-  --surface-1: #141414;
-  --surface-2: #1c1c1c;
-  --surface-3: #242424;
-  --surface-4: #2e2e2e;
-  --surface-5: #3a3a3a;
-  --surface-overlay: rgba(13, 13, 13, 0.72);
+  --surface-background: var(--bg-infinite-white);
+  --surface-1: #ffffff;
+  --surface-2: #f4f4f5;
+  --surface-3: #f1f5f9;
+  --surface-4: #e2e8f0;
+  --surface-5: #cbd5e1;
+  --surface-overlay: rgba(250, 250, 250, 0.9);
 
   /* Borders */
-  --border-subtle: #1f1f1f;
-  --border-default: #2e2e2e;
-  --border-strong: #404040;
-  --border-divider: #525252;
-  --border-focus: #ffffff;
+  --border-subtle: var(--border-hairline);
+  --border-default: var(--border-hairline);
+  --border-strong: #cbd5e1;
+  --border-divider: #cbd5e1;
+  --border-focus: var(--text-obsidian);
 
   /* Text */
-  --text-primary: #ffffff;
-  --text-secondary: #a3a3a3;
+  --text-primary: var(--text-obsidian);
+  --text-secondary: #64748b;
   --text-muted: var(--text-secondary);
-  --text-tertiary: #737373;
-  --text-disabled: #525252;
-  --text-inverse: #0d0d0d;
-  --text-link: #60a5fa;
-  --text-link-hover: #93c5fd;
+  --text-tertiary: #94a3b8;
+  --text-disabled: #cbd5e1;
+  --text-inverse: var(--bg-infinite-white);
+  --text-link: var(--text-obsidian);
+  --text-link-hover: #475569;
 
   --background: var(--surface-background);
   --foreground: var(--text-primary);
@@ -125,12 +131,15 @@
   --color-brand-emerald: var(--brand-emerald);
   --color-brand-earth: var(--brand-earth);
   --color-brand-orange: var(--brand-orange);
-  --color-accent: var(--blue-500);
-  --color-accent-soft: rgba(59, 130, 246, 0.12);
+  --color-accent: var(--text-obsidian);
+  --color-accent-soft: rgba(203, 213, 225, 0.35);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-quartz-accent-dusk: #cbd5e1;
 
   --font-sans: var(--font-inter);
   --font-mono: var(--font-geist-mono);
-  --font-heading: var(--font-playfair);
+  --font-heading: var(--font-jakarta);
 }
 
 * {
@@ -144,17 +153,19 @@ html {
 body {
   background: var(--bg-deep-velvet);
   color: var(--foreground);
+  /* Alt yuzen navigasyon icerigin ustune binmesin */
+  padding-bottom: calc(96px + env(safe-area-inset-bottom));
   font-feature-settings: "ss01" on, "cv01" on;
 }
 
-/* Basliklar: Playfair Display (serif), 500; govde Inter ile kontrast */
+/* Basliklar: Plus Jakarta Sans, govde: Inter */
 h1,
 h2,
 h3,
 .font-heading {
-  font-family: var(--font-playfair), Georgia, serif;
-  letter-spacing: -0.015em;
-  font-weight: 500;
+  font-family: var(--font-jakarta), var(--font-inter), sans-serif;
+  letter-spacing: -0.025em;
+  font-weight: 600;
 }
 
 /* Govde metni: Inter, 1.6 satir yuksekligi (utility'ler ezebilsin diye base katmaninda) */
@@ -172,8 +183,8 @@ h3,
 }
 
 ::selection {
-  background: var(--blue-500);
-  color: var(--text-primary);
+  background: var(--text-obsidian);
+  color: var(--bg-infinite-white);
 }
 
 :focus-visible {
@@ -190,6 +201,7 @@ textarea:focus-visible {
   outline-color: var(--slate-300);
 }
 
+/* Mobilde sabit 20px guvenlik payi */
 .container-edit {
   max-width: 1280px;
   margin-inline: auto;
@@ -267,8 +279,8 @@ textarea:focus-visible {
   background: linear-gradient(
     100deg,
     transparent,
-    rgba(71, 85, 105, 0.55),
-    rgba(15, 23, 42, 0.18),
+    rgba(203, 213, 225, 0.55),
+    rgba(226, 232, 240, 0.25),
     transparent
   );
   animation: btn-shine-sweep 2.2s ease-in-out infinite;
@@ -364,14 +376,14 @@ select:-webkit-autofill {
 }
 
 .lux-ease {
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s var(--ease-kinetic);
 }
 
 /* Form: sadece alt cizgi, odakta beyaz */
 .lux-input {
   background: transparent;
   border: 0;
-  border-bottom: 1px solid #262626;
+  border-bottom: 1px solid var(--border-hairline);
   border-radius: 0;
   transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -382,70 +394,18 @@ select:-webkit-autofill {
   border-bottom-color: var(--form-accent, var(--text-primary));
 }
 
-/* Iletisim: secilen kategoriye gore hafifce degisen arka plan */
-.contact-stage {
-  position: relative;
-  isolation: isolate;
-}
-
-.contact-stage::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  background: radial-gradient(60% 50% at 75% 40%, var(--form-accent, #ffffff), transparent 70%);
-  opacity: 0.08;
-  transition: background 1s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-}
-
-/* Bento marka karti: cam yuzey, mouse'u takip eden 3D egim ve kenar isigi */
+/* Bento kart: dik acili keskin koseler, golge yok, derinlik 1px #E2E8F0 cizgiyle */
 .glass-card {
   position: relative;
+  border-radius: 0 !important;
   background: var(--bg-card-surface);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  border: 1px solid var(--border-hairline);
+  box-shadow: none;
   transition:
-    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-    box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform;
-}
-
-.glass-card[style*="--brand-color"]:hover {
-  box-shadow: 0 30px 80px -40px var(--brand-color);
-}
-
-.glass-card.is-tilting {
-  transition: transform 0.1s linear;
-}
-
-/* 1px kenar isigi: mouse'un oldugu yone dogru hareket eder */
-.glass-card::before {
-  content: "";
-  position: absolute;
-  inset: -1px;
-  z-index: 2;
-  padding: 1px;
-  border-radius: inherit;
-  background: radial-gradient(
-    240px circle at var(--mx, 50%) var(--my, 50%),
-    var(--brand-color, rgba(255, 255, 255, 0.75)),
-    rgba(255, 255, 255, 0.08) 45%,
-    transparent 70%
-  );
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  pointer-events: none;
-}
-
-.glass-card:hover::before,
-.glass-card:focus-within::before {
-  opacity: 1;
+    transform 0.6s var(--ease-kinetic),
+    opacity 0.8s var(--ease-kinetic),
+    backdrop-filter 0.8s var(--ease-kinetic),
+    -webkit-backdrop-filter 0.8s var(--ease-kinetic);
 }
 
 /* Gercek zamanli tarama: yukaridan asagi inen ince isik bandi */
@@ -476,8 +436,8 @@ select:-webkit-autofill {
   background: linear-gradient(
     to bottom,
     transparent,
-    rgba(226, 232, 240, 0.04) 70%,
-    rgba(226, 232, 240, 0.12) 98%,
+    rgba(203, 213, 225, 0.12) 70%,
+    rgba(203, 213, 225, 0.3) 98%,
     transparent
   );
   animation: card-scan 7s cubic-bezier(0.45, 0, 0.55, 1) infinite;
@@ -506,7 +466,7 @@ select:-webkit-autofill {
 }
 
 .glass-card:hover .venture-gradient {
-  opacity: 0.14;
+  opacity: 0.08;
 }
 
 /* Orca: okyanus tonlari */
@@ -546,8 +506,8 @@ select:-webkit-autofill {
   bottom: -10%;
   height: 70%;
   background-image:
-    linear-gradient(to right, rgba(148, 163, 184, 0.14) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(148, 163, 184, 0.14) 1px, transparent 1px);
+    linear-gradient(to right, rgba(226, 232, 240, 0.9) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(226, 232, 240, 0.9) 1px, transparent 1px);
   background-size: 64px 64px;
   transform: perspective(700px) rotateX(62deg);
   transform-origin: center top;
@@ -573,9 +533,9 @@ select:-webkit-autofill {
   background-image: linear-gradient(
     105deg,
     var(--text-primary) 40%,
-    #94a3b8 48%,
-    #ffffff 50%,
-    #94a3b8 52%,
+    #64748b 48%,
+    #cbd5e1 50%,
+    #64748b 52%,
     var(--text-primary) 60%
   );
   background-size: 250% 100%;
@@ -618,112 +578,48 @@ select:-webkit-autofill {
   pointer-events: none;
 }
 
-/* Sivi dolgulu buton: ince cizgili, hover'da alt koseden sivi yukselir, metin tersine doner */
-@property --liquid-x {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 0%;
-}
-
-@property --liquid-y {
-  syntax: "<percentage>";
-  inherits: false;
-  initial-value: 0%;
-}
-
-@keyframes liquid-wave {
-  to {
-    transform: translate(var(--liquid-x), var(--liquid-y)) rotate(360deg);
-  }
-}
-
+/* Premium buton: duz, opak, mat obsidyen; keskin kose, min 48px dokunma alani */
 .btn-liquid {
   position: relative;
-  overflow: hidden;
-  isolation: isolate;
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.85);
+  min-height: 48px;
+  background: var(--text-obsidian);
+  border: 1px solid var(--text-obsidian);
   border-radius: 0;
-  color: var(--text-primary);
-  transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.btn-liquid::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  left: -60%;
-  top: 100%;
-  width: 220%;
-  aspect-ratio: 1;
-  border-radius: 42%;
-  background: var(--text-primary);
-  /* Bekleme halinde dalga tepeleri butona tasmasin diye biraz asagida */
-  --liquid-y: 25%;
-  transform: translate(var(--liquid-x), var(--liquid-y));
+  color: var(--bg-infinite-white);
   transition:
-    --liquid-x 0.8s cubic-bezier(0.16, 1, 0.3, 1),
-    --liquid-y 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  animation: liquid-wave 5s linear infinite;
-  pointer-events: none;
+    transform 0.5s var(--ease-kinetic),
+    opacity 0.5s var(--ease-kinetic);
 }
 
-.btn-liquid:hover,
-.btn-liquid:focus-visible {
-  color: #000;
-}
-
-.btn-liquid:hover::before,
-.btn-liquid:focus-visible::before {
-  --liquid-x: 10%;
-  --liquid-y: -85%;
-}
-
-.btn-liquid:disabled::before {
-  display: none;
+.btn-liquid:active {
+  transform: scale(0.98);
+  transition-duration: 0.1s;
 }
 
 /* Manyetik buton sarmalayicisi */
 .magnetic {
   display: inline-block;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s var(--ease-kinetic);
   will-change: transform;
 }
 
-/* Durum gostergesi: neon nokta + nabiz */
-@keyframes status-pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-  100% {
-    transform: scale(3);
-    opacity: 0;
-  }
-}
-
-@keyframes status-glow {
+/* Durum gostergesi: hafif nefes alan opaklik */
+@keyframes status-breathe {
   0%,
   100% {
     opacity: 1;
   }
   50% {
-    opacity: 0.55;
+    opacity: 0.4;
   }
 }
 
-.status-pulse {
-  animation: status-pulse 1.8s ease-out infinite;
-}
-
-.status-dot {
-  box-shadow:
-    0 0 6px currentColor,
-    0 0 12px currentColor;
-  animation: status-glow 1.8s ease-in-out infinite;
+.status-breathe {
+  animation: status-breathe 2.8s var(--ease-kinetic) infinite;
 }
 
 /* Metin karartmasi: okuma hizasini gecen satirlar beyazlasir */
@@ -763,17 +659,161 @@ select:-webkit-autofill {
   .card-scan,
   .venture-gradient,
   .liquid-blob,
-  .btn-liquid::before,
-  .status-pulse,
-  .status-dot {
-    animation: none;
+  .status-breathe,
+  .bento-card .status-badge {
+    animation: none !important;
   }
-  .glass-card {
-    transform: none;
+  .glass-card,
+  .haptic,
+  .kinetic-menu-item {
+    transform: none !important;
   }
   .reveal {
     filter: none;
     transform: none;
     transition: opacity 300ms ease;
+  }
+}
+
+/* ---------- Haptik dokunus & yay etkisi ---------- */
+
+/* Dokununca %2 iceri bukulur, birakinca yay gibi geri doner */
+.haptic {
+  transition: transform 0.6s var(--ease-kinetic);
+  -webkit-tap-highlight-color: transparent;
+}
+
+.haptic:active {
+  transform: scale(0.98);
+  transition-duration: 0.12s;
+}
+
+/* Kartin sag ust kosesindeki kuvars spot isigi: gecikmeli buyur, opaklasir */
+.quartz-glow {
+  position: absolute;
+  right: -5rem;
+  top: -5rem;
+  height: 10rem;
+  width: 10rem;
+  border-radius: 9999px;
+  background: var(--gradient-mercury);
+  filter: blur(60px);
+  opacity: 0.5;
+  pointer-events: none;
+  transition:
+    transform 0.7s var(--ease-kinetic) 75ms,
+    opacity 0.7s var(--ease-kinetic) 75ms;
+}
+
+.group:hover .quartz-glow,
+.group:active .quartz-glow {
+  transform: scale(1.5);
+  opacity: 1;
+}
+
+/* ---------- Sivi kuvars kure (arka plan) ---------- */
+
+@keyframes quartz-sphere-in {
+  from {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  to {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.quartz-sphere {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  z-index: -1;
+  width: min(120vw, 900px);
+  aspect-ratio: 1;
+  pointer-events: none;
+  animation: quartz-sphere-in 1.2s var(--ease-kinetic) both;
+}
+
+.quartz-sphere > span {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: radial-gradient(circle at 40% 35%, #e2e8f0 0%, #cbd5e1 45%, transparent 70%);
+  opacity: 0.35;
+  filter: blur(40px);
+  transform: scale(var(--sphere-scale, 1));
+  will-change: transform;
+}
+
+/* ---------- Kaydirma: kronograf ilerleme halkasi ---------- */
+
+.chrono-ring {
+  position: fixed;
+  right: 20px;
+  bottom: calc(96px + env(safe-area-inset-bottom));
+  z-index: 40;
+  pointer-events: none;
+}
+
+@media (min-width: 768px) {
+  .chrono-ring {
+    bottom: 32px;
+    right: 32px;
+  }
+}
+
+/* ---------- Kinetik menu: merkezden disari dogrusal patlama ---------- */
+
+.kinetic-menu-item {
+  opacity: 0;
+  transform: translateY(var(--burst-from, 0px)) scale(0.6);
+  transition:
+    transform 0.9s var(--ease-kinetic),
+    opacity 0.6s var(--ease-kinetic);
+}
+
+.kinetic-menu-open .kinetic-menu-item {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ---------- Bento portfoy: odaktaki kartin durum rozeti nefes alir ---------- */
+
+.bento-card .status-badge {
+  transition: opacity 0.6s var(--ease-kinetic);
+}
+
+.bento-card.is-focused .status-badge,
+.bento-card:hover .status-badge,
+.bento-card:focus-visible .status-badge {
+  animation: status-breathe 2.8s var(--ease-kinetic) infinite;
+}
+
+/* ---------- Sihirbaz form adimlari ---------- */
+
+@keyframes wizard-in {
+  from {
+    opacity: 0;
+    filter: blur(8px);
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+.wizard-step {
+  animation: wizard-in 0.7s var(--ease-kinetic) both;
+}
+
+@layer utilities {
+  /* Yatay kaydirma cubuklarini gizler */
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }

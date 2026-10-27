@@ -9,29 +9,18 @@ export function LangToggle({ className = "" }: { className?: string }) {
     <>
       <style>{`
         .lang-toggle {
-          background: rgba(15,23,42,0.6);
+          background: transparent;
         }
         .lang-toggle-border {
           background: transparent;
-          border: 1px solid rgba(99,102,241,0.25);
-          transition: border-color 0.3s, box-shadow 0.3s;
+          border: 1px solid #e2e8f0;
+          transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .lang-toggle:hover .lang-toggle-border {
-          border-color: rgba(99,102,241,0.55);
-          box-shadow: 0 0 12px -2px rgba(99,102,241,0.35), inset 0 0 8px -4px rgba(99,102,241,0.2);
-        }
-        @keyframes lang-border-spin {
-          0%   { opacity: 0.6; }
-          50%  { opacity: 1; }
-          100% { opacity: 0.6; }
+          border-color: #cbd5e1;
         }
         .lang-toggle-pill {
-          background: rgba(99,102,241,0.18);
-          box-shadow: 0 0 8px -2px rgba(99,102,241,0.4);
-        }
-        .lang-toggle:hover .lang-toggle-pill {
-          background: rgba(99,102,241,0.28);
-          box-shadow: 0 0 12px -2px rgba(99,102,241,0.6);
+          background: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
         }
       `}</style>
       <button
@@ -43,7 +32,7 @@ export function LangToggle({ className = "" }: { className?: string }) {
         <span aria-hidden className="lang-toggle-border pointer-events-none absolute inset-0 rounded-full" />
         <span
           aria-hidden
-          className={`lang-toggle-pill absolute top-0.5 h-7 w-7 rounded-full transition-all duration-300 ease-out ${
+          className={`lang-toggle-pill absolute top-0.5 h-7 w-7 rounded-full transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
             isEn ? "left-[calc(100%-30px)]" : "left-0.5"
           }`}
         />

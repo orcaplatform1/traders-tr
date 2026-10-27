@@ -1,58 +1,60 @@
 "use client";
 
-import { useActionState, useRef, useState } from "react";
+import { useActionState, useEffect, useRef, useState } from "react";
 import { submitContactForm, type ContactFormState } from "@/app/actions/contact";
 import { useT } from "@/lib/i18n";
-import { Magnetic } from "@/components/magnetic";
 
 const initialState: ContactFormState = { status: "idle" };
 
-// Kategori secildiginde form odak rengi ve arka plan bu tona doner
-export const CATEGORY_ACCENT: Record<string, string> = {
-  ortaklik: "var(--brand-ocean)",
-  girisim: "var(--brand-emerald)",
-  basin: "var(--brand-earth)",
-  genel: "#ffffff",
-};
-
-const STEP1_FIELDS = ["name", "email"] as const;
+// Her ekranda tek alan: sira burada belirlenir
+const STEPS = ["category", "name", "email", "phone", "company", "subject", "message"] as const;
+type StepKey = (typeof STEPS)[number];
 
 export function ContactForm({
   defaultCategory = "genel",
-  onCategoryChange,
+  initialEmail,
+  onClose,
 }: {
   defaultCategory?: string;
-  onCategoryChange?: (value: string) => void;
+  initialEmail?: string;
+  onClose?: () => void;
 }) {
   const t = useT();
   const [state, formAction, pending] = useActionState(submitContactForm, initialState);
-  const [step, setStep] = useState<1 | 2>(1);
+  const [step, setStep] = useState(0);
   const [category, setCategory] = useState(defaultCategory);
   const formRef = useRef<HTMLFormElement>(null);
 
-  // Sunucu hatasi ilk adimdaki bir alanda ise o adima geri don
+  // Sunucu hatasi varsa hatali ilk alanin ekranina geri don
   const [lastState, setLastState] = useState(state);
   if (state !== lastState) {
     setLastState(state);
-    if (STEP1_FIELDS.some((f) => state.fieldErrors?.[f])) setStep(1);
+    const firstError = STEPS.findIndex((f) => state.fieldErrors?.[f as keyof typeof state.fieldErrors]);
+    if (firstError >= 0) setStep(firstError);
   }
 
-  function selectCategory(value: string) {
-    setCategory(value);
-    onCategoryChange?.(value);
-  }
+  const current: StepKey = STEPS[step];
+  const isLast = step === STEPS.length - 1;
+
+  // Her adimda aktif alana odaklan
+  useEffect(() => {
+    const el = formRef.current?.elements.namedItem(current) as HTMLInputElement | null;
+    if (el && el.type !== "hidden") el.focus({ preventScroll: true });
+  }, [current]);
 
   function goNext() {
-    const form = formRef.current;
-    if (!form) return;
-    for (const name of STEP1_FIELDS) {
-      const el = form.elements.namedItem(name) as HTMLInputElement | null;
-      if (el && !el.checkValidity()) {
-        el.reportValidity();
-        return;
-      }
+    const el = formRef.current?.elements.namedItem(current) as HTMLInputElement | null;
+    if (el && el.type !== "hidden" && !el.checkValidity()) {
+      el.reportValidity();
+      return;
     }
-    setStep(2);
+    setStep((s) => Math.min(STEPS.length - 1, s + 1));
+  }
+
+  function onKeyDown(e: React.KeyboardEvent<HTMLFormElement>) {
+    if (e.key !== "Enter" || isLast || (e.target as HTMLElement).tagName === "TEXTAREA") return;
+    e.preventDefault();
+    goNext();
   }
 
   const CATEGORIES = [
@@ -62,186 +64,198 @@ export function ContactForm({
     { value: "genel", label: t("Genel", "General") },
   ] as const;
 
+  const QUESTION: Record<StepKey, string> = {
+    category: t("Hangi konuda yazıyorsunuz?", "What is this about?"),
+    name: t("Adınız ve soyadınız?", "Your full name?"),
+    email: t("E-posta adresiniz?", "Your email address?"),
+    phone: t("Telefon numaranız?", "Your phone number?"),
+    company: t("Şirket ya da bireysel? (isteğe bağlı)", "Company or individual? (optional)"),
+    subject: t("Konu nedir?", "What's the subject?"),
+    message: t("Fikrinizi anlatın.", "Tell us your idea."),
+  };
+
+  // Brutalist ust ilerleme cizgisi + adim sayaci + kapat
+  const header = (
+    <>
+      <div
+        className="absolute left-0 top-0 h-[3px] bg-foreground transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+        style={{ width: `${(state.status === "success" ? 1 : (step + 1) / STEPS.length) * 100}%` }}
+      />
+      <div className="flex items-center justify-between border-b border-border p-5">
+        <span className="font-mono text-xs text-muted">
+          {t("ADIM", "STEP")} {String(step + 1).padStart(2, "0")} / {String(STEPS.length).padStart(2, "0")}
+        </span>
+        {onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            className="min-h-12 border border-foreground px-3 font-mono text-sm uppercase tracking-tight text-foreground transition-transform active:scale-95"
+          >
+            {t("Kapat [X]", "Close [X]")}
+          </button>
+        )}
+      </div>
+    </>
+  );
+
   if (state.status === "success") {
     return (
-      <div className="border-t border-border pt-10">
-        <p className="text-xl font-medium text-foreground">{t("Teşekkürler.", "Thank you.")}</p>
-        <p className="mt-2 text-[15px] text-muted">{t("Size en kısa sürede geri döneceğiz.", "We'll get back to you as soon as possible.")}</p>
+      <div className="relative min-h-full">
+        {header}
+        <div className="wizard-step mx-auto flex h-[75vh] max-w-md flex-col justify-center px-6">
+          <p className="text-3xl font-bold text-foreground">{t("Teşekkürler.", "Thank you.")}</p>
+          <p className="mt-3 text-[17px] text-muted">{t("Size en kısa sürede geri döneceğiz.", "We'll get back to you as soon as possible.")}</p>
+        </div>
       </div>
     );
   }
 
+  const error = state.fieldErrors?.[current as keyof typeof state.fieldErrors];
+
   return (
-    <form ref={formRef} action={formAction} noValidate>
+    <form ref={formRef} action={formAction} onKeyDown={onKeyDown} noValidate className="relative min-h-full">
+      {header}
       {/* honeypot */}
       <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
         <label htmlFor="website">{t("Web sitesi", "Website")}</label>
         <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
       </div>
 
-      {/* Adim gostergesi */}
-      <div className="mb-12 flex items-center gap-4 text-[12px] font-medium uppercase tracking-[0.15em]">
-        {[1, 2].map((n) => (
-          <span key={n} className="flex items-center gap-4">
-            <span className={`transition-colors duration-500 ${step === n ? "text-foreground" : "text-text-tertiary"}`}>
-              {String(n).padStart(2, "0")} · {n === 1 ? t("Siz", "You") : t("Fikriniz", "Your Idea")}
-            </span>
-            {n === 1 && (
-              <span className="relative h-px w-16 bg-border">
-                <span
-                  className="lux-ease absolute inset-y-0 left-0"
-                  style={{ width: step === 2 ? "100%" : "0%", background: "var(--form-accent, #ffffff)" }}
-                />
-              </span>
-            )}
-          </span>
-        ))}
-      </div>
-
+      {/* Merkez odakli girdi alani */}
+      <div className="mx-auto flex min-h-[75vh] max-w-md flex-col justify-center px-6 py-10">
       <input type="hidden" name="category" value={category} />
 
-      <div className={step === 1 ? "space-y-10" : "hidden"}>
-        <fieldset>
-          <legend className="mb-4 block text-[12px] font-medium uppercase tracking-[0.1em] text-text-secondary">
-            {t("Kategori", "Category")}
-          </legend>
-          <div className="flex flex-wrap gap-3">
-            {CATEGORIES.map((c) => {
-              const selected = c.value === category;
-              return (
-                <button
-                  key={c.value}
-                  type="button"
-                  aria-pressed={selected}
-                  onClick={() => selectCategory(c.value)}
-                  className={`lux-ease rounded-full border px-5 py-2.5 text-[14px] ${
-                    selected ? "text-foreground" : "border-border-default text-text-secondary hover:text-foreground"
-                  }`}
-                  style={
-                    selected
-                      ? { borderColor: CATEGORY_ACCENT[c.value], boxShadow: `0 0 24px -8px ${CATEGORY_ACCENT[c.value]}` }
-                      : undefined
-                  }
-                >
-                  {c.label}
-                </button>
-              );
-            })}
-          </div>
-        </fieldset>
+      {/* Kategori */}
+      <fieldset className={step === 0 ? "wizard-step" : "hidden"}>
+        <legend className="mb-8 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
+          {QUESTION.category}
+        </legend>
+        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {CATEGORIES.map((c) => {
+            const selected = c.value === category;
+            return (
+              <button
+                key={c.value}
+                type="button"
+                aria-pressed={selected}
+                onClick={() => setCategory(c.value)}
+                className={`haptic flex min-h-14 items-center border px-5 text-left text-[18px] ${
+                  selected ? "border-foreground text-foreground" : "border-border text-muted"
+                }`}
+              >
+                {c.label}
+              </button>
+            );
+          })}
+        </div>
+      </fieldset>
 
-        <Field label={t("Ad Soyad", "Full Name")} name="name" error={state.fieldErrors?.name}>
-          <input id="name" name="name" type="text" required className={INPUT} />
-        </Field>
+      <Step active={current === "name"} label={QUESTION.name} name="name" error={current === "name" ? error : undefined}>
+        <input id="name" name="name" type="text" required autoComplete="name" className={INPUT} />
+      </Step>
 
-        <Field label={t("E-posta", "Email")} name="email" error={state.fieldErrors?.email}>
+      <Step active={current === "email"} label={QUESTION.email} name="email" error={current === "email" ? error : undefined}>
+        <input
+          id="email"
+          name="email"
+          type="email"
+          required
+          autoComplete="email"
+          inputMode="email"
+          defaultValue={initialEmail}
+          pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+          className={INPUT}
+        />
+      </Step>
+
+      <Step active={current === "phone"} label={QUESTION.phone} name="phone" error={current === "phone" ? error : undefined}>
+        <div className="flex">
+          <span aria-hidden className="flex shrink-0 items-center border-b border-border pr-3 text-xl text-muted md:text-2xl">
+            +90
+          </span>
           <input
-            id="email"
-            name="email"
-            type="email"
+            id="phone"
+            name="phone"
+            type="tel"
+            inputMode="numeric"
             required
-            pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+            placeholder="5XXXXXXXXX"
+            maxLength={10}
+            onInput={(e) => {
+              e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "").slice(0, 10);
+            }}
             className={INPUT}
           />
-        </Field>
-
-        <Magnetic>
-          <button type="button" onClick={goNext} className="btn-liquid group px-8 py-3.5 text-[13px] font-medium tracking-wide">
-            {t("Devam Et", "Continue")}
-            <span className="lux-ease group-hover:translate-x-1">→</span>
-          </button>
-        </Magnetic>
-      </div>
-
-      <div className={step === 2 ? "space-y-10" : "hidden"}>
-        <div className="grid grid-cols-1 gap-10 sm:grid-cols-2">
-          <Field label={t("Telefon", "Phone")} name="phone" error={state.fieldErrors?.phone}>
-            <div className="flex">
-              <span
-                aria-hidden
-                className="flex shrink-0 items-center border-b border-[#262626] pr-3 text-[18px] text-text-tertiary md:text-[20px]"
-              >
-                +90
-              </span>
-              <input
-                id="phone"
-                name="phone"
-                type="tel"
-                inputMode="numeric"
-                required
-                placeholder="5XXXXXXXXX"
-                maxLength={10}
-                onInput={(e) => {
-                  e.currentTarget.value = e.currentTarget.value.replace(/\D/g, "").slice(0, 10);
-                }}
-                className={INPUT}
-              />
-            </div>
-          </Field>
-
-          <Field label={t("Şirket/Bireysel", "Company/Individual")} name="company" error={state.fieldErrors?.company}>
-            <input id="company" name="company" type="text" className={INPUT} />
-          </Field>
         </div>
+      </Step>
 
-        <Field label={t("Konu", "Subject")} name="subject" error={state.fieldErrors?.subject}>
-          <input id="subject" name="subject" type="text" required className={INPUT} />
-        </Field>
+      <Step active={current === "company"} label={QUESTION.company} name="company" error={current === "company" ? error : undefined}>
+        <input id="company" name="company" type="text" autoComplete="organization" className={INPUT} />
+      </Step>
 
-        <Field label={t("Mesaj", "Message")} name="message" error={state.fieldErrors?.message}>
-          <textarea id="message" name="message" rows={5} required className={`${INPUT} resize-none`} />
-        </Field>
+      <Step active={current === "subject"} label={QUESTION.subject} name="subject" error={current === "subject" ? error : undefined}>
+        <input id="subject" name="subject" type="text" required className={INPUT} />
+      </Step>
 
-        {state.status === "error" && state.message && (
-          <p className="text-[13px] text-error">{state.message}</p>
+      <Step active={current === "message"} label={QUESTION.message} name="message" error={current === "message" ? error : undefined}>
+        <textarea id="message" name="message" rows={4} required className={`${INPUT} resize-none`} />
+      </Step>
+
+      {state.status === "error" && state.message && <p className="mt-6 text-[14px] text-error">{state.message}</p>}
+
+      <div className="mt-10 flex flex-wrap items-center gap-4">
+        {isLast ? (
+          <button
+            type="submit"
+            disabled={pending}
+            className="btn-liquid w-full px-8 text-sm font-medium tracking-wide disabled:opacity-60"
+          >
+            {pending ? t("Gönderiliyor…", "Sending…") : t("Fikri TRADERS'a Gönder ■", "Send Idea to TRADERS ■")}
+          </button>
+        ) : (
+          <button type="button" onClick={goNext} className="btn-liquid w-full px-8 text-sm font-medium tracking-wide">
+            {t("Devam Et", "Continue")} →
+          </button>
         )}
-
-        <div className="flex flex-wrap items-center gap-8">
-          <Magnetic>
-            <button
-              type="submit"
-              disabled={pending}
-              className="btn-liquid px-8 py-3.5 text-[13px] font-medium tracking-wide disabled:opacity-60"
-            >
-              {pending ? t("Gönderiliyor…", "Sending…") : t("Mesaj Gönder", "Send Message")}
-            </button>
-          </Magnetic>
+        {step > 0 && (
           <button
             type="button"
-            onClick={() => setStep(1)}
-            className="text-[13px] font-medium tracking-wide text-muted transition-colors hover:text-foreground"
+            onClick={() => setStep((s) => s - 1)}
+            className="haptic min-h-12 px-4 text-[15px] font-medium tracking-wide text-muted"
           >
             ← {t("Geri", "Back")}
           </button>
-        </div>
+        )}
+      </div>
       </div>
     </form>
   );
 }
 
-const INPUT = "lux-input w-full px-0 py-4 text-[18px] text-foreground placeholder:text-text-tertiary md:text-[20px]";
+const INPUT =
+  "lux-input min-h-14 w-full px-0 py-3 text-xl text-foreground placeholder:text-text-tertiary md:text-2xl";
 
-function Field({
+function Step({
+  active,
   label,
   name,
   error,
   children,
 }: {
+  active: boolean;
   label: string;
   name: string;
   error?: string;
   children: React.ReactNode;
 }) {
+  // Alanlar DOM'da kalir (form verisi kaybolmasin), sadece aktif olan gorunur
   return (
-    <div>
-      <label
-        htmlFor={name}
-        className="mb-2 block text-[12px] font-medium uppercase tracking-[0.1em] text-text-secondary"
-      >
+    <div className={active ? "wizard-step" : "hidden"}>
+      <label htmlFor={name} className="mb-6 block text-2xl font-bold tracking-tight text-foreground md:text-3xl">
         {label}
       </label>
       {children}
-      {error && <p className="mt-1.5 text-[12px] text-error">{error}</p>}
+      {error && <p className="mt-2 text-[14px] text-error">{error}</p>}
     </div>
   );
 }

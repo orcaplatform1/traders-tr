@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useSyncExternalStore } from "react";
+import { createPortal } from "react-dom";
 import { NAV_LINKS } from "@/lib/constants";
 import { useT } from "@/lib/i18n";
+import { DockLabel } from "@/components/dock-label";
 
 const NAV_EN: Record<string, string> = {
   "Hakkımızda": "About",
@@ -13,9 +15,20 @@ const NAV_EN: Record<string, string> = {
   "Basın Merkezi": "Newsroom",
 };
 
-export function MobileMenu() {
+const ITEM_HEIGHT = 56;
+
+const noopSubscribe = () => () => {};
+
+export function MobileMenu({ className = "" }: { className?: string }) {
   const [open, setOpen] = useState(false);
   const t = useT();
+  // Dock transform/backdrop-filter tasidigi icin katman body'ye portal edilir
+  const mounted = useSyncExternalStore(noopSubscribe, () => true, () => false);
+
+  const items = [
+    ...NAV_LINKS.map((link) => ({ href: link.href, label: t(link.label, NAV_EN[link.label] ?? link.label) })),
+    { href: "/iletisim", label: t("İletişim", "Contact") },
+  ];
 
   useEffect(() => {
     if (!open) return;
@@ -38,51 +51,59 @@ export function MobileMenu() {
   }, [open]);
 
   return (
-    <div className="md:hidden">
+    <>
       <button
         type="button"
         aria-label={open ? t("Menüyü kapat", "Close menu") : t("Menüyü aç", "Open menu")}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
-        className="relative z-50 flex h-9 w-9 flex-col items-center justify-center gap-[5px]"
+        className={className}
       >
-        <span
-          className={`h-px w-5 bg-foreground transition-transform duration-300 ${open ? "translate-y-[3px] rotate-45" : ""}`}
-        />
-        <span
-          className={`h-px w-5 bg-foreground transition-opacity duration-300 ${open ? "opacity-0" : "opacity-100"}`}
-        />
-        <span
-          className={`h-px w-5 bg-foreground transition-transform duration-300 ${open ? "-translate-y-[3px] -rotate-45" : ""}`}
+        <DockLabel
+          selected={open}
+          label={t("Menü", "Menu")}
+          icon={
+            <span className="flex flex-col gap-[4px]">
+              <span
+                className={`h-px w-4 bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${open ? "translate-y-[2.5px] rotate-45" : ""}`}
+              />
+              <span
+                className={`h-px w-4 bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${open ? "-translate-y-[2.5px] -rotate-45" : ""}`}
+              />
+            </span>
+          }
         />
       </button>
 
+      {mounted && createPortal(
       <div
-        className={`fixed inset-0 z-40 h-dvh bg-slate-950/98 backdrop-blur-md transition-opacity duration-300 ${
-          open ? "opacity-100" : "pointer-events-none opacity-0"
+        className={`fixed inset-0 z-40 h-dvh bg-background/90 backdrop-blur-xl transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+          open ? "kinetic-menu-open opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
-        <nav className="flex h-full flex-col items-start justify-center gap-2 overflow-y-auto px-8">
-          {NAV_LINKS.map((link, i) => (
+        {/* Linkler merkezden disari dogrusal patlamayla yerlerine oturur */}
+        <nav className="flex h-full flex-col items-center justify-center px-5">
+          {items.map((item, i) => (
             <Link
-              key={link.href}
-              href={link.href}
+              key={item.href}
+              href={item.href}
               onClick={() => setOpen(false)}
-              className="py-2 text-3xl font-medium tracking-tight text-foreground transition-colors hover:text-accent"
-              style={{ transitionDelay: open ? `${i * 40}ms` : "0ms" }}
+              className="kinetic-menu-item flex min-h-12 items-center text-3xl font-semibold tracking-tight text-foreground"
+              style={
+                {
+                  height: ITEM_HEIGHT,
+                  "--burst-from": `${((items.length - 1) / 2 - i) * ITEM_HEIGHT}px`,
+                  transitionDelay: open ? `${i * 30}ms` : "0ms",
+                } as React.CSSProperties
+              }
             >
-              {t(link.label, NAV_EN[link.label] ?? link.label)}
+              {item.label}
             </Link>
           ))}
-          <Link
-            href="/iletisim"
-            onClick={() => setOpen(false)}
-            className="mt-6 border-b border-border pb-1 text-sm uppercase tracking-[0.15em] text-muted transition-colors hover:text-accent hover:border-accent"
-          >
-            {t("İletişim", "Contact")}
-          </Link>
         </nav>
-      </div>
-    </div>
+      </div>,
+      document.body,
+      )}
+    </>
   );
 }
