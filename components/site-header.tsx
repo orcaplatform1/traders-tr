@@ -1,8 +1,9 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { } from "react";
 import { MobileMenu } from "@/components/mobile-menu";
 import { LangToggle } from "@/components/lang-toggle";
 import { DockLabel } from "@/components/dock-label";
@@ -61,24 +62,6 @@ function IconPress() {
 export function SiteHeader() {
   const t = useT();
   const pathname = usePathname();
-  const [visible, setVisible] = useState(true);
-  const lastY = useRef(0);
-
-  // Asagi kaydirmada gizle, yukarida goster; 5px alti titremeleri yok say
-  useEffect(() => {
-    function onScroll() {
-      const y = window.scrollY;
-      if (y < 10) {
-        setVisible(true);
-        return;
-      }
-      if (Math.abs(y - lastY.current) < 5) return;
-      setVisible(y < lastY.current);
-      lastY.current = y;
-    }
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   const tabs = [
     { id: "home", href: "/", label: t("Ana Sayfa", "Home"), icon: <IconHome /> },
@@ -94,19 +77,25 @@ export function SiteHeader() {
 
   return (
     <>
-      {/* Ust sag: sadece dil secici */}
+      {/* Ust bar: logo sol, dil secici sag */}
       <header className="absolute inset-x-0 top-0 z-40 bg-transparent">
-        <div className="container-edit flex items-center justify-end py-4">
+        <div className="container-edit flex items-center justify-between py-4">
+          <Link href="/" className="relative block h-8 w-[160px] shrink-0 md:h-10 md:w-[220px]">
+            <Image
+              src="/logo-dark.png"
+              alt="TRADERS.TR"
+              fill
+              priority
+              className="object-contain object-left"
+              sizes="220px"
+            />
+          </Link>
           <LangToggle />
         </div>
       </header>
 
-      {/* Akilli yuzen navigasyon: bas parmak bolgesi */}
-      <div
-        className={`fixed bottom-6 left-1/2 z-50 w-[92vw] max-w-sm -translate-x-1/2 transition-all duration-[400ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
-          visible ? "translate-y-0 scale-100 opacity-100" : "pointer-events-none translate-y-12 scale-95 opacity-0"
-        }`}
-      >
+      {/* Alt yuzen navigasyon: her zaman gorunur */}
+      <div className="fixed bottom-6 left-1/2 z-50 w-[92vw] max-w-sm -translate-x-1/2">
         <nav
           aria-label={t("Ana menü", "Main menu")}
           className="flex h-14 select-none items-center justify-around rounded-full border border-border bg-white/80 px-2 shadow-[0_12px_40px_rgba(0,0,0,0.03)] backdrop-blur-lg transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.96]"
