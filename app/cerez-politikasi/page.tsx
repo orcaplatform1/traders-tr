@@ -41,7 +41,7 @@ export default function CookiesPage() {
                         <th className="py-2 font-medium">Duration</th>
                       </tr>
                     </thead>
-                    <tbody className="text-slate-200">
+                    <tbody className="text-foreground">
                       <tr className="border-b border-border">
                         <td className="py-3 pr-4">Preference (localStorage)</td>
                         <td className="py-3 pr-4">
@@ -170,7 +170,7 @@ export default function CookiesPage() {
                       <th className="py-2 font-medium">Süre</th>
                     </tr>
                   </thead>
-                  <tbody className="text-slate-200">
+                  <tbody className="text-foreground">
                     <tr className="border-b border-border">
                       <td className="py-3 pr-4">Tercih (localStorage)</td>
                       <td className="py-3 pr-4">

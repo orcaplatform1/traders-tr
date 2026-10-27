@@ -171,9 +171,9 @@ export function WhatWeDo() {
                       isCurrent ? "border-foreground bg-foreground" : "border-border bg-white"
                     }`}
                   />
-                  <span className="mb-0.5 block font-mono text-xs text-[#71717A]">{c.n}</span>
+                  <span className="mb-0.5 block font-mono text-xs text-[#52525B]">{c.n}</span>
                   <h3 className="mb-1 text-lg font-bold text-foreground md:text-3xl">{c.title}</h3>
-                  <p className="text-sm leading-relaxed text-[#52525B] md:text-base">{c.description}</p>
+                  <p className="text-sm leading-relaxed text-[#3F3F46] md:text-base">{c.description}</p>
                 </li>
               );
             })}

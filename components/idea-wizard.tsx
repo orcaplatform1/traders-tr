@@ -3,7 +3,7 @@
 import { createContext, useCallback, useContext, useEffect, useState, type ReactNode } from "react";
 import { ContactForm } from "@/components/contact-form";
 
-type WizardOptions = { email?: string; category?: string };
+type WizardOptions = { category?: string };
 
 const IdeaWizardContext = createContext<{ open: (opts?: WizardOptions) => void; isOpen: boolean }>({
   open: () => {},
@@ -54,7 +54,6 @@ export function IdeaWizardProvider({ children }: { children: ReactNode }) {
           <ContactForm
             key={session}
             defaultCategory={opts.category}
-            initialEmail={opts.email}
             onClose={() => setIsOpen(false)}
           />
         )}

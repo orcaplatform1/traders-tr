@@ -104,7 +104,7 @@ export function AboutPageContent() {
           </ScrollReveal>
 
           <ScrollReveal delay={100}>
-            <div className="mt-10 space-y-5 text-[16px] leading-relaxed text-slate-200 md:text-[17px]">
+            <div className="mt-10 space-y-5 text-[16px] leading-relaxed text-foreground md:text-[17px]">
               <p>
                 {t(
                   "TRADERS.TR; teknoloji, ticaret ve finansın kesişiminde yeni nesil işletmeler geliştiren, kuran ve işleten çok markalı bir girişim şirketidir.",
@@ -189,7 +189,7 @@ export function AboutPageContent() {
         <div className="container-edit max-w-2xl">
           <ScrollReveal>
             <SectionLabel>{t("Markalarımız", "Our Brands")}</SectionLabel>
-            <p className="mt-6 text-[17px] leading-relaxed text-slate-200 md:text-[19px]">
+            <p className="mt-6 text-[17px] leading-relaxed text-foreground md:text-[19px]">
               {t(
                 "TRADERS.TR çatısı altında yer alan her marka bağımsız bir işletme olarak kendi yolunu oluşturur.",
                 "Each brand under the TRADERS.TR umbrella creates its own path as an independent business."
@@ -285,7 +285,7 @@ export function AboutPageContent() {
                   "Technology is creating new sectors, changing existing business models and reshaping the relationship people have with products, services and brands."
                 )}
               </p>
-              <p className="text-[17px] leading-relaxed text-slate-200 md:text-[19px]">
+              <p className="text-[17px] leading-relaxed text-foreground md:text-[19px]">
                 {t(
                   "Biz bu değişimi yalnızca takip etmek istemiyoruz.",
                   "We don't just want to follow this change."

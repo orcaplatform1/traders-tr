@@ -50,7 +50,7 @@ export function VenturesSection() {
                       <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
                         {t("Kategori", "Category")}
                       </dt>
-                      <dd className="text-right text-[13px] text-slate-300">{t(v.category, v.categoryEn)}</dd>
+                      <dd className="text-right text-[13px] text-foreground">{t(v.category, v.categoryEn)}</dd>
                     </div>
                     <div className="flex items-baseline justify-between gap-4">
                       <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
@@ -58,7 +58,7 @@ export function VenturesSection() {
                       </dt>
                       <dd
                         className={`flex items-center gap-2 text-[13px] ${
-                          v.stage === "developing" ? "text-warning" : "text-slate-300"
+                          v.stage === "developing" ? "text-warning" : "text-foreground"
                         }`}
                       >
                         <StatusIndicator color={v.stage === "developing" ? "var(--warning)" : "var(--success)"} />

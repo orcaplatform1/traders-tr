@@ -91,7 +91,7 @@ export default async function AdminMessagesPage() {
                 </a>
               </p>
 
-              <p className="mt-2 text-[14px] font-medium text-slate-200">{m.subject}</p>
+              <p className="mt-2 text-[14px] font-medium text-foreground">{m.subject}</p>
               <p className="mt-2 max-w-2xl whitespace-pre-wrap text-[14px] leading-relaxed text-muted">
                 {m.message}
               </p>

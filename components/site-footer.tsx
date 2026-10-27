@@ -41,7 +41,7 @@ export function SiteFooter() {
       <div className="container-edit grid grid-cols-1 gap-12 py-16 md:grid-cols-4 md:py-20">
         <div className="md:col-span-1">
           <div className="relative h-8 w-[190px]">
-            <Image src="/logo.png" alt="TRADERS.TR" fill className="object-contain object-left" sizes="190px" />
+            <Image src="/logo-dark.png" alt="TRADERS.TR" fill className="object-contain object-left" sizes="190px" />
           </div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
             {t(SITE_TAGLINE, "Building brands beyond borders.")}
@@ -113,7 +113,7 @@ export function SiteFooter() {
           <span className="text-[12px] text-muted">
             &copy; 2026{" "}
             <span className="whitespace-nowrap">
-              <span className="font-semibold text-slate-50">Traders</span>
+              <span className="font-semibold text-foreground">Traders</span>
               <span className="font-semibold text-blue-500">.TR</span>{" "}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img

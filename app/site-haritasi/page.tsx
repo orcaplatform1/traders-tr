@@ -79,7 +79,7 @@ export default function SiteHaritasiPage() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-[14px] text-slate-300 transition-colors hover:text-accent"
+                      className="text-[14px] text-foreground transition-colors hover:text-accent"
                     >
                       {link.label}
                     </Link>

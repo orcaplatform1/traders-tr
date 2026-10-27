@@ -51,7 +51,7 @@ export function NewsroomPostContent({
           {displayTitle}
         </h1>
 
-        <p className="mt-6 text-[17px] leading-relaxed text-slate-300 md:text-[19px]">
+        <p className="mt-6 text-[17px] leading-relaxed text-foreground md:text-[19px]">
           {displayExcerpt}
         </p>
       </header>
@@ -100,7 +100,7 @@ export function NewsroomPostContent({
               );
             }
             return (
-              <p key={i} className="mt-5 text-[17px] leading-relaxed text-slate-200 first:mt-0">
+              <p key={i} className="mt-5 text-[17px] leading-relaxed text-foreground first:mt-0">
                 {block.text}
               </p>
             );

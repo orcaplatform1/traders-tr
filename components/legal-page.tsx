@@ -26,7 +26,7 @@ export function LegalPage({
           {title}
         </h1>
         <p className="mt-4 text-[13px] text-muted">{t("Son güncelleme:", "Last updated:")} {updated}</p>
-        <p className="mt-6 max-w-2xl text-[16px] leading-relaxed text-slate-200 md:text-[17px]">
+        <p className="mt-6 max-w-2xl text-[16px] leading-relaxed text-foreground md:text-[17px]">
           {intro}
         </p>
 
@@ -54,7 +54,7 @@ export function LegalPage({
                 <h2 className="text-xl font-medium text-foreground md:text-2xl">
                   {i + 1}. {s.title}
                 </h2>
-                <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-slate-200">
+                <div className="mt-4 space-y-4 text-[15px] leading-relaxed text-foreground">
                   {s.content}
                 </div>
               </div>

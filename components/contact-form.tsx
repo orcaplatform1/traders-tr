@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState, useEffect, useRef, useState } from "react";
+import { startTransition, useActionState, useEffect, useRef, useState } from "react";
 import { submitContactForm, type ContactFormState } from "@/app/actions/contact";
 import { useT } from "@/lib/i18n";
 
@@ -12,11 +12,9 @@ type StepKey = (typeof STEPS)[number];
 
 export function ContactForm({
   defaultCategory = "genel",
-  initialEmail,
   onClose,
 }: {
   defaultCategory?: string;
-  initialEmail?: string;
   onClose?: () => void;
 }) {
   const t = useT();
@@ -49,6 +47,24 @@ export function ContactForm({
       return;
     }
     setStep((s) => Math.min(STEPS.length - 1, s + 1));
+  }
+
+  // action prop'u yerine elle gonderim: React 19 form'u otomatik sifirlamasin,
+  // sunucu hata dondurse de girilen degerler korunsun
+  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    const form = e.currentTarget;
+    const invalid = STEPS.findIndex((f) => {
+      const el = form.elements.namedItem(f) as HTMLInputElement | null;
+      return el && el.type !== "hidden" && !el.checkValidity();
+    });
+    if (invalid >= 0) {
+      setStep(invalid);
+      requestAnimationFrame(() => (form.elements.namedItem(STEPS[invalid]) as HTMLInputElement | null)?.reportValidity());
+      return;
+    }
+    const data = new FormData(form);
+    startTransition(() => formAction(data));
   }
 
   function onKeyDown(e: React.KeyboardEvent<HTMLFormElement>) {
@@ -113,7 +129,7 @@ export function ContactForm({
   const error = state.fieldErrors?.[current as keyof typeof state.fieldErrors];
 
   return (
-    <form ref={formRef} action={formAction} onKeyDown={onKeyDown} noValidate className="relative min-h-full">
+    <form ref={formRef} onSubmit={onSubmit} onKeyDown={onKeyDown} noValidate className="relative min-h-full">
       {header}
       {/* honeypot */}
       <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
@@ -151,7 +167,7 @@ export function ContactForm({
       </fieldset>
 
       <Step active={current === "name"} label={QUESTION.name} name="name" error={current === "name" ? error : undefined}>
-        <input id="name" name="name" type="text" required autoComplete="name" className={INPUT} />
+        <input id="name" name="name" type="text" required minLength={2} maxLength={120} autoComplete="name" className={INPUT} />
       </Step>
 
       <Step active={current === "email"} label={QUESTION.email} name="email" error={current === "email" ? error : undefined}>
@@ -162,7 +178,6 @@ export function ContactForm({
           required
           autoComplete="email"
           inputMode="email"
-          defaultValue={initialEmail}
           pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
           className={INPUT}
         />
@@ -179,6 +194,7 @@ export function ContactForm({
             type="tel"
             inputMode="numeric"
             required
+            pattern="\d{10}"
             placeholder="5XXXXXXXXX"
             maxLength={10}
             onInput={(e) => {
@@ -194,11 +210,11 @@ export function ContactForm({
       </Step>
 
       <Step active={current === "subject"} label={QUESTION.subject} name="subject" error={current === "subject" ? error : undefined}>
-        <input id="subject" name="subject" type="text" required className={INPUT} />
+        <input id="subject" name="subject" type="text" required minLength={2} maxLength={200} className={INPUT} />
       </Step>
 
       <Step active={current === "message"} label={QUESTION.message} name="message" error={current === "message" ? error : undefined}>
-        <textarea id="message" name="message" rows={4} required className={`${INPUT} resize-none`} />
+        <textarea id="message" name="message" rows={4} required minLength={10} maxLength={4000} className={`${INPUT} resize-none`} />
       </Step>
 
       {state.status === "error" && state.message && <p className="mt-6 text-[14px] text-error">{state.message}</p>}

@@ -1,20 +1,13 @@
 "use client";
 
-import { useRef } from "react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { useIdeaWizard } from "@/components/idea-wizard";
 import { useT } from "@/lib/i18n";
 
-// Tek girdili sade kart: e-posta alinir, sihirbaz tam ekran devam eder
+// Sade kart: buton tam ekran sihirbazi acar
 export function ContactSection({ defaultCategory = "genel" }: { defaultCategory?: string }) {
   const t = useT();
   const { open } = useIdeaWizard();
-  const emailRef = useRef<HTMLInputElement>(null);
-
-  function onSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault();
-    open({ email: emailRef.current?.value.trim() || undefined, category: defaultCategory });
-  }
 
   return (
     <section className="py-12 md:py-32">
@@ -31,28 +24,13 @@ export function ContactSection({ defaultCategory = "genel" }: { defaultCategory?
               )}
             </p>
 
-            <form onSubmit={onSubmit} className="space-y-4">
-              <div>
-                <label htmlFor="idea-email" className="mb-1.5 block text-xs font-semibold uppercase text-muted">
-                  {t("E-Posta Adresiniz", "Your Email Address")}
-                </label>
-                <input
-                  ref={emailRef}
-                  id="idea-email"
-                  type="email"
-                  autoComplete="email"
-                  inputMode="email"
-                  placeholder={t("isim@sirket.com", "name@company.com")}
-                  className="h-12 w-full rounded-none border border-border bg-background px-4 text-sm transition-colors focus:border-foreground focus:outline-none"
-                />
-              </div>
-              <button
-                type="submit"
-                className="h-12 w-full bg-foreground text-sm font-medium text-background transition-transform duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.97]"
-              >
-                {t("İlerleyin →", "Continue →")}
-              </button>
-            </form>
+            <button
+              type="button"
+              onClick={() => open({ category: defaultCategory })}
+              className="h-12 w-full bg-foreground text-sm font-medium text-background transition-transform duration-150 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.97]"
+            >
+              {t("İlerleyin →", "Continue →")}
+            </button>
           </div>
         </ScrollReveal>
       </div>

@@ -29,7 +29,7 @@ export function BrandProfileContent({ brand }: { brand: Brand }) {
           <h1 className="mt-4 text-5xl font-medium tracking-tight text-foreground md:text-6xl">
             {brand.name}
           </h1>
-          <p className="mt-6 text-[17px] leading-relaxed text-slate-200 md:text-[19px]">
+          <p className="mt-6 text-[17px] leading-relaxed text-foreground md:text-[19px]">
             {brand.longDescription}
           </p>
 
@@ -48,7 +48,7 @@ export function BrandProfileContent({ brand }: { brand: Brand }) {
             </span>
             <ul className="mt-4 space-y-4">
               {brand.features.map((feature, i) => (
-                <li key={i} className="flex gap-4 text-[15px] leading-relaxed text-slate-200">
+                <li key={i} className="flex gap-4 text-[15px] leading-relaxed text-foreground">
                   <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-accent" />
                   <span>{feature}</span>
                 </li>
