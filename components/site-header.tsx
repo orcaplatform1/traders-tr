@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -95,23 +94,10 @@ export function SiteHeader() {
 
   return (
     <>
-      {/* Ust logo bari: seffaf, sayfanin ustune bindirilir ve sayfayla birlikte kayar */}
+      {/* Ust sag: sadece dil secici */}
       <header className="absolute inset-x-0 top-0 z-40 bg-transparent">
-        <div className="container-edit flex items-center justify-between py-4">
-          <Link href="/" className="relative block h-8 w-[160px] shrink-0 md:h-10 md:w-[220px]">
-            <Image
-              src="/logo-dark.png"
-              alt="TRADERS.TR"
-              fill
-              priority
-              className="object-contain object-left"
-              sizes="220px"
-            />
-          </Link>
-          <div className="flex items-center gap-3">
-            <LangToggle />
-            <span className="border border-foreground px-2 py-0.5 font-mono text-xs font-medium uppercase">2026</span>
-          </div>
+        <div className="container-edit flex items-center justify-end py-4">
+          <LangToggle />
         </div>
       </header>
 
