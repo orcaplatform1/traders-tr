@@ -132,18 +132,26 @@ export function SiteFooter() {
             . {t("Tüm hakları saklıdır.", "All rights reserved.")}
           </span>
 
-          <ul className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-            {FOOTER_LEGAL_LINKS.map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="text-[12px] text-white/35"
-                >
-                  {t(link.label, LEGAL_EN[link.label] ?? link.label)}
-                </Link>
-              </li>
-            ))}
-          </ul>
+          <div className="flex flex-col items-center gap-y-2 sm:items-end">
+            <ul className="flex items-center gap-x-5">
+              {FOOTER_LEGAL_LINKS.slice(0, 3).map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-[12px] text-white/35">
+                    {t(link.label, LEGAL_EN[link.label] ?? link.label)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <ul className="flex items-center gap-x-5">
+              {FOOTER_LEGAL_LINKS.slice(3).map((link) => (
+                <li key={link.href}>
+                  <Link href={link.href} className="text-[12px] text-white/35">
+                    {t(link.label, LEGAL_EN[link.label] ?? link.label)}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
     </footer>
