@@ -24,7 +24,7 @@ export const newsroomPosts: NewsroomPost[] = [
       p(
         "TRADERS.TR, beşinci markasını duyuruyor: Ahenk. Sosyal buluşma alanında çalışan Ahenk, yabancılarla tanışmanın rastlantıya bırakılamayacak kadar önemli olduğu fikrinden yola çıkarak OCEAN (Big Five) kişilik uyumluluğuna dayalı haftalık masa organizasyonu sunan bir platform olarak aktif geliştirme sürecine girdi. Orca Labs, KriptoBeyan, Zesta Art&Design ve Mettlo'nun ardından portföye katılan bu marka, TRADERS.TR'ın teknoloji ile insan deneyimini buluşturma vizyonunun sosyal bağlantı alanındaki en cesur adımı.",
       ),
-      h2("Problemin kendisi: kaliteli çevre şansa bırakılmamalı", "problem"),
+      h2("Neden bu alan, neden şimdi", "neden-bu-alan"),
       p(
         "Türkiye'de ve dünyada insanlar giderek daha fazla dijital platformda vakit geçiriyor; ancak bu dijital yoğunluğun gerçek hayatta gerçek bağlantılar kurma kapasitesini zayıflattığı görülüyor. Mevcut sosyal buluşma alternatifleri ya tamamen rastlantıya dayalı ya da yüzeysel eşleştirme kriterleriyle çalışıyor — yaş, konum, ilgi alanı listesi. Oysa bilim, insanların birbiriyle gerçekten bağlantı kurabilmesinin temelinde kişilik uyumluluğunun yattığını uzun süredir gösteriyor.",
       ),
@@ -91,7 +91,7 @@ export const newsroomPosts: NewsroomPost[] = [
       p(
         "TRADERS.TR is announcing its fifth brand: Ahenk. Operating in the social meeting space, Ahenk has entered active development as a platform offering weekly table organisation based on OCEAN (Big Five) personality compatibility — built on the belief that meeting the right people is too important to leave to chance. Following Orca Labs, KriptoBeyan, Zesta Art&Design, and Mettlo, this brand marks TRADERS.TR's boldest step into the intersection of technology and human experience.",
       ),
-      h2("The problem itself: a quality social circle shouldn't be left to chance", "problem"),
+      h2("Why this space, why now", "neden-bu-alan"),
       p(
         "People in Turkey and worldwide spend more and more time on digital platforms — yet this digital intensity appears to erode the capacity to form real connections in real life. Existing social meeting alternatives are either entirely random or based on shallow matching criteria: age, location, a list of interests. Yet science has long shown that genuine human connection is grounded in personality compatibility.",
       ),
