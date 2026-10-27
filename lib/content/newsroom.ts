@@ -12,6 +12,153 @@ function quote(text: string): ContentBlock {
 
 export const newsroomPosts: NewsroomPost[] = [
   {
+    id: "6",
+    slug: "ahenk-tanitimi",
+    title: "TRADERS.TR'ın beşinci markası: Ahenk geliştirme sürecinde",
+    titleEn: "TRADERS.TR's Fifth Brand: Ahenk Is in Development",
+    excerpt:
+      "TRADERS.TR, sosyal buluşma alanında OCEAN Big Five kişilik uyumluluğuna dayalı haftalık masa organizasyonu sunan Ahenk'i portföyüne ekledi. Platform aktif geliştirme sürecinde.",
+    excerptEn:
+      "TRADERS.TR has added Ahenk to its portfolio — a social meeting platform offering weekly table organisation based on OCEAN Big Five personality compatibility. The platform is in active development.",
+    content: [
+      p(
+        "TRADERS.TR, beşinci markasını duyuruyor: Ahenk. Sosyal buluşma alanında çalışan Ahenk, yabancılarla tanışmanın rastlantıya bırakılamayacak kadar önemli olduğu fikrinden yola çıkarak OCEAN (Big Five) kişilik uyumluluğuna dayalı haftalık masa organizasyonu sunan bir platform olarak aktif geliştirme sürecine girdi. Orca Labs, KriptoBeyan, Zesta Art&Design ve Mettlo'nun ardından portföye katılan bu marka, TRADERS.TR'ın teknoloji ile insan deneyimini buluşturma vizyonunun sosyal bağlantı alanındaki en cesur adımı.",
+      ),
+      h2("Problemin kendisi: kaliteli çevre şansa bırakılmamalı", "problem"),
+      p(
+        "Türkiye'de ve dünyada insanlar giderek daha fazla dijital platformda vakit geçiriyor; ancak bu dijital yoğunluğun gerçek hayatta gerçek bağlantılar kurma kapasitesini zayıflattığı görülüyor. Mevcut sosyal buluşma alternatifleri ya tamamen rastlantıya dayalı ya da yüzeysel eşleştirme kriterleriyle çalışıyor — yaş, konum, ilgi alanı listesi. Oysa bilim, insanların birbiriyle gerçekten bağlantı kurabilmesinin temelinde kişilik uyumluluğunun yattığını uzun süredir gösteriyor.",
+      ),
+      p(
+        "Ahenk bu boşluğu doldurmak için kuruldu: kaliteli bir çevre şans değil, seçimdir. Rastgele eşleştirme yerine, bilimsel bir temel üzerine inşa edilmiş algoritmik uyumluluk. Ve her şeyden önemlisi — gerçek hayatta, gerçek mekânlarda, gerçek insanlarla buluşmak.",
+      ),
+      h2("OCEAN Big Five: bilimi masaya taşımak", "ocean-modeli"),
+      p(
+        "Ahenk'in eşleştirme altyapısının temelinde OCEAN (Big Five) kişilik modeli yer alıyor. Bu model, kişilik psikolojisindeki en kapsamlı ve en geniş araştırma zeminine sahip çerçevelerden biri; Açıklık (Openness), Özenlilik (Conscientiousness), Dışadönüklük (Extraversion), Uyumluluk (Agreeableness) ve Denge (Emotional Stability) olmak üzere beş boyuttan oluşuyor.",
+      ),
+      p(
+        "Kullanıcılar platforma katıldıklarında kısa ama anlamlı bir kişilik profil testi dolduruyorlar. Bu test bir kez değil, 180 günde bir yenileniyor — çünkü insanlar değişir ve profil bu değişimi yansıtmalı. Algoritma, her hafta bu profilleri karşılaştırarak kullanıcıları birbirleriyle gerçekten uyumlu olma ihtimali en yüksek kişilerle eşleştiriyor; sonra mekan, saat ve rezervasyonu kendisi ayarlıyor.",
+      ),
+      h2("Üç masa formatı, bir ekosistem", "masa-formatlari"),
+      p(
+        "Ahenk üç farklı buluşma formatı sunuyor ve her biri farklı bir sosyal ihtiyaca yanıt veriyor:",
+      ),
+      p(
+        "Grup Masası: Uyumlu 6 kişiyi (3 kadın, 3 erkek) bir araya getiren haftalık akşam yemeği. Hiç tanımadığın insanlarla kahve soğurken fark etmediğin o sohbetleri yaratmak için tasarlandı. Algoritma, her katılımcının profil uyumluluğunu diğerleriyle en üst düzeyde tutacak şekilde masayı kuruyor.",
+      ),
+      p(
+        "Baş Başa Masa: Bire bir tanışma formatı. Tek bir kişiyle, gerçek anlamda birebir bir buluşma. Hem yeni bir arkadaşlık hem de derinlikli bir sohbet için uygun bir format.",
+      ),
+      p(
+        "Kankamla Masası: Bir arkadaşınla birlikte katıldığın, karşınıza da benzer bir çiftin oturduğu 4 kişilik masa. Sosyal kaygı düzeyi daha yüksek olan kullanıcılar için — ya da sadece bir arkadaşla yeni insanlarla tanışmak isteyenler için.",
+      ),
+      quote(
+        "Bazı akşamlar takvimde kalır, bazıları hafızanda. Ahenk, hafızada kalanları tasarlıyor.",
+      ),
+      h2("Organizasyonun tamamı Ahenk'te", "organizasyon"),
+      p(
+        "Ahenk'i rakiplerinden ayıran en kritik özelliklerden biri, lojistiği tamamen üstlenmesi. Kullanıcının yapması gereken tek şey gitmek. Eşleştirme, mekan seçimi, rezervasyon, hatırlatıcı bildirim, masa kompozisyonu — bunların hepsi Ahenk tarafından haftalık olarak yönetiliyor. Kullanıcı platformda bir paket seçtikten sonra, sisteme güveniyor ve o perşembe gecesi için hazırlanıyor.",
+      ),
+      p(
+        "Mekanlar dikkatli bir kürasyon süreciyle belirleniyor: Sade, Orta ve Premium kategorilerinde, şehrin sosyal atmosferine uygun, ulaşımı kolay, özel alan sağlayan mekânlar. İstanbul'dan başlayarak Ankara, İzmir, Antalya, Muğla, Aydın ve Balıkesir'de her hafta masalar kuruluyor.",
+      ),
+      h2("Güvenlik ve doğrulama", "guvenlik"),
+      p(
+        "Sosyal bir platformda en kritik sorulardan biri güven. Ahenk, güveni tasarımın merkezine aldı. Platforma katılmak için WhatsApp OTP ile telefon doğrulaması zorunlu; abonelik için kimlik doğrulama (KYC) süreci işletiliyor. Yani masada karşılaşacağın insanların kimliklerinin doğrulanmış olduğunu biliyorsun.",
+      ),
+      p(
+        "Bunun yanı sıra katılımcılar birbirini masa öncesinde baş harfleriyle (M.A., S.T. gibi) görebiliyor — tam isim yalnızca masa onaylandıktan sonra bildirimle paylaşılıyor. Rehber engelleme sistemi, tanıdığın biriyle aynı masaya düşmeni de önlüyor.",
+      ),
+      h2("Şu anki durum: aktif geliştirme", "gelistirme-durumu"),
+      p(
+        "Ahenk, TRADERS.TR bünyesinde aktif geliştirme sürecindedir. Teknik altyapı — NestJS backend, Next.js web ve React Native mobil uygulama — inşa ediliyor; eşleştirme algoritması, ödeme sistemi, bildirim servisleri ve admin paneli dahil olmak üzere tüm modüller çalışıyor durumda. Şu sıralar platform ilk kullanıcılara açılmaya hazırlanıyor.",
+      ),
+      p(
+        "Bu süreçte altyapı kararlılığı, ilk masa deneyimlerinin kalitesi ve kullanıcı geri bildirimi önceliğimiz. Büyüme metrikleri değil, doğru insanların doğru insanlarla buluştuğuna dair ilk kanıtlar peşindeyiz.",
+      ),
+      h2("TRADERS.TR portföyündeki yeri", "portfoy"),
+      p(
+        "Ahenk, TRADERS.TR'ın beşinci bağımsız markası. Her marka kendi alanında özerk çalışıyor: Orca Labs finans eğitiminde, KriptoBeyan dijital vergide, Zesta el yapımı ticarette, Mettlo sağlıklı yaşam koçluğunda. Ahenk ise sosyal bağlantı ve buluşma alanında bu ekosisteme katılıyor.",
+      ),
+      p(
+        "Portföydeki her marka, farklı bir sektördeki yapısal boşluğu doldurmak için kuruldu. Ahenk de aynı mantıkla hareket ediyor: teknoloji bir araç, asıl ürün iki insanın gerçek hayatta kurduğu bağlantı.",
+      ),
+      h2("Sırada ne var", "sirada-ne-var"),
+      p(
+        "Ahenk'in beta lansman süreci yaklaşıyor. Gelişmeleri ahenk.co adresinden ve bu sayfadan takip edebilirsiniz. Erken kullanıcılar için Öncü programı kapsamında özel avantajlar sunulacak — detaylar yakında.",
+      ),
+    ],
+    contentEn: [
+      p(
+        "TRADERS.TR is announcing its fifth brand: Ahenk. Operating in the social meeting space, Ahenk has entered active development as a platform offering weekly table organisation based on OCEAN (Big Five) personality compatibility — built on the belief that meeting the right people is too important to leave to chance. Following Orca Labs, KriptoBeyan, Zesta Art&Design, and Mettlo, this brand marks TRADERS.TR's boldest step into the intersection of technology and human experience.",
+      ),
+      h2("The problem itself: a quality social circle shouldn't be left to chance", "problem"),
+      p(
+        "People in Turkey and worldwide spend more and more time on digital platforms — yet this digital intensity appears to erode the capacity to form real connections in real life. Existing social meeting alternatives are either entirely random or based on shallow matching criteria: age, location, a list of interests. Yet science has long shown that genuine human connection is grounded in personality compatibility.",
+      ),
+      p(
+        "Ahenk was built to fill this gap: a quality social circle is not luck — it is a choice. Algorithmic compatibility built on scientific foundations rather than random matching. And most importantly — meeting real people in real venues in real life.",
+      ),
+      h2("OCEAN Big Five: bringing science to the table", "ocean-modeli"),
+      p(
+        "At the heart of Ahenk's matching infrastructure is the OCEAN (Big Five) personality model — one of the most comprehensive and extensively researched frameworks in personality psychology, comprising five dimensions: Openness, Conscientiousness, Extraversion, Agreeableness, and Emotional Stability (Neuroticism).",
+      ),
+      p(
+        "When users join the platform, they complete a concise but meaningful personality profile test. This test is renewed every 180 days — because people change and the profile should reflect that change. The algorithm compares these profiles each week and matches users with those they have the highest probability of genuinely connecting with, then arranges the venue, time, and reservation itself.",
+      ),
+      h2("Three table formats, one ecosystem", "masa-formatlari"),
+      p(
+        "Ahenk offers three different meeting formats, each addressing a distinct social need:",
+      ),
+      p(
+        "Group Table: A weekly dinner bringing together 6 compatible people (3 women, 3 men). Designed to create those conversations where you don't notice your coffee going cold. The algorithm builds the table to maximise profile compatibility across all participants.",
+      ),
+      p(
+        "One-on-One Table: A one-to-one meeting format. A genuinely one-on-one encounter with a single person — suitable for both a new friendship and a deep conversation.",
+      ),
+      p(
+        "Kankamla (With My Friend) Table: A 4-person table where you join with a friend and two similarly-paired people sit across from you. For users with higher social anxiety — or simply those who want to meet new people alongside a friend.",
+      ),
+      quote(
+        "Some evenings stay in your calendar, some stay in your memory. Ahenk designs the ones that stay in your memory.",
+      ),
+      h2("The entire organisation is handled by Ahenk", "organizasyon"),
+      p(
+        "One of the most critical features that sets Ahenk apart is that it takes complete responsibility for the logistics. The only thing a user needs to do is show up. Matching, venue selection, reservation, reminder notifications, table composition — all of this is managed weekly by Ahenk. Once a user selects a package on the platform, they trust the system and get ready for Thursday evening.",
+      ),
+      p(
+        "Venues are selected through a careful curation process: Casual, Mid-range, and Premium categories — venues suitable for the city's social atmosphere, easy to reach, offering private space. Starting from Istanbul, tables are set up each week in Ankara, İzmir, Antalya, Muğla, Aydın, and Balıkesir.",
+      ),
+      h2("Safety and verification", "guvenlik"),
+      p(
+        "One of the most critical questions in a social platform is trust. Ahenk placed trust at the centre of its design. Joining the platform requires phone verification via WhatsApp OTP; subscribing requires an identity verification (KYC) process. So you know that the people you'll meet at the table have had their identities verified.",
+      ),
+      p(
+        "Additionally, participants can see each other's initials (M.A., S.T. etc.) before the table — full names are only shared via notification after the table is confirmed. A contact blocking system also prevents you from being matched with someone you already know.",
+      ),
+      h2("Current status: active development", "gelistirme-durumu"),
+      p(
+        "Ahenk is in active development within TRADERS.TR. The technical infrastructure — NestJS backend, Next.js web, and React Native mobile application — is being built; all modules including the matching algorithm, payment system, notification services, and admin panel are operational. The platform is currently preparing to open to its first users.",
+      ),
+      p(
+        "During this period, infrastructure stability, the quality of the first table experiences, and user feedback are our priorities. We are not chasing growth metrics — we are looking for the first evidence that the right people are meeting the right people.",
+      ),
+      h2("Its place in the TRADERS.TR portfolio", "portfoy"),
+      p(
+        "Ahenk is the fifth independent brand in the TRADERS.TR portfolio. Each brand operates autonomously in its own domain: Orca Labs in financial education, KriptoBeyan in digital tax, Zesta in handmade commerce, Mettlo in healthy living coaching. Ahenk joins this ecosystem in the domain of social connection and meetings.",
+      ),
+      p(
+        "Each brand in the portfolio was founded to fill a structural gap in a different sector. Ahenk operates on the same logic: technology is a tool — the real product is the connection two people form in real life.",
+      ),
+      h2("What's next", "sirada-ne-var"),
+      p(
+        "Ahenk's beta launch process is approaching. Follow developments at ahenk.co and on this page. Special advantages will be offered to early users under the Pioneer programme — details coming soon.",
+      ),
+    ],
+    category: "Şirket Duyurusu",
+    publishedAt: "2026-10-27",
+    readTime: "7 dk",
+  },
+  {
     id: "5",
     slug: "mettlo-tanitimi",
     title: "TRADERS.TR portföyüne yeni markasını ekliyor: Mettlo",
