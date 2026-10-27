@@ -108,12 +108,18 @@ export function SiteFooter() {
         </div>
       </div>
 
-      <div className="border-t border-border">
+      <div
+        className="border-t border-zinc-800"
+        style={{
+          background:
+            "linear-gradient(180deg, #1e1e1e 0%, #080808 35%, #000000 100%)",
+        }}
+      >
         <div className="container-edit flex flex-col items-center gap-4 py-6 text-center sm:flex-row sm:justify-between sm:text-left">
-          <span className="text-[12px] text-muted">
+          <span className="text-[12px] text-white/40">
             &copy; 2026{" "}
             <span className="whitespace-nowrap">
-              <span className="font-semibold text-foreground">Traders</span>
+              <span className="font-semibold text-white">Traders</span>
               <span className="font-semibold text-blue-500">.TR</span>{" "}
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -131,7 +137,7 @@ export function SiteFooter() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-[12px] text-muted transition-colors hover:text-foreground"
+                  className="text-[12px] text-white/35"
                 >
                   {t(link.label, LEGAL_EN[link.label] ?? link.label)}
                 </Link>
