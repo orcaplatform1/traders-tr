@@ -282,14 +282,14 @@ h3,
   border-color: var(--accent);
 }
 
-/* Hero gorseli: dort kenar canvas zemine yumusakca erir */
+/* Hero gorseli: merkezden disa eriyen radial maske; kenarlar ve gorselin kendi zemini gorunmez */
 .hero-fade {
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
-  -webkit-mask-composite: source-in;
-  mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%),
-    linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
-  mask-composite: intersect;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 45%, transparent 75%);
+  mask-image: radial-gradient(ellipse at center, #000 45%, transparent 75%);
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
 }
 
 /* Meta yazilar: JetBrains Mono, buyuk harf, 0.08em */
