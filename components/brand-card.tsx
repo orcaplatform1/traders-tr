@@ -30,9 +30,17 @@ export function BrandCard({
           <StatusBadge status={brand.status} />
         </div>
         <div className="mt-6 flex items-center gap-3">
-          <span className="relative block h-9 w-9 shrink-0 opacity-80 transition-opacity duration-300 ease-out group-hover:opacity-100">
-            <Image src={brand.logo} alt="" fill sizes="36px" className="object-contain" />
-          </span>
+          {brand.logoBackground === "light" ? (
+            <span className="block h-9 w-9 shrink-0 rounded-[2px] bg-ink-primary p-1">
+              <span className="relative block h-full w-full">
+                <Image src={brand.logo} alt="" fill sizes="28px" className="object-contain" />
+              </span>
+            </span>
+          ) : (
+            <span className="relative block h-9 w-9 shrink-0 opacity-80 transition-opacity duration-300 ease-out group-hover:opacity-100">
+              <Image src={brand.logo} alt="" fill sizes="36px" className="object-contain" />
+            </span>
+          )}
           <h3
             className={`font-sans font-medium tracking-normal text-ink-primary ${featured ? "text-2xl" : "text-xl"}`}
           >

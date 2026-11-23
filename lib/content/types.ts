@@ -7,6 +7,8 @@ export interface Brand {
   name: string;
   slug: string;
   logo: string;
+  /** Logo koyu zeminde zor seciliyorsa kartta acik tonlu kutu icinde gosterilir */
+  logoBackground?: "light";
   monogram: string;
   accent: BrandAccent;
   category: string;

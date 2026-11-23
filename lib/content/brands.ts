@@ -32,6 +32,7 @@ export const brands: Brand[] = [
     name: "KriptoBeyan",
     slug: "kriptobeyan",
     logo: "/brand-logos/kriptobeyan.webp",
+    logoBackground: "light",
     monogram: "KB",
     accent: "emerald",
     category: "Digital Tax",
