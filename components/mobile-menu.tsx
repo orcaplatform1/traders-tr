@@ -4,16 +4,8 @@ import Link from "next/link";
 import { useEffect, useState, useSyncExternalStore } from "react";
 import { createPortal } from "react-dom";
 import { NAV_LINKS } from "@/lib/constants";
-import { useT } from "@/lib/i18n";
 import { DockLabel } from "@/components/dock-label";
 
-const NAV_EN: Record<string, string> = {
-  "Hakkımızda": "About",
-  "Markalar": "Brands",
-  "Girişimler": "Ventures",
-  "İçgörüler": "Insights",
-  "Basın Merkezi": "Newsroom",
-};
 
 const ITEM_HEIGHT = 56;
 
@@ -21,13 +13,12 @@ const noopSubscribe = () => () => {};
 
 export function MobileMenu({ className = "" }: { className?: string }) {
   const [open, setOpen] = useState(false);
-  const t = useT();
   // Dock transform/backdrop-filter tasidigi icin katman body'ye portal edilir
   const mounted = useSyncExternalStore(noopSubscribe, () => true, () => false);
 
   const items = [
-    ...NAV_LINKS.map((link) => ({ href: link.href, label: t(link.label, NAV_EN[link.label] ?? link.label) })),
-    { href: "/iletisim", label: t("İletişim", "Contact") },
+    ...NAV_LINKS.map((link) => ({ href: link.href, label: link.label })),
+    { href: "/iletisim", label: "Contact" },
   ];
 
   useEffect(() => {
@@ -54,14 +45,14 @@ export function MobileMenu({ className = "" }: { className?: string }) {
     <>
       <button
         type="button"
-        aria-label={open ? t("Menüyü kapat", "Close menu") : t("Menüyü aç", "Open menu")}
+        aria-label={open ? "Close menu" : "Open menu"}
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
         className={className}
       >
         <DockLabel
           selected={open}
-          label={t("Menü", "Menu")}
+          label={"Menu"}
           icon={
             <span className="flex flex-col gap-[4px]">
               <span

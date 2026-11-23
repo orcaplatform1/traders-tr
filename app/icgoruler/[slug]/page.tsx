@@ -43,8 +43,8 @@ export default async function InsightPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "İçgörüler", item: `${SITE_URL}/icgoruler` },
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Insights", item: `${SITE_URL}/icgoruler` },
       { "@type": "ListItem", position: 3, name: insight.title, item: `${SITE_URL}/icgoruler/${insight.slug}` },
     ],
   };

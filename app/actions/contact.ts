@@ -39,16 +39,16 @@ async function isRateLimited(): Promise<boolean> {
 }
 
 const contactSchema = z.object({
-  name: z.string().trim().min(2, "Ad en az 2 karakter olmalı").max(120),
-  email: z.string().trim().email("Geçerli bir e-posta adresi girin").max(200),
+  name: z.string().trim().min(2, "Name must be at least 2 characters").max(120),
+  email: z.string().trim().email("Enter a valid email address").max(200),
   phone: z
     .string()
     .trim()
-    .regex(/^\d{10}$/, "Telefon numarası 10 haneli olmalı (başında 0 olmadan)"),
+    .regex(/^\d{10}$/, "Phone number must be 10 digits (without a leading 0)"),
   company: z.string().trim().max(200).optional().or(z.literal("")),
-  subject: z.string().trim().min(2, "Konu gerekli").max(200),
+  subject: z.string().trim().min(2, "Subject is required").max(200),
   category: z.enum(["ortaklik", "girisim", "basin", "genel"]),
-  message: z.string().trim().min(10, "Mesaj en az 10 karakter olmalı").max(4000),
+  message: z.string().trim().min(10, "Message must be at least 10 characters").max(4000),
   // honeypot: gercek kullanicilar bu alani gormez/doldurmaz
   website: z.string().max(0).optional().or(z.literal("")),
 });
@@ -64,7 +64,7 @@ export async function submitContactForm(
   formData: FormData,
 ): Promise<ContactFormState> {
   if (await isRateLimited()) {
-    return { status: "error", message: "Çok fazla deneme yaptınız. Lütfen bir süre sonra tekrar deneyin." };
+    return { status: "error", message: "Too many attempts. Please try again later." };
   }
 
   const raw = {

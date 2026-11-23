@@ -2,7 +2,6 @@
 
 import type { ReactNode } from "react";
 import { SectionLabel } from "@/components/section-label";
-import { useT } from "@/lib/i18n";
 
 export type LegalSection = { id: string; title: string; content: ReactNode };
 
@@ -17,24 +16,23 @@ export function LegalPage({
   intro: string;
   sections: LegalSection[];
 }) {
-  const t = useT();
   return (
     <section className="py-32 md:py-48">
       <div className="container-edit">
-        <SectionLabel>{t("Yasal", "Legal")}</SectionLabel>
+        <SectionLabel>{"Legal"}</SectionLabel>
         <h1 className="mt-4 text-4xl font-medium tracking-tight text-foreground md:text-5xl">
           {title}
         </h1>
-        <p className="mt-4 text-[13px] text-muted">{t("Son güncelleme:", "Last updated:")} {updated}</p>
+        <p className="mt-4 text-[13px] text-muted">{"Last updated:"} {updated}</p>
         <p className="mt-6 max-w-2xl text-[16px] leading-relaxed text-foreground md:text-[17px]">
           {intro}
         </p>
 
         <div className="mt-16 grid grid-cols-1 gap-12 md:grid-cols-[220px_1fr] md:gap-20">
-          <nav aria-label={t("İçindekiler", "Table of Contents")} className="hidden md:block">
+          <nav aria-label={"Table of Contents"} className="hidden md:block">
             <div className="sticky top-28 space-y-1">
               <span className="mb-4 block text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-                {t("İçindekiler", "Table of Contents")}
+                {"Table of Contents"}
               </span>
               {sections.map((s, i) => (
                 <a
@@ -60,8 +58,8 @@ export function LegalPage({
               </div>
             ))}
             <div className="border-t border-border pt-8 text-[13px] leading-relaxed text-muted">
-              <p>{t("Şirket unvanı:", "Company name:")} Prizoma GmbH</p>
-              <p>{t("Adres:", "Address:")} Zug, Switzerland</p>
+              <p>{"Company name:"} Prizoma GmbH</p>
+              <p>{"Address:"} Zug, Switzerland</p>
             </div>
           </div>
         </div>

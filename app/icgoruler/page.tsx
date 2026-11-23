@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { InsightsPageContent } from "./page-content";
 
 export const metadata: Metadata = {
-  title: "İçgörüler",
-  description: "Girişim perspektifinden düşünceler.",
+  title: "Insights",
+  description: "Thoughts from a venture perspective.",
   alternates: { canonical: "/icgoruler" },
 };
 

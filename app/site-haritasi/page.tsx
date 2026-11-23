@@ -5,57 +5,53 @@ import { SectionLabel } from "@/components/section-label";
 import { brands } from "@/lib/content/brands";
 import { insights } from "@/lib/content/insights";
 import { newsroomPosts } from "@/lib/content/newsroom";
-import { useT, useLang } from "@/lib/i18n";
 
 export default function SiteHaritasiPage() {
-  const t = useT();
-  const { lang } = useLang();
-  const isEn = lang === "en";
 
   const GROUPS = [
     {
-      title: t("Şirket", "Company"),
+      title: "Company",
       links: [
-        { href: "/", label: t("Ana Sayfa", "Home") },
-        { href: "/hakkimizda", label: t("Hakkımızda", "About") },
-        { href: "/girisimler", label: t("Girişimler", "Ventures") },
-        { href: "/kariyer", label: t("Kariyer", "Careers") },
-        { href: "/iletisim", label: t("İletişim", "Contact") },
+        { href: "/", label: "Home" },
+        { href: "/hakkimizda", label: "About" },
+        { href: "/girisimler", label: "Ventures" },
+        { href: "/kariyer", label: "Careers" },
+        { href: "/iletisim", label: "Contact" },
       ],
     },
     {
-      title: t("Markalar", "Brands"),
+      title: "Brands",
       links: [
-        { href: "/markalar", label: t("Tüm Markalar", "All Brands") },
+        { href: "/markalar", label: "All Brands" },
         ...brands.map((b) => ({ href: `/markalar/${b.slug}`, label: b.name })),
       ],
     },
     {
-      title: t("İçgörüler", "Insights"),
+      title: "Insights",
       links: [
-        { href: "/icgoruler", label: t("Tüm İçgörüler", "All Insights") },
+        { href: "/icgoruler", label: "All Insights" },
         ...insights.map((i) => ({
           href: `/icgoruler/${i.slug}`,
-          label: isEn && i.titleEn ? i.titleEn : i.title,
+          label: i.title,
         })),
       ],
     },
     {
-      title: t("Basın Merkezi", "Newsroom"),
+      title: "Newsroom",
       links: [
-        { href: "/basin-merkezi", label: t("Tüm Duyurular", "All Announcements") },
+        { href: "/basin-merkezi", label: "All Announcements" },
         ...newsroomPosts.map((p) => ({
           href: `/basin-merkezi/${p.slug}`,
-          label: isEn && p.titleEn ? p.titleEn : p.title,
+          label: p.title,
         })),
       ],
     },
     {
-      title: t("Yasal", "Legal"),
+      title: "Legal",
       links: [
-        { href: "/gizlilik-politikasi", label: t("Gizlilik Politikası", "Privacy Policy") },
-        { href: "/cerez-politikasi", label: t("Çerez Politikası", "Cookie Policy") },
-        { href: "/kvkk", label: t("KVKK Aydınlatma Metni", "KVKK Data Protection Notice") },
+        { href: "/gizlilik-politikasi", label: "Privacy Policy" },
+        { href: "/cerez-politikasi", label: "Cookie Policy" },
+        { href: "/kvkk", label: "KVKK Data Protection Notice" },
       ],
     },
   ];
@@ -65,7 +61,7 @@ export default function SiteHaritasiPage() {
       <div className="container-edit">
         <SectionLabel>PRIZOMA</SectionLabel>
         <h1 className="mt-4 text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-          {t("Site Haritası", "Site Map")}
+          {"Site Map"}
         </h1>
 
         <div className="mt-16 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">

@@ -3,10 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { useT } from "@/lib/i18n";
 
 export function WhatWeDo() {
-  const t = useT();
   const listRef = useRef<HTMLOListElement>(null);
   const centers = useRef<number[]>([]);
   const drag = useRef<{ y: number; scroll: number } | null>(null);
@@ -83,43 +81,28 @@ export function WhatWeDo() {
   const CAPABILITIES = [
     {
       n: "01",
-      title: t("Keşfet", "Discover"),
-      description: t(
-        "Yeni fikirleri ve pazar fırsatlarını araştırıyoruz.",
-        "We research new ideas and market opportunities."
-      ),
+      title: "Discover",
+      description: "We research new ideas and market opportunities.",
     },
     {
       n: "02",
-      title: t("İnşa Et", "Build"),
-      description: t(
-        "Marka, ürün, teknoloji ve sistemleri geliştiriyoruz.",
-        "We develop brands, products, technology and systems."
-      ),
+      title: "Build",
+      description: "We develop brands, products, technology and systems.",
     },
     {
       n: "03",
-      title: t("Hayata Geçir", "Launch"),
-      description: t(
-        "Fikirleri gerçek ürün ve işletmelere dönüştürüyoruz.",
-        "We turn ideas into real products and businesses."
-      ),
+      title: "Launch",
+      description: "We turn ideas into real products and businesses.",
     },
     {
       n: "04",
-      title: t("İşlet", "Operate"),
-      description: t(
-        "Sadece kurup bırakmıyoruz; büyüme sürecinde aktif rol alıyoruz.",
-        "We don't just launch and leave — we stay actively involved through growth."
-      ),
+      title: "Operate",
+      description: "We don't just launch and leave — we stay actively involved through growth.",
     },
     {
       n: "05",
-      title: t("Büyüt", "Scale"),
-      description: t(
-        "Başarılı modelleri yeni pazarlara ve kategorilere taşıyoruz.",
-        "We take proven models into new markets and categories."
-      ),
+      title: "Scale",
+      description: "We take proven models into new markets and categories.",
     },
   ];
 
@@ -127,12 +110,9 @@ export function WhatWeDo() {
     <section className="border-b border-border py-32 md:py-48">
       <div className="container-edit">
         <ScrollReveal>
-          <SectionLabel>{t("Ne Yapıyoruz", "What We Do")}</SectionLabel>
+          <SectionLabel>{"What We Do"}</SectionLabel>
           <h2 className="mt-4 max-w-xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-            {t(
-              "Fikirleri işleyen markalara dönüştürüyoruz.",
-              "We turn ideas into working brands."
-            )}
+            {"We turn ideas into working brands."}
           </h2>
         </ScrollReveal>
 
@@ -141,7 +121,7 @@ export function WhatWeDo() {
           <div
             role="slider"
             tabIndex={0}
-            aria-label={t("Aşama ilerlemesi", "Stage progress")}
+            aria-label={"Stage progress"}
             aria-valuemin={1}
             aria-valuemax={CAPABILITIES.length}
             aria-valuenow={active + 1}

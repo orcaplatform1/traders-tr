@@ -3,7 +3,6 @@
 import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { ventures } from "@/lib/content/ventures";
-import { useT } from "@/lib/i18n";
 import { StatusIndicator } from "@/components/status-indicator";
 
 const VENTURE_COLOR: Record<string, string> = {
@@ -15,15 +14,14 @@ const VENTURE_COLOR: Record<string, string> = {
 };
 
 export function VenturesSection() {
-  const t = useT();
 
   return (
     <section className="border-b border-border py-32 md:py-48">
       <div className="container-edit">
         <ScrollReveal>
-          <SectionLabel>{t("Girişimler", "Ventures")}</SectionLabel>
+          <SectionLabel>{"Ventures"}</SectionLabel>
           <h2 className="mt-4 max-w-2xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-            {t("Sıfırdan kuruldu.", "Built from scratch.")}
+            {"Built from scratch."}
           </h2>
         </ScrollReveal>
 
@@ -44,18 +42,18 @@ export function VenturesSection() {
                   <h3 className="mt-5 text-2xl font-medium tracking-tight text-foreground md:text-[26px]">
                     {v.name}
                   </h3>
-                  <p className="mt-2 text-[14px] leading-relaxed text-muted">{t(v.description, v.descriptionEn)}</p>
+                  <p className="mt-2 text-[14px] leading-relaxed text-muted">{v.description}</p>
 
                   <dl className="mt-6 space-y-3 border-t border-border pt-5">
                     <div className="flex items-baseline justify-between gap-4">
                       <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
-                        {t("Kategori", "Category")}
+                        {"Category"}
                       </dt>
-                      <dd className="text-right text-[13px] text-foreground">{t(v.category, v.categoryEn)}</dd>
+                      <dd className="text-right text-[13px] text-foreground">{v.category}</dd>
                     </div>
                     <div className="flex items-baseline justify-between gap-4">
                       <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
-                        {t("Durum", "Status")}
+                        {"Status"}
                       </dt>
                       <dd
                         className={`flex items-center gap-2 text-[13px] ${
@@ -64,14 +62,14 @@ export function VenturesSection() {
                       >
                         <StatusIndicator color={v.stage === "developing" ? "var(--warning)" : "var(--success)"} />
                         {v.stage === "developing"
-                          ? t("Geliştirme aşamasında", "In development")
-                          : t("Aktif", "Active")}
+                          ? "In development"
+                          : "Active"}
                       </dd>
                     </div>
                     {v.websiteUrl && (
                       <div className="flex items-baseline justify-between gap-4">
                         <dt className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
-                          {t("Web Sitesi", "Website")}
+                          {"Website"}
                         </dt>
                         <dd>
                           <a
@@ -99,13 +97,10 @@ export function VenturesSection() {
           <div className="mt-14 flex flex-col gap-4 border-t border-border pt-10 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-accent">
-                {t("Keşfediyoruz", "Exploring")}
+                {"Exploring"}
               </span>
               <p className="mt-3 max-w-md text-[14px] leading-relaxed text-muted">
-                {t(
-                  "Teknoloji, dijital ticaret, finans ve gelişmekte olan pazarlardaki fırsatları sürekli değerlendiriyoruz.",
-                  "We continuously evaluate opportunities in technology, digital commerce, finance and emerging markets."
-                )}
+                {"We continuously evaluate opportunities in technology, digital commerce, finance and emerging markets."}
               </p>
             </div>
           </div>

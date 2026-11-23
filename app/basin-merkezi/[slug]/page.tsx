@@ -40,8 +40,8 @@ export default async function NewsroomPostPage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Basın Merkezi", item: `${SITE_URL}/basin-merkezi` },
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Newsroom", item: `${SITE_URL}/basin-merkezi` },
       { "@type": "ListItem", position: 3, name: post.title, item: `${SITE_URL}/basin-merkezi/${post.slug}` },
     ],
   };

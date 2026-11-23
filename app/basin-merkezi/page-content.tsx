@@ -3,15 +3,11 @@
 import Link from "next/link";
 import { SectionLabel } from "@/components/section-label";
 import { newsroomPosts } from "@/lib/content/newsroom";
-import { useT, useLang } from "@/lib/i18n";
-import { newsroomCategory } from "@/lib/content/labels";
 
 export function NewsroomPageContent() {
-  const t = useT();
-  const { lang } = useLang();
 
   function formatDate(iso: string) {
-    return new Date(iso).toLocaleDateString(lang === "en" ? "en-US" : "tr-TR", {
+    return new Date(iso).toLocaleDateString("en-US", {
       day: "numeric",
       month: "long",
       year: "numeric",
@@ -21,9 +17,9 @@ export function NewsroomPageContent() {
   return (
     <section className="py-28 md:py-36">
       <div className="container-edit">
-        <SectionLabel>{t("Basın Merkezi", "Newsroom")}</SectionLabel>
+        <SectionLabel>{"Newsroom"}</SectionLabel>
         <h1 className="mt-4 max-w-xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-          {t("Şirket duyuruları.", "Company announcements.")}
+          {"Company announcements."}
         </h1>
 
         <div className="mt-16 divide-y divide-border border-y border-border">
@@ -38,11 +34,11 @@ export function NewsroomPageContent() {
                   {formatDate(post.publishedAt)}
                 </span>
                 <span className="text-[15px] font-medium text-foreground transition-colors group-hover:text-accent">
-                  {lang === "en" && post.titleEn ? post.titleEn : post.title}
+                  {post.title}
                 </span>
               </div>
               <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
-                {newsroomCategory(post.category, lang)}
+                {post.category}
               </span>
             </Link>
           ))}

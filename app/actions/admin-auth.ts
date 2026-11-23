@@ -13,14 +13,14 @@ export type LoginState = { error?: string };
 
 export async function login(_prevState: LoginState, formData: FormData): Promise<LoginState> {
   const password = formData.get("password")?.toString() ?? "";
-  if (!password) return { error: "Şifre hatalı." };
+  if (!password) return { error: "Incorrect password." };
 
   const result = await attemptLogin(password);
   if (result === "rate-limited") {
-    return { error: "Çok fazla başarısız deneme. Lütfen birkaç dakika sonra tekrar deneyin." };
+    return { error: "Too many failed attempts. Please try again in a few minutes." };
   }
   if (result === "invalid") {
-    return { error: "Şifre hatalı." };
+    return { error: "Incorrect password." };
   }
 
   await createSession();
@@ -47,7 +47,7 @@ export async function changePassword(
   const confirmPassword = formData.get("confirmPassword")?.toString() ?? "";
 
   if (newPassword !== confirmPassword) {
-    return { error: "Yeni şifreler birbiriyle uyuşmuyor." };
+    return { error: "The new passwords do not match." };
   }
 
   const result = await changePasswordDb(currentPassword, newPassword);

@@ -14,41 +14,10 @@ export const newsroomPosts: NewsroomPost[] = [
   {
     id: "7",
     slug: "secbird-duyurusu",
-    title: "Prizoma, gizlilik odaklı e-posta servisi Secbird'ü duyurdu",
-    titleEn: "Prizoma Announces Secbird, a Privacy-Focused Email Service",
+    title: "Prizoma Announces Secbird, a Privacy-Focused Email Service",
     excerpt:
-      "Prizoma GmbH, İsviçre'nin Zug kantonunda geliştirdiği gizlilik odaklı e-posta servisi Secbird'ü duyurdu. Servis geliştirme aşamasında.",
-    excerptEn:
       "Prizoma GmbH has announced Secbird, a privacy-focused email service it is developing in the canton of Zug, Switzerland. The service is in development.",
     content: [
-      p(
-        "Prizoma GmbH, yeni markası Secbird'ü duyuruyor. Secbird, İsviçre'nin Zug kantonunda geliştirilen, gizlilik odaklı bir e-posta servisi. Servis şu anda geliştirme aşamasında; aşağıda anlatılan özellikler geliştirilmekte olan özelliklerdir.",
-      ),
-      h2("Neden bir e-posta servisi", "neden-e-posta"),
-      p(
-        "E-posta, iş ve özel hayatın en hassas yazışmalarını taşımaya devam ediyor: sözleşmeler, faturalar, hesap bildirimleri, kişisel yazışmalar. Buna rağmen e-posta çoğu zaman bu hassasiyete uygun bir korumayla sunulmuyor. Secbird, e-postayı varsayılan olarak şifreli ve İsviçre'de barındırılan bir altyapıyla sunmak amacıyla geliştiriliyor.",
-      ),
-      h2("Geliştirilen şifreleme altyapısı", "sifreleme"),
-      p(
-        "Secbird'ün temelinde uçtan uca şifreleme yer alıyor. OpenPGP standardına dayanan bu yapı geliştiriliyor; amaç, e-postaların gönderen ve alıcı dışında kimsenin okuyamayacağı şekilde şifrelenmesi. Secbird kullanıcısı olmayan kişilerden, yani dışarıdan gelen e-postalar için ise sıfır erişimli şifreleme geliştiriliyor: bu e-postalar alındıktan sonra yalnız kullanıcının anahtarıyla açılabilecek şekilde saklanacak.",
-      ),
-      p(
-        "Şifreleme katmanı, kendi yazdığımız algoritmalar yerine açık kaynak ve denetlenmiş şifreleme kütüphaneleri üzerine kuruluyor. Bu tercih, kullanılan yöntemlerin herkes tarafından incelenebilmesini sağlıyor.",
-      ),
-      h2("Sunucular İsviçre'de", "isvicre"),
-      p(
-        "Secbird'ün sunucuları İsviçre'de konumlanacak. Prizoma GmbH'nin merkezinin bulunduğu Zug'dan yürütülen geliştirme süreci, İsviçre'nin veri koruma mevzuatı çerçevesinde ilerliyor.",
-      ),
-      h2("E-postanın yanında şifreli canlı sohbet", "canli-sohbet"),
-      p(
-        "E-posta paketine ek bir özellik olarak uçtan uca şifreli canlı sohbet de geliştiriliyor. Böylece kullanıcıların e-posta ile anlık yazışmayı aynı hesap içinde, aynı şifreleme yaklaşımıyla kullanabilmesi hedefleniyor.",
-      ),
-      h2("Sırada ne var", "sirada-ne-var"),
-      p(
-        "Secbird geliştirme aşamasında. Gelişmeleri secbird.me adresinden ve bu sayfadan takip edebilirsiniz.",
-      ),
-    ],
-    contentEn: [
       p(
         "Prizoma GmbH is announcing its new brand, Secbird. Secbird is a privacy-focused email service being developed in the canton of Zug, Switzerland. The service is currently in development; the features described below are features under development.",
       ),
@@ -76,87 +45,17 @@ export const newsroomPosts: NewsroomPost[] = [
         "Secbird is in development. Follow developments at secbird.me and on this page.",
       ),
     ],
-    category: "Şirket Duyurusu",
+    category: "Company Announcement",
     publishedAt: "2026-11-23",
-    readTime: "4 dk",
+    readTime: "4 min",
   },
   {
     id: "6",
     slug: "ahenk-tanitimi",
-    title: "PRIZOMA'nın beşinci markası: Ahenk geliştirme sürecinde",
-    titleEn: "PRIZOMA's Fifth Brand: Ahenk Is in Development",
+    title: "PRIZOMA's Fifth Brand: Ahenk Is in Development",
     excerpt:
-      "PRIZOMA, sosyal buluşma alanında OCEAN Big Five kişilik uyumluluğuna dayalı haftalık masa organizasyonu sunan Ahenk'i portföyüne ekledi. Platform aktif geliştirme sürecinde.",
-    excerptEn:
       "PRIZOMA has added Ahenk to its portfolio — a social meeting platform offering weekly table organisation based on OCEAN Big Five personality compatibility. The platform is in active development.",
     content: [
-      p(
-        "PRIZOMA, beşinci markasını duyuruyor: Ahenk. Sosyal buluşma alanında çalışan Ahenk, yabancılarla tanışmanın rastlantıya bırakılamayacak kadar önemli olduğu fikrinden yola çıkarak OCEAN (Big Five) kişilik uyumluluğuna dayalı haftalık masa organizasyonu sunan bir platform olarak aktif geliştirme sürecine girdi. Orca Labs, KriptoBeyan, Zesta Art&Design ve Secbird'ün ardından portföye katılan bu marka, PRIZOMA'nın teknoloji ile insan deneyimini buluşturma vizyonunun sosyal bağlantı alanındaki en cesur adımı.",
-      ),
-      h2("Neden bu alan, neden şimdi", "neden-bu-alan"),
-      p(
-        "Türkiye'de ve dünyada insanlar giderek daha fazla dijital platformda vakit geçiriyor; ancak bu dijital yoğunluğun gerçek hayatta gerçek bağlantılar kurma kapasitesini zayıflattığı görülüyor. Mevcut sosyal buluşma alternatifleri ya tamamen rastlantıya dayalı ya da yüzeysel eşleştirme kriterleriyle çalışıyor — yaş, konum, ilgi alanı listesi. Oysa bilim, insanların birbiriyle gerçekten bağlantı kurabilmesinin temelinde kişilik uyumluluğunun yattığını uzun süredir gösteriyor.",
-      ),
-      p(
-        "Ahenk bu boşluğu doldurmak için kuruldu: kaliteli bir çevre şans değil, seçimdir. Rastgele eşleştirme yerine, bilimsel bir temel üzerine inşa edilmiş algoritmik uyumluluk. Ve her şeyden önemlisi — gerçek hayatta, gerçek mekânlarda, gerçek insanlarla buluşmak.",
-      ),
-      h2("OCEAN Big Five: bilimi masaya taşımak", "ocean-modeli"),
-      p(
-        "Ahenk'in eşleştirme altyapısının temelinde OCEAN (Big Five) kişilik modeli yer alıyor. Bu model, kişilik psikolojisindeki en kapsamlı ve en geniş araştırma zeminine sahip çerçevelerden biri; Açıklık (Openness), Özenlilik (Conscientiousness), Dışadönüklük (Extraversion), Uyumluluk (Agreeableness) ve Denge (Emotional Stability) olmak üzere beş boyuttan oluşuyor.",
-      ),
-      p(
-        "Kullanıcılar platforma katıldıklarında kısa ama anlamlı bir kişilik profil testi dolduruyorlar. Bu test bir kez değil, 180 günde bir yenileniyor — çünkü insanlar değişir ve profil bu değişimi yansıtmalı. Algoritma, her hafta bu profilleri karşılaştırarak kullanıcıları birbirleriyle gerçekten uyumlu olma ihtimali en yüksek kişilerle eşleştiriyor; sonra mekan, saat ve rezervasyonu kendisi ayarlıyor.",
-      ),
-      h2("Üç masa formatı, bir ekosistem", "masa-formatlari"),
-      p(
-        "Ahenk üç farklı buluşma formatı sunuyor ve her biri farklı bir sosyal ihtiyaca yanıt veriyor:",
-      ),
-      p(
-        "Grup Masası: Uyumlu 6 kişiyi (3 kadın, 3 erkek) bir araya getiren haftalık akşam yemeği. Hiç tanımadığın insanlarla kahve soğurken fark etmediğin o sohbetleri yaratmak için tasarlandı. Algoritma, her katılımcının profil uyumluluğunu diğerleriyle en üst düzeyde tutacak şekilde masayı kuruyor.",
-      ),
-      p(
-        "Baş Başa Masa: Bire bir tanışma formatı. Tek bir kişiyle, gerçek anlamda birebir bir buluşma. Hem yeni bir arkadaşlık hem de derinlikli bir sohbet için uygun bir format.",
-      ),
-      p(
-        "Kankamla Masası: Bir arkadaşınla birlikte katıldığın, karşınıza da benzer bir çiftin oturduğu 4 kişilik masa. Sosyal kaygı düzeyi daha yüksek olan kullanıcılar için — ya da sadece bir arkadaşla yeni insanlarla tanışmak isteyenler için.",
-      ),
-      quote(
-        "Bazı akşamlar takvimde kalır, bazıları hafızanda. Ahenk, hafızada kalanları tasarlıyor.",
-      ),
-      h2("Organizasyonun tamamı Ahenk'te", "organizasyon"),
-      p(
-        "Ahenk'i rakiplerinden ayıran en kritik özelliklerden biri, lojistiği tamamen üstlenmesi. Kullanıcının yapması gereken tek şey gitmek. Eşleştirme, mekan seçimi, rezervasyon, hatırlatıcı bildirim, masa kompozisyonu — bunların hepsi Ahenk tarafından haftalık olarak yönetiliyor. Kullanıcı platformda bir paket seçtikten sonra, sisteme güveniyor ve o perşembe gecesi için hazırlanıyor.",
-      ),
-      p(
-        "Mekanlar dikkatli bir kürasyon süreciyle belirleniyor: Sade, Orta ve Premium kategorilerinde, şehrin sosyal atmosferine uygun, ulaşımı kolay, özel alan sağlayan mekânlar. İstanbul'dan başlayarak Ankara, İzmir, Antalya, Muğla, Aydın ve Balıkesir'de her hafta masalar kuruluyor.",
-      ),
-      h2("Güvenlik ve doğrulama", "guvenlik"),
-      p(
-        "Sosyal bir platformda en kritik sorulardan biri güven. Ahenk, güveni tasarımın merkezine aldı. Platforma katılmak için WhatsApp OTP ile telefon doğrulaması zorunlu; abonelik için kimlik doğrulama (KYC) süreci işletiliyor. Yani masada karşılaşacağın insanların kimliklerinin doğrulanmış olduğunu biliyorsun.",
-      ),
-      p(
-        "Bunun yanı sıra katılımcılar birbirini masa öncesinde baş harfleriyle (M.A., S.T. gibi) görebiliyor — tam isim yalnızca masa onaylandıktan sonra bildirimle paylaşılıyor. Rehber engelleme sistemi, tanıdığın biriyle aynı masaya düşmeni de önlüyor.",
-      ),
-      h2("Şu anki durum: aktif geliştirme", "gelistirme-durumu"),
-      p(
-        "Ahenk, PRIZOMA bünyesinde aktif geliştirme sürecindedir. Teknik altyapı — NestJS backend, Next.js web ve React Native mobil uygulama — inşa ediliyor; eşleştirme algoritması, ödeme sistemi, bildirim servisleri ve admin paneli dahil olmak üzere tüm modüller çalışıyor durumda. Şu sıralar platform ilk kullanıcılara açılmaya hazırlanıyor.",
-      ),
-      p(
-        "Bu süreçte altyapı kararlılığı, ilk masa deneyimlerinin kalitesi ve kullanıcı geri bildirimi önceliğimiz. Büyüme metrikleri değil, doğru insanların doğru insanlarla buluştuğuna dair ilk kanıtlar peşindeyiz.",
-      ),
-      h2("PRIZOMA portföyündeki yeri", "portfoy"),
-      p(
-        "Ahenk, PRIZOMA'nın beşinci bağımsız markası. Her marka kendi alanında özerk çalışıyor: Orca Labs finans eğitiminde, KriptoBeyan dijital vergide, Zesta el yapımı ticarette, Secbird gizlilik odaklı e-postada. Ahenk ise sosyal bağlantı ve buluşma alanında bu ekosisteme katılıyor.",
-      ),
-      p(
-        "Portföydeki her marka, farklı bir sektördeki yapısal boşluğu doldurmak için kuruldu. Ahenk de aynı mantıkla hareket ediyor: teknoloji bir araç, asıl ürün iki insanın gerçek hayatta kurduğu bağlantı.",
-      ),
-      h2("Sırada ne var", "sirada-ne-var"),
-      p(
-        "Ahenk'in beta lansman süreci yaklaşıyor. Gelişmeleri ahenk.co adresinden ve bu sayfadan takip edebilirsiniz. Erken kullanıcılar için Öncü programı kapsamında özel avantajlar sunulacak — detaylar yakında.",
-      ),
-    ],
-    contentEn: [
       p(
         "PRIZOMA is announcing its fifth brand: Ahenk. Operating in the social meeting space, Ahenk has entered active development as a platform offering weekly table organisation based on OCEAN (Big Five) personality compatibility — built on the belief that meeting the right people is too important to leave to chance. Following Orca Labs, KriptoBeyan, Zesta Art&Design, and Secbird, this brand marks PRIZOMA's boldest step into the intersection of technology and human experience.",
       ),
@@ -223,38 +122,17 @@ export const newsroomPosts: NewsroomPost[] = [
         "Ahenk's beta launch process is approaching. Follow developments at ahenk.co and on this page. Special advantages will be offered to early users under the Pioneer programme — details coming soon.",
       ),
     ],
-    category: "Şirket Duyurusu",
+    category: "Company Announcement",
     publishedAt: "2026-10-27",
-    readTime: "7 dk",
+    readTime: "7 min",
   },
   {
     id: "1",
     slug: "traders-yeni-bir-girisim-icin-calismalara-basladi",
-    title: "PRIZOMA yeni bir girişim için çalışmalara başladı",
-    titleEn: "PRIZOMA Has Begun Work on a New Venture",
+    title: "PRIZOMA Has Begun Work on a New Venture",
     excerpt:
-      "PRIZOMA, portföyündeki markalardan bağımsız olarak teknoloji ve ticaretin kesişiminde yeni bir fırsat alanını değerlendirmeye başladı.",
-    excerptEn:
       "PRIZOMA has begun early-stage research and design on a new opportunity area at the intersection of technology and commerce, independent of its existing brands.",
     content: [
-      p(
-        "PRIZOMA, mevcut portföyündeki Orca Labs, KriptoBeyan ve Zesta Art&Design markalarından bağımsız olarak, teknoloji ve ticaretin kesişiminde yeni bir fırsat alanı üzerinde erken aşama araştırma ve tasarım çalışmalarına başladığını duyurdu.",
-      ),
-      h2("Neden yeni bir girişim", "neden-yeni-girisim"),
-      p(
-        "Mevcut üç markamızın her biri farklı bir sektörde faaliyet gösteriyor: finans eğitimi, dijital vergi uyumu ve el yapımı ticaret. Bu çeşitlilik, ekibimize farklı pazarların nasıl çalıştığına dair geniş bir bakış açısı kazandırdı. Şirket içindeki değerlendirme süreçlerimiz, bu birikimin üzerine inşa edilebilecek yeni bir alanı işaret ediyor.",
-      ),
-      h2("Süreç nasıl ilerliyor", "surec"),
-      p(
-        "PRIZOMA'da yeni bir girişim, doğrudan ürün geliştirmeyle değil; problemi ve fırsatı derinlemesine anlamakla başlar. Şu anda bu erken keşif aşamasındayız — pazar araştırması, olası iş modeli senaryoları ve teknik fizibilite üzerinde çalışıyoruz.",
-      ),
-      quote("Bir girişimi duyurmadan önce, onun gerçekten inşa edilmeye değer olduğundan emin oluyoruz."),
-      h2("Sırada ne var", "sirada-ne-var"),
-      p(
-        "Detaylar, girişim daha olgun bir aşamaya geldiğinde bu sayfadan paylaşılacak. O zamana kadar, mevcut markalarımızın gelişimine ve büyümesine odaklanmaya devam ediyoruz.",
-      ),
-    ],
-    contentEn: [
       p(
         "PRIZOMA announces that it has begun early-stage research and design work on a new opportunity area at the intersection of technology and commerce, independent of its existing portfolio brands Orca Labs, KriptoBeyan, and Zesta Art&Design.",
       ),
@@ -272,49 +150,17 @@ export const newsroomPosts: NewsroomPost[] = [
         "Details will be shared on this page when the venture reaches a more mature stage. Until then, we continue to focus on the development and growth of our existing brands.",
       ),
     ],
-    category: "Şirket Duyurusu",
+    category: "Company Announcement",
     publishedAt: "2026-09-01",
-    readTime: "3 dk",
+    readTime: "3 min",
   },
   {
     id: "2",
     slug: "orca-platformunu-genisletiyor",
-    title: "Orca Labs platformunu genişletiyor",
-    titleEn: "Orca Labs Expands Its Platform",
+    title: "Orca Labs Expands Its Platform",
     excerpt:
-      "Orca Labs, eğitim müfredatına ve piyasa araçları setine önemli yeni eklemeler yaptı — AI destekli mentorluktan gerçek zamanlı piyasa tarayıcılarına kadar.",
-    excerptEn:
       "Orca Labs has made significant additions to its educational curriculum and market tools suite — from AI-powered mentorship to real-time market scanners.",
     content: [
-      p(
-        "Orca Labs, kullanıcılarına sunduğu eğitim içeriğini ve piyasa araçları setini genişletmeye devam ediyor. Bu dönemdeki gelişmeler, platformun iki temel eksenini — yapılandırılmış eğitim ve gerçek zamanlı piyasa pratiği — güçlendirmeye odaklandı.",
-      ),
-      h2("Genişleyen araç seti", "genisleyen-arac-seti"),
-      p(
-        "Orca Labs'ın araç paneli; yapay zekâ destekli piyasa tarayıcısı, backtest simülatörü, ileri seviye piyasa simülasyonu ve bir terminal haber-ticaret modülünü bir araya getiriyor. Bunlara ek olarak kripto varlık takvimi, haber duyarlılık analizi, büyük cüzdan hareketlerini izleyen whale tracker ve çok zincirli cüzdan analiz aracı da platforma dahil edildi.",
-      ),
-      p(
-        "BIST100, forex ve kripto piyasalarını tek panelde toplayan genel araçlar da bu genişlemenin bir parçası; kullanıcılar artık farklı sekmeler arasında geçiş yapmadan piyasaları takip edebiliyor.",
-      ),
-      h2("AI Mentor ve kişiselleştirilmiş öğrenme", "ai-mentor"),
-      p(
-        "Orca Labs AI Mentor, 7/24 erişilebilir yapay zekâ destekli bir eğitim asistanı olarak, kullanıcıların takıldığı konularda anlık destek sağlıyor. Bu özellik, yapılandırılmış müfredatın (başlangıçtan uzman seviyeye) statik içerik olmaktan çıkıp, her kullanıcının kendi hızına uyum sağlayan dinamik bir deneyime dönüşmesini hedefliyor.",
-      ),
-      quote("Amacımız, piyasaları anlamayı bir sertifikadan ibaret bırakmamak; ölçülebilir, pratiğe dökülmüş bir yetkinliğe dönüştürmek."),
-      h2("Topluluk ve gamification", "topluluk-gamification"),
-      p(
-        "Platform, TradingView tarzı bir canlı topluluk deneyimini de barındırıyor: kullanıcılar analizlerini paylaşabiliyor, birbirleriyle doğrudan mesajlaşabiliyor ve canlı derslere katılabiliyor. İlerlemeyi teşvik etmek için puan, rozet ve seri (streak) sistemleri; tamamlanan modüllerin sonunda ise doğrulanabilir sertifikalar sunuluyor.",
-      ),
-      h2("Kripto ekosistemine özel araçlar", "kripto-ekosistemi"),
-      p(
-        "Kripto varlıklarla ilgilenen kullanıcılar için ICO takip aracı, token kilidi açılma (unlock) takvimi ve airdrop takip modülü platforma eklendi. Bu araçlar, ORCA'nın \"öğrenirken uygulama\" felsefesinin bir uzantısı olarak, gerçek piyasa verisiyle doğrudan etkileşim kurmayı mümkün kılıyor.",
-      ),
-      h2("Sırada ne var", "orca-sirada-ne-var"),
-      p(
-        "Orca Labs ekibi, mevcut araçların kalitesini artırmaya ve kullanıcı geri bildirimlerine göre yeni modüller eklemeye devam ediyor. Platformun uzun vadeli hedefi, finansal eğitimi teoriden pratiğe taşıyan tek bir bütünleşik deneyim sunmak.",
-      ),
-    ],
-    contentEn: [
       p(
         "Orca Labs continues to expand the educational content and market tools suite it offers to users. The developments in this period focused on strengthening the platform's two core axes — structured education and real-time market practice.",
       ),
@@ -343,46 +189,17 @@ export const newsroomPosts: NewsroomPost[] = [
         "The Orca Labs team continues to improve the quality of existing tools and add new modules based on user feedback. The platform's long-term goal is to offer a single integrated experience that takes financial education from theory to practice.",
       ),
     ],
-    category: "Ürün Duyurusu",
+    category: "Product Announcement",
     publishedAt: "2026-08-20",
-    readTime: "5 dk",
+    readTime: "5 min",
   },
   {
     id: "3",
     slug: "kriptobeyan-yeni-bir-faza-giriyor",
-    title: "KriptoBeyan yeni bir faza giriyor",
-    titleEn: "KriptoBeyan Enters a New Phase",
+    title: "KriptoBeyan Enters a New Phase",
     excerpt:
-      "KriptoBeyan, mali müşavirlere yönelik yeni bir profesyonel panel ve DeFi gelir kategorileri desteğini kullanıma sundu.",
-    excerptEn:
       "KriptoBeyan has launched a new professional panel for financial advisors and support for DeFi income categories.",
     content: [
-      p(
-        "KriptoBeyan, kripto varlık beyan süreçlerini hem bireysel kullanıcılar hem de mali müşavirler için kolaylaştıran yeni bir aşamaya geçtiğini duyurdu. Bu güncelleme, platformun profesyonel kullanıcı segmentine yönelik ilk kapsamlı adımı oldu.",
-      ),
-      h2("Mali müşavir paneli", "musavir-paneli"),
-      p(
-        "Yeni müşavir paneli, mali müşavirlerin kendilerine davet ettikleri müvekkillerin hesaplarını tek bir yerden yönetebilmesini sağlıyor. Müşavir daveti akışıyla birlikte, bir müşavir birden fazla müvekkilin kripto varlık işlemlerini görüntüleyebiliyor, hesaplamaları doğrulayabiliyor ve beyan sürecini takip edebiliyor.",
-      ),
-      h2("DeFi gelirleri için ayrı kategoriler", "defi-gelirleri"),
-      p(
-        "Kullanıcıların artan bir kısmı, DeFi protokolleri üzerinden stake, likidite sağlama ve verim çiftçiliği (yield farming) gibi işlemlerden gelir elde ediyor. KriptoBeyan, bu gelir türlerini standart alım-satım işlemlerinden ayrıştırarak, her biri için ayrı bir raporlama kategorisi sundu — böylece beyan süreci gerçek işlem karmaşıklığını daha doğru yansıtıyor.",
-      ),
-      quote("Vergi uyumu, karmaşıklığı kullanıcıdan gizlemekle değil; onu anlaşılır hale getirmekle sağlanır."),
-      h2("Ödeme ve kupon altyapısı", "odeme-kupon"),
-      p(
-        "Abonelik tabanlı erişim modeli, artık kupon kodu desteğiyle birlikte çalışıyor; bu sayede kurumsal ortaklıklar ve kampanya süreçleri daha esnek şekilde yönetilebiliyor. Ödeme altyapısı, işlem hacmi arttıkça platformun ölçeklenebilirliğini korumak üzere yeniden gözden geçirildi.",
-      ),
-      h2("Operasyonel iyileştirmeler", "operasyonel-iyilestirmeler"),
-      p(
-        "Kullanıcı işlem geçmişini içe aktarma sürecini hızlandırmak için CSV şablon desteği eklendi; büyük hacimli işlem kuyruklarının durumu artık daha iyi izlenebiliyor. Bu değişiklikler, kullanıcıya görünmese de, platformun günlük binlerce işlemi güvenilir şekilde işlemesini sağlayan altyapının bir parçası.",
-      ),
-      h2("Sırada ne var", "kb-sirada-ne-var"),
-      p(
-        "KriptoBeyan ekibi, mali müşavir ekosistemiyle iş birliğini derinleştirmeye ve DeFi kategorilerini daha da genişletmeye devam ediyor.",
-      ),
-    ],
-    contentEn: [
       p(
         "KriptoBeyan announces it has entered a new phase of making crypto asset declaration processes easier for both individual users and financial advisors. This update was the platform's first comprehensive step targeting the professional user segment.",
       ),
@@ -408,46 +225,17 @@ export const newsroomPosts: NewsroomPost[] = [
         "The KriptoBeyan team continues to deepen collaboration with the financial advisor ecosystem and further expand DeFi categories.",
       ),
     ],
-    category: "Ürün Duyurusu",
+    category: "Product Announcement",
     publishedAt: "2026-08-05",
-    readTime: "5 dk",
+    readTime: "5 min",
   },
   {
     id: "4",
     slug: "zesta-ozel-siparis-pazaryerini-baslatti",
-    title: "Zesta Art&Design özel sipariş pazaryerini başlattı",
-    titleEn: "Zesta Art&Design Launches Custom Order Marketplace",
+    title: "Zesta Art&Design Launches Custom Order Marketplace",
     excerpt:
-      "Zesta Art&Design, el yapımı ürün tasarımcılarını küratörlü bir başvuru süreciyle alıcılarla buluşturan özel sipariş pazaryeri modelini duyurdu.",
-    excerptEn:
       "Zesta Art&Design has announced its custom order marketplace model, connecting handmade product designers with buyers through a curated application process.",
     content: [
-      p(
-        "Zesta Art&Design, el yapımı ürün üreticilerinin kendi mağazalarını yönetebildiği, alıcıların özel sipariş verebildiği yeni pazaryeri modelini kullanıma açtı. Bu lansman, Zesta Art&Design'ın 'kitlesel üretim yerine anlamlı, özenli üretim' vizyonunun somut ilk adımı oldu.",
-      ),
-      h2("Küratörlü tasarımcı topluluğu", "kuratorlu-topluluk"),
-      p(
-        "Platforma katılmak isteyen üreticiler bir başvuru süreci üzerinden değerlendiriliyor; onaylanan tasarımcılar kendi ürün kataloglarını yönetebildikleri özel bir panele erişim kazanıyor. Bu küratörlü yaklaşım, Zesta Art&Design'ın kitlesel bir pazaryerinden çok, kalite ve özgünlüğü önceliklendiren bir topluluk olmasını hedefliyor.",
-      ),
-      h2("Özel sipariş modeli", "ozel-siparis-modeli"),
-      p(
-        "Zesta'daki ürünlerin büyük kısmı stoktan değil, talep üzerine üretiliyor. Bu model, üreticilere stok riski taşımadan büyüme imkânı tanırken, alıcılara da gerçekten kendileri için hazırlanmış bir ürün deneyimi sunuyor.",
-      ),
-      quote("Her ürünün arkasında bir isim, bir süreç ve bir emek var — Zesta Art&Design bunu görünür kılmayı hedefliyor."),
-      h2("Tasarımcılar için şeffaf kazanç takibi", "seffaf-kazanc"),
-      p(
-        "Tasarımcı paneli, gerçek satış istatistiklerini ve ödeme (payout) talep akışını içeriyor; bu sayede üreticiler kazançlarını anlık olarak takip edebiliyor ve ödeme taleplerini doğrudan panel üzerinden oluşturabiliyor. Talepler bir onay sürecinden geçerek işleme alınıyor.",
-      ),
-      h2("Alıcı deneyimi", "alici-deneyimi"),
-      p(
-        "Mağaza tarafında; kategori bazlı keşif, sepet ve sipariş takibi gibi standart e-ticaret akışları, özel sipariş modeline uyacak şekilde yeniden tasarlandı. Kullanım koşulları ve gizlilik metinleri gibi yasal içerikler, kayıt ve başvuru formlarına entegre \"okuyarak onaylama\" akışıyla sunuluyor.",
-      ),
-      h2("Sırada ne var", "zesta-sirada-ne-var"),
-      p(
-        "Zesta Art&Design ekibi, tasarımcı başvuru sürecini daha da kolaylaştırmaya ve alıcı deneyimini geliştirmeye devam ediyor.",
-      ),
-    ],
-    contentEn: [
       p(
         "Zesta Art&Design has launched its new marketplace model where handmade product makers can manage their own shops and buyers can place custom orders. This launch was the first concrete step of Zesta Art&Design's vision of 'meaningful, careful production over mass production.'",
       ),
@@ -473,9 +261,9 @@ export const newsroomPosts: NewsroomPost[] = [
         "The Zesta Art&Design team continues to further streamline the designer application process and improve the buyer experience.",
       ),
     ],
-    category: "Marka Lansmanı",
+    category: "Brand Launch",
     publishedAt: "2026-07-18",
-    readTime: "5 dk",
+    readTime: "5 min",
   },
 ];
 

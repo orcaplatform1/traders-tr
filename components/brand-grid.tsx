@@ -4,10 +4,8 @@ import Link from "next/link";
 import { useEffect, useRef } from "react";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { brands } from "@/lib/content/brands";
-import { useT } from "@/lib/i18n";
 
 export function BrandGrid() {
-  const t = useT();
   const sorted = [...brands].sort((a, b) => a.displayOrder - b.displayOrder);
   const gridRef = useRef<HTMLDivElement>(null);
 
@@ -27,9 +25,9 @@ export function BrandGrid() {
     <section className="w-full border-b border-border py-12 md:py-32">
       <div className="container-edit">
         <ScrollReveal className="mb-8 md:mb-12">
-          <span className="font-mono text-xs uppercase tracking-widest text-text-tertiary">{t("Portföy", "Portfolio")}</span>
+          <span className="font-mono text-xs uppercase tracking-widest text-text-tertiary">{"Portfolio"}</span>
           <h2 className="mt-1 text-2xl font-bold tracking-tight text-foreground md:text-4xl">
-            {t("Girişim Ekosistemi", "Venture Ecosystem")}
+            {"Venture Ecosystem"}
           </h2>
         </ScrollReveal>
 
@@ -53,7 +51,7 @@ export function BrandGrid() {
                   <div className="mb-2 flex items-start justify-between gap-2">
                     <span className="font-mono text-[9px] uppercase text-text-tertiary md:text-[10px]">
                       {String(brand.displayOrder).padStart(2, "0")} {"// "}
-                      {t(brand.category, brand.categoryEn)}
+                      {brand.category}
                     </span>
                     <span
                       className={`status-badge shrink-0 border px-1.5 py-px text-[9px] font-bold md:text-[10px] ${
@@ -63,10 +61,10 @@ export function BrandGrid() {
                       }`}
                     >
                       {active
-                        ? t("Aktif", "Active")
+                        ? "Active"
                         : brand.status === "developing"
-                          ? t("Geliştirme aşamasında", "In development")
-                          : t("Keşfediyoruz", "Exploring")}
+                          ? "In development"
+                          : "Exploring"}
                     </span>
                   </div>
                   <h3 className={`font-bold text-foreground ${wide ? "text-xl md:text-3xl" : "text-lg md:text-2xl"}`}>
@@ -74,14 +72,14 @@ export function BrandGrid() {
                   </h3>
                   {wide && (
                     <p className="mt-2 max-w-2xl text-xs leading-relaxed text-muted md:text-sm">
-                      {t(brand.shortDescription, brand.shortDescriptionEn)}
+                      {brand.shortDescription}
                     </p>
                   )}
                 </div>
 
                 <div className="relative flex items-center justify-between pt-4 font-mono text-[10px] text-text-tertiary md:text-xs">
                   <span>{brand.websiteUrl.replace(/^https?:\/\//, "")}</span>
-                  {wide && <span className="font-sans font-bold text-foreground">{t("İncele →", "View →")}</span>}
+                  {wide && <span className="font-sans font-bold text-foreground">{"View →"}</span>}
                 </div>
               </Link>
             );

@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { BrandsPageContent } from "./page-content";
 
 export const metadata: Metadata = {
-  title: "Markalarımız",
-  description: "Bağımsız markalar. Ortak bir vizyon.",
+  title: "Our Brands",
+  description: "Independent brands. A shared vision.",
   alternates: { canonical: "/markalar" },
 };
 

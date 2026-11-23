@@ -2,45 +2,31 @@
 
 import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { useT } from "@/lib/i18n";
 
 const BENTO_SPAN = ["md:col-span-2", "md:col-span-1", "md:col-span-1", "md:col-span-2"];
 
 export function ApproachSection() {
-  const t = useT();
 
   const PRINCIPLES = [
     {
       n: "01",
-      title: t("Önce probleme odaklan.", "Focus on the problem first."),
-      description: t(
-        "Alışılmış modelleri kabul etmeden önce sorgularız.",
-        "We question established models before accepting them."
-      ),
+      title: "Focus on the problem first.",
+      description: "We question established models before accepting them.",
     },
     {
       n: "02",
-      title: t("Karmaşıklığı görünmez kıl.", "Make complexity invisible."),
-      description: t(
-        "Karmaşık problemler net ve sade çözümleri hak eder.",
-        "Complex problems deserve clear and simple solutions."
-      ),
+      title: "Make complexity invisible.",
+      description: "Complex problems deserve clear and simple solutions.",
     },
     {
       n: "03",
-      title: t("Teknoloji fikre hizmet eder.", "Technology serves the idea."),
-      description: t(
-        "Teknoloji bir amaç değil, fikri hayata geçiren araçtır.",
-        "Technology is not an end — it is the tool that brings the idea to life."
-      ),
+      title: "Technology serves the idea.",
+      description: "Technology is not an end — it is the tool that brings the idea to life.",
     },
     {
       n: "04",
-      title: t("Kalıcılığı hedefle.", "Aim for permanence."),
-      description: t(
-        "Kısa ömürlü trendler yerine dayanıklı markaları tercih ederiz.",
-        "We prefer durable brands over short-lived trends."
-      ),
+      title: "Aim for permanence.",
+      description: "We prefer durable brands over short-lived trends.",
     },
   ];
 
@@ -48,11 +34,11 @@ export function ApproachSection() {
     <section className="border-b border-border py-32 md:py-48">
       <div className="container-edit">
         <ScrollReveal>
-          <SectionLabel>{t("Nasıl Düşünüyoruz", "How We Think")}</SectionLabel>
+          <SectionLabel>{"How We Think"}</SectionLabel>
           <p className="mt-4 max-w-3xl text-[32px] font-medium leading-[1.15] tracking-tight text-foreground md:text-[52px] lg:text-[60px]">
-            {t("Anı değil,", "We shape")}
+            {"We shape"}
             <br />
-            {t("geleceği şekillendiriyoruz.", "the future, not the moment.")}
+            {"the future, not the moment."}
           </p>
         </ScrollReveal>
 

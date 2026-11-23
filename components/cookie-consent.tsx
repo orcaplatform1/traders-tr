@@ -2,7 +2,6 @@
 
 import { useState, useSyncExternalStore } from "react";
 import Link from "next/link";
-import { useT } from "@/lib/i18n";
 
 const STORAGE_KEY = "traders-tr-cookie-consent";
 
@@ -54,8 +53,37 @@ function Toggle({
   );
 }
 
+const ICON = "h-4 w-4 shrink-0";
+
+function CheckIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className={ICON} aria-hidden>
+      <path d="M20 6 9 17l-5-5" />
+    </svg>
+  );
+}
+
+function XIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className={ICON} aria-hidden>
+      <path d="M18 6 6 18M6 6l12 12" />
+    </svg>
+  );
+}
+
+function SlidersIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round" className={ICON} aria-hidden>
+      <path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6" />
+    </svg>
+  );
+}
+
+const PILL = "inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-[13px] font-medium transition-colors";
+const PILL_SOLID = `${PILL} bg-white text-black hover:bg-white/90`;
+const PILL_GHOST = `${PILL} border border-white/25 bg-transparent text-white hover:border-white/50`;
+
 export function CookieConsent() {
-  const t = useT();
   // Sunucuda gizli, istemcide kayitli onay yoksa gorunur
   const consentMissing = useSyncExternalStore(noopSubscribe, readConsentMissing, () => false);
   const [dismissed, setDismissed] = useState(false);
@@ -77,135 +105,98 @@ export function CookieConsent() {
     <div
       role="dialog"
       aria-live="polite"
-      aria-label={t("Çerez izni", "Cookie consent")}
-      className="fixed inset-x-4 bottom-4 z-50 mx-auto max-w-xl border border-border-default bg-surface-2 p-5 shadow-lg sm:inset-x-auto sm:right-6 sm:bottom-6 sm:w-[420px]"
+      aria-label="Cookie consent"
+      className="fixed inset-x-4 bottom-4 z-50 rounded-[20px] border border-white/10 bg-[#0B0B10]/85 p-5 text-white shadow-lg backdrop-blur-md sm:inset-x-auto sm:bottom-6 sm:left-6 sm:w-full sm:max-w-[420px]"
     >
       {!showPreferences ? (
         <>
-          <p className="text-[14px] leading-relaxed text-text-secondary">
-            {t(
-              "PRIZOMA olarak, teknoloji, ticaret ve finans alanındaki dijital girişimlerimizi, iş ortaklığı süreçlerimizi ve ana sayfa deneyiminizi optimize etmek amacıyla yasalara uygun çerezler kullanıyoruz.",
-              "At PRIZOMA, we use compliant cookies to optimise our digital ventures in technology, commerce and finance, our partnership processes, and your homepage experience."
-            )}
-          </p>
-          <p className="mt-3 text-[14px] leading-relaxed text-text-secondary">
-            {t(
-              "Sitemizdeki çerezleri dilediğiniz gibi yönetebilir, onayınızı serbestçe geri çekebilirsiniz. Detaylı bilgi için",
-              "You can manage cookies on our site as you wish and withdraw your consent at any time. For details, see our"
-            )}{" "}
-            <Link href="/cerez-politikasi" className="text-text-link underline underline-offset-2 hover:text-text-link-hover">
-              {t("Çerez Politikası", "Cookie Policy")}
+          <p className="text-[14px] leading-relaxed text-white">
+            We use cookies to improve your experience. See our{" "}
+            <Link href="/cerez-politikasi" className="underline underline-offset-2 hover:text-white/80">
+              Cookie Policy
             </Link>{" "}
-            {t("ve", "and")}{" "}
-            <Link href="/gizlilik-politikasi" className="text-text-link underline underline-offset-2 hover:text-text-link-hover">
-              {t("Gizlilik Politikası", "Privacy Policy")}
-            </Link>{" "}
-            {t("sayfalarımızı inceleyebilirsiniz.", "pages.")}
+            and{" "}
+            <Link href="/gizlilik-politikasi" className="underline underline-offset-2 hover:text-white/80">
+              Privacy Policy
+            </Link>
+            .
           </p>
 
-          <div className="mt-4 flex flex-col gap-2">
+          <div className="mt-4 flex flex-wrap gap-2">
             <button
               type="button"
               onClick={() => save({ necessary: true, analytics: true, marketing: true })}
-              className="rounded-sm bg-accent px-4 py-2 text-[13px] font-medium tracking-wide text-slate-50 transition-colors hover:bg-blue-400"
+              className={PILL_SOLID}
             >
-              🟩 {t("Tüm Çerezleri Kabul Et", "Accept All Cookies")}
+              <CheckIcon /> Accept all
             </button>
-            <div className="flex gap-2">
-              <button
-                type="button"
-                onClick={() => save({ necessary: true, analytics: false, marketing: false })}
-                className="flex-1 border border-border-default px-4 py-2 text-[13px] font-medium text-text-secondary transition-colors hover:border-border-strong hover:text-foreground"
-              >
-                🟥 {t("Reddet", "Reject")}
-              </button>
-              <button
-                type="button"
-                onClick={() => setShowPreferences(true)}
-                className="flex-1 border border-border-default px-4 py-2 text-[13px] font-medium text-text-secondary transition-colors hover:border-border-strong hover:text-foreground"
-              >
-                ⚙️ {t("Tercihleri Yönet", "Manage Preferences")}
-              </button>
-            </div>
+            <button
+              type="button"
+              onClick={() => save({ necessary: true, analytics: false, marketing: false })}
+              className={PILL_GHOST}
+            >
+              <XIcon /> Reject
+            </button>
+            <button type="button" onClick={() => setShowPreferences(true)} className={PILL_GHOST}>
+              <SlidersIcon /> Preferences
+            </button>
           </div>
         </>
       ) : (
         <div className="flex flex-col gap-4">
           <div>
-            <p className="text-[14px] font-medium text-foreground">{t("Çerez Tercihleri", "Cookie Preferences")}</p>
-            <p className="mt-1 text-[13px] leading-relaxed text-text-secondary">
-              {t(
-                "Hangi çerez kategorilerine izin vereceğinizi aşağıdan seçebilirsiniz.",
-                "Choose which cookie categories you allow below."
-              )}
+            <p className="text-[14px] font-medium text-white">Cookie Preferences</p>
+            <p className="mt-1 text-[13px] leading-relaxed text-white/70">
+              Choose which cookie categories you allow below.
             </p>
           </div>
 
-          <div className="flex flex-col gap-3 border border-border-default p-4">
+          <div className="flex flex-col gap-3 rounded-[14px] border border-white/10 p-4">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-[13px] font-medium text-foreground">
-                  🌐 {t("Zorunlu Çerezler (Her Zaman Aktif)", "Necessary Cookies (Always Active)")}
-                </p>
-                <p className="mt-0.5 text-[12px] leading-relaxed text-text-secondary">
-                  {t(
-                    "PRIZOMA kurumsal ana sayfasının güvenle yüklenmesi, iş ortaklığı ve iletişim formlarının kararlı çalışması için teknik olarak zorunludur. (Kullanıcı tarafından kapatılamaz)",
-                    "Technically required for the PRIZOMA homepage to load securely and for partnership and contact forms to function reliably. (Cannot be disabled)"
-                  )}
+                <p className="text-[13px] font-medium text-white">Necessary Cookies (Always Active)</p>
+                <p className="mt-0.5 text-[12px] leading-relaxed text-white/70">
+                  Technically required for the PRIZOMA homepage to load securely and for partnership and contact forms to function reliably. (Cannot be disabled)
                 </p>
               </div>
-              <Toggle checked onChange={() => {}} disabled label={t("Zorunlu çerezler (her zaman aktif)", "Necessary cookies (always active)")} />
+              <Toggle checked onChange={() => {}} disabled label="Necessary cookies (always active)" />
             </div>
 
-            <div className="h-px bg-border-default" />
+            <div className="h-px bg-white/10" />
 
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-[13px] font-medium text-foreground">
-                  📊 {t("Performans ve Analiz Çerezleri", "Performance & Analytics Cookies")}
-                </p>
-                <p className="mt-0.5 text-[12px] leading-relaxed text-text-secondary">
-                  {t(
-                    "Ziyaretçilerin \"İçgörüler\", \"Markalarımız\" ve \"Girişimler\" bölümlerindeki içerikleri nasıl incelediğini analiz ederek kurumsal platformumuzu geliştirmemize yardımcı olur.",
-                    "Helps us improve our platform by analysing how visitors browse the \"Insights\", \"Brands\" and \"Ventures\" sections."
-                  )}
+                <p className="text-[13px] font-medium text-white">Performance &amp; Analytics Cookies</p>
+                <p className="mt-0.5 text-[12px] leading-relaxed text-white/70">
+                  Helps us improve our platform by analysing how visitors browse the &quot;Insights&quot;, &quot;Brands&quot; and &quot;Ventures&quot; sections.
                 </p>
               </div>
-              <Toggle checked={analytics} onChange={setAnalytics} label={t("Performans ve analiz çerezlerini aç/kapat", "Toggle performance and analytics cookies")} />
+              <Toggle checked={analytics} onChange={setAnalytics} label="Toggle performance and analytics cookies" />
             </div>
 
-            <div className="h-px bg-border-default" />
+            <div className="h-px bg-white/10" />
 
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-[13px] font-medium text-foreground">
-                  📢 {t("Pazarlama ve Reklam Çerezleri", "Marketing & Advertising Cookies")}
-                </p>
-                <p className="mt-0.5 text-[12px] leading-relaxed text-text-secondary">
-                  {t(
-                    "Bünyemizde geliştirilen yeni bağımsız markaların lansmanları, ekosistem duyuruları ve stratejik iş ortaklığı süreçlerine yönelik kurumsal bildirimleri ilgi alanlarınıza göre optimize etmemizi sağlar.",
-                    "Allows us to tailor corporate communications — including new brand launches, ecosystem announcements and partnership updates — to your interests."
-                  )}
+                <p className="text-[13px] font-medium text-white">Marketing &amp; Advertising Cookies</p>
+                <p className="mt-0.5 text-[12px] leading-relaxed text-white/70">
+                  Allows us to tailor corporate communications, including new brand launches, ecosystem announcements and partnership updates, to your interests.
                 </p>
               </div>
-              <Toggle checked={marketing} onChange={setMarketing} label={t("Pazarlama ve reklam çerezlerini aç/kapat", "Toggle marketing and advertising cookies")} />
+              <Toggle checked={marketing} onChange={setMarketing} label="Toggle marketing and advertising cookies" />
             </div>
           </div>
 
           <div className="flex justify-end gap-2">
-            <button
-              type="button"
-              onClick={() => setShowPreferences(false)}
-              className="px-4 py-2 text-[13px] font-medium text-text-secondary transition-colors hover:text-foreground"
-            >
-              {t("Geri", "Back")}
+            <button type="button" onClick={() => setShowPreferences(false)} className={PILL_GHOST}>
+              Back
             </button>
             <button
               type="button"
               onClick={() => save({ necessary: true, analytics, marketing })}
-              className="rounded-sm bg-accent px-4 py-2 text-[13px] font-medium tracking-wide text-slate-50 transition-colors hover:bg-blue-400"
+              className={PILL_SOLID}
             >
-              {t("Tercihleri Kaydet", "Save Preferences")}
+              Save Preferences
             </button>
           </div>
         </div>

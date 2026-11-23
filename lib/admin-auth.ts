@@ -109,7 +109,7 @@ export async function isAuthenticated(): Promise<boolean> {
 
 async function getSettings() {
   const settings = await prisma.adminSettings.findUnique({ where: { id: ADMIN_SETTINGS_ID } });
-  if (!settings) throw new Error("Yönetim şifresi ayarlanmamış (AdminSettings kaydı yok)");
+  if (!settings) throw new Error("Admin password is not set (no AdminSettings record)");
   return settings;
 }
 
@@ -140,8 +140,8 @@ export async function attemptLogin(password: string): Promise<LoginAttemptResult
 export async function changePassword(currentPassword: string, newPassword: string): Promise<{ error?: string }> {
   const settings = await getSettings();
   const currentValid = await argon2.verify(settings.passwordHash, currentPassword);
-  if (!currentValid) return { error: "Mevcut şifre hatalı." };
-  if (newPassword.length < 6) return { error: "Yeni şifre en az 6 karakter olmalı." };
+  if (!currentValid) return { error: "Current password is incorrect." };
+  if (newPassword.length < 6) return { error: "The new password must be at least 6 characters." };
 
   const passwordHash = await argon2.hash(newPassword);
   await prisma.adminSettings.update({

@@ -9,7 +9,7 @@ export function LogoutButton() {
         type="submit"
         className="text-[13px] font-medium tracking-wide text-muted transition-colors hover:text-foreground"
       >
-        Çıkış Yap
+        Log Out
       </button>
     </form>
   );

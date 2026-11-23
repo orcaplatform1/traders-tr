@@ -3,11 +3,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Brand } from "@/lib/content/types";
-import { useLang, useT } from "@/lib/i18n";
 
 export function BrandProfileContent({ brand }: { brand: Brand }) {
-  const t = useT();
-  const { lang } = useLang();
 
   return (
     <section className="py-28 md:py-36">
@@ -16,7 +13,7 @@ export function BrandProfileContent({ brand }: { brand: Brand }) {
           href="/markalar"
           className="text-[13px] font-medium tracking-wide text-muted transition-colors hover:text-foreground"
         >
-          ← {t("Markalarımız", "Our Brands")}
+          ← {"Our Brands"}
         </Link>
 
         <div className="mt-8">
@@ -25,30 +22,30 @@ export function BrandProfileContent({ brand }: { brand: Brand }) {
           </div>
 
           <span className="mt-4 block text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
-            {t(brand.category, brand.categoryEn)}
+            {brand.category}
           </span>
           <h1 className="mt-4 text-5xl font-medium tracking-tight text-foreground md:text-6xl">
             {brand.name}
           </h1>
           <p className="mt-6 text-[17px] leading-relaxed text-foreground md:text-[19px]">
-            {t(brand.longDescription, brand.longDescriptionEn)}
+            {brand.longDescription}
           </p>
 
           <div className="mt-10 border-t border-border pt-8">
             <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-              {t("Neden var", "Why it exists")}
+              {"Why it exists"}
             </span>
             <p className="mt-3 text-[15px] leading-relaxed text-muted">
-              {t(brand.whyItExists, brand.whyItExistsEn)}
+              {brand.whyItExists}
             </p>
           </div>
 
           <div className="mt-10 border-t border-border pt-8">
             <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-              {t("Öne Çıkan Özellikler", "Key Features")}
+              {"Key Features"}
             </span>
             <ul className="mt-4 space-y-4">
-              {(lang === "en" ? brand.featuresEn : brand.features).map((feature, i) => (
+              {brand.features.map((feature, i) => (
                 <li key={i} className="flex gap-4 text-[15px] leading-relaxed text-foreground">
                   <span className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-accent" />
                   <span>{feature}</span>

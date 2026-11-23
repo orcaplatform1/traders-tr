@@ -2,27 +2,22 @@
 
 import Link from "next/link";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { useT } from "@/lib/i18n";
 
 export function CompanyStatement() {
-  const t = useT();
   return (
     <section className="border-b border-border py-32 md:py-48">
       <div className="container-edit relative z-10 grid grid-cols-1 gap-12 md:grid-cols-[1fr_auto] md:items-end md:gap-16">
         <div>
           <ScrollReveal>
             <p className="font-heading max-w-3xl text-[32px] font-semibold leading-[1.15] tracking-tight text-foreground md:text-[52px] lg:text-[64px]">
-              {t("Fikir üretmek kolaydır.", "Ideas are easy.")}
+              {"Ideas are easy."}
               <br />
-              {t("İnşa etmek değil.", "Building them is not.")}
+              {"Building them is not."}
             </p>
           </ScrollReveal>
           <ScrollReveal delay={120}>
             <p className="mt-8 max-w-xl text-[16px] leading-relaxed text-muted md:text-[17px]">
-              {t(
-                "Herkesin iyi bir fikri olabilir. Onu gerçek bir işletmeye dönüştürmek ise çoğu fikrin asla ulaşamadığı bir yapı, teknoloji ve zaman gerektirir. PRIZOMA tam da bu boşluğu doldurmak için var: gerçek dünya fırsatları etrafında bağımsız markalar kuruyor ve lansmandan sonra da sürecin içinde kalmaya devam ediyoruz.",
-                "Anyone can have a good idea. Turning it into a real business requires the structure, technology and time that most ideas never reach. PRIZOMA exists to fill exactly that gap: building independent brands around real-world opportunities and staying in the process long after launch."
-              )}
+              {"Anyone can have a good idea. Turning it into a real business requires the structure, technology and time that most ideas never reach. PRIZOMA exists to fill exactly that gap: building independent brands around real-world opportunities and staying in the process long after launch."}
             </p>
           </ScrollReveal>
         </div>
@@ -34,7 +29,7 @@ export function CompanyStatement() {
           >
             <span className="text-accent">01</span>
             <span className="h-px w-6 bg-border transition-colors group-hover:bg-accent" />
-            <span className="uppercase">{t("Hakkımızda", "About")}</span>
+            <span className="uppercase">{"About"}</span>
             <span className="transition-transform duration-300 group-hover:translate-x-1">
               →
             </span>

@@ -6,7 +6,6 @@ import { SiteFooter } from "@/components/site-footer";
 import { CookieConsent } from "@/components/cookie-consent";
 import { ChronoRing } from "@/components/chrono-ring";
 import { IdeaWizardProvider } from "@/components/idea-wizard";
-import { LangProvider } from "@/lib/i18n";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/constants";
 
 const inter = Inter({
@@ -28,33 +27,32 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Sınırların Ötesinde Markalar İnşa Ediyoruz`,
+    default: `${SITE_NAME} — Building Brands Beyond Borders`,
     template: `%s — ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
   keywords: [
     "Prizoma",
-    "Prizoma Türkiye",
     "venture company",
-    "teknoloji girişimleri",
-    "dijital markalar",
-    "finans teknolojileri",
-    "girişimcilik",
+    "technology ventures",
+    "digital brands",
+    "financial technology",
+    "entrepreneurship",
   ],
   alternates: {
     canonical: "/",
   },
   openGraph: {
     type: "website",
-    locale: "tr_TR",
+    locale: "en_US",
     url: SITE_URL,
     siteName: SITE_NAME,
-    title: `${SITE_NAME} — Sınırların Ötesinde Markalar İnşa Ediyoruz`,
+    title: `${SITE_NAME} — Building Brands Beyond Borders`,
     description: SITE_DESCRIPTION,
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE_NAME} — Sınırların Ötesinde Markalar İnşa Ediyoruz`,
+    title: `${SITE_NAME} — Building Brands Beyond Borders`,
     description: SITE_DESCRIPTION,
   },
   robots: {
@@ -93,11 +91,10 @@ const websiteJsonLd = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="tr"
+      lang="en"
       className={`${inter.variable} ${geistMono.variable} ${jakarta.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col">
-        <LangProvider>
           <IdeaWizardProvider>
           <SiteHeader />
           <main className="flex-1">{children}</main>
@@ -105,7 +102,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <ChronoRing />
           <CookieConsent />
           </IdeaWizardProvider>
-        </LangProvider>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

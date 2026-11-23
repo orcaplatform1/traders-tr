@@ -15,7 +15,7 @@ export function LoginForm() {
           htmlFor="password"
           className="mb-2 block text-[12px] font-medium uppercase tracking-[0.1em] text-text-secondary"
         >
-          Şifre
+          Password
         </label>
         <input
           id="password"
@@ -34,7 +34,7 @@ export function LoginForm() {
         disabled={pending}
         className="w-full rounded-sm bg-accent px-6 py-3 text-[13px] font-medium tracking-wide text-slate-50 transition-colors hover:bg-blue-400 disabled:opacity-60"
       >
-        {pending ? "Giriş yapılıyor…" : "Giriş Yap"}
+        {pending ? "Logging in…" : "Log In"}
       </button>
     </form>
   );

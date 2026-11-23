@@ -6,24 +6,24 @@ import { prisma } from "@/lib/prisma";
 import { LogoutButton } from "@/components/admin/logout-button";
 
 export const metadata: Metadata = {
-  title: "Gelen Mesajlar",
+  title: "Inbox",
   robots: { index: false, follow: false },
 };
 
 const CATEGORY_LABELS: Record<string, string> = {
-  ortaklik: "İş Ortaklığı",
-  girisim: "Girişim",
-  basin: "Basın",
-  genel: "Genel",
+  ortaklik: "Partnership",
+  girisim: "Venture",
+  basin: "Press",
+  genel: "General",
   // Eski kayıtlar (kategori değerleri Türkçeleştirilmeden önce gönderilmiş)
-  Partnership: "İş Ortaklığı",
-  Venture: "Girişim",
-  Press: "Basın",
-  General: "Genel",
+  Partnership: "Partnership",
+  Venture: "Venture",
+  Press: "Press",
+  General: "General",
 };
 
 function formatDate(d: Date) {
-  return new Intl.DateTimeFormat("tr-TR", {
+  return new Intl.DateTimeFormat("en-US", {
     dateStyle: "medium",
     timeStyle: "short",
   }).format(d);
@@ -44,16 +44,16 @@ export default async function AdminMessagesPage() {
         <div className="flex items-center justify-between">
           <div>
             <h1 className="text-2xl font-medium tracking-tight text-foreground">
-              Gelen Mesajlar
+              Inbox
             </h1>
-            <p className="mt-1 text-[13px] text-muted">{messages.length} mesaj</p>
+            <p className="mt-1 text-[13px] text-muted">{messages.length} messages</p>
           </div>
           <div className="flex items-center gap-6">
             <Link
               href="/yonetim/ayarlar"
               className="text-[13px] font-medium tracking-wide text-muted transition-colors hover:text-foreground"
             >
-              Ayarlar
+              Settings
             </Link>
             <LogoutButton />
           </div>
@@ -61,7 +61,7 @@ export default async function AdminMessagesPage() {
 
         <div className="mt-10 divide-y divide-border border-y border-border">
           {messages.length === 0 && (
-            <p className="py-10 text-[14px] text-muted">Henüz mesaj yok.</p>
+            <p className="py-10 text-[14px] text-muted">No messages yet.</p>
           )}
           {messages.map((m) => (
             <div key={m.id} className="py-6">

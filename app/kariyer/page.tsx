@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { CareersSection } from "@/components/careers-section";
 
 export const metadata: Metadata = {
-  title: "Kariyer",
+  title: "Careers",
   description:
-    "Bağımsız düşünen, özenle inşa eden insanlarla çalışmak isteriz.",
+    "We would love to work with people who think independently and build with care.",
   alternates: { canonical: "/kariyer" },
 };
 

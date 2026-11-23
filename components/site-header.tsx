@@ -5,9 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { } from "react";
 import { MobileMenu } from "@/components/mobile-menu";
-import { LangToggle } from "@/components/lang-toggle";
 import { DockLabel } from "@/components/dock-label";
-import { useT } from "@/lib/i18n";
 
 // Ince cizgili, keskin koseli monokrom ikonlar
 const ICON = {
@@ -60,14 +58,13 @@ function IconPress() {
 }
 
 export function SiteHeader() {
-  const t = useT();
   const pathname = usePathname();
 
   const tabs = [
-    { id: "home", href: "/", label: t("Ana Sayfa", "Home"), icon: <IconHome /> },
-    { id: "brands", href: "/markalar", label: t("Markalar", "Brands"), icon: <IconBrands /> },
-    { id: "insights", href: "/icgoruler", label: t("İçgörü", "Insights"), icon: <IconInsights /> },
-    { id: "press", href: "/basin-merkezi", label: t("Basın", "Press"), icon: <IconPress /> },
+    { id: "home", href: "/", label: "Home", icon: <IconHome /> },
+    { id: "brands", href: "/markalar", label: "Brands", icon: <IconBrands /> },
+    { id: "insights", href: "/icgoruler", label: "Insights", icon: <IconInsights /> },
+    { id: "press", href: "/basin-merkezi", label: "Press", icon: <IconPress /> },
   ];
 
   const activeTab = tabs.find((tab) => (tab.href === "/" ? pathname === "/" : pathname.startsWith(tab.href)))?.id;
@@ -80,24 +77,26 @@ export function SiteHeader() {
       {/* Ust bar: logo sol, dil secici sag */}
       <header className="absolute inset-x-0 top-0 z-40 bg-transparent">
         <div className="container-edit flex items-center justify-between py-4">
-          <Link href="/" className="relative block h-8 w-[25px] shrink-0 md:h-10 md:w-[31px]">
-            <Image
-              src="/prizoma-logo.png"
-              alt="Prizoma"
-              fill
-              priority
-              className="object-contain object-left"
-              sizes="31px"
-            />
+          <Link href="/" className="flex shrink-0 items-center gap-[10px]">
+            <span className="relative block h-8 w-[25px] shrink-0 md:h-10 md:w-[31px]">
+              <Image
+                src="/prizoma-logo.png"
+                alt="Prizoma"
+                fill
+                priority
+                className="object-contain object-left"
+                sizes="31px"
+              />
+            </span>
+            <span className="text-[16px] font-semibold leading-none tracking-[0.12em] text-white md:text-[20px]">PRIZOMA</span>
           </Link>
-          <LangToggle />
         </div>
       </header>
 
       {/* Alt yuzen navigasyon: her zaman gorunur */}
       <div className="fixed bottom-6 left-1/2 z-50 w-[92vw] max-w-sm -translate-x-1/2">
         <nav
-          aria-label={t("Ana menü", "Main menu")}
+          aria-label={"Main menu"}
           className="flex h-14 select-none items-center justify-around rounded-full border border-border bg-white/80 px-2 shadow-[0_12px_40px_rgba(0,0,0,0.03)] backdrop-blur-lg transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.96]"
         >
           {tabs.map((tab) => (

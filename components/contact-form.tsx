@@ -2,7 +2,6 @@
 
 import { startTransition, useActionState, useEffect, useRef, useState } from "react";
 import { submitContactForm, type ContactFormState } from "@/app/actions/contact";
-import { useT } from "@/lib/i18n";
 
 const initialState: ContactFormState = { status: "idle" };
 
@@ -17,7 +16,6 @@ export function ContactForm({
   defaultCategory?: string;
   onClose?: () => void;
 }) {
-  const t = useT();
   const [state, formAction, pending] = useActionState(submitContactForm, initialState);
   const [step, setStep] = useState(0);
   const [category, setCategory] = useState(defaultCategory);
@@ -55,9 +53,9 @@ export function ContactForm({
     const trimmed = el.value.trim();
     el.setCustomValidity("");
     if (el.required && !trimmed) {
-      el.setCustomValidity(t("Bu alan zorunlu.", "This field is required."));
+      el.setCustomValidity("This field is required.");
     } else if (el.minLength > 0 && trimmed.length < el.minLength) {
-      el.setCustomValidity(t(`En az ${el.minLength} karakter girin.`, `Enter at least ${el.minLength} characters.`));
+      el.setCustomValidity(`Enter at least ${el.minLength} characters.`);
     }
     return el.checkValidity();
   }
@@ -98,20 +96,20 @@ export function ContactForm({
   }
 
   const CATEGORIES = [
-    { value: "ortaklik", label: t("İş Ortaklığı", "Partnership") },
-    { value: "girisim", label: t("Girişim", "Venture") },
-    { value: "basin", label: t("Basın", "Press") },
-    { value: "genel", label: t("Genel", "General") },
+    { value: "ortaklik", label: "Partnership" },
+    { value: "girisim", label: "Venture" },
+    { value: "basin", label: "Press" },
+    { value: "genel", label: "General" },
   ] as const;
 
   const QUESTION: Record<StepKey, string> = {
-    category: t("Hangi konuda yazıyorsunuz?", "What is this about?"),
-    name: t("Adınız ve soyadınız?", "Your full name?"),
-    email: t("E-posta adresiniz?", "Your email address?"),
-    phone: t("Telefon numaranız?", "Your phone number?"),
-    company: t("Şirket ya da bireysel? (isteğe bağlı)", "Company or individual? (optional)"),
-    subject: t("Konu nedir?", "What's the subject?"),
-    message: t("Fikrinizi anlatın.", "Tell us your idea."),
+    category: "What is this about?",
+    name: "Your full name?",
+    email: "Your email address?",
+    phone: "Your phone number?",
+    company: "Company or individual? (optional)",
+    subject: "What's the subject?",
+    message: "Tell us your idea.",
   };
 
   // Brutalist ust ilerleme cizgisi + adim sayaci + kapat
@@ -123,7 +121,7 @@ export function ContactForm({
       />
       <div className="flex items-center justify-between border-b border-border p-5">
         <span className="font-mono text-xs text-muted">
-          {t("ADIM", "STEP")} {String(step + 1).padStart(2, "0")} / {String(STEPS.length).padStart(2, "0")}
+          {"STEP"} {String(step + 1).padStart(2, "0")} / {String(STEPS.length).padStart(2, "0")}
         </span>
         {onClose && (
           <button
@@ -131,7 +129,7 @@ export function ContactForm({
             onClick={onClose}
             className="min-h-12 border border-foreground px-3 font-mono text-sm uppercase tracking-tight text-foreground transition-transform active:scale-95"
           >
-            {t("Kapat [X]", "Close [X]")}
+            {"Close [X]"}
           </button>
         )}
       </div>
@@ -143,8 +141,8 @@ export function ContactForm({
       <div className="relative min-h-full">
         {header}
         <div className="wizard-step mx-auto flex h-[75vh] max-w-md flex-col justify-center px-6">
-          <p className="text-3xl font-bold text-foreground">{t("Teşekkürler.", "Thank you.")}</p>
-          <p className="mt-3 text-[17px] text-muted">{t("Size en kısa sürede geri döneceğiz.", "We'll get back to you as soon as possible.")}</p>
+          <p className="text-3xl font-bold text-foreground">{"Thank you."}</p>
+          <p className="mt-3 text-[17px] text-muted">{"We'll get back to you as soon as possible."}</p>
         </div>
       </div>
     );
@@ -157,7 +155,7 @@ export function ContactForm({
       {header}
       {/* honeypot */}
       <div className="absolute left-[-9999px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
-        <label htmlFor="website">{t("Web sitesi", "Website")}</label>
+        <label htmlFor="website">{"Website"}</label>
         <input type="text" id="website" name="website" tabIndex={-1} autoComplete="off" />
       </div>
 
@@ -253,11 +251,11 @@ export function ContactForm({
             disabled={pending}
             className="btn-liquid w-full px-8 text-sm font-medium tracking-wide disabled:opacity-60"
           >
-            {pending ? t("Gönderiliyor…", "Sending…") : t("Fikri PRIZOMA'ya Gönder ■", "Send Idea to PRIZOMA ■")}
+            {pending ? "Sending…" : "Send Idea to PRIZOMA ■"}
           </button>
         ) : (
           <button type="button" onClick={goNext} className="btn-liquid w-full px-8 text-sm font-medium tracking-wide">
-            {t("Devam Et", "Continue")} →
+            {"Continue"} →
           </button>
         )}
         {step > 0 && (
@@ -266,7 +264,7 @@ export function ContactForm({
             onClick={() => setStep((s) => s - 1)}
             className="haptic min-h-12 px-4 text-[15px] font-medium tracking-wide text-muted"
           >
-            ← {t("Geri", "Back")}
+            ← {"Back"}
           </button>
         )}
       </div>

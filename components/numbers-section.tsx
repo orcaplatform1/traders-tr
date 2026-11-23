@@ -1,16 +1,14 @@
 "use client";
 
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { useT } from "@/lib/i18n";
 
 export function NumbersSection() {
-  const t = useT();
 
   const NUMBERS = [
-    { value: "05", label: t("Marka", "Brands") },
-    { value: "05", label: t("Sektör", "Sectors") },
-    { value: "01", label: t("Ortak", "Partner") },
-    { value: "∞", label: t("Keşfedilecek Fikir", "Ideas to Explore") },
+    { value: "05", label: "Brands" },
+    { value: "05", label: "Sectors" },
+    { value: "01", label: "Partner" },
+    { value: "∞", label: "Ideas to Explore" },
   ];
 
   return (

@@ -10,15 +10,10 @@ export interface Brand {
   monogram: string;
   accent: BrandAccent;
   category: string;
-  categoryEn: string;
   shortDescription: string;
-  shortDescriptionEn: string;
   longDescription: string;
   whyItExists: string;
   features: string[];
-  longDescriptionEn: string;
-  whyItExistsEn: string;
-  featuresEn: string[];
   websiteUrl: string;
   status: BrandStatus;
   featured: boolean;
@@ -30,21 +25,18 @@ export interface Venture {
   name: string;
   slug: string;
   category: string;
-  categoryEn: string;
   description: string;
-  descriptionEn: string;
   detail: string;
-  detailEn: string;
   stage: "active" | "developing" | "exploring" | "coming-next";
   websiteUrl?: string;
 }
 
 export type InsightCategory =
-  | "Teknoloji"
-  | "Girişimcilik"
-  | "Dijital Ekonomi"
-  | "Piyasalar"
-  | "Şirket";
+  | "Technology"
+  | "Entrepreneurship"
+  | "Digital Economy"
+  | "Markets"
+  | "Company";
 
 export type ContentBlock =
   | { type: "p"; text: string }
@@ -55,33 +47,27 @@ export interface Insight {
   id: string;
   slug: string;
   title: string;
-  titleEn?: string;
   category: InsightCategory;
   excerpt: string;
-  excerptEn?: string;
   content: ContentBlock[];
-  contentEn?: ContentBlock[];
   author: string;
   publishedAt: string;
   readTime: string;
 }
 
 export type NewsroomCategory =
-  | "Marka Lansmanı"
-  | "Ürün Duyurusu"
-  | "Ortaklık"
-  | "Şirket Duyurusu"
-  | "Etkinlik";
+  | "Brand Launch"
+  | "Product Announcement"
+  | "Partnership"
+  | "Company Announcement"
+  | "Event";
 
 export interface NewsroomPost {
   id: string;
   slug: string;
   title: string;
-  titleEn?: string;
   excerpt: string;
-  excerptEn?: string;
   content: ContentBlock[];
-  contentEn?: ContentBlock[];
   category: NewsroomCategory;
   publishedAt: string;
   readTime: string;

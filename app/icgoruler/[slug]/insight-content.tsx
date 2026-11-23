@@ -3,8 +3,6 @@
 import Link from "next/link";
 import { SectionLabel } from "@/components/section-label";
 import type { Insight } from "@/lib/content/types";
-import { useT, useLang } from "@/lib/i18n";
-import { insightCategory, readTimeLabel } from "@/lib/content/labels";
 
 export function InsightContent({
   insight,
@@ -13,21 +11,17 @@ export function InsightContent({
   insight: Insight;
   moreInsights: Insight[];
 }) {
-  const t = useT();
-  const { lang } = useLang();
 
   function formatDate(iso: string) {
-    return new Date(iso).toLocaleDateString(lang === "en" ? "en-US" : "tr-TR", {
+    return new Date(iso).toLocaleDateString("en-US", {
       day: "numeric",
       month: "long",
       year: "numeric",
     });
   }
-
-  const isEn = lang === "en";
-  const displayTitle = isEn && insight.titleEn ? insight.titleEn : insight.title;
-  const displayExcerpt = isEn && insight.excerptEn ? insight.excerptEn : insight.excerpt;
-  const displayContent = isEn && insight.contentEn ? insight.contentEn : insight.content;
+  const displayTitle = insight.title;
+  const displayExcerpt = insight.excerpt;
+  const displayContent = insight.content;
   const headings = displayContent.filter((b) => b.type === "h2");
 
   return (
@@ -37,15 +31,15 @@ export function InsightContent({
           href="/icgoruler"
           className="text-[13px] font-medium tracking-wide text-muted transition-colors hover:text-foreground"
         >
-          ← {t("İçgörüler", "Insights")}
+          ← {"Insights"}
         </Link>
 
         <div className="mt-8 flex items-center gap-3 text-[12px] text-muted">
           <span>{formatDate(insight.publishedAt)}</span>
           <span className="h-1 w-1 rounded-full bg-border" />
-          <span>{insightCategory(insight.category, lang)}</span>
+          <span>{insight.category}</span>
           <span className="h-1 w-1 rounded-full bg-border" />
-          <span>{readTimeLabel(insight.readTime, lang)} {t("okuma", "read")}</span>
+          <span>{insight.readTime} {"read"}</span>
         </div>
 
         <h1 className="mt-4 text-4xl font-medium leading-tight tracking-tight text-foreground md:text-5xl">
@@ -59,10 +53,10 @@ export function InsightContent({
 
       <div className="container-edit mt-16 grid grid-cols-1 gap-12 md:grid-cols-[220px_1fr] md:gap-20">
         {headings.length > 0 && (
-          <nav aria-label={t("İçindekiler", "Table of Contents")} className="hidden md:block">
+          <nav aria-label={"Table of Contents"} className="hidden md:block">
             <div className="sticky top-28 space-y-1">
               <span className="mb-4 block text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-                {t("İçindekiler", "Table of Contents")}
+                {"Table of Contents"}
               </span>
               {headings.map((h) => (
                 <a
@@ -111,17 +105,17 @@ export function InsightContent({
 
       {moreInsights.length > 0 && (
         <div className="container-edit mt-24 border-t border-border pt-16">
-          <SectionLabel>{t("Devamını Okuyun", "Continue Reading")}</SectionLabel>
+          <SectionLabel>{"Continue Reading"}</SectionLabel>
           <div className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-2">
             {moreInsights.map((item) => (
               <Link key={item.id} href={`/icgoruler/${item.slug}`} className="group block max-w-xl">
                 <div className="flex items-center gap-3 text-[12px] text-muted">
                   <span>{formatDate(item.publishedAt)}</span>
                   <span className="h-1 w-1 rounded-full bg-border" />
-                  <span>{insightCategory(item.category, lang)}</span>
+                  <span>{item.category}</span>
                 </div>
                 <h3 className="mt-3 text-lg font-medium leading-snug text-foreground transition-colors group-hover:text-accent">
-                  {isEn && item.titleEn ? item.titleEn : item.title}
+                  {item.title}
                 </h3>
               </Link>
             ))}

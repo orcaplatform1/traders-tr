@@ -38,8 +38,8 @@ export default async function BrandProfilePage({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Ana Sayfa", item: SITE_URL },
-      { "@type": "ListItem", position: 2, name: "Markalarımız", item: `${SITE_URL}/markalar` },
+      { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+      { "@type": "ListItem", position: 2, name: "Our Brands", item: `${SITE_URL}/markalar` },
       { "@type": "ListItem", position: 3, name: brand.name, item: `${SITE_URL}/markalar/${brand.slug}` },
     ],
   };

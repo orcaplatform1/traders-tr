@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Brand, BrandAccent } from "@/lib/content/types";
-import { useT } from "@/lib/i18n";
 import { StatusIndicator } from "@/components/status-indicator";
 
 const ACCENT: Record<
@@ -54,7 +53,6 @@ const ACCENT: Record<
 
 export function BrandCard({ brand }: { brand: Brand }) {
   const accent = ACCENT[brand.accent];
-  const t = useT();
 
   return (
     <div
@@ -92,15 +90,15 @@ export function BrandCard({ brand }: { brand: Brand }) {
           >
             <StatusIndicator />
             {brand.status === "active"
-              ? t("Aktif", "Active")
+              ? "Active"
               : brand.status === "developing"
-                ? t("Geliştirme aşamasında", "In development")
-                : t("Keşfediyoruz", "Exploring")}
+                ? "In development"
+                : "Exploring"}
           </span>
         </div>
 
         <span className="mt-6 block text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-          {t(brand.category, brand.categoryEn)}
+          {brand.category}
         </span>
         <div className="mt-4 flex items-center gap-3">
           <div className="relative h-8 w-8 shrink-0 opacity-90">
@@ -111,7 +109,7 @@ export function BrandCard({ brand }: { brand: Brand }) {
           </h3>
         </div>
         <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted">
-          {t(brand.shortDescription, brand.shortDescriptionEn)}
+          {brand.shortDescription}
         </p>
       </div>
 
@@ -131,7 +129,7 @@ export function BrandCard({ brand }: { brand: Brand }) {
           href={`/markalar/${brand.slug}`}
           className={`text-muted transition-colors ${accent.hoverText}`}
         >
-          {t("Profili gör", "View Profile")}
+          {"View Profile"}
         </Link>
       </div>
 

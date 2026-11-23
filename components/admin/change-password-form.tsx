@@ -11,7 +11,7 @@ export function ChangePasswordForm() {
   if (state.success) {
     return (
       <div className="mt-8 border-t border-border pt-8">
-        <p className="text-[15px] font-medium text-foreground">Şifreniz güncellendi.</p>
+        <p className="text-[15px] font-medium text-foreground">Your password has been updated.</p>
       </div>
     );
   }
@@ -23,7 +23,7 @@ export function ChangePasswordForm() {
           htmlFor="currentPassword"
           className="mb-2 block text-[12px] font-medium uppercase tracking-[0.1em] text-text-secondary"
         >
-          Mevcut Şifre
+          Current Password
         </label>
         <input
           id="currentPassword"
@@ -39,7 +39,7 @@ export function ChangePasswordForm() {
           htmlFor="newPassword"
           className="mb-2 block text-[12px] font-medium uppercase tracking-[0.1em] text-text-secondary"
         >
-          Yeni Şifre
+          New Password
         </label>
         <input
           id="newPassword"
@@ -56,7 +56,7 @@ export function ChangePasswordForm() {
           htmlFor="confirmPassword"
           className="mb-2 block text-[12px] font-medium uppercase tracking-[0.1em] text-text-secondary"
         >
-          Yeni Şifre (Tekrar)
+          New Password (Repeat)
         </label>
         <input
           id="confirmPassword"
@@ -75,7 +75,7 @@ export function ChangePasswordForm() {
         disabled={pending}
         className="rounded-sm bg-accent px-6 py-3 text-[13px] font-medium tracking-wide text-slate-50 transition-colors hover:bg-blue-400 disabled:opacity-60"
       >
-        {pending ? "Güncelleniyor…" : "Şifreyi Güncelle"}
+        {pending ? "Updating…" : "Update Password"}
       </button>
     </form>
   );

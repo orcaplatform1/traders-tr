@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { AboutPageContent } from "./page-content";
 
 export const metadata: Metadata = {
-  title: "Hakkımızda",
+  title: "About",
   description:
-    "PRIZOMA; teknoloji, ticaret ve finansın kesişiminde yeni nesil işletmeler geliştiren, kuran ve işleten çok markalı bir girişim şirketidir.",
+    "PRIZOMA is a multi-brand venture company that develops, builds and operates next-generation businesses at the intersection of technology, commerce and finance.",
   alternates: { canonical: "/hakkimizda" },
 };
 

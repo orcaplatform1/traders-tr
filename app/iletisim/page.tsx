@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { ContactPageContent } from "./page-content";
 
 export const metadata: Metadata = {
-  title: "İletişim",
-  description: "Bir fikriniz mi var? Ne inşa ettiğinizi anlatın.",
+  title: "Contact",
+  description: "Have an idea? Tell us what you are building.",
   alternates: { canonical: "/iletisim" },
 };
 

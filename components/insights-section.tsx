@@ -5,10 +5,8 @@ import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { InsightCard } from "@/components/insight-card";
 import { insights } from "@/lib/content/insights";
-import { useT } from "@/lib/i18n";
 
 export function InsightsSection() {
-  const t = useT();
   const [featured, ...rest] = insights;
   const secondary = rest.slice(0, 2);
 
@@ -17,16 +15,16 @@ export function InsightsSection() {
       <div className="container-edit">
         <ScrollReveal className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <SectionLabel>{t("İçgörüler", "Insights")}</SectionLabel>
+            <SectionLabel>{"Insights"}</SectionLabel>
             <h2 className="mt-4 max-w-xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-              {t("Girişim perspektifinden düşünceler.", "Thoughts from a venture perspective.")}
+              {"Thoughts from a venture perspective."}
             </h2>
           </div>
           <Link
             href="/icgoruler"
             className="text-[13px] font-medium tracking-wide text-muted underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground"
           >
-            {t("Tümünü gör", "See all")}
+            {"See all"}
           </Link>
         </ScrollReveal>
 
