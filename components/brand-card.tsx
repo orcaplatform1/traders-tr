@@ -126,7 +126,7 @@ export function BrandCard({ brand }: { brand: Brand }) {
           </span>
         </a>
         <Link
-          href={`/markalar/${brand.slug}`}
+          href={`/brands/${brand.slug}`}
           className={`text-muted transition-colors ${accent.hoverText}`}
         >
           {"View Profile"}

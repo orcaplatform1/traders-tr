@@ -3,14 +3,14 @@ import type { Venture } from "./types";
 export const ventures: Venture[] = [
   {
     id: "orca",
-    name: "Orca Labs",
+    name: "Wolf Club",
     slug: "orca",
     category: "Financial Education",
     description: "Next-generation financial education platform.",
     detail:
       "Combines a structured curriculum, a live community, AI-powered mentorship, and the ability to practice with real market data in a single platform.",
     stage: "developing",
-    websiteUrl: "https://orcalabs.tr",
+    websiteUrl: "https://traders.tr",
   },
   {
     id: "kriptobeyan",

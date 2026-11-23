@@ -21,7 +21,7 @@ export function InsightsSection() {
             </h2>
           </div>
           <Link
-            href="/icgoruler"
+            href="/insights"
             className="text-[13px] font-medium tracking-wide text-muted underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground"
           >
             {"See all"}

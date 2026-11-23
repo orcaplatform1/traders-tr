@@ -44,7 +44,7 @@ export function NewsroomSection() {
             </h2>
           </div>
           <Link
-            href="/basin-merkezi"
+            href="/newsroom"
             className="text-[13px] font-medium tracking-wide text-muted underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-accent"
           >
             {"See all"}
@@ -55,7 +55,7 @@ export function NewsroomSection() {
           {featured.map((post, i) => (
             <ScrollReveal key={post.id} delay={i * 80}>
               <Link
-                href={`/basin-merkezi/${post.slug}`}
+                href={`/newsroom/${post.slug}`}
                 className="group flex items-center gap-6 border-b border-border py-6 transition-colors duration-300 hover:bg-surface-1 md:gap-10 md:py-7"
               >
                 <div className="flex w-14 shrink-0 flex-col items-center leading-none">

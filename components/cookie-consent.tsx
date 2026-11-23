@@ -112,11 +112,11 @@ export function CookieConsent() {
         <>
           <p className="text-[14px] leading-relaxed text-white">
             We use cookies to improve your experience. See our{" "}
-            <Link href="/cerez-politikasi" className="underline underline-offset-2 hover:text-white/80">
+            <Link href="/cookie-policy" className="underline underline-offset-2 hover:text-white/80">
               Cookie Policy
             </Link>{" "}
             and{" "}
-            <Link href="/gizlilik-politikasi" className="underline underline-offset-2 hover:text-white/80">
+            <Link href="/privacy-policy" className="underline underline-offset-2 hover:text-white/80">
               Privacy Policy
             </Link>
             .

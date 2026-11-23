@@ -62,9 +62,9 @@ export function SiteHeader() {
 
   const tabs = [
     { id: "home", href: "/", label: "Home", icon: <IconHome /> },
-    { id: "brands", href: "/markalar", label: "Brands", icon: <IconBrands /> },
-    { id: "insights", href: "/icgoruler", label: "Insights", icon: <IconInsights /> },
-    { id: "press", href: "/basin-merkezi", label: "Press", icon: <IconPress /> },
+    { id: "brands", href: "/brands", label: "Brands", icon: <IconBrands /> },
+    { id: "insights", href: "/insights", label: "Insights", icon: <IconInsights /> },
+    { id: "press", href: "/newsroom", label: "Press", icon: <IconPress /> },
   ];
 
   const activeTab = tabs.find((tab) => (tab.href === "/" ? pathname === "/" : pathname.startsWith(tab.href)))?.id;
@@ -80,7 +80,7 @@ export function SiteHeader() {
           <Link href="/" className="flex shrink-0 items-center gap-[10px]">
             <span className="relative block h-8 w-[25px] shrink-0 md:h-10 md:w-[31px]">
               <Image
-                src="/prizoma-logo.png"
+                src="/prizoma-logo.webp"
                 alt="Prizoma"
                 fill
                 priority

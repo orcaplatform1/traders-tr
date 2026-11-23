@@ -6,17 +6,17 @@ import { newsroomPosts } from "@/lib/content/newsroom";
 
 const STATIC_ROUTES = [
   { path: "", priority: 1, changeFrequency: "weekly" as const },
-  { path: "/hakkimizda", priority: 0.7, changeFrequency: "monthly" as const },
-  { path: "/markalar", priority: 0.9, changeFrequency: "monthly" as const },
-  { path: "/girisimler", priority: 0.6, changeFrequency: "monthly" as const },
-  { path: "/icgoruler", priority: 0.7, changeFrequency: "weekly" as const },
-  { path: "/basin-merkezi", priority: 0.7, changeFrequency: "weekly" as const },
-  { path: "/kariyer", priority: 0.4, changeFrequency: "monthly" as const },
-  { path: "/iletisim", priority: 0.6, changeFrequency: "yearly" as const },
-  { path: "/gizlilik-politikasi", priority: 0.2, changeFrequency: "yearly" as const },
-  { path: "/cerez-politikasi", priority: 0.2, changeFrequency: "yearly" as const },
-  { path: "/kvkk", priority: 0.2, changeFrequency: "yearly" as const },
-  { path: "/site-haritasi", priority: 0.2, changeFrequency: "monthly" as const },
+  { path: "/about", priority: 0.7, changeFrequency: "monthly" as const },
+  { path: "/brands", priority: 0.9, changeFrequency: "monthly" as const },
+  { path: "/ventures", priority: 0.6, changeFrequency: "monthly" as const },
+  { path: "/insights", priority: 0.7, changeFrequency: "weekly" as const },
+  { path: "/newsroom", priority: 0.7, changeFrequency: "weekly" as const },
+  { path: "/careers", priority: 0.4, changeFrequency: "monthly" as const },
+  { path: "/contact", priority: 0.6, changeFrequency: "yearly" as const },
+  { path: "/privacy-policy", priority: 0.2, changeFrequency: "yearly" as const },
+  { path: "/cookie-policy", priority: 0.2, changeFrequency: "yearly" as const },
+  { path: "/data-protection", priority: 0.2, changeFrequency: "yearly" as const },
+  { path: "/site-map", priority: 0.2, changeFrequency: "monthly" as const },
 ];
 
 // Bu dosya build/request aninda içerik dizilerinden (brands, insights,
@@ -30,20 +30,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   const brandEntries: MetadataRoute.Sitemap = brands.map((b) => ({
-    url: `${SITE_URL}/markalar/${b.slug}`,
+    url: `${SITE_URL}/brands/${b.slug}`,
     changeFrequency: "monthly",
     priority: 0.6,
   }));
 
   const insightEntries: MetadataRoute.Sitemap = insights.map((i) => ({
-    url: `${SITE_URL}/icgoruler/${i.slug}`,
+    url: `${SITE_URL}/insights/${i.slug}`,
     lastModified: new Date(i.publishedAt),
     changeFrequency: "yearly",
     priority: 0.5,
   }));
 
   const newsroomEntries: MetadataRoute.Sitemap = newsroomPosts.map((p) => ({
-    url: `${SITE_URL}/basin-merkezi/${p.slug}`,
+    url: `${SITE_URL}/newsroom/${p.slug}`,
     lastModified: new Date(p.publishedAt),
     changeFrequency: "yearly",
     priority: 0.5,

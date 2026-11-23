@@ -18,7 +18,7 @@ export function MobileMenu({ className = "" }: { className?: string }) {
 
   const items = [
     ...NAV_LINKS.map((link) => ({ href: link.href, label: link.label })),
-    { href: "/iletisim", label: "Contact" },
+    { href: "/contact", label: "Contact" },
   ];
 
   useEffect(() => {

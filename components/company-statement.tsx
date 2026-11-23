@@ -24,7 +24,7 @@ export function CompanyStatement() {
 
         <ScrollReveal delay={160}>
           <Link
-            href="/hakkimizda"
+            href="/about"
             className="group flex items-center gap-3 whitespace-nowrap border-t border-border pt-6 text-[13px] font-medium tracking-[0.15em] text-muted transition-colors hover:text-foreground md:border-t-0 md:pt-0"
           >
             <span className="text-accent">01</span>

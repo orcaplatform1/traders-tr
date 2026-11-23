@@ -20,7 +20,7 @@ export default function Home() {
     <>
       <VentureRail />
       <div className="relative">
-        <Hero imageSrc="/prizoma-hero.png" />
+        <Hero imageSrc="/prizoma-hero.webp" />
         <HeroContent />
         <CompanyStatement />
         <BrandGrid />

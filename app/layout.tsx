@@ -78,7 +78,7 @@ const organizationJsonLd = {
   name: SITE_NAME,
   url: SITE_URL,
   description: SITE_DESCRIPTION,
-  sameAs: ["https://orcalabs.tr", "https://kriptobeyan.com", "https://zesta.tr"],
+  sameAs: ["https://traders.tr", "https://kriptobeyan.com", "https://zesta.tr"],
 };
 
 const websiteJsonLd = {

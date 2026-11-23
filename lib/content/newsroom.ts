@@ -13,7 +13,7 @@ function quote(text: string): ContentBlock {
 export const newsroomPosts: NewsroomPost[] = [
   {
     id: "7",
-    slug: "secbird-duyurusu",
+    slug: "prizoma-announces-secbird-a-privacy-focused-email-service",
     title: "Prizoma Announces Secbird, a Privacy-Focused Email Service",
     excerpt:
       "Prizoma GmbH has announced Secbird, a privacy-focused email service it is developing in the canton of Zug, Switzerland. The service is in development.",
@@ -51,13 +51,13 @@ export const newsroomPosts: NewsroomPost[] = [
   },
   {
     id: "6",
-    slug: "ahenk-tanitimi",
+    slug: "prizomas-fifth-brand-ahenk-is-in-development",
     title: "PRIZOMA's Fifth Brand: Ahenk Is in Development",
     excerpt:
       "PRIZOMA has added Ahenk to its portfolio — a social meeting platform offering weekly table organisation based on OCEAN Big Five personality compatibility. The platform is in active development.",
     content: [
       p(
-        "PRIZOMA is announcing its fifth brand: Ahenk. Operating in the social meeting space, Ahenk has entered active development as a platform offering weekly table organisation based on OCEAN (Big Five) personality compatibility — built on the belief that meeting the right people is too important to leave to chance. Following Orca Labs, KriptoBeyan, Zesta Art&Design, and Secbird, this brand marks PRIZOMA's boldest step into the intersection of technology and human experience.",
+        "PRIZOMA is announcing its fifth brand: Ahenk. Operating in the social meeting space, Ahenk has entered active development as a platform offering weekly table organisation based on OCEAN (Big Five) personality compatibility — built on the belief that meeting the right people is too important to leave to chance. Following Wolf Club, KriptoBeyan, Zesta Art&Design, and Secbird, this brand marks PRIZOMA's boldest step into the intersection of technology and human experience.",
       ),
       h2("Why this space, why now", "neden-bu-alan"),
       p(
@@ -112,7 +112,7 @@ export const newsroomPosts: NewsroomPost[] = [
       ),
       h2("Its place in the PRIZOMA portfolio", "portfoy"),
       p(
-        "Ahenk is the fifth independent brand in the PRIZOMA portfolio. Each brand operates autonomously in its own domain: Orca Labs in financial education, KriptoBeyan in digital tax, Zesta in handmade commerce, Secbird in privacy-focused email. Ahenk joins this ecosystem in the domain of social connection and meetings.",
+        "Ahenk is the fifth independent brand in the PRIZOMA portfolio. Each brand operates autonomously in its own domain: Wolf Club in financial education, KriptoBeyan in digital tax, Zesta in handmade commerce, Secbird in privacy-focused email. Ahenk joins this ecosystem in the domain of social connection and meetings.",
       ),
       p(
         "Each brand in the portfolio was founded to fill a structural gap in a different sector. Ahenk operates on the same logic: technology is a tool — the real product is the connection two people form in real life.",
@@ -128,13 +128,13 @@ export const newsroomPosts: NewsroomPost[] = [
   },
   {
     id: "1",
-    slug: "traders-yeni-bir-girisim-icin-calismalara-basladi",
+    slug: "prizoma-has-begun-work-on-a-new-venture",
     title: "PRIZOMA Has Begun Work on a New Venture",
     excerpt:
       "PRIZOMA has begun early-stage research and design on a new opportunity area at the intersection of technology and commerce, independent of its existing brands.",
     content: [
       p(
-        "PRIZOMA announces that it has begun early-stage research and design work on a new opportunity area at the intersection of technology and commerce, independent of its existing portfolio brands Orca Labs, KriptoBeyan, and Zesta Art&Design.",
+        "PRIZOMA announces that it has begun early-stage research and design work on a new opportunity area at the intersection of technology and commerce, independent of its existing portfolio brands Wolf Club, KriptoBeyan, and Zesta Art&Design.",
       ),
       h2("Why a new venture", "neden-yeni-girisim"),
       p(
@@ -156,24 +156,24 @@ export const newsroomPosts: NewsroomPost[] = [
   },
   {
     id: "2",
-    slug: "orca-platformunu-genisletiyor",
-    title: "Orca Labs Expands Its Platform",
+    slug: "wolf-club-expands-its-platform",
+    title: "Wolf Club Expands Its Platform",
     excerpt:
-      "Orca Labs has made significant additions to its educational curriculum and market tools suite — from AI-powered mentorship to real-time market scanners.",
+      "Wolf Club has made significant additions to its educational curriculum and market tools suite — from AI-powered mentorship to real-time market scanners.",
     content: [
       p(
-        "Orca Labs continues to expand the educational content and market tools suite it offers to users. The developments in this period focused on strengthening the platform's two core axes — structured education and real-time market practice.",
+        "Wolf Club continues to expand the educational content and market tools suite it offers to users. The developments in this period focused on strengthening the platform's two core axes — structured education and real-time market practice.",
       ),
       h2("An expanding toolkit", "genisleyen-arac-seti"),
       p(
-        "Orca Labs' tool panel brings together an AI-powered market scanner, a backtest simulator, advanced market simulation, and a terminal news-trading module. In addition, a crypto asset calendar, news sentiment analysis, a whale tracker monitoring large wallet movements, and a multi-chain wallet analytics tool have been added to the platform.",
+        "Wolf Club's tool panel brings together an AI-powered market scanner, a backtest simulator, advanced market simulation, and a terminal news-trading module. In addition, a crypto asset calendar, news sentiment analysis, a whale tracker monitoring large wallet movements, and a multi-chain wallet analytics tool have been added to the platform.",
       ),
       p(
         "General tools aggregating BIST100, forex, and crypto markets in a single panel are also part of this expansion; users can now track markets without switching between different tabs.",
       ),
       h2("AI Mentor and personalized learning", "ai-mentor"),
       p(
-        "The Orca Labs AI Mentor, a 24/7 accessible AI-powered educational assistant, provides instant support to users on topics where they get stuck. This feature aims to transform the structured curriculum (from beginner to expert level) from static content into a dynamic experience that adapts to each user's own pace.",
+        "The Wolf Club AI Mentor, a 24/7 accessible AI-powered educational assistant, provides instant support to users on topics where they get stuck. This feature aims to transform the structured curriculum (from beginner to expert level) from static content into a dynamic experience that adapts to each user's own pace.",
       ),
       quote("Our goal is not to reduce understanding the markets to a certificate — but to turn it into a measurable, practice-grounded competency."),
       h2("Community and gamification", "topluluk-gamification"),
@@ -182,11 +182,11 @@ export const newsroomPosts: NewsroomPost[] = [
       ),
       h2("Crypto ecosystem-specific tools", "kripto-ekosistemi"),
       p(
-        "For users interested in crypto assets, an ICO tracking tool, a token unlock calendar, and an airdrop tracking module have been added to the platform. These tools, as an extension of ORCA's 'learn by doing' philosophy, make it possible to interact directly with real market data.",
+        "For users interested in crypto assets, an ICO tracking tool, a token unlock calendar, and an airdrop tracking module have been added to the platform. These tools, as an extension of WOLF CLUB's 'learn by doing' philosophy, make it possible to interact directly with real market data.",
       ),
       h2("What's next", "orca-sirada-ne-var"),
       p(
-        "The Orca Labs team continues to improve the quality of existing tools and add new modules based on user feedback. The platform's long-term goal is to offer a single integrated experience that takes financial education from theory to practice.",
+        "The Wolf Club team continues to improve the quality of existing tools and add new modules based on user feedback. The platform's long-term goal is to offer a single integrated experience that takes financial education from theory to practice.",
       ),
     ],
     category: "Product Announcement",
@@ -195,7 +195,7 @@ export const newsroomPosts: NewsroomPost[] = [
   },
   {
     id: "3",
-    slug: "kriptobeyan-yeni-bir-faza-giriyor",
+    slug: "kriptobeyan-enters-a-new-phase",
     title: "KriptoBeyan Enters a New Phase",
     excerpt:
       "KriptoBeyan has launched a new professional panel for financial advisors and support for DeFi income categories.",
@@ -231,7 +231,7 @@ export const newsroomPosts: NewsroomPost[] = [
   },
   {
     id: "4",
-    slug: "zesta-ozel-siparis-pazaryerini-baslatti",
+    slug: "zesta-art-design-launches-custom-order-marketplace",
     title: "Zesta Art&Design Launches Custom Order Marketplace",
     excerpt:
       "Zesta Art&Design has announced its custom order marketplace model, connecting handmade product designers with buyers through a curated application process.",

@@ -40,7 +40,7 @@ export function BrandGrid() {
             return (
               <Link
                 key={brand.id}
-                href={`/markalar/${brand.slug}`}
+                href={`/brands/${brand.slug}`}
                 className={`bento-card haptic group relative flex flex-col justify-between overflow-hidden border-b border-r border-border bg-white transition-all active:bg-background ${
                   wide ? "col-span-2 min-h-[190px] p-6 md:p-10" : "col-span-1 min-h-[160px] p-5 md:p-8"
                 }`}

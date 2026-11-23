@@ -56,7 +56,7 @@ export function HeroContent() {
           <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-4">
             <Magnetic>
               <Link
-                href="/markalar"
+                href="/brands"
                 className="btn-liquid group px-6 py-3 text-[13px] font-medium tracking-wide"
               >
                 {"Explore Our Brands"}
@@ -64,7 +64,7 @@ export function HeroContent() {
               </Link>
             </Magnetic>
             <Link
-              href="/hakkimizda"
+              href="/about"
               className="btn-shine group relative inline-flex items-center gap-2 text-[13px] font-medium tracking-wide text-muted transition-colors hover:text-foreground"
             >
               <span className="relative z-10 inline-flex items-center gap-2">

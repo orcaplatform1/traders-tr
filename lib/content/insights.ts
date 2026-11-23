@@ -13,7 +13,7 @@ function quote(text: string): ContentBlock {
 export const insights: Insight[] = [
   {
     id: "1",
-    slug: "dijital-marka-insa-etmenin-ekonomisi",
+    slug: "the-economics-of-building-a-digital-brand",
     title: "The economics of building a digital brand",
     category: "Entrepreneurship",
     excerpt:
@@ -54,7 +54,7 @@ export const insights: Insight[] = [
   },
   {
     id: "2",
-    slug: "yapay-zeka-is-operasyonlarini-nasil-degistiriyor",
+    slug: "where-ai-is-changing-business-operations",
     title: "Where AI is changing business operations",
     category: "Technology",
     excerpt:
@@ -89,7 +89,7 @@ export const insights: Insight[] = [
   },
   {
     id: "3",
-    slug: "dijital-ticaretin-donusumu",
+    slug: "the-transformation-of-digital-commerce",
     title: "The transformation of digital commerce",
     category: "Digital Economy",
     excerpt:
@@ -124,7 +124,7 @@ export const insights: Insight[] = [
   },
   {
     id: "4",
-    slug: "yeni-nesil-finansal-urunlerde-guven-insa-etmek",
+    slug: "building-trust-in-next-generation-financial-products",
     title: "Building trust in next-generation financial products",
     category: "Markets",
     excerpt:
@@ -159,7 +159,7 @@ export const insights: Insight[] = [
   },
   {
     id: "5",
-    slug: "yeni-bir-girisim-lansmanindan-dersler",
+    slug: "lessons-from-launching-a-new-venture",
     title: "Lessons from launching a new venture",
     category: "Entrepreneurship",
     excerpt:
@@ -194,7 +194,7 @@ export const insights: Insight[] = [
   },
   {
     id: "6",
-    slug: "teknoloji-ile-degisen-tuketici-davranisi",
+    slug: "how-technology-is-changing-consumer-behaviour",
     title: "How technology is changing consumer behaviour",
     category: "Digital Economy",
     excerpt:

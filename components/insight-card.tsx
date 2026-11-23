@@ -15,7 +15,7 @@ export function InsightCard({ insight, large = false }: { insight: Insight; larg
 
   return (
     <Link
-      href={`/icgoruler/${insight.slug}`}
+      href={`/insights/${insight.slug}`}
       className="group relative flex h-full flex-col justify-between border border-border p-8 transition-colors duration-500 hover:border-border-strong md:p-10"
     >
       <span

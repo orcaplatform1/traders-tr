@@ -21,7 +21,7 @@ export function PartnershipSection() {
           <div className="mt-10 flex flex-wrap items-center gap-4">
             <Magnetic>
               <Link
-                href="/iletisim?kategori=ortaklik"
+                href="/contact?category=partnership"
                 className="btn-liquid group px-6 py-3 text-[13px] font-medium tracking-wide"
               >
                 {"Partnership"}
@@ -29,13 +29,13 @@ export function PartnershipSection() {
               </Link>
             </Magnetic>
             <Link
-              href="/iletisim?kategori=girisim"
+              href="/contact?category=venture"
               className="btn-liquid px-5 py-2.5 text-[13px] font-medium tracking-wide"
             >
               {"Venture"}
             </Link>
             <Link
-              href="/iletisim?kategori=basin"
+              href="/contact?category=press"
               className="rounded-sm border border-border px-5 py-2.5 text-[13px] font-medium tracking-wide text-foreground transition-colors hover:border-border-hover hover:text-accent"
             >
               {"Press"}

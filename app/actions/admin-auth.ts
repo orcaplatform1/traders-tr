@@ -24,12 +24,12 @@ export async function login(_prevState: LoginState, formData: FormData): Promise
   }
 
   await createSession();
-  redirect("/yonetim/mesajlar");
+  redirect("/admin/mesajlar");
 }
 
 export async function logout() {
   await destroySession();
-  redirect("/yonetim");
+  redirect("/admin");
 }
 
 export type ChangePasswordState = { error?: string; success?: boolean };
@@ -39,7 +39,7 @@ export async function changePassword(
   formData: FormData,
 ): Promise<ChangePasswordState> {
   if (!(await isAuthenticated())) {
-    redirect("/yonetim");
+    redirect("/admin");
   }
 
   const currentPassword = formData.get("currentPassword")?.toString() ?? "";

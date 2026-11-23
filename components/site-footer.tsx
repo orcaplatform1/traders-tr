@@ -21,7 +21,7 @@ export function SiteFooter() {
         <div className="md:col-span-1">
           <div className="flex items-center gap-[10px]">
             <div className="relative h-8 w-[25px] shrink-0">
-              <Image src="/prizoma-logo.png" alt="Prizoma" fill className="object-contain object-left" sizes="25px" />
+              <Image src="/prizoma-logo.webp" alt="Prizoma" fill className="object-contain object-left" sizes="25px" />
             </div>
             <span className="text-[16px] font-semibold leading-none tracking-[0.12em] text-white">PRIZOMA</span>
           </div>

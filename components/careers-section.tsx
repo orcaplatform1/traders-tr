@@ -25,7 +25,7 @@ export function CareersSection() {
                 {"There are no open positions at the moment."}
               </p>
               <Link
-                href="/iletisim?kategori=genel"
+                href="/contact?category=general"
                 className="mt-4 inline-flex items-center gap-2 text-[13px] font-medium tracking-wide text-foreground underline decoration-border underline-offset-4 hover:decoration-accent"
               >
                 {"Send us your profile →"}
