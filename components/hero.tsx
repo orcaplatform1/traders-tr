@@ -13,7 +13,7 @@ export function Hero({
   return (
     <section data-hero className="relative h-[100dvh] overflow-hidden border-b border-border md:min-h-screen">
       {imageSrc ? (
-        <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-[#161a22]">
           <div className="hero-pan absolute inset-0">
             {imageSrcMobile && (
               <Image
@@ -36,7 +36,7 @@ export function Hero({
               className={
                 imageSrcMobile
                   ? "hidden object-cover object-center md:block"
-                  : "object-cover object-center"
+                  : "object-cover object-center md:object-contain"
               }
             />
             <div className="grain-overlay" />
