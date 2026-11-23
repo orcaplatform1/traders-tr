@@ -11,10 +11,10 @@ export function Hero({
   imageSrcMobile?: string;
 }) {
   return (
-    <section data-hero className="relative h-[100dvh] overflow-hidden border-b border-border md:min-h-screen">
+    <section data-hero className="relative h-[100dvh] overflow-hidden border-b border-border md:aspect-[1672/941] md:h-auto">
       {imageSrc ? (
-        <div className="absolute inset-0 bg-[#161a22]">
-          <div className="hero-pan absolute inset-0">
+        <div className="absolute inset-0 bg-[#111315]">
+          <div className="absolute inset-0">
             {imageSrcMobile && (
               <Image
                 src={imageSrcMobile}
@@ -23,7 +23,7 @@ export function Hero({
                 priority
                 quality={90}
                 sizes="100vw"
-                className="object-cover object-center md:hidden"
+                className="object-contain object-center md:hidden"
               />
             )}
             <Image
@@ -35,8 +35,8 @@ export function Hero({
               sizes="100vw"
               className={
                 imageSrcMobile
-                  ? "hidden object-cover object-center md:block"
-                  : "object-cover object-center md:object-contain"
+                  ? "hidden object-contain object-center md:block"
+                  : "object-contain object-center"
               }
             />
             <div className="grain-overlay" />
