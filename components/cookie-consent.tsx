@@ -40,12 +40,12 @@ function Toggle({
       aria-label={label}
       disabled={disabled}
       onClick={() => onChange?.(!checked)}
-      className={`relative inline-flex h-5 w-9 shrink-0 items-center rounded-full border transition-colors disabled:cursor-not-allowed disabled:opacity-60 ${
-        checked ? "border-accent bg-accent" : "border-border-default bg-surface-3"
+      className={`relative inline-flex h-5 w-9 shrink-0 items-center rounded-[2px] border transition-colors duration-300 ease-out disabled:cursor-not-allowed disabled:opacity-60 ${
+        checked ? "border-accent bg-accent" : "border-hairline bg-surface-hover"
       }`}
     >
       <span
-        className={`inline-block size-4 transform rounded-full bg-slate-50 transition-transform ${
+        className={`inline-block size-4 transform rounded-[2px] bg-ink-primary transition-transform duration-300 ease-out ${
           checked ? "translate-x-4" : "translate-x-0.5"
         }`}
       />
@@ -79,9 +79,8 @@ function SlidersIcon() {
   );
 }
 
-const PILL = "inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-[13px] font-medium transition-colors";
-const PILL_SOLID = `${PILL} bg-white text-black hover:bg-white/90`;
-const PILL_GHOST = `${PILL} border border-white/25 bg-transparent text-white hover:border-white/50`;
+const PILL_SOLID = "btn-primary text-[13px]";
+const PILL_GHOST = "btn-secondary text-[13px]";
 
 export function CookieConsent() {
   // Sunucuda gizli, istemcide kayitli onay yoksa gorunur
@@ -106,17 +105,17 @@ export function CookieConsent() {
       role="dialog"
       aria-live="polite"
       aria-label="Cookie consent"
-      className="fixed inset-x-4 bottom-4 z-50 rounded-[20px] border border-white/10 bg-[#0B0B10]/85 p-5 text-white shadow-lg backdrop-blur-md sm:inset-x-auto sm:bottom-6 sm:left-6 sm:w-full sm:max-w-[420px]"
+      className="fixed inset-x-4 bottom-4 z-50 rounded-[2px] border border-hairline bg-surface p-5 text-ink-primary sm:inset-x-auto sm:bottom-6 sm:left-6 sm:w-full sm:max-w-[420px]"
     >
       {!showPreferences ? (
         <>
-          <p className="text-[14px] leading-relaxed text-white">
+          <p className="text-[14px] leading-relaxed text-ink-primary">
             We use cookies to improve your experience. See our{" "}
-            <Link href="/cookie-policy" className="underline underline-offset-2 hover:text-white/80">
+            <Link href="/cookie-policy" className="text-accent underline underline-offset-2 transition-colors duration-300 ease-out hover:text-accent-hover">
               Cookie Policy
             </Link>{" "}
             and{" "}
-            <Link href="/privacy-policy" className="underline underline-offset-2 hover:text-white/80">
+            <Link href="/privacy-policy" className="text-accent underline underline-offset-2 transition-colors duration-300 ease-out hover:text-accent-hover">
               Privacy Policy
             </Link>
             .
@@ -145,41 +144,41 @@ export function CookieConsent() {
       ) : (
         <div className="flex flex-col gap-4">
           <div>
-            <p className="text-[14px] font-medium text-white">Cookie Preferences</p>
-            <p className="mt-1 text-[13px] leading-relaxed text-white/70">
+            <p className="text-[14px] font-medium text-ink-primary">Cookie Preferences</p>
+            <p className="mt-1 text-[13px] leading-relaxed text-ink-secondary">
               Choose which cookie categories you allow below.
             </p>
           </div>
 
-          <div className="flex flex-col gap-3 rounded-[14px] border border-white/10 p-4">
+          <div className="flex flex-col gap-3 rounded-[2px] border border-hairline p-4">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-[13px] font-medium text-white">Necessary Cookies (Always Active)</p>
-                <p className="mt-0.5 text-[12px] leading-relaxed text-white/70">
+                <p className="text-[13px] font-medium text-ink-primary">Necessary Cookies (Always Active)</p>
+                <p className="mt-0.5 text-[12px] leading-relaxed text-ink-secondary">
                   Technically required for the PRIZOMA homepage to load securely and for partnership and contact forms to function reliably. (Cannot be disabled)
                 </p>
               </div>
               <Toggle checked onChange={() => {}} disabled label="Necessary cookies (always active)" />
             </div>
 
-            <div className="h-px bg-white/10" />
+            <div className="h-px bg-hairline" />
 
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-[13px] font-medium text-white">Performance &amp; Analytics Cookies</p>
-                <p className="mt-0.5 text-[12px] leading-relaxed text-white/70">
+                <p className="text-[13px] font-medium text-ink-primary">Performance &amp; Analytics Cookies</p>
+                <p className="mt-0.5 text-[12px] leading-relaxed text-ink-secondary">
                   Helps us improve our platform by analysing how visitors browse the &quot;Insights&quot;, &quot;Brands&quot; and &quot;Ventures&quot; sections.
                 </p>
               </div>
               <Toggle checked={analytics} onChange={setAnalytics} label="Toggle performance and analytics cookies" />
             </div>
 
-            <div className="h-px bg-white/10" />
+            <div className="h-px bg-hairline" />
 
             <div className="flex items-start justify-between gap-4">
               <div>
-                <p className="text-[13px] font-medium text-white">Marketing &amp; Advertising Cookies</p>
-                <p className="mt-0.5 text-[12px] leading-relaxed text-white/70">
+                <p className="text-[13px] font-medium text-ink-primary">Marketing &amp; Advertising Cookies</p>
+                <p className="mt-0.5 text-[12px] leading-relaxed text-ink-secondary">
                   Allows us to tailor corporate communications, including new brand launches, ecosystem announcements and partnership updates, to your interests.
                 </p>
               </div>

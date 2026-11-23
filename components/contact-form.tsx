@@ -116,7 +116,7 @@ export function ContactForm({
   const header = (
     <>
       <div
-        className="absolute left-0 top-0 h-[3px] bg-foreground transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1)]"
+        className="absolute left-0 top-0 h-[3px] bg-accent transition-all duration-300 ease-out"
         style={{ width: `${(state.status === "success" ? 1 : (step + 1) / STEPS.length) * 100}%` }}
       />
       <div className="flex items-center justify-between border-b border-border p-5">
@@ -127,7 +127,7 @@ export function ContactForm({
           <button
             type="button"
             onClick={onClose}
-            className="min-h-12 border border-foreground px-3 font-mono text-sm uppercase tracking-tight text-foreground transition-transform active:scale-95"
+            className="btn-secondary min-h-12 font-mono text-sm uppercase"
           >
             {"Close [X]"}
           </button>
@@ -168,7 +168,7 @@ export function ContactForm({
         <legend className="mb-8 text-2xl font-bold tracking-tight text-foreground md:text-3xl">
           {QUESTION.category}
         </legend>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
           {CATEGORIES.map((c) => {
             const selected = c.value === category;
             return (
@@ -177,8 +177,8 @@ export function ContactForm({
                 type="button"
                 aria-pressed={selected}
                 onClick={() => setCategory(c.value)}
-                className={`haptic flex min-h-14 items-center border px-5 text-left text-[18px] ${
-                  selected ? "border-foreground text-foreground" : "border-border text-muted"
+                className={`flex min-h-14 items-center rounded-[2px] border px-5 text-left text-[18px] transition-colors duration-300 ease-out ${
+                  selected ? "border-accent text-ink-primary" : "border-hairline text-ink-secondary hover:border-hairline-hover"
                 }`}
               >
                 {c.label}
@@ -249,12 +249,12 @@ export function ContactForm({
           <button
             type="submit"
             disabled={pending}
-            className="btn-liquid w-full px-8 text-sm font-medium tracking-wide disabled:opacity-60"
+            className="btn-primary w-full text-sm disabled:opacity-60"
           >
             {pending ? "Sending…" : "Send Idea to PRIZOMA ■"}
           </button>
         ) : (
-          <button type="button" onClick={goNext} className="btn-liquid w-full px-8 text-sm font-medium tracking-wide">
+          <button type="button" onClick={goNext} className="btn-primary w-full text-sm">
             {"Continue"} →
           </button>
         )}
@@ -262,7 +262,7 @@ export function ContactForm({
           <button
             type="button"
             onClick={() => setStep((s) => s - 1)}
-            className="haptic min-h-12 px-4 text-[15px] font-medium tracking-wide text-muted"
+            className="btn-secondary min-h-12 text-[15px]"
           >
             ← {"Back"}
           </button>

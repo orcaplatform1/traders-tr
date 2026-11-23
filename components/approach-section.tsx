@@ -3,7 +3,7 @@
 import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
-const BENTO_SPAN = ["md:col-span-2", "md:col-span-1", "md:col-span-1", "md:col-span-2"];
+
 
 export function ApproachSection() {
 
@@ -31,35 +31,28 @@ export function ApproachSection() {
   ];
 
   return (
-    <section className="border-b border-border py-32 md:py-48">
+    <section className="border-b border-hairline py-16 md:py-32">
       <div className="container-edit">
         <ScrollReveal>
           <SectionLabel>{"How We Think"}</SectionLabel>
-          <p className="mt-4 max-w-3xl text-[32px] font-medium leading-[1.15] tracking-tight text-foreground md:text-[52px] lg:text-[60px]">
+          <p className="font-serif mt-4 max-w-3xl text-3xl text-ink-primary md:text-5xl">
             {"We shape"}
             <br />
             {"the future, not the moment."}
           </p>
         </ScrollReveal>
 
-        {/* Bento yerlesimi: 3 kolon, 1. ve 4. kutu genis */}
-        <div className="mt-20 grid grid-cols-1 gap-4 md:mt-24 md:grid-cols-3 md:gap-5">
+        {/* 2x2 izgara: her ilke surface zeminli, hairline cerceveli kutuda */}
+        <div className="mt-12 grid grid-cols-1 gap-4 md:mt-16 md:grid-cols-2 md:gap-6">
           {PRINCIPLES.map((p, i) => (
-            <ScrollReveal key={p.n} delay={i * 120} className={BENTO_SPAN[i]}>
-              <div className="glass-card group relative flex h-full min-h-[280px] flex-col justify-between overflow-hidden rounded-3xl p-8 md:min-h-[340px] md:p-12">
-                <span
-                  aria-hidden
-                  className="pointer-events-none absolute -bottom-8 -right-2 select-none font-heading text-[160px] leading-none text-foreground opacity-[0.04] transition-opacity duration-700 group-hover:opacity-[0.08] md:text-[220px]"
-                >
-                  {p.n}
-                </span>
-
-                <span className="relative font-mono text-sm text-muted">{p.n}</span>
-                <div className="relative mt-16">
-                  <h3 className="max-w-md text-[30px] font-medium leading-[1.08] tracking-tight text-foreground sm:text-[36px] md:text-[44px]">
+            <ScrollReveal key={p.n} delay={i * 120}>
+              <div className="relative flex h-full flex-col justify-between rounded-[2px] border border-hairline bg-surface p-6 md:p-8">
+                <span className="meta-mono text-ink-muted">{p.n} {"//"}</span>
+                <div className="mt-10">
+                  <h3 className="max-w-md font-sans text-xl font-medium tracking-normal text-ink-primary md:text-2xl">
                     {p.title}
                   </h3>
-                  <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted">{p.description}</p>
+                  <p className="mt-3 max-w-sm text-[15px] leading-relaxed text-ink-secondary">{p.description}</p>
                 </div>
               </div>
             </ScrollReveal>

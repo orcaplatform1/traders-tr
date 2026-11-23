@@ -6,12 +6,12 @@ export function DockLabel({ icon, label, selected }: { icon: ReactNode; label: s
     <>
       <span
         aria-hidden
-        className={`mb-1 flex h-5 items-center transition-all duration-200 ${selected ? "-translate-y-0.5 opacity-100" : "opacity-45"}`}
+        className={`mb-1 flex h-5 items-center transition-all duration-300 ${selected ? "-translate-y-0.5 opacity-100" : "opacity-45"}`}
       >
         {icon}
       </span>
       <span
-        className={`font-mono text-[9px] uppercase tracking-widest transition-colors duration-200 ${
+        className={`font-mono text-[9px] uppercase tracking-widest transition-colors duration-300 ${
           selected ? "font-bold text-foreground" : "text-text-tertiary"
         }`}
       >

@@ -1,87 +1,26 @@
-"use client";
-
-import Link from "next/link";
-import { useEffect, useRef } from "react";
+import { SectionHeader } from "@/components/section-header";
+import { BrandCard } from "@/components/brand-card";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { brands } from "@/lib/content/brands";
 
+// Girisim ekosistemi: aktif markalar 6 kolon (one cikan), gelistirme asamasindakiler 4 kolon
 export function BrandGrid() {
   const sorted = [...brands].sort((a, b) => a.displayOrder - b.displayOrder);
-  const gridRef = useRef<HTMLDivElement>(null);
-
-  // Ekranin ortasina gelen kart odakta sayilir; durum rozeti sadece o zaman nefes alir
-  useEffect(() => {
-    const grid = gridRef.current;
-    if (!grid) return;
-    const observer = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.target.classList.toggle("is-focused", e.isIntersecting)),
-      { rootMargin: "-40% 0px -40% 0px" },
-    );
-    grid.querySelectorAll(".bento-card").forEach((el) => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
 
   return (
-    <section className="w-full border-b border-border py-12 md:py-32">
+    <section className="w-full border-b border-hairline py-16 md:py-32">
       <div className="container-edit">
-        <ScrollReveal className="mb-8 md:mb-12">
-          <span className="font-mono text-xs uppercase tracking-widest text-text-tertiary">{"Portfolio"}</span>
-          <h2 className="mt-1 text-2xl font-bold tracking-tight text-foreground md:text-4xl">
-            {"Venture Ecosystem"}
-          </h2>
+        <ScrollReveal className="mb-10 md:mb-14">
+          <SectionHeader label="/01 PORTFOLIO" title="Venture Ecosystem" meta="05 BRANDS // 05 SECTORS" />
         </ScrollReveal>
 
-        {/* Asimetrik brutalist Bento: 1. ve 4. kart tam genislik */}
-        <div ref={gridRef} className="grid grid-cols-2 gap-0 border-l border-t border-border">
+        <div className="grid grid-cols-1 gap-4 md:grid-cols-12 md:gap-6">
           {sorted.map((brand, idx) => {
-            const wide = idx >= 2;
-            const active = brand.status === "active";
-
+            const featured = brand.status === "active";
             return (
-              <Link
-                key={brand.id}
-                href={`/brands/${brand.slug}`}
-                className={`bento-card haptic group relative flex flex-col justify-between overflow-hidden border-b border-r border-border bg-white transition-all active:bg-background ${
-                  wide ? "col-span-2 min-h-[190px] p-6 md:p-10" : "col-span-1 min-h-[160px] p-5 md:p-8"
-                }`}
-              >
-                <span aria-hidden className="quartz-glow" />
-
-                <div className="relative">
-                  <div className="mb-2 flex items-start justify-between gap-2">
-                    <span className="font-mono text-[9px] uppercase text-text-tertiary md:text-[10px]">
-                      {String(brand.displayOrder).padStart(2, "0")} {"// "}
-                      {brand.category}
-                    </span>
-                    <span
-                      className={`status-badge shrink-0 border px-1.5 py-px text-[9px] font-bold md:text-[10px] ${
-                        active
-                          ? "border-emerald-500 bg-emerald-50/20 text-emerald-600"
-                          : "border-amber-500 bg-amber-50/30 text-amber-600"
-                      }`}
-                    >
-                      {active
-                        ? "Active"
-                        : brand.status === "developing"
-                          ? "In development"
-                          : "Exploring"}
-                    </span>
-                  </div>
-                  <h3 className={`font-bold text-foreground ${wide ? "text-xl md:text-3xl" : "text-lg md:text-2xl"}`}>
-                    {brand.name}
-                  </h3>
-                  {wide && (
-                    <p className="mt-2 max-w-2xl text-xs leading-relaxed text-muted md:text-sm">
-                      {brand.shortDescription}
-                    </p>
-                  )}
-                </div>
-
-                <div className="relative flex items-center justify-between pt-4 font-mono text-[10px] text-text-tertiary md:text-xs">
-                  <span>{brand.websiteUrl.replace(/^https?:\/\//, "")}</span>
-                  {wide && <span className="font-sans font-bold text-foreground">{"View →"}</span>}
-                </div>
-              </Link>
+              <div key={brand.id} className={featured ? "md:col-span-6" : "md:col-span-4"}>
+                <BrandCard brand={brand} index={idx + 1} featured={featured} />
+              </div>
             );
           })}
         </div>

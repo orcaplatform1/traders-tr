@@ -67,7 +67,7 @@ export function AboutPageContent() {
         <div className="container-edit relative max-w-3xl">
           <ScrollReveal>
             <SectionLabel>{"About PRIZOMA"}</SectionLabel>
-            <h1 className="mt-6 text-[34px] font-medium leading-[1.15] tracking-tight text-foreground sm:text-[44px] md:text-[56px]">
+            <h1 className="font-serif mt-6 text-[34px] leading-[1.15] text-foreground sm:text-[44px] md:text-[56px]">
               {"From ideas to brands."}
               <br />
               {"From brands to lasting businesses."}
@@ -107,7 +107,7 @@ export function AboutPageContent() {
         <div className="container-edit">
           <ScrollReveal>
             <SectionLabel>{"What Do We Do?"}</SectionLabel>
-            <h2 className="mt-4 max-w-2xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
+            <h2 className="font-serif mt-4 max-w-2xl text-4xl text-foreground md:text-5xl">
               {"We don't see PRIZOMA merely as an investment vehicle or brand umbrella."}
             </h2>
             <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-muted">
@@ -159,7 +159,7 @@ export function AboutPageContent() {
             <SectionLabel>{"How Do We Think?"}</SectionLabel>
           </ScrollReveal>
 
-          <div className="mt-12 grid grid-cols-1 gap-x-16 gap-y-12 md:grid-cols-2">
+          <div className="mt-12 grid grid-cols-1 gap-x-6 gap-y-6 md:grid-cols-2">
             {HOW_WE_THINK.map((item, i) => (
               <ScrollReveal key={item.n} delay={i * 80}>
                 <div className="border-t border-border pt-6">
@@ -180,7 +180,7 @@ export function AboutPageContent() {
       <section className="border-b border-border py-28 md:py-36">
         <div className="container-edit max-w-2xl">
           <ScrollReveal>
-            <h2 className="text-3xl font-medium leading-tight tracking-tight text-foreground md:text-4xl">
+            <h2 className="font-serif text-3xl text-foreground md:text-4xl">
               {"Independent brands. One shared approach."}
             </h2>
             <div className="mt-8 space-y-5 text-[15px] leading-relaxed text-muted">
@@ -231,7 +231,7 @@ export function AboutPageContent() {
 
       {/* Mission / Vision */}
       <section className="border-b border-border py-28 md:py-36">
-        <div className="container-edit grid grid-cols-1 gap-12 md:grid-cols-2">
+        <div className="container-edit grid grid-cols-1 gap-6 md:grid-cols-2">
           <ScrollReveal>
             <SectionLabel>{"Mission"}</SectionLabel>
             <p className="mt-4 text-xl font-medium leading-relaxed tracking-tight text-foreground md:text-2xl">

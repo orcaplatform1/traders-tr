@@ -1,141 +1,52 @@
-"use client";
+import type { Brand } from "@/lib/content/types";
+import { StatusBadge } from "@/components/status-badge";
 
-import Image from "next/image";
-import Link from "next/link";
-import type { Brand, BrandAccent } from "@/lib/content/types";
-import { StatusIndicator } from "@/components/status-indicator";
-
-const ACCENT: Record<
-  BrandAccent,
-  { text: string; hoverText: string; soft: string; border: string; dot: string; glow: string }
-> = {
-  ocean: {
-    text: "text-brand-ocean",
-    hoverText: "hover:text-brand-ocean",
-    soft: "bg-brand-ocean/10",
-    border: "group-hover:border-brand-ocean/50",
-    dot: "bg-brand-ocean",
-    glow: "from-brand-ocean/20",
-  },
-  emerald: {
-    text: "text-brand-emerald",
-    hoverText: "hover:text-brand-emerald",
-    soft: "bg-brand-emerald/10",
-    border: "group-hover:border-brand-emerald/50",
-    dot: "bg-brand-emerald",
-    glow: "from-brand-emerald/20",
-  },
-  earth: {
-    text: "text-brand-earth",
-    hoverText: "hover:text-brand-earth",
-    soft: "bg-brand-earth/10",
-    border: "group-hover:border-brand-earth/50",
-    dot: "bg-brand-earth",
-    glow: "from-brand-earth/20",
-  },
-  orange: {
-    text: "text-brand-orange",
-    hoverText: "hover:text-brand-orange",
-    soft: "bg-brand-orange/10",
-    border: "group-hover:border-brand-orange/50",
-    dot: "bg-brand-orange",
-    glow: "from-brand-orange/20",
-  },
-  wine: {
-    text: "text-brand-wine",
-    hoverText: "hover:text-brand-wine",
-    soft: "bg-brand-wine/10",
-    border: "group-hover:border-brand-wine/50",
-    dot: "bg-brand-wine",
-    glow: "from-brand-wine/20",
-  },
-};
-
-export function BrandCard({ brand }: { brand: Brand }) {
-  const accent = ACCENT[brand.accent];
+// Marka karti: surface zemin, 1px hairline; kart yeni sekmede markanin sitesini acar
+export function BrandCard({
+  brand,
+  index,
+  featured = false,
+}: {
+  brand: Brand;
+  index?: number;
+  featured?: boolean;
+}) {
+  const no = String(index ?? brand.displayOrder).padStart(2, "0");
+  const domain = brand.websiteUrl.replace(/^https?:\/\//, "");
 
   return (
-    <div
-      className={`haptic group relative flex h-full flex-col justify-between overflow-hidden border border-border p-8 transition-colors duration-300 ${accent.border} md:p-10`}
+    <a
+      href={brand.websiteUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex h-full flex-col justify-between rounded-[2px] border border-hairline bg-surface p-6 transition-colors duration-300 ease-out hover:border-hairline-hover hover:bg-surface-hover md:p-8"
     >
-      <span aria-hidden className="quartz-glow" />
-      <span
-        aria-hidden
-        className={`pointer-events-none absolute -right-4 -top-6 select-none text-[120px] font-semibold leading-none tracking-tight text-foreground opacity-[0.03] transition-opacity duration-300 group-hover:opacity-[0.06] md:text-[160px]`}
-      >
-        {String(brand.displayOrder).padStart(2, "0")}
-      </span>
-      <div
-        className={`pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b ${accent.glow} to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100`}
-      />
-
-      <div className="relative">
-        <div className="flex items-center justify-between">
-          <div
-            className={`flex h-14 w-14 shrink-0 items-center justify-center rounded-xl ${accent.soft}`}
-          >
-            <span className={`text-lg font-semibold tracking-tight ${accent.text}`}>
-              {brand.monogram}
-            </span>
-          </div>
-
-          <span
-            className={`flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.12em] ${
-              brand.status === "developing"
-                ? "text-warning"
-                : brand.status === "active"
-                  ? "text-success"
-                  : "text-muted"
-            }`}
-          >
-            <StatusIndicator />
-            {brand.status === "active"
-              ? "Active"
-              : brand.status === "developing"
-                ? "In development"
-                : "Exploring"}
+      <div>
+        <div className="flex items-start justify-between gap-4">
+          <span className="meta-mono text-ink-secondary">
+            <span className="text-ink-muted">{no} {"//"}</span> {brand.category}
           </span>
+          <StatusBadge status={brand.status} />
         </div>
+        <h3
+          className={`mt-6 font-sans font-medium tracking-normal text-ink-primary ${featured ? "text-2xl" : "text-xl"}`}
+        >
+          {brand.name}
+        </h3>
+        <p className="mt-3 text-sm leading-relaxed text-ink-secondary">{brand.shortDescription}</p>
+      </div>
 
-        <span className="mt-6 block text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-          {brand.category}
+      <div className="mt-8 flex items-center justify-between border-t border-hairline pt-4">
+        <span className="font-mono text-xs text-ink-secondary transition-colors duration-300 ease-out group-hover:text-ink-primary">
+          {domain}
         </span>
-        <div className="mt-4 flex items-center gap-3">
-          <div className="relative h-8 w-8 shrink-0 opacity-90">
-            <Image src={brand.logo} alt="" fill className="object-contain" sizes="32px" />
-          </div>
-          <h3 className="text-3xl font-medium tracking-tight text-foreground md:text-4xl">
-            {brand.name}
-          </h3>
-        </div>
-        <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted">
-          {brand.shortDescription}
-        </p>
-      </div>
-
-      <div className="relative mt-10 flex items-center gap-6 text-[13px]">
-        <a
-          href={brand.websiteUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 font-medium tracking-wide text-foreground"
+        <span
+          aria-hidden
+          className="text-ink-secondary transition-[color,transform] duration-300 ease-out group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
         >
-          <span>{brand.websiteUrl.replace(/^https?:\/\//, "")}</span>
-          <span className={`transition-transform duration-300 group-hover:translate-x-1 ${accent.text}`}>
-            →
-          </span>
-        </a>
-        <Link
-          href={`/brands/${brand.slug}`}
-          className={`text-muted transition-colors ${accent.hoverText}`}
-        >
-          {"View Profile"}
-        </Link>
+          ↗
+        </span>
       </div>
-
-      <div
-        className={`pointer-events-none absolute inset-x-0 bottom-0 h-px scale-x-0 transition-transform duration-300 group-hover:scale-x-100 ${accent.dot}`}
-      />
-    </div>
+    </a>
   );
 }

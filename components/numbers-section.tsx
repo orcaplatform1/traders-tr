@@ -14,7 +14,7 @@ export function NumbersSection() {
   return (
     <section className="border-b border-border py-24 md:py-32">
       <div className="container-edit">
-        <div className="grid grid-cols-2 gap-y-14 md:grid-cols-4">
+        <div className="grid grid-cols-2 gap-y-6 md:grid-cols-4">
           {NUMBERS.map((n, i) => (
             <ScrollReveal key={n.label} delay={i * 90}>
               <div className="border-l border-border pl-6">

@@ -16,7 +16,7 @@ export default async function AdminLoginPage() {
   return (
     <section className="flex min-h-[70vh] items-center py-28">
       <div className="container-edit max-w-sm">
-        <h1 className="text-2xl font-medium tracking-tight text-foreground">
+        <h1 className="font-serif text-2xl text-foreground">
           Admin Login
         </h1>
         <p className="mt-2 text-[14px] text-muted">

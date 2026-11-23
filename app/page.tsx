@@ -8,7 +8,6 @@ import { VenturesSection } from "@/components/ventures-section";
 import { NumbersSection } from "@/components/numbers-section";
 import { ApproachSection } from "@/components/approach-section";
 import { InsightsSection } from "@/components/insights-section";
-import { NewsroomSection } from "@/components/newsroom-section";
 import { PartnershipSection } from "@/components/partnership-section";
 import { AboutSection } from "@/components/about-section";
 import { CareersSection } from "@/components/careers-section";
@@ -31,7 +30,6 @@ export default function Home() {
       <NumbersSection />
       <ApproachSection />
       <InsightsSection />
-      <NewsroomSection />
       <PartnershipSection />
       <AboutSection />
       <CareersSection />

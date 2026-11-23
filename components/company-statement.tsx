@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 export function CompanyStatement() {
   return (
     <section className="border-b border-border py-32 md:py-48">
-      <div className="container-edit relative z-10 grid grid-cols-1 gap-12 md:grid-cols-[1fr_auto] md:items-end md:gap-16">
+      <div className="container-edit relative z-10 grid grid-cols-1 gap-6 md:grid-cols-[1fr_auto] md:items-end md:gap-6">
         <div>
           <ScrollReveal>
             <p className="font-heading max-w-3xl text-[32px] font-semibold leading-[1.15] tracking-tight text-foreground md:text-[52px] lg:text-[64px]">

@@ -56,10 +56,10 @@ export function MobileMenu({ className = "" }: { className?: string }) {
           icon={
             <span className="flex flex-col gap-[4px]">
               <span
-                className={`h-px w-4 bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${open ? "translate-y-[2.5px] rotate-45" : ""}`}
+                className={`h-px w-4 bg-foreground transition-transform duration-300 ease-out ${open ? "translate-y-[2.5px] rotate-45" : ""}`}
               />
               <span
-                className={`h-px w-4 bg-foreground transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${open ? "-translate-y-[2.5px] -rotate-45" : ""}`}
+                className={`h-px w-4 bg-foreground transition-transform duration-300 ease-out ${open ? "-translate-y-[2.5px] -rotate-45" : ""}`}
               />
             </span>
           }
@@ -68,7 +68,7 @@ export function MobileMenu({ className = "" }: { className?: string }) {
 
       {mounted && createPortal(
       <div
-        className={`fixed inset-0 z-40 h-dvh bg-background/90 backdrop-blur-xl transition-opacity duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed inset-0 z-40 h-dvh bg-background/90 backdrop-blur-xl transition-opacity duration-300 ease-out ${
           open ? "kinetic-menu-open opacity-100" : "pointer-events-none opacity-0"
         }`}
       >

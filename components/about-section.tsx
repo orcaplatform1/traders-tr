@@ -6,7 +6,7 @@ import { ScrollReveal } from "@/components/scroll-reveal";
 export function AboutSection() {
   return (
     <section className="border-b border-border py-32 md:py-48">
-      <div className="container-edit grid grid-cols-1 gap-16 md:grid-cols-2">
+      <div className="container-edit grid grid-cols-1 gap-6 md:grid-cols-2">
         <ScrollReveal>
           <SectionLabel>{"About PRIZOMA"}</SectionLabel>
           <p className="mt-6 text-2xl font-medium leading-[1.4] tracking-tight text-foreground md:text-3xl">
@@ -18,7 +18,7 @@ export function AboutSection() {
         </ScrollReveal>
 
         <ScrollReveal delay={120}>
-          <div className="grid grid-cols-1 gap-10 border-t border-border pt-8 sm:grid-cols-2">
+          <div className="grid grid-cols-1 gap-6 border-t border-border pt-8 sm:grid-cols-2">
             <div>
               <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
                 {"Mission"}

@@ -45,7 +45,7 @@ export function IdeaWizardProvider({ children }: { children: ReactNode }) {
         aria-modal="true"
         aria-hidden={!isOpen}
         inert={!isOpen}
-        className={`fixed inset-0 z-[60] overflow-y-auto bg-background transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        className={`fixed inset-0 z-[60] overflow-y-auto bg-background transition-transform duration-300 ease-out ${
           isOpen ? "translate-y-0" : "translate-y-full"
         }`}
       >

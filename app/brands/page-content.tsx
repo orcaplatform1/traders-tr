@@ -9,16 +9,16 @@ export function BrandsPageContent() {
     <section className="py-28 md:py-36">
       <div className="container-edit">
         <SectionLabel>{"Our Brands"}</SectionLabel>
-        <h1 className="mt-4 max-w-xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
+        <h1 className="font-serif mt-4 max-w-xl text-4xl text-foreground md:text-5xl">
           {"Independent brands. One shared vision."}
         </h1>
 
-        <div className="mt-16 grid grid-cols-1 gap-px bg-border md:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-3 md:gap-6">
           {brands
             .sort((a, b) => a.displayOrder - b.displayOrder)
-            .map((brand) => (
-              <div key={brand.id} className="h-full bg-background">
-                <BrandCard brand={brand} />
+            .map((brand, idx) => (
+              <div key={brand.id} className="h-full">
+                <BrandCard brand={brand} index={idx + 1} featured={brand.status === "active"} />
               </div>
             ))}
         </div>

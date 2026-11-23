@@ -42,7 +42,7 @@ export function NewsroomPostContent({
           <span>{post.readTime} {"read"}</span>
         </div>
 
-        <h1 className="mt-4 text-4xl font-medium leading-tight tracking-tight text-foreground md:text-5xl">
+        <h1 className="font-serif mt-4 text-4xl text-foreground md:text-5xl">
           {displayTitle}
         </h1>
 
@@ -51,7 +51,7 @@ export function NewsroomPostContent({
         </p>
       </header>
 
-      <div className="container-edit mt-16 grid grid-cols-1 gap-12 md:grid-cols-[220px_1fr] md:gap-20">
+      <div className="container-edit mt-16 grid grid-cols-1 gap-6 md:grid-cols-[220px_1fr] md:gap-6">
         {headings.length > 0 && (
           <nav aria-label={"Table of Contents"} className="hidden md:block">
             <div className="sticky top-28 space-y-1">
@@ -77,8 +77,7 @@ export function NewsroomPostContent({
               return (
                 <h2
                   key={i}
-                  id={block.id}
-                  className="scroll-mt-28 text-xl font-medium text-foreground md:text-2xl [&:not(:first-child)]:mt-12"
+                  id={block.id} className="font-serif scroll-mt-28 text-xl text-foreground md:text-2xl [&:not(:first-child)]:mt-12"
                 >
                   {block.text}
                 </h2>
@@ -106,7 +105,7 @@ export function NewsroomPostContent({
       {moreNews.length > 0 && (
         <div className="container-edit mt-24 border-t border-border pt-16">
           <SectionLabel>{"More Announcements"}</SectionLabel>
-          <div className="mt-8 grid grid-cols-1 gap-10 md:grid-cols-2">
+          <div className="mt-8 grid grid-cols-1 gap-6 md:grid-cols-2">
             {moreNews.map((n) => (
               <Link key={n.id} href={`/newsroom/${n.slug}`} className="group block max-w-xl">
                 <div className="flex items-center gap-3 text-[12px] text-muted">

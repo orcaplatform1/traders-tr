@@ -17,13 +17,13 @@ export function SiteFooter() {
 
   return (
     <footer className="border-t border-border">
-      <div className="container-edit grid grid-cols-1 gap-12 py-16 md:grid-cols-4 md:py-20">
+      <div className="container-edit grid grid-cols-1 gap-6 py-16 md:grid-cols-4 md:py-20">
         <div className="md:col-span-1">
           <div className="flex items-center gap-[10px]">
             <div className="relative h-8 w-[25px] shrink-0">
               <Image src="/prizoma-logo.webp" alt="Prizoma" fill className="object-contain object-left" sizes="25px" />
             </div>
-            <span className="text-[16px] font-semibold leading-none tracking-[0.12em] text-white">PRIZOMA</span>
+            <span className="text-[16px] font-semibold leading-none tracking-[0.12em] text-ink-primary">PRIZOMA</span>
           </div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
             {SITE_TAGLINE}
@@ -91,17 +91,13 @@ export function SiteFooter() {
       </div>
 
       <div
-        className="border-t border-zinc-800"
-        style={{
-          background:
-            "linear-gradient(180deg, #1e1e1e 0%, #080808 35%, #000000 100%)",
-        }}
+        className="border-t border-hairline bg-canvas"
       >
         <div className="container-edit flex flex-col items-center gap-4 py-6 text-center sm:flex-row sm:justify-between sm:text-left">
-          <span className="text-[12px] text-white/40">
+          <span className="text-[12px] text-ink-secondary">
             &copy; 2026{" "}
             <span className="whitespace-nowrap">
-              <span className="font-semibold text-white">Prizoma</span>
+              <span className="font-semibold text-ink-primary">Prizoma</span>
             </span>
             . {"All rights reserved."}
           </span>
@@ -110,7 +106,7 @@ export function SiteFooter() {
             <ul className="flex items-center gap-x-5">
               {FOOTER_LEGAL_LINKS.slice(0, 3).map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-[12px] text-white/35">
+                  <Link href={link.href} className="text-[12px] text-ink-secondary">
                     {link.label}
                   </Link>
                 </li>
@@ -119,7 +115,7 @@ export function SiteFooter() {
             <ul className="flex items-center gap-x-5">
               {FOOTER_LEGAL_LINKS.slice(3).map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="text-[12px] text-white/35">
+                  <Link href={link.href} className="text-[12px] text-ink-secondary">
                     {link.label}
                   </Link>
                 </li>

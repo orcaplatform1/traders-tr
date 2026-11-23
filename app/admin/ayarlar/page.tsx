@@ -18,7 +18,7 @@ export default async function AdminSettingsPage() {
     <section className="py-28 md:py-32">
       <div className="container-edit">
         <div className="flex items-center justify-between">
-          <h1 className="text-2xl font-medium tracking-tight text-foreground">Settings</h1>
+          <h1 className="font-serif text-2xl text-foreground">Settings</h1>
           <LogoutButton />
         </div>
 

@@ -45,26 +45,26 @@ export function ChronoRing() {
           y1="2.5"
           x2="24"
           y2={deg % 90 === 0 ? 5.5 : 4}
-          stroke="#cbd5e1"
+          stroke="var(--hairline-hover)"
           strokeWidth="0.75"
           transform={`rotate(${deg} 24 24)`}
         />
       ))}
-      <circle cx="24" cy="24" r={R} fill="none" stroke="#e2e8f0" strokeWidth="0.75" />
+      <circle cx="24" cy="24" r={R} fill="none" stroke="var(--hairline)" strokeWidth="0.75" />
       <circle
         ref={arc}
         cx="24"
         cy="24"
         r={R}
         fill="none"
-        stroke="#0b0b0c"
+        stroke="var(--accent)"
         strokeWidth="0.75"
         strokeDasharray={C}
         strokeDashoffset={C}
         transform="rotate(-90 24 24)"
       />
-      <line ref={hand} x1="24" y1="24" x2="24" y2="10" stroke="#0b0b0c" strokeWidth="0.75" strokeLinecap="round" />
-      <circle cx="24" cy="24" r="1.25" fill="#0b0b0c" />
+      <line ref={hand} x1="24" y1="24" x2="24" y2="10" stroke="var(--accent)" strokeWidth="0.75" strokeLinecap="round" />
+      <circle cx="24" cy="24" r="1.25" fill="var(--accent)" />
     </svg>
   );
 }

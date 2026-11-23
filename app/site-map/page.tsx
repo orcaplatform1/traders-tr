@@ -60,11 +60,11 @@ export default function SiteHaritasiPage() {
     <section className="py-28 md:py-36">
       <div className="container-edit">
         <SectionLabel>PRIZOMA</SectionLabel>
-        <h1 className="mt-4 text-4xl font-medium tracking-tight text-foreground md:text-5xl">
+        <h1 className="font-serif mt-4 text-4xl text-foreground md:text-5xl">
           {"Site Map"}
         </h1>
 
-        <div className="mt-16 grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {GROUPS.map((group) => (
             <div key={group.title}>
               <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">

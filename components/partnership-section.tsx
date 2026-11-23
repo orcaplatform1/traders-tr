@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { Magnetic } from "@/components/magnetic";
 
 export function PartnershipSection() {
   return (
@@ -11,7 +10,7 @@ export function PartnershipSection() {
       <div className="container-edit">
         <ScrollReveal>
           <SectionLabel>{"Partnerships"}</SectionLabel>
-          <h2 className="mt-4 max-w-2xl text-4xl font-medium leading-[1.1] tracking-tight text-foreground md:text-6xl">
+          <h2 className="font-serif mt-4 max-w-2xl text-4xl leading-[1.1] text-foreground md:text-6xl">
             {"Great things are built together."}
           </h2>
           <p className="mt-6 max-w-lg text-[16px] leading-relaxed text-muted">
@@ -19,24 +18,22 @@ export function PartnershipSection() {
           </p>
 
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <Magnetic>
               <Link
                 href="/contact?category=partnership"
-                className="btn-liquid group px-6 py-3 text-[13px] font-medium tracking-wide"
+                className="btn-primary group text-[13px]"
               >
                 {"Partnership"}
                 <span className="lux-ease group-hover:translate-x-1">→</span>
               </Link>
-            </Magnetic>
             <Link
               href="/contact?category=venture"
-              className="btn-liquid px-5 py-2.5 text-[13px] font-medium tracking-wide"
+              className="btn-secondary text-[13px]"
             >
               {"Venture"}
             </Link>
             <Link
               href="/contact?category=press"
-              className="rounded-sm border border-border px-5 py-2.5 text-[13px] font-medium tracking-wide text-foreground transition-colors hover:border-border-hover hover:text-accent"
+              className="btn-secondary text-[13px]"
             >
               {"Press"}
             </Link>

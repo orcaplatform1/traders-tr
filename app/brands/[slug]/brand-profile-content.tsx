@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Brand } from "@/lib/content/types";
+import { StatusBadge } from "@/components/status-badge";
 
 export function BrandProfileContent({ brand }: { brand: Brand }) {
 
@@ -21,10 +22,11 @@ export function BrandProfileContent({ brand }: { brand: Brand }) {
             <Image src={brand.logo} alt={`${brand.name} logo`} fill className="object-contain" sizes="64px" />
           </div>
 
-          <span className="mt-4 block text-[11px] font-medium uppercase tracking-[0.18em] text-muted">
-            {brand.category}
-          </span>
-          <h1 className="mt-4 text-5xl font-medium tracking-tight text-foreground md:text-6xl">
+          <div className="mt-4 flex flex-wrap items-center gap-4">
+            <span className="meta-mono text-ink-secondary">{brand.category}</span>
+            <StatusBadge status={brand.status} />
+          </div>
+          <h1 className="font-serif mt-4 text-5xl text-foreground md:text-6xl">
             {brand.name}
           </h1>
           <p className="mt-6 text-[17px] leading-relaxed text-foreground md:text-[19px]">
@@ -32,7 +34,7 @@ export function BrandProfileContent({ brand }: { brand: Brand }) {
           </p>
 
           <div className="mt-10 border-t border-border pt-8">
-            <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
+            <span className="meta-mono text-accent">
               {"Why it exists"}
             </span>
             <p className="mt-3 text-[15px] leading-relaxed text-muted">
@@ -41,7 +43,7 @@ export function BrandProfileContent({ brand }: { brand: Brand }) {
           </div>
 
           <div className="mt-10 border-t border-border pt-8">
-            <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
+            <span className="meta-mono text-accent">
               {"Key Features"}
             </span>
             <ul className="mt-4 space-y-4">
@@ -58,7 +60,7 @@ export function BrandProfileContent({ brand }: { brand: Brand }) {
             href={brand.websiteUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="mt-10 inline-flex items-center gap-2 rounded-sm border border-foreground bg-foreground px-6 py-3 text-[13px] font-medium tracking-wide text-background transition-colors hover:bg-transparent hover:text-foreground"
+            className="btn-primary mt-10 text-[13px]"
           >
             {brand.websiteUrl.replace(/^https?:\/\//, "")}
             <span>→</span>

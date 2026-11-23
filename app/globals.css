@@ -1,91 +1,112 @@
 @import "tailwindcss";
 
-/* Sonsuz Beyaz paleti: zemin #FAFAFA, metin #0B0B0C, kontur #E2E8F0 */
 :root {
-  color-scheme: light;
+  color-scheme: dark;
 
-  --bg-infinite-white: #fafafa;
-  --text-obsidian: #0b0b0c;
-  --border-hairline: #e2e8f0;
-  --gradient-mercury: linear-gradient(135deg, #e2e8f0 0%, #cbd5e1 100%);
-  --ease-kinetic: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Mat Arduvaz paleti */
+  --canvas: #181a1b;
+  --surface: #202325;
+  --surface-hover: #262a2d;
+  --ink-primary: #d8d6d0;
+  --ink-secondary: #8e9296;
+  --ink-muted: #5e6266;
+  --accent: #5c8d89;
+  --accent-hover: #6da39e;
+  --accent-ink: #141617;
+  --hairline: #2c3033;
+  --hairline-hover: #3e4347;
+  --status-active: #4e9a76;
+  --status-dev: #c58b43;
 
-  --bg-deep-velvet: var(--bg-infinite-white);
-  --bg-card-surface: rgba(250, 250, 250, 0.6);
+  /* Eski degisken adlari yeni palete baglandi (bilesenler bunlari kullaniyor) */
+  --bg-infinite-white: var(--canvas);
+  --text-obsidian: var(--ink-primary);
+  --border-hairline: var(--hairline);
+  --gradient-mercury: linear-gradient(135deg, var(--hairline) 0%, var(--hairline-hover) 100%);
+  --ease-kinetic: ease-out;
+
+  --bg-deep-velvet: var(--canvas);
+  --bg-card-surface: var(--surface);
   --gradient-venture-glow: var(--gradient-mercury);
-  --gradient-border-glow: linear-gradient(90deg, #e2e8f0 0%, #cbd5e1 100%);
+  --gradient-border-glow: linear-gradient(90deg, var(--hairline) 0%, var(--hairline-hover) 100%);
 
-  /* Slate */
-  --slate-950: #0e1116;
-  --slate-900: #111827;
-  --slate-800: #1f2937;
-  --slate-700: #374151;
-  --slate-600: #475569;
-  --slate-500: #64748b;
-  --slate-400: #94a3b8;
-  --slate-300: #cbd5e1;
-  --slate-200: #e2e8f0;
-  --slate-100: #f1f5f9;
-  --slate-50: #f8fafc;
+  --slate-950: var(--canvas);
+  --slate-900: var(--canvas);
+  --slate-800: var(--surface);
+  --slate-700: var(--hairline-hover);
+  --slate-600: var(--ink-muted);
+  --slate-500: var(--ink-secondary);
+  --slate-400: var(--ink-secondary);
+  --slate-300: var(--hairline-hover);
+  --slate-200: var(--hairline);
+  --slate-100: var(--surface-hover);
+  --slate-50: var(--ink-primary);
 
-  /* Electric blue accent */
-  --blue-500: #3b82f6;
-  --blue-400: #60a5fa;
-  --blue-300: #93c5fd;
-  --blue-200: #bfdbfe;
-  --blue-100: #dbeafe;
+  --blue-500: var(--accent);
+  --blue-400: var(--accent);
+  --blue-300: var(--accent-hover);
+  --blue-200: var(--accent-hover);
+  --blue-100: var(--surface-hover);
 
-  /* Semantic */
-  --success: #16a34a;
-  --warning: #d97706;
-  --error: #dc2626;
-  --info: #3b82f6;
+  --success: var(--status-active);
+  --warning: var(--status-dev);
+  --error: #c0605a;
+  --info: var(--accent);
 
-  /* Extended (data viz / editorial tags only) */
-  --teal: #14b8a6;
-  --indigo: #6366f1;
-  --purple: #8b5cf6;
-  --cyan: #06b6d4;
+  --teal: var(--accent);
+  --indigo: var(--accent);
+  --purple: var(--accent);
+  --cyan: var(--accent);
 
-  /* Marka paletleri */
-  --brand-ocean: #2ba8d8;
-  --brand-emerald: #10b981;
-  --brand-earth: #c8814a;
-  --brand-orange: #F5A524;
-  --brand-wine: #8b1a3a;
+  --brand-ocean: var(--accent);
+  --brand-emerald: var(--accent);
+  --brand-earth: var(--accent);
+  --brand-orange: var(--accent);
+  --brand-wine: var(--accent);
 
-  /* Surfaces */
-  --surface-background: var(--bg-infinite-white);
-  --surface-1: #ffffff;
-  --surface-2: #f4f4f5;
-  --surface-3: #f1f5f9;
-  --surface-4: #e2e8f0;
-  --surface-5: #cbd5e1;
-  --surface-overlay: rgba(250, 250, 250, 0.9);
+  --surface-background: var(--canvas);
+  --surface-1: var(--surface);
+  --surface-2: var(--surface);
+  --surface-3: var(--surface-hover);
+  --surface-4: var(--hairline);
+  --surface-5: var(--hairline-hover);
+  --surface-overlay: rgba(24, 26, 27, 0.9);
 
-  /* Borders */
-  --border-subtle: var(--border-hairline);
-  --border-default: var(--border-hairline);
-  --border-strong: #cbd5e1;
-  --border-divider: #cbd5e1;
-  --border-focus: var(--text-obsidian);
+  --border-subtle: var(--hairline);
+  --border-default: var(--hairline);
+  --border-strong: var(--hairline-hover);
+  --border-divider: var(--hairline);
+  --border-focus: var(--accent);
 
-  /* Text */
-  --text-primary: var(--text-obsidian);
-  --text-secondary: #3f3f46;
-  --text-muted: var(--text-secondary);
-  --text-tertiary: #52525b;
-  --text-disabled: #cbd5e1;
-  --text-placeholder: #a1a1aa;
-  --text-inverse: var(--bg-infinite-white);
-  --text-link: var(--text-obsidian);
-  --text-link-hover: #475569;
+  --text-primary: var(--ink-primary);
+  --text-secondary: var(--ink-secondary);
+  --text-muted: var(--ink-secondary);
+  --text-tertiary: var(--ink-secondary);
+  --text-disabled: var(--ink-muted);
+  --text-placeholder: var(--ink-secondary);
+  --text-inverse: var(--accent-ink);
+  --text-link: var(--accent);
+  --text-link-hover: var(--accent-hover);
 
-  --background: var(--surface-background);
-  --foreground: var(--text-primary);
+  --background: var(--canvas);
+  --foreground: var(--ink-primary);
 }
 
 @theme inline {
+  --color-canvas: var(--canvas);
+  --color-surface: var(--surface);
+  --color-surface-hover: var(--surface-hover);
+  --color-ink-primary: var(--ink-primary);
+  --color-ink-secondary: var(--ink-secondary);
+  --color-ink-muted: var(--ink-muted);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-ink: var(--accent-ink);
+  --color-hairline: var(--hairline);
+  --color-hairline-hover: var(--hairline-hover);
+  --color-status-active: var(--status-active);
+  --color-status-dev: var(--status-dev);
+
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
@@ -126,7 +147,7 @@
   --color-border: var(--border-subtle);
   --color-border-default: var(--border-default);
   --color-border-strong: var(--border-strong);
-  --color-border-hover: var(--blue-500);
+  --color-border-hover: var(--accent);
 
   --color-muted: var(--text-muted);
   --color-brand-ocean: var(--brand-ocean);
@@ -134,16 +155,36 @@
   --color-brand-earth: var(--brand-earth);
   --color-brand-orange: var(--brand-orange);
   --color-brand-wine: var(--brand-wine);
-  --color-accent: var(--text-obsidian);
-  --color-accent-soft: rgba(203, 213, 225, 0.35);
+  --color-accent-soft: rgba(92, 141, 137, 0.15);
   --color-text-secondary: var(--text-secondary);
   --color-text-tertiary: var(--text-tertiary);
   --color-text-placeholder: var(--text-placeholder);
-  --color-quartz-accent-dusk: #cbd5e1;
+  --color-quartz-accent-dusk: var(--hairline-hover);
 
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-instrument-serif), Georgia, serif;
+  --font-sans: var(--font-jakarta), system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
   --font-heading: var(--font-jakarta);
+
+  /* Kose yaricapi her yerde en fazla 2px; golge yok */
+  --radius-xs: 2px;
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
+  --radius-xl: 2px;
+  --radius-2xl: 2px;
+  --radius-3xl: 2px;
+  --radius-4xl: 2px;
+  --shadow-2xs: 0 0 #0000;
+  --shadow-xs: 0 0 #0000;
+  --shadow-sm: 0 0 #0000;
+  --shadow-md: 0 0 #0000;
+  --shadow-lg: 0 0 #0000;
+  --shadow-xl: 0 0 #0000;
+  --shadow-2xl: 0 0 #0000;
+
+  --default-transition-duration: 300ms;
+  --default-transition-timing-function: ease-out;
 }
 
 * {
@@ -152,43 +193,121 @@
 
 html {
   scroll-behavior: smooth;
+  background: var(--canvas);
+  color: var(--ink-primary);
 }
 
 body {
-  background: var(--bg-deep-velvet);
-  color: var(--foreground);
+  background: var(--canvas);
+  color: var(--ink-primary);
+  font-family: var(--font-jakarta), system-ui, sans-serif;
+  line-height: 1.65;
   /* Alt yuzen navigasyon icerigin ustune binmesin */
   padding-bottom: calc(96px + env(safe-area-inset-bottom));
-  font-feature-settings: "ss01" on, "cv01" on;
 }
 
-/* Basliklar: Plus Jakarta Sans, govde: Inter */
+@media (min-width: 768px) {
+  body {
+    padding-bottom: 0;
+  }
+}
+
+/* Kaydirma cubugu: 6px, iz canvas, tutamac hairline */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: var(--hairline) var(--canvas);
+}
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--canvas);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--hairline);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--hairline-hover);
+}
+
+/* Basliklar varsayilan: Plus Jakarta Sans */
 h1,
 h2,
 h3,
 .font-heading {
-  font-family: var(--font-jakarta), var(--font-inter), sans-serif;
+  font-family: var(--font-jakarta), system-ui, sans-serif;
   letter-spacing: -0.025em;
   font-weight: 600;
 }
 
-/* Govde metni: Inter, 1.6 satir yuksekligi (utility'ler ezebilsin diye base katmaninda) */
+/* Bolum basliklari: Instrument Serif */
+.font-serif {
+  font-family: var(--font-instrument-serif), Georgia, serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* Butonlar: birincil ve ikincil (hero disinda butun butonlar) */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-weight: 500;
+  transition: background-color 300ms ease-out, border-color 300ms ease-out, color 300ms ease-out;
+}
+.btn-primary:hover {
+  background: var(--accent-hover);
+}
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 2px;
+  background: transparent;
+  border: 1px solid var(--hairline);
+  color: var(--ink-primary);
+  transition: border-color 300ms ease-out, color 300ms ease-out;
+}
+.btn-secondary:hover {
+  border-color: var(--accent);
+}
+
+/* Meta yazilar: JetBrains Mono, buyuk harf, 0.08em */
+.meta-mono {
+  font-family: var(--font-jetbrains-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* Govde metni: Plus Jakarta Sans, 1.65 satir yuksekligi (utility'ler ezebilsin diye base katmaninda) */
 @layer base {
   p,
   span,
   label {
-    font-family: var(--font-inter), sans-serif;
-    line-height: 1.6;
+    font-family: var(--font-jakarta), system-ui, sans-serif;
+    line-height: 1.65;
   }
 
-  :where(h1, h2, h3, .font-heading) span {
+  :where(h1, h2, h3, .font-heading, .font-serif) span {
     font-family: inherit;
   }
 }
 
 ::selection {
-  background: var(--text-obsidian);
-  color: var(--bg-infinite-white);
+  background: var(--accent);
+  color: var(--accent-ink);
 }
 
 :focus-visible {
@@ -386,13 +505,13 @@ select:-webkit-autofill {
   border: 0;
   border-bottom: 1px solid var(--border-hairline);
   border-radius: 0;
-  transition: border-color 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: border-color 300ms ease-out;
 }
 
 .lux-input:focus,
 .lux-input:focus-visible {
   outline: none;
-  border-bottom-color: var(--form-accent, var(--text-primary));
+  border-bottom-color: var(--accent);
 }
 
 /* Bento kart: dik acili keskin koseler, golge yok, derinlik 1px #E2E8F0 cizgiyle */
@@ -568,12 +687,10 @@ select:-webkit-autofill {
   left: 0;
   top: 0;
   background:
-    radial-gradient(circle at 32% 28%, rgba(255, 255, 255, 0.16), transparent 32%),
+    radial-gradient(circle at 32% 28%, rgba(216, 214, 208, 0.16), transparent 32%),
     radial-gradient(circle at 70% 75%, var(--blob-tint, rgba(71, 85, 105, 0.35)), transparent 55%),
     radial-gradient(circle at 50% 50%, #141414 0%, #0f0f0f 60%, #0d0d0d 100%);
-  box-shadow:
-    inset 0 0 40px rgba(255, 255, 255, 0.05),
-    0 30px 80px rgba(0, 0, 0, 0.6);
+
   animation: liquid-morph 12s ease-in-out infinite;
   will-change: transform;
   pointer-events: none;
@@ -642,9 +759,7 @@ select:-webkit-autofill {
 /* Sayfa kenari girisim zaman cizelgesi */
 .venture-rail-node {
   transition:
-    background-color 0.5s ease,
-    box-shadow 0.5s ease,
-    transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    background-color 300ms ease-out;
 }
 
 @media (prefers-reduced-motion: reduce) {

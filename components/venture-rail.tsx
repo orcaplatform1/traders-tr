@@ -53,10 +53,10 @@ export function VentureRail() {
 
   return (
     <div aria-hidden className="pointer-events-none fixed right-6 top-1/2 z-30 hidden h-[44vh] w-px -translate-y-1/2 lg:block">
-      <span className="absolute inset-0 bg-white/10" />
+      <span className="absolute inset-0 bg-hairline" />
       <span
         className="absolute inset-x-0 top-0"
-        style={{ height: `${Math.max(0, progress) * 100}%`, background: "var(--gradient-venture-glow)" }}
+        style={{ height: `${Math.max(0, progress) * 100}%`, background: "var(--accent)" }}
       />
       {steps.map((step, i) => {
         const pos = i / (steps.length - 1);
@@ -65,12 +65,12 @@ export function VentureRail() {
           <span key={step.n} className="absolute left-1/2" style={{ top: `${pos * 100}%` }}>
             <span
               className={`venture-rail-node absolute left-0 top-0 block h-[7px] w-[7px] -translate-x-1/2 -translate-y-1/2 rounded-full ${
-                lit ? "scale-125 bg-white shadow-[0_0_10px_rgba(255,255,255,0.8)]" : "bg-white/25"
+                lit ? "bg-accent" : "bg-hairline-hover"
               }`}
             />
             <span
-              className={`absolute right-3 top-0 -translate-y-1/2 whitespace-nowrap font-mono text-[10px] transition-colors duration-500 ${
-                lit ? "text-foreground" : "text-white/25"
+              className={`absolute right-3 top-0 -translate-y-1/2 whitespace-nowrap font-mono text-[10px] transition-colors duration-300 ${
+                lit ? "text-ink-primary" : "text-ink-secondary"
               }`}
             >
               {step.n}

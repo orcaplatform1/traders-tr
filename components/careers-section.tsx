@@ -13,7 +13,7 @@ export function CareersSection() {
       <div className="container-edit">
         <ScrollReveal>
           <SectionLabel>{"Careers"}</SectionLabel>
-          <h2 className="mt-4 max-w-xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
+          <h2 className="font-serif mt-4 max-w-xl text-4xl text-foreground md:text-5xl">
             {"We want to work with people who think independently and build with care."}
           </h2>
         </ScrollReveal>

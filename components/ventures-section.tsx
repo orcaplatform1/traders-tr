@@ -20,13 +20,13 @@ export function VenturesSection() {
       <div className="container-edit">
         <ScrollReveal>
           <SectionLabel>{"Ventures"}</SectionLabel>
-          <h2 className="mt-4 max-w-2xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
+          <h2 className="font-serif mt-4 max-w-2xl text-4xl text-foreground md:text-5xl">
             {"Built from scratch."}
           </h2>
         </ScrollReveal>
 
         <div className="relative mt-20 border-t border-border pt-14">
-          <div className="grid grid-cols-1 gap-16 md:grid-cols-3 md:gap-12">
+          <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-6">
             {ventures.map((v, i) => (
               <ScrollReveal key={v.id} delay={i * 100}>
                 <div className="group relative">

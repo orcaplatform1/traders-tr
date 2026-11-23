@@ -43,7 +43,7 @@ export default async function AdminMessagesPage() {
       <div className="container-edit">
         <div className="flex items-center justify-between">
           <div>
-            <h1 className="text-2xl font-medium tracking-tight text-foreground">
+            <h1 className="font-serif text-2xl text-foreground">
               Inbox
             </h1>
             <p className="mt-1 text-[13px] text-muted">{messages.length} messages</p>

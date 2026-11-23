@@ -1,44 +1,70 @@
-"use client";
-
 import Link from "next/link";
 import { SectionLabel } from "@/components/section-label";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { InsightCard } from "@/components/insight-card";
+import { EditorialRow } from "@/components/editorial-row";
 import { insights } from "@/lib/content/insights";
+import { newsroomPosts } from "@/lib/content/newsroom";
 
-export function InsightsSection() {
-  const [featured, ...rest] = insights;
-  const secondary = rest.slice(0, 2);
-
+function Column({
+  label,
+  title,
+  href,
+  children,
+}: {
+  label: string;
+  title: string;
+  href: string;
+  children: React.ReactNode;
+}) {
   return (
-    <section className="border-b border-border py-32 md:py-48">
-      <div className="container-edit">
-        <ScrollReveal className="flex flex-wrap items-end justify-between gap-6">
-          <div>
-            <SectionLabel>{"Insights"}</SectionLabel>
-            <h2 className="mt-4 max-w-xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
-              {"Thoughts from a venture perspective."}
-            </h2>
-          </div>
-          <Link
-            href="/insights"
-            className="text-[13px] font-medium tracking-wide text-muted underline decoration-border underline-offset-4 transition-colors hover:text-foreground hover:decoration-foreground"
-          >
-            {"See all"}
-          </Link>
-        </ScrollReveal>
-
-        <div className="mt-20 grid grid-cols-1 gap-4 md:mt-24 md:grid-cols-12 md:gap-5">
-          <ScrollReveal className="md:col-span-7 md:row-span-2">
-            <InsightCard insight={featured} large />
-          </ScrollReveal>
-          {secondary.map((insight, i) => (
-            <ScrollReveal key={insight.id} delay={(i + 1) * 120} className="md:col-span-5">
-              <InsightCard insight={insight} />
-            </ScrollReveal>
-          ))}
+    <div>
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <div>
+          <SectionLabel>{label}</SectionLabel>
+          <h2 className="font-serif mt-4 text-3xl text-ink-primary md:text-5xl">{title}</h2>
         </div>
+        <Link
+          href={href}
+          className="meta-mono text-ink-secondary transition-colors duration-300 ease-out hover:text-accent"
+        >
+          {"See all →"}
+        </Link>
       </div>
+      <div className="mt-10 border-t border-hairline">{children}</div>
+    </div>
+  );
+}
+
+// Icgoruler (sol) ve basin merkezi (sag): editoryal liste
+export function InsightsSection() {
+  return (
+    <section className="border-b border-hairline py-16 md:py-32">
+      <ScrollReveal className="container-edit grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-6">
+        <Column label="Insights" title="Thoughts from a venture perspective." href="/insights">
+          {insights.slice(0, 4).map((i) => (
+            <EditorialRow
+              key={i.id}
+              href={`/insights/${i.slug}`}
+              date={i.publishedAt}
+              category={i.category}
+              title={i.title}
+              readTime={i.readTime}
+            />
+          ))}
+        </Column>
+        <Column label="Newsroom" title="Company announcements." href="/newsroom">
+          {newsroomPosts.slice(0, 4).map((p) => (
+            <EditorialRow
+              key={p.id}
+              href={`/newsroom/${p.slug}`}
+              date={p.publishedAt}
+              category={p.category}
+              title={p.title}
+              readTime={p.readTime}
+            />
+          ))}
+        </Column>
+      </ScrollReveal>
     </section>
   );
 }

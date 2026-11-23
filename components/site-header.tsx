@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { } from "react";
 import { MobileMenu } from "@/components/mobile-menu";
+import { NAV_LINKS } from "@/lib/constants";
 import { DockLabel } from "@/components/dock-label";
 
 // Ince cizgili, keskin koseli monokrom ikonlar
@@ -70,12 +71,12 @@ export function SiteHeader() {
   const activeTab = tabs.find((tab) => (tab.href === "/" ? pathname === "/" : pathname.startsWith(tab.href)))?.id;
 
   const itemClass =
-    "relative flex h-full flex-1 flex-col items-center justify-center transition-all duration-100 active:scale-95";
+    "relative flex h-full flex-1 flex-col items-center justify-center transition-all duration-300";
 
   return (
     <>
-      {/* Ust bar: logo sol, dil secici sag */}
-      <header className="absolute inset-x-0 top-0 z-40 bg-transparent">
+      {/* Ust bar: sabit, canvas %90 + blur, altta hairline; solda logo, sagda navigasyon */}
+      <header className="fixed inset-x-0 top-0 z-40 border-b border-hairline bg-canvas/90 backdrop-blur-md">
         <div className="container-edit flex items-center justify-between py-4">
           <Link href="/" className="flex shrink-0 items-center gap-[10px]">
             <span className="relative block h-8 w-[25px] shrink-0 md:h-10 md:w-[31px]">
@@ -88,16 +89,28 @@ export function SiteHeader() {
                 sizes="31px"
               />
             </span>
-            <span className="text-[16px] font-semibold leading-none tracking-[0.12em] text-white md:text-[20px]">PRIZOMA</span>
+            <span className="text-[16px] font-semibold leading-none tracking-[0.12em] text-ink-primary md:text-[20px]">PRIZOMA</span>
           </Link>
+          <nav aria-label="Primary" className="hidden items-center gap-6 md:flex">
+            {[...NAV_LINKS, { label: "Contact", href: "/contact" }].map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                aria-current={pathname.startsWith(link.href) ? "page" : undefined}
+                className="text-[14px] text-ink-secondary transition-colors duration-300 ease-out hover:text-ink-primary aria-[current=page]:text-ink-primary"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </nav>
         </div>
       </header>
 
-      {/* Alt yuzen navigasyon: her zaman gorunur */}
-      <div className="fixed bottom-6 left-1/2 z-50 w-[92vw] max-w-sm -translate-x-1/2">
+      {/* Alt yuzen navigasyon: yalniz mobilde */}
+      <div className="fixed bottom-6 left-1/2 z-50 w-[92vw] max-w-sm -translate-x-1/2 md:hidden">
         <nav
           aria-label={"Main menu"}
-          className="flex h-14 select-none items-center justify-around rounded-full border border-border bg-white/80 px-2 shadow-[0_12px_40px_rgba(0,0,0,0.03)] backdrop-blur-lg transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] active:scale-[0.96]"
+          className="flex h-14 select-none items-center justify-around rounded-[2px] border border-hairline bg-surface px-2"
         >
           {tabs.map((tab) => (
             <Link
