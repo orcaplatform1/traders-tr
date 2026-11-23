@@ -203,7 +203,7 @@ body {
   font-family: var(--font-jakarta), system-ui, sans-serif;
   line-height: 1.65;
   /* Alt yuzen navigasyon icerigin ustune binmesin */
-  padding-bottom: calc(96px + env(safe-area-inset-bottom));
+  padding-bottom: calc(56px + env(safe-area-inset-bottom));
 }
 
 @media (min-width: 768px) {
@@ -280,6 +280,16 @@ h3,
 }
 .btn-secondary:hover {
   border-color: var(--accent);
+}
+
+/* Hero gorseli: dort kenar canvas zemine yumusakca erir */
+.hero-fade {
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-image: linear-gradient(to right, transparent 0%, #000 14%, #000 86%, transparent 100%),
+    linear-gradient(to bottom, transparent 0%, #000 14%, #000 86%, transparent 100%);
+  mask-composite: intersect;
 }
 
 /* Meta yazilar: JetBrains Mono, buyuk harf, 0.08em */
@@ -824,23 +834,6 @@ select:-webkit-autofill {
 .group:active .quartz-glow {
   transform: scale(1.5);
   opacity: 1;
-}
-
-/* ---------- Kaydirma: kronograf ilerleme halkasi ---------- */
-
-.chrono-ring {
-  position: fixed;
-  right: 20px;
-  bottom: calc(96px + env(safe-area-inset-bottom));
-  z-index: 40;
-  pointer-events: none;
-}
-
-@media (min-width: 768px) {
-  .chrono-ring {
-    bottom: 32px;
-    right: 32px;
-  }
 }
 
 /* ---------- Kinetik menu: merkezden disari dogrusal patlama ---------- */

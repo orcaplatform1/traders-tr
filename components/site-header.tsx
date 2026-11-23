@@ -77,9 +77,9 @@ export function SiteHeader() {
     <>
       {/* Ust bar: sabit, canvas %90 + blur, altta hairline; solda logo, sagda navigasyon */}
       <header className="fixed inset-x-0 top-0 z-40 border-b border-hairline bg-canvas/90 backdrop-blur-md">
-        <div className="container-edit flex items-center justify-between py-4">
+        <div className="container-edit flex h-14 items-center justify-between md:h-auto md:py-4">
           <Link href="/" className="flex shrink-0 items-center gap-[10px]">
-            <span className="relative block h-8 w-[25px] shrink-0 md:h-10 md:w-[31px]">
+            <span className="relative block h-7 w-[22px] shrink-0 md:h-10 md:w-[31px]">
               <Image
                 src="/prizoma-logo.webp"
                 alt="Prizoma"
@@ -89,7 +89,7 @@ export function SiteHeader() {
                 sizes="31px"
               />
             </span>
-            <span className="text-[16px] font-semibold leading-none tracking-[0.12em] text-ink-primary md:text-[20px]">PRIZOMA</span>
+            <span className="text-[14px] font-semibold leading-none tracking-[0.12em] text-ink-primary md:text-[20px]">PRIZOMA</span>
           </Link>
           <nav aria-label="Primary" className="hidden items-center gap-6 md:flex">
             {[...NAV_LINKS, { label: "Contact", href: "/contact" }].map((link) => (
@@ -106,11 +106,11 @@ export function SiteHeader() {
         </div>
       </header>
 
-      {/* Alt yuzen navigasyon: yalniz mobilde */}
-      <div className="fixed bottom-6 left-1/2 z-50 w-[92vw] max-w-sm -translate-x-1/2 md:hidden">
+      {/* Alt navigasyon: yalniz mobilde, ekranin altina yapisik, tam genislik */}
+      <div className="fixed inset-x-0 bottom-0 z-50 border-t border-hairline bg-canvas/95 pb-[env(safe-area-inset-bottom)] backdrop-blur-md md:hidden">
         <nav
           aria-label={"Main menu"}
-          className="flex h-14 select-none items-center justify-around rounded-[2px] border border-hairline bg-surface px-2"
+          className="flex h-14 select-none items-center justify-around px-2"
         >
           {tabs.map((tab) => (
             <Link

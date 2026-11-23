@@ -80,6 +80,32 @@ export const brands: Brand[] = [
     displayOrder: 3,
   },
   {
+    id: "secbird",
+    name: "Secbird",
+    slug: "secbird",
+    logo: "/brand-logos/secbird.webp",
+    monogram: "SB",
+    accent: "orange",
+    category: "Privacy-Focused Email",
+    shortDescription:
+      "A privacy-focused email service by Prizoma GmbH, based in Zug, Switzerland. In development, with end-to-end encryption and servers located in Switzerland.",
+    longDescription:
+      "Secbird is a privacy-focused email service developed by Prizoma GmbH in the canton of Zug, Switzerland. The service is currently in development and is being built around end-to-end email encryption (OpenPGP) and zero-access encryption for incoming emails from outside senders. Its servers will be located in Switzerland.",
+    whyItExists:
+      "Email carries some of the most sensitive correspondence in business and private life, yet it is often not offered with protection that matches that sensitivity. Secbird is being developed to provide email that is encrypted by default, built on open source and audited libraries, and hosted in Switzerland.",
+    features: [
+      "End-to-end encryption (OpenPGP) in development: emails will be encrypted so that no one but the sender and the recipient can read them",
+      "Zero-access encryption for incoming emails in development: emails from outside senders will be stored so that only the user's key can open them",
+      "Encryption is being built on open source and audited cryptography libraries",
+      "Servers will be located in Switzerland",
+      "End-to-end encrypted live chat is being developed as an add-on to the email package",
+    ],
+    websiteUrl: "https://secbird.me",
+    status: "developing",
+    featured: true,
+    displayOrder: 4,
+  },
+  {
     id: "ahenk",
     name: "Ahenk",
     slug: "ahenk",
@@ -101,32 +127,6 @@ export const brands: Brand[] = [
       "Active tables every week in Istanbul, Ankara, Izmir and 5 more cities; profile renewal every 180 days",
     ],
     websiteUrl: "https://ahenk.co",
-    status: "developing",
-    featured: true,
-    displayOrder: 4,
-  },
-  {
-    id: "secbird",
-    name: "Secbird",
-    slug: "secbird",
-    logo: "/brand-logos/secbird.svg",
-    monogram: "SB",
-    accent: "orange",
-    category: "Privacy-Focused Email",
-    shortDescription:
-      "A privacy-focused email service by Prizoma GmbH, based in Zug, Switzerland. In development, with end-to-end encryption and servers located in Switzerland.",
-    longDescription:
-      "Secbird is a privacy-focused email service developed by Prizoma GmbH in the canton of Zug, Switzerland. The service is currently in development and is being built around end-to-end email encryption (OpenPGP) and zero-access encryption for incoming emails from outside senders. Its servers will be located in Switzerland.",
-    whyItExists:
-      "Email carries some of the most sensitive correspondence in business and private life, yet it is often not offered with protection that matches that sensitivity. Secbird is being developed to provide email that is encrypted by default, built on open source and audited libraries, and hosted in Switzerland.",
-    features: [
-      "End-to-end encryption (OpenPGP) in development: emails will be encrypted so that no one but the sender and the recipient can read them",
-      "Zero-access encryption for incoming emails in development: emails from outside senders will be stored so that only the user's key can open them",
-      "Encryption is being built on open source and audited cryptography libraries",
-      "Servers will be located in Switzerland",
-      "End-to-end encrypted live chat is being developed as an add-on to the email package",
-    ],
-    websiteUrl: "https://secbird.me",
     status: "developing",
     featured: true,
     displayOrder: 5,

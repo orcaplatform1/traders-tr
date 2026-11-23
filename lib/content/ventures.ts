@@ -2,15 +2,15 @@ import type { Venture } from "./types";
 
 export const ventures: Venture[] = [
   {
-    id: "orca",
-    name: "Wolf Club",
-    slug: "orca",
-    category: "Financial Education",
-    description: "Next-generation financial education platform.",
+    id: "zesta",
+    name: "Zesta Art&Design",
+    slug: "zesta",
+    category: "Art & Design Products",
+    description: "Custom-order handmade product platform.",
     detail:
-      "Combines a structured curriculum, a live community, AI-powered mentorship, and the ability to practice with real market data in a single platform.",
-    stage: "developing",
-    websiteUrl: "https://traders.tr",
+      "Brings handmade products together with a meticulous production process, a custom-order model, and a modern shopping experience.",
+    stage: "active",
+    websiteUrl: "https://zesta.tr",
   },
   {
     id: "kriptobeyan",
@@ -24,15 +24,15 @@ export const ventures: Venture[] = [
     websiteUrl: "https://kriptobeyan.com",
   },
   {
-    id: "zesta",
-    name: "Zesta Art&Design",
-    slug: "zesta",
-    category: "Art & Design Products",
-    description: "Custom-order handmade product platform.",
+    id: "orca",
+    name: "Wolf Club",
+    slug: "orca",
+    category: "Financial Education",
+    description: "Next-generation financial education platform.",
     detail:
-      "Brings handmade products together with a meticulous production process, a custom-order model, and a modern shopping experience.",
-    stage: "active",
-    websiteUrl: "https://zesta.tr",
+      "Combines a structured curriculum, a live community, AI-powered mentorship, and the ability to practice with real market data in a single platform.",
+    stage: "developing",
+    websiteUrl: "https://traders.tr",
   },
   {
     id: "secbird",

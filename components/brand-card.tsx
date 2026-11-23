@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { Brand } from "@/lib/content/types";
 import { StatusBadge } from "@/components/status-badge";
 
@@ -22,17 +23,22 @@ export function BrandCard({
       className="group flex h-full flex-col justify-between rounded-[2px] border border-hairline bg-surface p-6 transition-colors duration-300 ease-out hover:border-hairline-hover hover:bg-surface-hover md:p-8"
     >
       <div>
-        <div className="flex items-start justify-between gap-4">
-          <span className="meta-mono text-ink-secondary">
-            <span className="text-ink-muted">{no} {"//"}</span> {brand.category}
-          </span>
+        <span className="meta-mono block truncate text-ink-secondary">
+          <span className="text-ink-muted">{no} {"//"}</span> {brand.category}
+        </span>
+        <div className="mt-2">
           <StatusBadge status={brand.status} />
         </div>
-        <h3
-          className={`mt-6 font-sans font-medium tracking-normal text-ink-primary ${featured ? "text-2xl" : "text-xl"}`}
-        >
-          {brand.name}
-        </h3>
+        <div className="mt-6 flex items-center gap-3">
+          <span className="relative block h-9 w-9 shrink-0 opacity-80 transition-opacity duration-300 ease-out group-hover:opacity-100">
+            <Image src={brand.logo} alt="" fill sizes="36px" className="object-contain" />
+          </span>
+          <h3
+            className={`font-sans font-medium tracking-normal text-ink-primary ${featured ? "text-2xl" : "text-xl"}`}
+          >
+            {brand.name}
+          </h3>
+        </div>
         <p className="mt-3 text-sm leading-relaxed text-ink-secondary">{brand.shortDescription}</p>
       </div>
 

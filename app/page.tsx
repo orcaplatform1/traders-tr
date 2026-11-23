@@ -1,10 +1,8 @@
 import { Hero } from "@/components/hero";
-import { HeroContent } from "@/components/hero-content";
 import { CompanyStatement } from "@/components/company-statement";
 import { BrandGrid } from "@/components/brand-grid";
 import { BrandsStatement } from "@/components/brands-statement";
 import { WhatWeDo } from "@/components/what-we-do";
-import { VenturesSection } from "@/components/ventures-section";
 import { NumbersSection } from "@/components/numbers-section";
 import { ApproachSection } from "@/components/approach-section";
 import { InsightsSection } from "@/components/insights-section";
@@ -20,13 +18,11 @@ export default function Home() {
       <VentureRail />
       <div className="relative">
         <Hero imageSrc="/prizoma-hero-desktop.webp" imageSrcMobile="/prizoma-hero-mobile.webp" />
-        <HeroContent />
         <CompanyStatement />
         <BrandGrid />
       </div>
       <BrandsStatement />
       <WhatWeDo />
-      <VenturesSection />
       <NumbersSection />
       <ApproachSection />
       <InsightsSection />

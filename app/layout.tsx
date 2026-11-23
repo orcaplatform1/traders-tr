@@ -5,7 +5,6 @@ import { NoInstallPrompt } from "@/components/no-install-prompt";
 import { SiteHeader } from "@/components/site-header";
 import { SiteFooter } from "@/components/site-footer";
 import { CookieConsent } from "@/components/cookie-consent";
-import { ChronoRing } from "@/components/chrono-ring";
 import { IdeaWizardProvider } from "@/components/idea-wizard";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/constants";
 
@@ -102,7 +101,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <SiteHeader />
           <main className="flex-1">{children}</main>
           <SiteFooter />
-          <ChronoRing />
           <CookieConsent />
           </IdeaWizardProvider>
         <script
