@@ -95,7 +95,7 @@ export function AboutPageContent() {
         <div className="grain-overlay" />
         <div className="container-edit relative max-w-3xl">
           <ScrollReveal>
-            <SectionLabel>{t("TRADERS.TR Hakkında", "About TRADERS.TR")}</SectionLabel>
+            <SectionLabel>{t("PRIZOMA Hakkında", "About PRIZOMA")}</SectionLabel>
             <h1 className="mt-6 text-[34px] font-medium leading-[1.15] tracking-tight text-foreground sm:text-[44px] md:text-[56px]">
               {t("Fikirlerden markalara.", "From ideas to brands.")}
               <br />
@@ -107,8 +107,8 @@ export function AboutPageContent() {
             <div className="mt-10 space-y-5 text-[16px] leading-relaxed text-foreground md:text-[17px]">
               <p>
                 {t(
-                  "TRADERS.TR; teknoloji, ticaret ve finansın kesişiminde yeni nesil işletmeler geliştiren, kuran ve işleten çok markalı bir girişim şirketidir.",
-                  "TRADERS.TR is a multi-brand venture company that develops, builds and operates next-generation businesses at the intersection of technology, commerce and finance."
+                  "PRIZOMA; teknoloji, ticaret ve finansın kesişiminde yeni nesil işletmeler geliştiren, kuran ve işleten çok markalı bir girişim şirketidir.",
+                  "PRIZOMA is a multi-brand venture company that develops, builds and operates next-generation businesses at the intersection of technology, commerce and finance."
                 )}
               </p>
               <p>
@@ -118,7 +118,7 @@ export function AboutPageContent() {
                 )}
               </p>
               <p className="text-foreground">
-                {t("TRADERS.TR'ın rolü tam olarak burada başlar.", "That's exactly where TRADERS.TR's role begins.")}
+                {t("PRIZOMA'nın rolü tam olarak burada başlar.", "That's exactly where PRIZOMA's role begins.")}
               </p>
               <p>
                 {t(
@@ -153,8 +153,8 @@ export function AboutPageContent() {
             <SectionLabel>{t("Ne Yapıyoruz?", "What Do We Do?")}</SectionLabel>
             <h2 className="mt-4 max-w-2xl text-4xl font-medium tracking-tight text-foreground md:text-5xl">
               {t(
-                "TRADERS.TR'ı yalnızca bir yatırım veya marka çatısı olarak görmüyoruz.",
-                "We don't see TRADERS.TR merely as an investment vehicle or brand umbrella."
+                "PRIZOMA'yı yalnızca bir yatırım veya marka çatısı olarak görmüyoruz.",
+                "We don't see PRIZOMA merely as an investment vehicle or brand umbrella."
               )}
             </h2>
             <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-muted">
@@ -191,14 +191,14 @@ export function AboutPageContent() {
             <SectionLabel>{t("Markalarımız", "Our Brands")}</SectionLabel>
             <p className="mt-6 text-[17px] leading-relaxed text-foreground md:text-[19px]">
               {t(
-                "TRADERS.TR çatısı altında yer alan her marka bağımsız bir işletme olarak kendi yolunu oluşturur.",
-                "Each brand under the TRADERS.TR umbrella creates its own path as an independent business."
+                "PRIZOMA çatısı altında yer alan her marka bağımsız bir işletme olarak kendi yolunu oluşturur.",
+                "Each brand under the PRIZOMA umbrella creates its own path as an independent business."
               )}
             </p>
             <p className="mt-5 text-[15px] leading-relaxed text-muted">
               {t(
-                "Orca Labs finans eğitimi alanında yeni nesil bir deneyim oluştururken, KriptoBeyan dijital varlıkların vergilendirilmesi ve beyan süreçlerine odaklanıyor. Zesta Art&Design özel siparişle hazırlanan el emeği ürünleri dijital ticaretle buluşturuyor. Mettlo ise sağlıklı yaşam ve koçluk alanında uzman koçlarla üyeleri tek platformda bir araya getiriyor.",
-                "Orca Labs creates a next-generation experience in financial education, while KriptoBeyan focuses on the taxation and reporting of digital assets. Zesta Art&Design bridges custom handcrafted products with digital commerce. Mettlo brings together expert coaches and members on a single platform in the health and wellness coaching space."
+                "Orca Labs finans eğitimi alanında yeni nesil bir deneyim oluştururken, KriptoBeyan dijital varlıkların vergilendirilmesi ve beyan süreçlerine odaklanıyor. Zesta Art&Design özel siparişle hazırlanan el emeği ürünleri dijital ticaretle buluşturuyor. Secbird ise İsviçre'de geliştirilen, gizlilik odaklı bir e-posta servisi olarak geliştirme aşamasında.",
+                "Orca Labs creates a next-generation experience in financial education, while KriptoBeyan focuses on the taxation and reporting of digital assets. Zesta Art&Design bridges custom handcrafted products with digital commerce. Secbird is a privacy-focused email service being developed in Switzerland and is currently in development."
               )}
             </p>
             <p className="mt-5 text-[15px] leading-relaxed text-muted">
@@ -245,8 +245,8 @@ export function AboutPageContent() {
             <div className="mt-8 space-y-5 text-[15px] leading-relaxed text-muted">
               <p>
                 {t(
-                  "TRADERS.TR'ın büyüme modeli tek bir sektöre veya tek bir iş modeline bağlı değildir.",
-                  "TRADERS.TR's growth model is not tied to a single sector or a single business model."
+                  "PRIZOMA'nın büyüme modeli tek bir sektöre veya tek bir iş modeline bağlı değildir.",
+                  "PRIZOMA's growth model is not tied to a single sector or a single business model."
                 )}
               </p>
               <p>
@@ -264,8 +264,8 @@ export function AboutPageContent() {
               </p>
               <p>
                 {t(
-                  "Bu nedenle TRADERS.TR'ın hikâyesi tek bir markanın hikâyesi değildir. Bir marka portföyünün nasıl oluştuğunun hikâyesidir.",
-                  "That's why TRADERS.TR's story is not the story of a single brand. It's the story of how a brand portfolio is built."
+                  "Bu nedenle PRIZOMA'nın hikâyesi tek bir markanın hikâyesi değildir. Bir marka portföyünün nasıl oluştuğunun hikâyesidir.",
+                  "That's why PRIZOMA's story is not the story of a single brand. It's the story of how a brand portfolio is built."
                 )}
               </p>
             </div>
@@ -306,8 +306,8 @@ export function AboutPageContent() {
               <p>{t("Bugün portföyümüzde bulunan markalar bunun başlangıç noktası.", "The brands in our portfolio today are just the starting point.")}</p>
               <p className="text-foreground">
                 {t(
-                  "Yarın hangi markaların TRADERS.TR çatısı altında olacağını ise henüz bilmiyoruz. Ama nasıl inşa edeceğimizi biliyoruz.",
-                  "We don't yet know which brands will be under the TRADERS.TR umbrella tomorrow. But we know how we'll build them."
+                  "Yarın hangi markaların PRIZOMA çatısı altında olacağını ise henüz bilmiyoruz. Ama nasıl inşa edeceğimizi biliyoruz.",
+                  "We don't yet know which brands will be under the PRIZOMA umbrella tomorrow. But we know how we'll build them."
                 )}
               </p>
             </div>
@@ -344,7 +344,7 @@ export function AboutPageContent() {
         <div className="container-edit max-w-2xl">
           <ScrollReveal>
             <span className="block text-sm font-semibold tracking-[0.2em] text-foreground">
-              TRADERS.TR
+              PRIZOMA
             </span>
             <p className="mt-6 text-2xl font-medium leading-snug tracking-tight text-foreground md:text-3xl">
               Think different. Build simple. Build to last.

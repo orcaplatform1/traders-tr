@@ -13,14 +13,14 @@ export default function KvkkPage() {
       <LegalPage
         title="Data Protection Notice"
         updated="September 15, 2026"
-        intro="This notice has been prepared pursuant to Article 10 of Law No. 6698 on the Protection of Personal Data ('KVKK') to explain the purpose, manner, and legal basis on which your personal data is processed when you contact us through traders.tr."
+        intro="This notice has been prepared pursuant to Article 10 of Law No. 6698 on the Protection of Personal Data ('KVKK') to explain the purpose, manner, and legal basis on which your personal data is processed when you contact us through prizoma.com."
         sections={[
           {
             id: "veri-sorumlusu",
             title: "Identity of the Data Controller",
             content: (
               <p>
-                TRADERS.TR (&quot;Company&quot;) acts as the data controller under KVKK in respect of the personal data you share through the contact form on traders.tr. For requests regarding our data processing activities, you can reach us through our{" "}
+                Prizoma GmbH (&quot;Company&quot;) acts as the data controller under KVKK in respect of the personal data you share through the contact form on prizoma.com. For requests regarding our data processing activities, you can reach us through our{" "}
                 <Link href="/iletisim" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
                   contact page
                 </Link>.
@@ -71,7 +71,7 @@ export default function KvkkPage() {
             content: (
               <>
                 <p>
-                  Your personal data is collected directly from you, electronically, when you fill in and submit the form on the traders.tr/iletisim page.
+                  Your personal data is collected directly from you, electronically, when you fill in and submit the form on the prizoma.com/iletisim page.
                 </p>
                 <p>
                   Processing is primarily based on the legal ground under KVKK Art. 5/2 of &quot;(f) processing being necessary for the legitimate interests pursued by the data controller, provided that this processing shall not violate the fundamental rights and freedoms of the data subject.&quot; Depending on the nature of your request, grounds &quot;(c) processing being necessary for the performance of a contract to which the data subject is party or in order to take steps at the request of the data subject prior to entering into a contract&quot; or &quot;(ç) processing being necessary for compliance with a legal obligation&quot; may also apply. In any case, the data we collect to respond to your request is limited to its purpose and proportionate.
@@ -130,14 +130,14 @@ export default function KvkkPage() {
     <LegalPage
       title="KVKK Aydınlatma Metni"
       updated="15 Eylül 2026"
-      intro={`Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun ("KVKK") 10. maddesi uyarınca, traders.tr üzerinden bizimle iletişime geçtiğinizde kişisel verilerinizin hangi amaçla, nasıl ve hangi hukuki sebeple işlendiğini açıklamak amacıyla hazırlanmıştır.`}
+      intro={`Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun ("KVKK") 10. maddesi uyarınca, prizoma.com üzerinden bizimle iletişime geçtiğinizde kişisel verilerinizin hangi amaçla, nasıl ve hangi hukuki sebeple işlendiğini açıklamak amacıyla hazırlanmıştır.`}
       sections={[
         {
           id: "veri-sorumlusu",
           title: "Veri Sorumlusunun Kimliği",
           content: (
             <p>
-              TRADERS.TR (&quot;Şirket&quot;), traders.tr üzerinden iletişim formu
+              Prizoma GmbH (&quot;Şirket&quot;), prizoma.com üzerinden iletişim formu
               aracılığıyla paylaştığınız kişisel verileriniz bakımından KVKK
               uyarınca veri sorumlusu sıfatıyla hareket eder. Veri işleme
               faaliyetlerimizle ilgili talepleriniz için{" "}
@@ -195,7 +195,7 @@ export default function KvkkPage() {
           content: (
             <>
               <p>
-                Kişisel verileriniz, traders.tr/iletisim sayfasındaki formu
+                Kişisel verileriniz, prizoma.com/iletisim sayfasındaki formu
                 doldurup göndermeniz üzerine, elektronik ortamda doğrudan
                 sizden toplanır.
               </p>

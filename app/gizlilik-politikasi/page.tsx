@@ -13,14 +13,14 @@ export default function PrivacyPage() {
       <LegalPage
         title="Privacy Policy"
         updated="September 15, 2026"
-        intro="This policy explains what information we collect when you interact with us through traders.tr, why and how we use it, who we share it with, and your rights. At TRADERS.TR, we only collect information we genuinely need, and we always limit it to a specific, clear purpose."
+        intro="This policy explains what information we collect when you interact with us through prizoma.com, why and how we use it, who we share it with, and your rights. At Prizoma GmbH, we only collect information we genuinely need, and we always limit it to a specific, clear purpose."
         sections={[
           {
             id: "veri-sorumlusu",
             title: "Data Controller",
             content: (
               <p>
-                Under this policy, your personal data is processed by TRADERS.TR as the data controller. For all questions and requests regarding this policy, you can reach us through our{" "}
+                Under this policy, your personal data is processed by Prizoma GmbH as the data controller. For all questions and requests regarding this policy, you can reach us through our{" "}
                 <Link href="/iletisim" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
                   contact page
                 </Link>.
@@ -33,10 +33,10 @@ export default function PrivacyPage() {
             content: (
               <>
                 <p>
-                  This policy applies only to the traders.tr domain and pages under it. Orca Labs, KriptoBeyan, and Zesta Art&amp;Design are independent brands; they apply their own privacy policies on their respective platforms. For those pages, we recommend referring to the privacy text on that brand&apos;s own site.
+                  This policy applies only to the prizoma.com domain and pages under it. Orca Labs, KriptoBeyan, and Zesta Art&amp;Design are independent brands; they apply their own privacy policies on their respective platforms. For those pages, we recommend referring to the privacy text on that brand&apos;s own site.
                 </p>
                 <p>
-                  traders.tr is not an e-commerce or membership platform; it does not create accounts, accept payments, or conduct cookie-based ad tracking. The only mechanism that collects personal data on the site is the contact form.
+                  prizoma.com is not an e-commerce or membership platform; it does not create accounts, accept payments, or conduct cookie-based ad tracking. The only mechanism that collects personal data on the site is the contact form.
                 </p>
               </>
             ),
@@ -118,7 +118,7 @@ export default function PrivacyPage() {
             content: (
               <>
                 <p>
-                  traders.tr serves all traffic over encrypted connections (HTTPS/TLS). Standard security measures are applied on the server side, including content security policy (CSP), headers blocking clickjacking, and MIME type validation.
+                  prizoma.com serves all traffic over encrypted connections (HTTPS/TLS). Standard security measures are applied on the server side, including content security policy (CSP), headers blocking clickjacking, and MIME type validation.
                 </p>
                 <p>
                   No system is one hundred percent risk-free; however, we protect your data with reasonable technical and administrative measures and limit access to only those who need to process this information.
@@ -144,7 +144,7 @@ export default function PrivacyPage() {
             title: "Children's Privacy",
             content: (
               <p>
-                traders.tr does not provide services aimed at individuals under 18 years of age and does not knowingly collect personal data from children. If we become aware that a child has provided us with personal data, we will delete it within a reasonable period.
+                prizoma.com does not provide services aimed at individuals under 18 years of age and does not knowingly collect personal data from children. If we become aware that a child has provided us with personal data, we will delete it within a reasonable period.
               </p>
             ),
           },
@@ -178,14 +178,14 @@ export default function PrivacyPage() {
     <LegalPage
       title="Gizlilik Politikası"
       updated="15 Eylül 2026"
-      intro="Bu politika, traders.tr üzerinden bizimle etkileşime geçtiğinizde hangi bilgileri topladığımızı, bu bilgileri neden ve nasıl kullandığımızı, kimlerle paylaştığımızı ve haklarınızı açıklar. TRADERS.TR olarak, yalnızca gerçekten ihtiyaç duyduğumuz bilgiyi topluyor ve bunu her zaman belirli, açık bir amaçla sınırlı tutuyoruz."
+      intro="Bu politika, prizoma.com üzerinden bizimle etkileşime geçtiğinizde hangi bilgileri topladığımızı, bu bilgileri neden ve nasıl kullandığımızı, kimlerle paylaştığımızı ve haklarınızı açıklar. Prizoma GmbH olarak, yalnızca gerçekten ihtiyaç duyduğumuz bilgiyi topluyor ve bunu her zaman belirli, açık bir amaçla sınırlı tutuyoruz."
       sections={[
         {
           id: "veri-sorumlusu",
           title: "Veri Sorumlusu",
           content: (
             <p>
-              Bu politika kapsamında kişisel verileriniz, TRADERS.TR
+              Bu politika kapsamında kişisel verileriniz, Prizoma GmbH
               tarafından veri sorumlusu sıfatıyla işlenir. Bu politikayla
               ilgili tüm sorularınız ve talepleriniz için{" "}
               <Link href="/iletisim" className="text-blue-400 underline underline-offset-4 hover:text-blue-300">
@@ -201,7 +201,7 @@ export default function PrivacyPage() {
           content: (
             <>
               <p>
-                Bu politika yalnızca traders.tr alan adı ve bu alan adı
+                Bu politika yalnızca prizoma.com alan adı ve bu alan adı
                 altındaki sayfalar için geçerlidir. Orca Labs, KriptoBeyan ve Zesta Art&amp;Design
                 bağımsız markalarımızdır; kendi platformlarında kendi
                 gizlilik politikalarını uygularlar. Bu sayfaların
@@ -209,7 +209,7 @@ export default function PrivacyPage() {
                 metnine bakmanızı öneririz.
               </p>
               <p>
-                traders.tr bir e-ticaret veya üyelik platformu değildir;
+                prizoma.com bir e-ticaret veya üyelik platformu değildir;
                 hesap oluşturmaz, ödeme almaz ve çerez tabanlı reklam
                 takibi yapmaz. Site üzerinde kişisel veri toplayan tek
                 mekanizma iletişim formudur.
@@ -317,7 +317,7 @@ export default function PrivacyPage() {
           content: (
             <>
               <p>
-                traders.tr, tüm trafiği şifrelenmiş bağlantı (HTTPS/TLS)
+                prizoma.com, tüm trafiği şifrelenmiş bağlantı (HTTPS/TLS)
                 üzerinden sunar. Sunucu tarafında; içerik güvenlik politikası
                 (CSP), tıklama korumasını engelleyen başlıklar ve MIME tipi
                 doğrulaması gibi standart güvenlik önlemleri uygulanır.
@@ -351,7 +351,7 @@ export default function PrivacyPage() {
           title: "Çocukların Gizliliği",
           content: (
             <p>
-              traders.tr, 18 yaşın altındaki kişilere yönelik bir hizmet
+              prizoma.com, 18 yaşın altındaki kişilere yönelik bir hizmet
               sunmamaktadır ve bilerek çocuklardan kişisel veri toplamaz. Bir
               çocuğun bize kişisel veri sağladığını fark edersek, bu veriyi
               makul bir süre içinde sileriz.

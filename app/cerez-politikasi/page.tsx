@@ -13,7 +13,7 @@ export default function CookiesPage() {
       <LegalPage
         title="Cookie Policy"
         updated="September 17, 2026"
-        intro="We take care to keep traders.tr as minimal and tracking-free as possible. This page explains what information is stored in your browser while using the site and how you can control it."
+        intro="We take care to keep prizoma.com as minimal and tracking-free as possible. This page explains what information is stored in your browser while using the site and how you can control it."
         sections={[
           {
             id: "cerez-nedir",
@@ -26,11 +26,11 @@ export default function CookiesPage() {
           },
           {
             id: "kullandiklarimiz",
-            title: "Storage Types Used on traders.tr",
+            title: "Storage Types Used on prizoma.com",
             content: (
               <>
                 <p>
-                  traders.tr is a corporate site that does not require membership; therefore, we do not use session cookies, cart cookies, or ad tracking cookies. The table below summarizes the only client-side storage type used on the site:
+                  prizoma.com is a corporate site that does not require membership; therefore, we do not use session cookies, cart cookies, or ad tracking cookies. The table below summarizes the only client-side storage type used on the site:
                 </p>
                 <div className="overflow-x-auto">
                   <table className="w-full border-collapse text-left text-[14px]">
@@ -68,7 +68,7 @@ export default function CookiesPage() {
             title: "Third-Party Cookies",
             content: (
               <p>
-                Third-party analytics or ad tracking tools such as Google Analytics or Meta Pixel are not currently used on traders.tr. If this changes in the future, this page will be updated and the tools used will be explicitly listed here.
+                Third-party analytics or ad tracking tools such as Google Analytics or Meta Pixel are not currently used on prizoma.com. If this changes in the future, this page will be updated and the tools used will be explicitly listed here.
               </p>
             ),
           },
@@ -85,7 +85,7 @@ export default function CookiesPage() {
                     <strong className="text-foreground">
                       Essential Cookies (Always Active):
                     </strong>{" "}
-                    Technically required for the TRADERS.TR corporate homepage to load securely and for partnership and contact forms to work reliably; cannot be disabled by the user.
+                    Technically required for the Prizoma GmbH corporate homepage to load securely and for partnership and contact forms to work reliably; cannot be disabled by the user.
                   </li>
                   <li>
                     <strong className="text-foreground">
@@ -101,7 +101,7 @@ export default function CookiesPage() {
                   </li>
                 </ul>
                 <p>
-                  The three categories above are currently stored as user preferences; traders.tr does not use any third-party analytics or advertising tool that operates based on these preferences (see the section above). When this changes, the relevant tool will be activated only according to the category the user has selected.
+                  The three categories above are currently stored as user preferences; prizoma.com does not use any third-party analytics or advertising tool that operates based on these preferences (see the section above). When this changes, the relevant tool will be activated only according to the category the user has selected.
                 </p>
               </>
             ),
@@ -136,7 +136,7 @@ export default function CookiesPage() {
     <LegalPage
       title="Çerez Politikası"
       updated="17 Eylül 2026"
-      intro="traders.tr'yi mümkün olduğunca sade ve izlemeden uzak tutmaya özen gösteriyoruz. Bu sayfa, sitenin çalışması sırasında tarayıcınızda hangi bilgilerin tutulduğunu ve bunları nasıl kontrol edebileceğinizi açıklar."
+      intro="prizoma.com'yi mümkün olduğunca sade ve izlemeden uzak tutmaya özen gösteriyoruz. Bu sayfa, sitenin çalışması sırasında tarayıcınızda hangi bilgilerin tutulduğunu ve bunları nasıl kontrol edebileceğinizi açıklar."
       sections={[
         {
           id: "cerez-nedir",
@@ -152,11 +152,11 @@ export default function CookiesPage() {
         },
         {
           id: "kullandiklarimiz",
-          title: "traders.tr'de Kullanılan Depolama Türleri",
+          title: "prizoma.com'de Kullanılan Depolama Türleri",
           content: (
             <>
               <p>
-                traders.tr, üyelik gerektirmeyen bir kurumsal sitedir; bu
+                prizoma.com, üyelik gerektirmeyen bir kurumsal sitedir; bu
                 nedenle oturum açma çerezi, sepet çerezi veya reklam takip
                 çerezi kullanmıyoruz. Aşağıdaki tablo, sitede kullanılan tek
                 istemci tarafı depolama türünü özetliyor:
@@ -202,7 +202,7 @@ export default function CookiesPage() {
           title: "Üçüncü Taraf Çerezleri",
           content: (
             <p>
-              Şu anda traders.tr üzerinde Google Analytics, Meta Pixel gibi
+              Şu anda prizoma.com üzerinde Google Analytics, Meta Pixel gibi
               üçüncü taraf analitik veya reklam izleme araçları
               kullanılmamaktadır. Bu durum ileride değişirse, bu sayfa
               güncellenecek ve kullanılan araçlar burada açıkça
@@ -229,7 +229,7 @@ export default function CookiesPage() {
                   <strong className="text-foreground">
                     Zorunlu Çerezler (Her Zaman Aktif):
                   </strong>{" "}
-                  TRADERS.TR kurumsal ana sayfasının güvenle yüklenmesi, iş
+                  Prizoma GmbH kurumsal ana sayfasının güvenle yüklenmesi, iş
                   ortaklığı ve iletişim formlarının kararlı çalışması için
                   teknik olarak zorunludur; kullanıcı tarafından kapatılamaz.
                 </li>
@@ -254,7 +254,7 @@ export default function CookiesPage() {
               </ul>
               <p>
                 Yukarıdaki üç kategori bugün için birer kullanıcı tercihi
-                olarak saklanır; traders.tr şu an bu tercihlere bağlı çalışan
+                olarak saklanır; prizoma.com şu an bu tercihlere bağlı çalışan
                 herhangi bir üçüncü taraf analiz veya reklam aracı
                 kullanmamaktadır (bkz. bir üstteki bölüm). Bu durum
                 değiştiğinde, ilgili araç yalnızca kullanıcının seçtiği

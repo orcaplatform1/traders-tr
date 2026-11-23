@@ -1,5 +1,5 @@
 "use client";
-import { createContext, useContext, useSyncExternalStore } from "react";
+import { createContext, useContext, useEffect, useSyncExternalStore } from "react";
 
 export type Lang = "tr" | "en";
 
@@ -30,6 +30,11 @@ function readLang(): Lang {
 
 export function LangProvider({ children }: { children: React.ReactNode }) {
   const lang = useSyncExternalStore(subscribeLang, readLang, (): Lang => "tr");
+
+  // Ingilizce modda <html lang="en">: buyuk harf donusumunde "İ" olusmasin
+  useEffect(() => {
+    document.documentElement.lang = lang;
+  }, [lang]);
 
   function setLang(l: Lang) {
     memoryLang = l;

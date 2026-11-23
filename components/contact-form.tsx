@@ -253,7 +253,7 @@ export function ContactForm({
             disabled={pending}
             className="btn-liquid w-full px-8 text-sm font-medium tracking-wide disabled:opacity-60"
           >
-            {pending ? t("Gönderiliyor…", "Sending…") : t("Fikri TRADERS'a Gönder ■", "Send Idea to TRADERS ■")}
+            {pending ? t("Gönderiliyor…", "Sending…") : t("Fikri PRIZOMA'ya Gönder ■", "Send Idea to PRIZOMA ■")}
           </button>
         ) : (
           <button type="button" onClick={goNext} className="btn-liquid w-full px-8 text-sm font-medium tracking-wide">

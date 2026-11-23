@@ -16,6 +16,9 @@ export interface Brand {
   longDescription: string;
   whyItExists: string;
   features: string[];
+  longDescriptionEn: string;
+  whyItExistsEn: string;
+  featuresEn: string[];
   websiteUrl: string;
   status: BrandStatus;
   featured: boolean;

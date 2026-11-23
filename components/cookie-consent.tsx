@@ -84,8 +84,8 @@ export function CookieConsent() {
         <>
           <p className="text-[14px] leading-relaxed text-text-secondary">
             {t(
-              "TRADERS.TR olarak, teknoloji, ticaret ve finans alanındaki dijital girişimlerimizi, iş ortaklığı süreçlerimizi ve ana sayfa deneyiminizi optimize etmek amacıyla yasalara uygun çerezler kullanıyoruz.",
-              "At TRADERS.TR, we use compliant cookies to optimise our digital ventures in technology, commerce and finance, our partnership processes, and your homepage experience."
+              "PRIZOMA olarak, teknoloji, ticaret ve finans alanındaki dijital girişimlerimizi, iş ortaklığı süreçlerimizi ve ana sayfa deneyiminizi optimize etmek amacıyla yasalara uygun çerezler kullanıyoruz.",
+              "At PRIZOMA, we use compliant cookies to optimise our digital ventures in technology, commerce and finance, our partnership processes, and your homepage experience."
             )}
           </p>
           <p className="mt-3 text-[14px] leading-relaxed text-text-secondary">
@@ -149,8 +149,8 @@ export function CookieConsent() {
                 </p>
                 <p className="mt-0.5 text-[12px] leading-relaxed text-text-secondary">
                   {t(
-                    "TRADERS.TR kurumsal ana sayfasının güvenle yüklenmesi, iş ortaklığı ve iletişim formlarının kararlı çalışması için teknik olarak zorunludur. (Kullanıcı tarafından kapatılamaz)",
-                    "Technically required for the TRADERS.TR homepage to load securely and for partnership and contact forms to function reliably. (Cannot be disabled)"
+                    "PRIZOMA kurumsal ana sayfasının güvenle yüklenmesi, iş ortaklığı ve iletişim formlarının kararlı çalışması için teknik olarak zorunludur. (Kullanıcı tarafından kapatılamaz)",
+                    "Technically required for the PRIZOMA homepage to load securely and for partnership and contact forms to function reliably. (Cannot be disabled)"
                   )}
                 </p>
               </div>

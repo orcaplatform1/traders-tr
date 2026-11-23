@@ -10,7 +10,7 @@ const VENTURE_COLOR: Record<string, string> = {
   orca: "#3b82f6",
   kriptobeyan: "#d4af37",
   zesta: "#14b8a6",
-  mettlo: "#f97316",
+  secbird: "#F5A524",
   ahenk: "#8b1a3a",
 };
 
@@ -64,7 +64,7 @@ export function VenturesSection() {
                       >
                         <StatusIndicator color={v.stage === "developing" ? "var(--warning)" : "var(--success)"} />
                         {v.stage === "developing"
-                          ? t("Geliştiriliyor", "In Development")
+                          ? t("Geliştirme aşamasında", "In development")
                           : t("Aktif", "Active")}
                       </dd>
                     </div>

@@ -25,8 +25,8 @@ export function ContactPageContent({ defaultCategory }: { defaultCategory?: stri
     {
       title: t("Basın", "Press"),
       description: t(
-        "Röportaj talepleri, basın kiti ihtiyaçları ve TRADERS.TR hakkında yazılı içerikler için.",
-        "For interview requests, press kit needs and written content about TRADERS.TR."
+        "Röportaj talepleri, basın kiti ihtiyaçları ve PRIZOMA hakkında yazılı içerikler için.",
+        "For interview requests, press kit needs and written content about PRIZOMA."
       ),
     },
     {

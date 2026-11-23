@@ -1,8 +1,8 @@
-export const SITE_NAME = "TRADERS.TR";
-export const SITE_URL = "https://traders.tr";
+export const SITE_NAME = "PRIZOMA";
+export const SITE_URL = "https://prizoma.com";
 export const SITE_TAGLINE = "Sınırların ötesinde markalar inşa ediyoruz.";
 export const SITE_DESCRIPTION =
-  "TRADERS.TR; teknoloji, ticaret ve finans alanlarında işletmeler kuran ve işleten çok markalı bir girişim şirketidir.";
+  "PRIZOMA; teknoloji, ticaret ve finans alanlarında işletmeler kuran ve işleten çok markalı bir girişim şirketidir.";
 
 export const NAV_LINKS = [
   { label: "Hakkımızda", href: "/hakkimizda" },

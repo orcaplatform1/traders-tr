@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SectionLabel } from "@/components/section-label";
 import type { Insight } from "@/lib/content/types";
 import { useT, useLang } from "@/lib/i18n";
+import { insightCategory, readTimeLabel } from "@/lib/content/labels";
 
 export function InsightContent({
   insight,
@@ -23,7 +24,11 @@ export function InsightContent({
     });
   }
 
-  const headings = insight.content.filter((b) => b.type === "h2");
+  const isEn = lang === "en";
+  const displayTitle = isEn && insight.titleEn ? insight.titleEn : insight.title;
+  const displayExcerpt = isEn && insight.excerptEn ? insight.excerptEn : insight.excerpt;
+  const displayContent = isEn && insight.contentEn ? insight.contentEn : insight.content;
+  const headings = displayContent.filter((b) => b.type === "h2");
 
   return (
     <article className="py-28 md:py-36">
@@ -38,17 +43,17 @@ export function InsightContent({
         <div className="mt-8 flex items-center gap-3 text-[12px] text-muted">
           <span>{formatDate(insight.publishedAt)}</span>
           <span className="h-1 w-1 rounded-full bg-border" />
-          <span>{insight.category}</span>
+          <span>{insightCategory(insight.category, lang)}</span>
           <span className="h-1 w-1 rounded-full bg-border" />
-          <span>{insight.readTime} {t("okuma", "read")}</span>
+          <span>{readTimeLabel(insight.readTime, lang)} {t("okuma", "read")}</span>
         </div>
 
         <h1 className="mt-4 text-4xl font-medium leading-tight tracking-tight text-foreground md:text-5xl">
-          {insight.title}
+          {displayTitle}
         </h1>
 
         <p className="mt-6 text-[17px] leading-relaxed text-foreground md:text-[19px]">
-          {insight.excerpt}
+          {displayExcerpt}
         </p>
       </header>
 
@@ -73,7 +78,7 @@ export function InsightContent({
         )}
 
         <div className="max-w-2xl border-t border-border pt-10">
-          {insight.content.map((block, i) => {
+          {displayContent.map((block, i) => {
             if (block.type === "h2") {
               return (
                 <h2
@@ -113,10 +118,10 @@ export function InsightContent({
                 <div className="flex items-center gap-3 text-[12px] text-muted">
                   <span>{formatDate(item.publishedAt)}</span>
                   <span className="h-1 w-1 rounded-full bg-border" />
-                  <span>{item.category}</span>
+                  <span>{insightCategory(item.category, lang)}</span>
                 </div>
                 <h3 className="mt-3 text-lg font-medium leading-snug text-foreground transition-colors group-hover:text-accent">
-                  {item.title}
+                  {isEn && item.titleEn ? item.titleEn : item.title}
                 </h3>
               </Link>
             ))}

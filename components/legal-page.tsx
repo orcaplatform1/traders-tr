@@ -59,6 +59,10 @@ export function LegalPage({
                 </div>
               </div>
             ))}
+            <div className="border-t border-border pt-8 text-[13px] leading-relaxed text-muted">
+              <p>{t("Şirket unvanı:", "Company name:")} Prizoma GmbH</p>
+              <p>{t("Adres:", "Address:")} Zug, Switzerland</p>
+            </div>
           </div>
         </div>
       </div>

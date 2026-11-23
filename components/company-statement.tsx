@@ -20,8 +20,8 @@ export function CompanyStatement() {
           <ScrollReveal delay={120}>
             <p className="mt-8 max-w-xl text-[16px] leading-relaxed text-muted md:text-[17px]">
               {t(
-                "Herkesin iyi bir fikri olabilir. Onu gerçek bir işletmeye dönüştürmek ise çoğu fikrin asla ulaşamadığı bir yapı, teknoloji ve zaman gerektirir. TRADERS tam da bu boşluğu doldurmak için var: gerçek dünya fırsatları etrafında bağımsız markalar kuruyor ve lansmandan sonra da sürecin içinde kalmaya devam ediyoruz.",
-                "Anyone can have a good idea. Turning it into a real business requires the structure, technology and time that most ideas never reach. TRADERS exists to fill exactly that gap: building independent brands around real-world opportunities and staying in the process long after launch."
+                "Herkesin iyi bir fikri olabilir. Onu gerçek bir işletmeye dönüştürmek ise çoğu fikrin asla ulaşamadığı bir yapı, teknoloji ve zaman gerektirir. PRIZOMA tam da bu boşluğu doldurmak için var: gerçek dünya fırsatları etrafında bağımsız markalar kuruyor ve lansmandan sonra da sürecin içinde kalmaya devam ediyoruz.",
+                "Anyone can have a good idea. Turning it into a real business requires the structure, technology and time that most ideas never reach. PRIZOMA exists to fill exactly that gap: building independent brands around real-world opportunities and staying in the process long after launch."
               )}
             </p>
           </ScrollReveal>

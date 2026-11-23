@@ -40,8 +40,8 @@ export function SiteFooter() {
     <footer className="border-t border-border">
       <div className="container-edit grid grid-cols-1 gap-12 py-16 md:grid-cols-4 md:py-20">
         <div className="md:col-span-1">
-          <div className="relative h-8 w-[190px]">
-            <Image src="/logo-dark.png" alt="TRADERS.TR" fill className="object-contain object-left" sizes="190px" />
+          <div className="relative h-8 w-[25px]">
+            <Image src="/prizoma-logo.png" alt="Prizoma" fill className="object-contain object-left" sizes="25px" />
           </div>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-muted">
             {t(SITE_TAGLINE, "Building brands beyond borders.")}
@@ -119,15 +119,7 @@ export function SiteFooter() {
           <span className="text-[12px] text-white/40">
             &copy; 2026{" "}
             <span className="whitespace-nowrap">
-              <span className="font-semibold text-white">Traders</span>
-              <span className="font-semibold text-blue-500">.TR</span>{" "}
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/footerflag.png"
-                alt=""
-                aria-hidden
-                className="inline-block h-[1em] w-[1em] translate-y-[0.1em] object-contain align-baseline"
-              />
+              <span className="font-semibold text-white">Prizoma</span>
             </span>
             . {t("Tüm hakları saklıdır.", "All rights reserved.")}
           </span>

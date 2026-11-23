@@ -63,7 +63,7 @@ export default function SiteHaritasiPage() {
   return (
     <section className="py-28 md:py-36">
       <div className="container-edit">
-        <SectionLabel>TRADERS.TR</SectionLabel>
+        <SectionLabel>PRIZOMA</SectionLabel>
         <h1 className="mt-4 text-4xl font-medium tracking-tight text-foreground md:text-5xl">
           {t("Site Haritası", "Site Map")}
         </h1>

@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SectionLabel } from "@/components/section-label";
 import { newsroomPosts } from "@/lib/content/newsroom";
 import { useT, useLang } from "@/lib/i18n";
+import { newsroomCategory } from "@/lib/content/labels";
 
 export function NewsroomPageContent() {
   const t = useT();
@@ -41,7 +42,7 @@ export function NewsroomPageContent() {
                 </span>
               </div>
               <span className="text-[11px] font-medium uppercase tracking-[0.12em] text-muted">
-                {post.category}
+                {newsroomCategory(post.category, lang)}
               </span>
             </Link>
           ))}

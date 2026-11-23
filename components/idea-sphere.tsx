@@ -6,7 +6,7 @@ const BLOB_TINT: Record<string, string> = {
   orca: "rgba(34, 211, 238, 0.28)",
   kriptobeyan: "rgba(247, 231, 206, 0.22)",
   zesta: "rgba(184, 115, 51, 0.3)",
-  mettlo: "rgba(255, 122, 24, 0.26)",
+  secbird: "rgba(245, 165, 36, 0.26)",
 };
 
 // Kure parcalarinin baslangictaki organik ofsetleri (kure capina oranla)

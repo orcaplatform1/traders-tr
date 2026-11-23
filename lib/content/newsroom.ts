@@ -12,17 +12,86 @@ function quote(text: string): ContentBlock {
 
 export const newsroomPosts: NewsroomPost[] = [
   {
-    id: "6",
-    slug: "ahenk-tanitimi",
-    title: "TRADERS.TR'ın beşinci markası: Ahenk geliştirme sürecinde",
-    titleEn: "TRADERS.TR's Fifth Brand: Ahenk Is in Development",
+    id: "7",
+    slug: "secbird-duyurusu",
+    title: "Prizoma, gizlilik odaklı e-posta servisi Secbird'ü duyurdu",
+    titleEn: "Prizoma Announces Secbird, a Privacy-Focused Email Service",
     excerpt:
-      "TRADERS.TR, sosyal buluşma alanında OCEAN Big Five kişilik uyumluluğuna dayalı haftalık masa organizasyonu sunan Ahenk'i portföyüne ekledi. Platform aktif geliştirme sürecinde.",
+      "Prizoma GmbH, İsviçre'nin Zug kantonunda geliştirdiği gizlilik odaklı e-posta servisi Secbird'ü duyurdu. Servis geliştirme aşamasında.",
     excerptEn:
-      "TRADERS.TR has added Ahenk to its portfolio — a social meeting platform offering weekly table organisation based on OCEAN Big Five personality compatibility. The platform is in active development.",
+      "Prizoma GmbH has announced Secbird, a privacy-focused email service it is developing in the canton of Zug, Switzerland. The service is in development.",
     content: [
       p(
-        "TRADERS.TR, beşinci markasını duyuruyor: Ahenk. Sosyal buluşma alanında çalışan Ahenk, yabancılarla tanışmanın rastlantıya bırakılamayacak kadar önemli olduğu fikrinden yola çıkarak OCEAN (Big Five) kişilik uyumluluğuna dayalı haftalık masa organizasyonu sunan bir platform olarak aktif geliştirme sürecine girdi. Orca Labs, KriptoBeyan, Zesta Art&Design ve Mettlo'nun ardından portföye katılan bu marka, TRADERS.TR'ın teknoloji ile insan deneyimini buluşturma vizyonunun sosyal bağlantı alanındaki en cesur adımı.",
+        "Prizoma GmbH, yeni markası Secbird'ü duyuruyor. Secbird, İsviçre'nin Zug kantonunda geliştirilen, gizlilik odaklı bir e-posta servisi. Servis şu anda geliştirme aşamasında; aşağıda anlatılan özellikler geliştirilmekte olan özelliklerdir.",
+      ),
+      h2("Neden bir e-posta servisi", "neden-e-posta"),
+      p(
+        "E-posta, iş ve özel hayatın en hassas yazışmalarını taşımaya devam ediyor: sözleşmeler, faturalar, hesap bildirimleri, kişisel yazışmalar. Buna rağmen e-posta çoğu zaman bu hassasiyete uygun bir korumayla sunulmuyor. Secbird, e-postayı varsayılan olarak şifreli ve İsviçre'de barındırılan bir altyapıyla sunmak amacıyla geliştiriliyor.",
+      ),
+      h2("Geliştirilen şifreleme altyapısı", "sifreleme"),
+      p(
+        "Secbird'ün temelinde uçtan uca şifreleme yer alıyor. OpenPGP standardına dayanan bu yapı geliştiriliyor; amaç, e-postaların gönderen ve alıcı dışında kimsenin okuyamayacağı şekilde şifrelenmesi. Secbird kullanıcısı olmayan kişilerden, yani dışarıdan gelen e-postalar için ise sıfır erişimli şifreleme geliştiriliyor: bu e-postalar alındıktan sonra yalnız kullanıcının anahtarıyla açılabilecek şekilde saklanacak.",
+      ),
+      p(
+        "Şifreleme katmanı, kendi yazdığımız algoritmalar yerine açık kaynak ve denetlenmiş şifreleme kütüphaneleri üzerine kuruluyor. Bu tercih, kullanılan yöntemlerin herkes tarafından incelenebilmesini sağlıyor.",
+      ),
+      h2("Sunucular İsviçre'de", "isvicre"),
+      p(
+        "Secbird'ün sunucuları İsviçre'de konumlanacak. Prizoma GmbH'nin merkezinin bulunduğu Zug'dan yürütülen geliştirme süreci, İsviçre'nin veri koruma mevzuatı çerçevesinde ilerliyor.",
+      ),
+      h2("E-postanın yanında şifreli canlı sohbet", "canli-sohbet"),
+      p(
+        "E-posta paketine ek bir özellik olarak uçtan uca şifreli canlı sohbet de geliştiriliyor. Böylece kullanıcıların e-posta ile anlık yazışmayı aynı hesap içinde, aynı şifreleme yaklaşımıyla kullanabilmesi hedefleniyor.",
+      ),
+      h2("Sırada ne var", "sirada-ne-var"),
+      p(
+        "Secbird geliştirme aşamasında. Gelişmeleri secbird.me adresinden ve bu sayfadan takip edebilirsiniz.",
+      ),
+    ],
+    contentEn: [
+      p(
+        "Prizoma GmbH is announcing its new brand, Secbird. Secbird is a privacy-focused email service being developed in the canton of Zug, Switzerland. The service is currently in development; the features described below are features under development.",
+      ),
+      h2("Why an email service", "neden-e-posta"),
+      p(
+        "Email still carries some of the most sensitive correspondence in business and private life: contracts, invoices, account notifications, personal messages. Yet email is often not offered with protection that matches that sensitivity. Secbird is being developed to provide email that is encrypted by default and hosted in Switzerland.",
+      ),
+      h2("The encryption infrastructure in development", "sifreleme"),
+      p(
+        "At the core of Secbird is end-to-end encryption. This structure, based on the OpenPGP standard, is being developed so that emails are encrypted in a way that no one but the sender and the recipient can read them. For emails from people who are not Secbird users, zero-access encryption is being developed: these emails will be stored after they arrive so that only the user's key can open them.",
+      ),
+      p(
+        "The encryption layer is being built on open source and audited cryptography libraries rather than algorithms of our own. This choice means the methods used can be reviewed by anyone.",
+      ),
+      h2("Servers in Switzerland", "isvicre"),
+      p(
+        "Secbird's servers will be located in Switzerland. Development is run from Zug, where Prizoma GmbH is headquartered, within the framework of Swiss data protection law.",
+      ),
+      h2("Encrypted live chat alongside email", "canli-sohbet"),
+      p(
+        "End-to-end encrypted live chat is also being developed as an add-on to the email package. The aim is to let users use email and instant messaging within the same account, with the same encryption approach.",
+      ),
+      h2("What's next", "sirada-ne-var"),
+      p(
+        "Secbird is in development. Follow developments at secbird.me and on this page.",
+      ),
+    ],
+    category: "Şirket Duyurusu",
+    publishedAt: "2026-11-23",
+    readTime: "4 dk",
+  },
+  {
+    id: "6",
+    slug: "ahenk-tanitimi",
+    title: "PRIZOMA'nın beşinci markası: Ahenk geliştirme sürecinde",
+    titleEn: "PRIZOMA's Fifth Brand: Ahenk Is in Development",
+    excerpt:
+      "PRIZOMA, sosyal buluşma alanında OCEAN Big Five kişilik uyumluluğuna dayalı haftalık masa organizasyonu sunan Ahenk'i portföyüne ekledi. Platform aktif geliştirme sürecinde.",
+    excerptEn:
+      "PRIZOMA has added Ahenk to its portfolio — a social meeting platform offering weekly table organisation based on OCEAN Big Five personality compatibility. The platform is in active development.",
+    content: [
+      p(
+        "PRIZOMA, beşinci markasını duyuruyor: Ahenk. Sosyal buluşma alanında çalışan Ahenk, yabancılarla tanışmanın rastlantıya bırakılamayacak kadar önemli olduğu fikrinden yola çıkarak OCEAN (Big Five) kişilik uyumluluğuna dayalı haftalık masa organizasyonu sunan bir platform olarak aktif geliştirme sürecine girdi. Orca Labs, KriptoBeyan, Zesta Art&Design ve Secbird'ün ardından portföye katılan bu marka, PRIZOMA'nın teknoloji ile insan deneyimini buluşturma vizyonunun sosyal bağlantı alanındaki en cesur adımı.",
       ),
       h2("Neden bu alan, neden şimdi", "neden-bu-alan"),
       p(
@@ -70,14 +139,14 @@ export const newsroomPosts: NewsroomPost[] = [
       ),
       h2("Şu anki durum: aktif geliştirme", "gelistirme-durumu"),
       p(
-        "Ahenk, TRADERS.TR bünyesinde aktif geliştirme sürecindedir. Teknik altyapı — NestJS backend, Next.js web ve React Native mobil uygulama — inşa ediliyor; eşleştirme algoritması, ödeme sistemi, bildirim servisleri ve admin paneli dahil olmak üzere tüm modüller çalışıyor durumda. Şu sıralar platform ilk kullanıcılara açılmaya hazırlanıyor.",
+        "Ahenk, PRIZOMA bünyesinde aktif geliştirme sürecindedir. Teknik altyapı — NestJS backend, Next.js web ve React Native mobil uygulama — inşa ediliyor; eşleştirme algoritması, ödeme sistemi, bildirim servisleri ve admin paneli dahil olmak üzere tüm modüller çalışıyor durumda. Şu sıralar platform ilk kullanıcılara açılmaya hazırlanıyor.",
       ),
       p(
         "Bu süreçte altyapı kararlılığı, ilk masa deneyimlerinin kalitesi ve kullanıcı geri bildirimi önceliğimiz. Büyüme metrikleri değil, doğru insanların doğru insanlarla buluştuğuna dair ilk kanıtlar peşindeyiz.",
       ),
-      h2("TRADERS.TR portföyündeki yeri", "portfoy"),
+      h2("PRIZOMA portföyündeki yeri", "portfoy"),
       p(
-        "Ahenk, TRADERS.TR'ın beşinci bağımsız markası. Her marka kendi alanında özerk çalışıyor: Orca Labs finans eğitiminde, KriptoBeyan dijital vergide, Zesta el yapımı ticarette, Mettlo sağlıklı yaşam koçluğunda. Ahenk ise sosyal bağlantı ve buluşma alanında bu ekosisteme katılıyor.",
+        "Ahenk, PRIZOMA'nın beşinci bağımsız markası. Her marka kendi alanında özerk çalışıyor: Orca Labs finans eğitiminde, KriptoBeyan dijital vergide, Zesta el yapımı ticarette, Secbird gizlilik odaklı e-postada. Ahenk ise sosyal bağlantı ve buluşma alanında bu ekosisteme katılıyor.",
       ),
       p(
         "Portföydeki her marka, farklı bir sektördeki yapısal boşluğu doldurmak için kuruldu. Ahenk de aynı mantıkla hareket ediyor: teknoloji bir araç, asıl ürün iki insanın gerçek hayatta kurduğu bağlantı.",
@@ -89,7 +158,7 @@ export const newsroomPosts: NewsroomPost[] = [
     ],
     contentEn: [
       p(
-        "TRADERS.TR is announcing its fifth brand: Ahenk. Operating in the social meeting space, Ahenk has entered active development as a platform offering weekly table organisation based on OCEAN (Big Five) personality compatibility — built on the belief that meeting the right people is too important to leave to chance. Following Orca Labs, KriptoBeyan, Zesta Art&Design, and Mettlo, this brand marks TRADERS.TR's boldest step into the intersection of technology and human experience.",
+        "PRIZOMA is announcing its fifth brand: Ahenk. Operating in the social meeting space, Ahenk has entered active development as a platform offering weekly table organisation based on OCEAN (Big Five) personality compatibility — built on the belief that meeting the right people is too important to leave to chance. Following Orca Labs, KriptoBeyan, Zesta Art&Design, and Secbird, this brand marks PRIZOMA's boldest step into the intersection of technology and human experience.",
       ),
       h2("Why this space, why now", "neden-bu-alan"),
       p(
@@ -137,14 +206,14 @@ export const newsroomPosts: NewsroomPost[] = [
       ),
       h2("Current status: active development", "gelistirme-durumu"),
       p(
-        "Ahenk is in active development within TRADERS.TR. The technical infrastructure — NestJS backend, Next.js web, and React Native mobile application — is being built; all modules including the matching algorithm, payment system, notification services, and admin panel are operational. The platform is currently preparing to open to its first users.",
+        "Ahenk is in active development within PRIZOMA. The technical infrastructure — NestJS backend, Next.js web, and React Native mobile application — is being built; all modules including the matching algorithm, payment system, notification services, and admin panel are operational. The platform is currently preparing to open to its first users.",
       ),
       p(
         "During this period, infrastructure stability, the quality of the first table experiences, and user feedback are our priorities. We are not chasing growth metrics — we are looking for the first evidence that the right people are meeting the right people.",
       ),
-      h2("Its place in the TRADERS.TR portfolio", "portfoy"),
+      h2("Its place in the PRIZOMA portfolio", "portfoy"),
       p(
-        "Ahenk is the fifth independent brand in the TRADERS.TR portfolio. Each brand operates autonomously in its own domain: Orca Labs in financial education, KriptoBeyan in digital tax, Zesta in handmade commerce, Mettlo in healthy living coaching. Ahenk joins this ecosystem in the domain of social connection and meetings.",
+        "Ahenk is the fifth independent brand in the PRIZOMA portfolio. Each brand operates autonomously in its own domain: Orca Labs in financial education, KriptoBeyan in digital tax, Zesta in handmade commerce, Secbird in privacy-focused email. Ahenk joins this ecosystem in the domain of social connection and meetings.",
       ),
       p(
         "Each brand in the portfolio was founded to fill a structural gap in a different sector. Ahenk operates on the same logic: technology is a tool — the real product is the connection two people form in real life.",
@@ -159,84 +228,17 @@ export const newsroomPosts: NewsroomPost[] = [
     readTime: "7 dk",
   },
   {
-    id: "5",
-    slug: "mettlo-tanitimi",
-    title: "TRADERS.TR portföyüne yeni markasını ekliyor: Mettlo",
-    titleEn: "TRADERS.TR Adds Its New Brand: Mettlo",
-    excerpt:
-      "TRADERS.TR'ın dördüncü markası Mettlo, sağlıklı yaşam ve koçluk alanında koçlarla üyeleri tek platformda buluşturmak üzere geliştirme aşamasına geçti.",
-    excerptEn:
-      "TRADERS.TR's fourth brand, Mettlo, focused on healthy living and coaching, has entered development to bring coaches and members together on a single platform.",
-    content: [
-      p(
-        "TRADERS.TR, portföyüne dördüncü markasını ekliyor: Mettlo. Sağlıklı yaşam ve koçluk alanına odaklanan Mettlo, fitness ve wellness dünyasındaki koç–üye deneyimini daha profesyonel, kişisel ve sürdürülebilir bir yapıya taşımak amacıyla geliştirilmekte olan bir platform.",
-      ),
-      h2("Neden bu alan, neden şimdi", "neden-bu-alan"),
-      p(
-        "Türkiye'de kişisel koçluk hizmetleri hızla büyüyen, ancak altyapı açısından henüz olgunlaşmamış bir alan. Koçlar çoğunlukla dağınık araçlarla çalışmak, müşterilerini farklı kanallar üzerinden yönetmek ve gelirlerini istikrarsız yöntemlerle elde etmek zorunda kalıyor. Öte yandan üyeler de kendilerine uygun koçu bulmakta, ilerleme süreçlerini takip etmekte ve güvenilir bir deneyim yaşamakta güçlük çekiyor.",
-      ),
-      p(
-        "Mettlo, tam olarak bu boşluğu doldurmak için kuruldu. Uzman koçlara profesyonel bir altyapı sunmak; üyelere ise ihtiyaçlarına uygun, güvenilir ve sürdürülebilir bir koçluk deneyimi sağlamak.",
-      ),
-      h2("Platform neyi kapsıyor", "platform-kapsami"),
-      p(
-        "Mettlo'nun koç tarafında; branş ve uzmanlık alanı tanımı, abonelik modeli, program satışı, üye takibi, mesajlaşma ve gelir yönetimi yer alıyor. Üye tarafında ise koç keşfi ve eşleştirme, ilerleme takibi, aktivite ve ölçüm günlüğü, topluluk ve içerik erişimi sunuluyor.",
-      ),
-      quote(
-        "Koçluk, birinin hayatına gerçekten dokunan bir iş. Mettlo, bu dokunuşun daha erişilebilir, daha ölçülebilir ve daha sürdürülebilir olmasını sağlıyor.",
-      ),
-      h2("TRADERS.TR portföyündeki yeri", "portfoy"),
-      p(
-        "Mettlo, TRADERS.TR'ın Orca Labs (finans eğitimi), KriptoBeyan (dijital vergi) ve Zesta (el yapımı ticaret) markalarının ardından portföye katılan dördüncü bağımsız marka. Her marka kendi alanında bağımsız olarak konumlanıyor; ancak hepsini birleştiren ortak bir yaklaşım var: teknoloji ile insan deneyimini, sektörün gerçek ihtiyaçları etrafında buluşturmak.",
-      ),
-      h2("Sırada ne var", "sirada-ne-var"),
-      p(
-        "Mettlo şu anda aktif geliştirme sürecinde. Platforma ilk koçların dahil edilmesi ve beta lansmanının gerçekleştirilmesi planlanıyor. Gelişmeleri mettlo.tr adresinden ve bu sayfadan takip edebilirsiniz.",
-      ),
-    ],
-    contentEn: [
-      p(
-        "TRADERS.TR is adding its fourth brand to its portfolio: Mettlo. Focused on healthy living and coaching, Mettlo is a platform under development to bring the coach–member experience in the fitness and wellness world to a more professional, personal, and sustainable structure.",
-      ),
-      h2("Why this space, why now", "neden-bu-alan"),
-      p(
-        "Personal coaching services in Turkey are a rapidly growing space that has yet to mature in terms of infrastructure. Coaches are often forced to work with fragmented tools, manage their clients across different channels, and generate income through unstable methods. Meanwhile, members struggle to find the right coach, track their progress, and experience a reliable service.",
-      ),
-      p(
-        "Mettlo was built precisely to fill this gap: to provide expert coaches with a professional infrastructure, and to give members a reliable and sustainable coaching experience suited to their needs.",
-      ),
-      h2("What the platform covers", "platform-kapsami"),
-      p(
-        "On the coach side, Mettlo includes branch and specialty definition, subscription model, program sales, member tracking, messaging, and revenue management. On the member side, it offers coach discovery and matching, progress tracking, activity and measurement logging, and community and content access.",
-      ),
-      quote(
-        "Coaching is work that truly touches someone's life. Mettlo makes that touch more accessible, more measurable, and more sustainable.",
-      ),
-      h2("Its place in the TRADERS.TR portfolio", "portfoy"),
-      p(
-        "Mettlo is the fourth independent brand to join the TRADERS.TR portfolio after Orca Labs (financial education), KriptoBeyan (digital tax), and Zesta (handmade commerce). Each brand is independently positioned in its own domain; but there is a shared approach that connects them all: bringing technology and human experience together around the genuine needs of the industry.",
-      ),
-      h2("What's next", "sirada-ne-var"),
-      p(
-        "Mettlo is currently in active development. The plan is to onboard the first coaches to the platform and execute a beta launch. Follow developments at mettlo.tr and on this page.",
-      ),
-    ],
-    category: "Marka Lansmanı",
-    publishedAt: "2026-09-25",
-    readTime: "4 dk",
-  },
-  {
     id: "1",
     slug: "traders-yeni-bir-girisim-icin-calismalara-basladi",
-    title: "TRADERS.TR yeni bir girişim için çalışmalara başladı",
-    titleEn: "TRADERS.TR Has Begun Work on a New Venture",
+    title: "PRIZOMA yeni bir girişim için çalışmalara başladı",
+    titleEn: "PRIZOMA Has Begun Work on a New Venture",
     excerpt:
-      "TRADERS.TR, portföyündeki markalardan bağımsız olarak teknoloji ve ticaretin kesişiminde yeni bir fırsat alanını değerlendirmeye başladı.",
+      "PRIZOMA, portföyündeki markalardan bağımsız olarak teknoloji ve ticaretin kesişiminde yeni bir fırsat alanını değerlendirmeye başladı.",
     excerptEn:
-      "TRADERS.TR has begun early-stage research and design on a new opportunity area at the intersection of technology and commerce, independent of its existing brands.",
+      "PRIZOMA has begun early-stage research and design on a new opportunity area at the intersection of technology and commerce, independent of its existing brands.",
     content: [
       p(
-        "TRADERS.TR, mevcut portföyündeki Orca Labs, KriptoBeyan ve Zesta Art&Design markalarından bağımsız olarak, teknoloji ve ticaretin kesişiminde yeni bir fırsat alanı üzerinde erken aşama araştırma ve tasarım çalışmalarına başladığını duyurdu.",
+        "PRIZOMA, mevcut portföyündeki Orca Labs, KriptoBeyan ve Zesta Art&Design markalarından bağımsız olarak, teknoloji ve ticaretin kesişiminde yeni bir fırsat alanı üzerinde erken aşama araştırma ve tasarım çalışmalarına başladığını duyurdu.",
       ),
       h2("Neden yeni bir girişim", "neden-yeni-girisim"),
       p(
@@ -244,7 +246,7 @@ export const newsroomPosts: NewsroomPost[] = [
       ),
       h2("Süreç nasıl ilerliyor", "surec"),
       p(
-        "TRADERS.TR'da yeni bir girişim, doğrudan ürün geliştirmeyle değil; problemi ve fırsatı derinlemesine anlamakla başlar. Şu anda bu erken keşif aşamasındayız — pazar araştırması, olası iş modeli senaryoları ve teknik fizibilite üzerinde çalışıyoruz.",
+        "PRIZOMA'da yeni bir girişim, doğrudan ürün geliştirmeyle değil; problemi ve fırsatı derinlemesine anlamakla başlar. Şu anda bu erken keşif aşamasındayız — pazar araştırması, olası iş modeli senaryoları ve teknik fizibilite üzerinde çalışıyoruz.",
       ),
       quote("Bir girişimi duyurmadan önce, onun gerçekten inşa edilmeye değer olduğundan emin oluyoruz."),
       h2("Sırada ne var", "sirada-ne-var"),
@@ -254,7 +256,7 @@ export const newsroomPosts: NewsroomPost[] = [
     ],
     contentEn: [
       p(
-        "TRADERS.TR announces that it has begun early-stage research and design work on a new opportunity area at the intersection of technology and commerce, independent of its existing portfolio brands Orca Labs, KriptoBeyan, and Zesta Art&Design.",
+        "PRIZOMA announces that it has begun early-stage research and design work on a new opportunity area at the intersection of technology and commerce, independent of its existing portfolio brands Orca Labs, KriptoBeyan, and Zesta Art&Design.",
       ),
       h2("Why a new venture", "neden-yeni-girisim"),
       p(
@@ -262,7 +264,7 @@ export const newsroomPosts: NewsroomPost[] = [
       ),
       h2("How the process is going", "surec"),
       p(
-        "At TRADERS.TR, a new venture doesn't begin with product development — it begins with deeply understanding the problem and the opportunity. We are currently in this early discovery phase, working on market research, potential business model scenarios, and technical feasibility.",
+        "At PRIZOMA, a new venture doesn't begin with product development — it begins with deeply understanding the problem and the opportunity. We are currently in this early discovery phase, working on market research, potential business model scenarios, and technical feasibility.",
       ),
       quote("Before announcing a venture, we make sure it's truly worth building."),
       h2("What's next", "sirada-ne-var"),

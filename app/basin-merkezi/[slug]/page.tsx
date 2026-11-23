@@ -51,7 +51,7 @@ export default async function NewsroomPostPage({
     "@type": "NewsArticle",
     headline: post.title,
     description: post.excerpt,
-    author: { "@type": "Organization", name: "TRADERS.TR" },
+    author: { "@type": "Organization", name: "PRIZOMA" },
     datePublished: post.publishedAt,
     mainEntityOfPage: `${SITE_URL}/basin-merkezi/${post.slug}`,
   };

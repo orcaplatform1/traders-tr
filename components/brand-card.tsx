@@ -94,13 +94,13 @@ export function BrandCard({ brand }: { brand: Brand }) {
             {brand.status === "active"
               ? t("Aktif", "Active")
               : brand.status === "developing"
-                ? t("Geliştiriliyor", "In Development")
+                ? t("Geliştirme aşamasında", "In development")
                 : t("Keşfediyoruz", "Exploring")}
           </span>
         </div>
 
         <span className="mt-6 block text-[11px] font-medium uppercase tracking-[0.15em] text-muted">
-          {brand.category}
+          {t(brand.category, brand.categoryEn)}
         </span>
         <div className="mt-4 flex items-center gap-3">
           <div className="relative h-8 w-8 shrink-0 opacity-90">
@@ -111,7 +111,7 @@ export function BrandCard({ brand }: { brand: Brand }) {
           </h3>
         </div>
         <p className="mt-5 max-w-sm text-[15px] leading-relaxed text-muted">
-          {brand.shortDescription}
+          {t(brand.shortDescription, brand.shortDescriptionEn)}
         </p>
       </div>
 

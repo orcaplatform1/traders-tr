@@ -51,7 +51,7 @@
   --brand-ocean: #2ba8d8;
   --brand-emerald: #10b981;
   --brand-earth: #c8814a;
-  --brand-orange: #f7861b;
+  --brand-orange: #F5A524;
   --brand-wine: #8b1a3a;
 
   /* Surfaces */
@@ -485,9 +485,9 @@ select:-webkit-autofill {
   background-image: linear-gradient(120deg, #5a3520, #c8814a, #8a4b2a, #5a3520);
 }
 
-/* Mettlo: portakal turuncusu */
-.venture-gradient--mettlo {
-  background-image: linear-gradient(120deg, #6b2e05, #f7861b, #b85a0c, #6b2e05);
+/* Secbird: kehribar */
+.venture-gradient--secbird {
+  background-image: linear-gradient(120deg, #5c3a05, #F5A524, #b07412, #5c3a05);
 }
 
 /* Hero: 3D izgara */

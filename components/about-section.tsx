@@ -10,11 +10,11 @@ export function AboutSection() {
     <section className="border-b border-border py-32 md:py-48">
       <div className="container-edit grid grid-cols-1 gap-16 md:grid-cols-2">
         <ScrollReveal>
-          <SectionLabel>{t("TRADERS.TR Hakkında", "About TRADERS.TR")}</SectionLabel>
+          <SectionLabel>{t("PRIZOMA Hakkında", "About PRIZOMA")}</SectionLabel>
           <p className="mt-6 text-2xl font-medium leading-[1.4] tracking-tight text-foreground md:text-3xl">
             {t(
-              "TRADERS.TR, teknoloji, ticaret ve finansın kesişiminde işletmeler kuran ve işleten çok markalı bir girişim şirketidir.",
-              "TRADERS.TR is a multi-brand venture company that builds and operates businesses at the intersection of technology, commerce and finance."
+              "PRIZOMA, teknoloji, ticaret ve finansın kesişiminde işletmeler kuran ve işleten çok markalı bir girişim şirketidir.",
+              "PRIZOMA is a multi-brand venture company that builds and operates businesses at the intersection of technology, commerce and finance."
             )}
           </p>
           <p className="mt-6 max-w-md text-[15px] leading-relaxed text-muted">

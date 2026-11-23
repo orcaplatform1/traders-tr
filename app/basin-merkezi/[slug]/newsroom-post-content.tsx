@@ -4,6 +4,7 @@ import Link from "next/link";
 import { SectionLabel } from "@/components/section-label";
 import type { NewsroomPost } from "@/lib/content/types";
 import { useT, useLang } from "@/lib/i18n";
+import { newsroomCategory, readTimeLabel } from "@/lib/content/labels";
 
 export function NewsroomPostContent({
   post,
@@ -42,9 +43,9 @@ export function NewsroomPostContent({
         <div className="mt-8 flex items-center gap-3 text-[12px] text-muted">
           <span>{formatDate(post.publishedAt)}</span>
           <span className="h-1 w-1 rounded-full bg-border" />
-          <span>{post.category}</span>
+          <span>{newsroomCategory(post.category, lang)}</span>
           <span className="h-1 w-1 rounded-full bg-border" />
-          <span>{post.readTime} {t("okuma", "read")}</span>
+          <span>{readTimeLabel(post.readTime, lang)} {t("okuma", "read")}</span>
         </div>
 
         <h1 className="mt-4 text-4xl font-medium leading-tight tracking-tight text-foreground md:text-5xl">
@@ -117,7 +118,7 @@ export function NewsroomPostContent({
                 <div className="flex items-center gap-3 text-[12px] text-muted">
                   <span>{formatDate(n.publishedAt)}</span>
                   <span className="h-1 w-1 rounded-full bg-border" />
-                  <span>{n.category}</span>
+                  <span>{newsroomCategory(n.category, lang)}</span>
                 </div>
                 <h3 className="mt-3 text-lg font-medium leading-snug text-foreground transition-colors group-hover:text-accent">
                   {isEn && n.titleEn ? n.titleEn : n.title}

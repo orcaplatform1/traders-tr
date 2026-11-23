@@ -43,9 +43,9 @@ export function InsightCard({ insight, large = false }: { insight: Insight; larg
             large ? "text-[28px] md:text-[44px]" : "text-[22px] md:text-[26px]"
           }`}
         >
-          {insight.title}
+          {lang === "en" && insight.titleEn ? insight.titleEn : insight.title}
         </h3>
-        {large && <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-muted md:text-[16px]">{insight.excerpt}</p>}
+        {large && <p className="mt-6 max-w-lg text-[15px] leading-relaxed text-muted md:text-[16px]">{lang === "en" && insight.excerptEn ? insight.excerptEn : insight.excerpt}</p>}
       </div>
 
       <div className="mt-14 flex items-end justify-between border-t border-border pt-6">

@@ -65,7 +65,7 @@ export function BrandGrid() {
                       {active
                         ? t("Aktif", "Active")
                         : brand.status === "developing"
-                          ? t("Geliştiriliyor", "In Development")
+                          ? t("Geliştirme aşamasında", "In development")
                           : t("Keşfediyoruz", "Exploring")}
                     </span>
                   </div>
