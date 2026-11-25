@@ -7,6 +7,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { CookieConsent } from "@/components/cookie-consent";
 import { IdeaWizardProvider } from "@/components/idea-wizard";
 import { SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/lib/constants";
+import { HOME_TITLE, OG_SITE_NAME, defaultMetadata } from "@/lib/seo";
 
 const instrumentSerif = Instrument_Serif({
   variable: "--font-instrument-serif",
@@ -28,7 +29,7 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${SITE_NAME} — Building Brands Beyond Borders`,
+    default: HOME_TITLE,
     template: `%s — ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
@@ -40,22 +41,9 @@ export const metadata: Metadata = {
     "financial technology",
     "entrepreneurship",
   ],
-  alternates: {
-    canonical: "/",
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_US",
-    url: SITE_URL,
-    siteName: SITE_NAME,
-    title: `${SITE_NAME} — Building Brands Beyond Borders`,
-    description: SITE_DESCRIPTION,
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: `${SITE_NAME} — Building Brands Beyond Borders`,
-    description: SITE_DESCRIPTION,
-  },
+  alternates: defaultMetadata.alternates,
+  openGraph: defaultMetadata.openGraph,
+  twitter: defaultMetadata.twitter,
   robots: {
     index: true,
     follow: true,
@@ -85,8 +73,9 @@ const organizationJsonLd = {
 const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: SITE_NAME,
-  url: SITE_URL,
+  name: OG_SITE_NAME,
+  alternateName: "prizoma.com",
+  url: `${SITE_URL}/`,
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
