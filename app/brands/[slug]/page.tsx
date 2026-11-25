@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { brands, getBrandBySlug } from "@/lib/content/brands";
@@ -19,9 +20,7 @@ export async function generateMetadata({
   if (!brand) return {};
 
   return {
-    title: brand.name,
-    description: brand.shortDescription,
-    alternates: { canonical: `/brands/${brand.slug}` },
+    ...pageMetadata({ title: brand.name, description: brand.shortDescription, path: `/brands/${brand.slug}`, type: "product" }),
   };
 }
 

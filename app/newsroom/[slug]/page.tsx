@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { getNewsroomPostBySlug, newsroomPosts } from "@/lib/content/newsroom";
@@ -19,9 +20,7 @@ export async function generateMetadata({
   if (!post) return {};
 
   return {
-    title: post.title,
-    description: post.excerpt,
-    alternates: { canonical: `/newsroom/${post.slug}` },
+    ...pageMetadata({ title: post.title, description: post.excerpt, path: `/newsroom/${post.slug}` }),
   };
 }
 

@@ -1,11 +1,12 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { BrandsPageContent } from "./page-content";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Our Brands",
   description: "Independent brands. A shared vision.",
-  alternates: { canonical: "/brands" },
-};
+  path: "/brands",
+});
 
 export default function BrandsPage() {
   return <BrandsPageContent />;

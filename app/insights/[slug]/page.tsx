@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/seo";
 import { notFound } from "next/navigation";
 import { JsonLd } from "@/components/json-ld";
 import { getInsightBySlug, insights } from "@/lib/content/insights";
@@ -19,9 +20,7 @@ export async function generateMetadata({
   if (!insight) return {};
 
   return {
-    title: insight.title,
-    description: insight.excerpt,
-    alternates: { canonical: `/insights/${insight.slug}` },
+    ...pageMetadata({ title: insight.title, description: insight.excerpt, path: `/insights/${insight.slug}` }),
     authors: [{ name: insight.author }],
   };
 }
